@@ -1,5 +1,6 @@
 # El_Prog
-Mało ważny blog elektronika programisty
+
+Notatki elektronika programisty.
 
 Zapraszam do odwiedzenia bloga https://andrzejq.github.io/El_Prog/
 
