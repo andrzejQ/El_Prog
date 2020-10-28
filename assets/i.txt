@@ -1,0 +1,2 @@
+Wygląda na to, że jak jest tu folder CSS to działa automat, zob. bład:
+'Jekyll::Converters::Scss encountered an error while converting 'assets/css/styles.scss'

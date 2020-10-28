@@ -1,0 +1,10 @@
+@echo off & chcp 65001 >nul
+SETLOCAL EnableDelayedExpansion
+set "_cmd1=dt.cmd 0" &echo 1. !_cmd1!	- zmiana daty folderów na podst. wewn. plików
+set "_cmd2=et.cmd"   &echo 2. !_cmd2!	- data zdjęć/filmów na postawie daty wykonania
+set "_cmd3=fnt.cmd"  &echo 3. !_cmd3!	- nazwy zdjęć/filmów jak daty wykonania
+set "_cmd4=fnft.cmd" &echo 4. !_cmd4!	- nazwy zdjęć/filmów jak daty plików
+set "_cmd5=r.cmd"    &echo 5. !_cmd5!	- zmiejszanie rozmiaru przesadnie dużych zdjęć
+echo.
+choice /c:12345 /m "Naciśnij cyfrę "
+!_cmd%errorlevel%!

@@ -1,0 +1,2 @@
+rem Set date and time for multimedia files from exif info
+exiftool.exe -k "-exif:DateTimeOriginal>FileModifyDate" -if "$exif:DateTimeOriginal" .

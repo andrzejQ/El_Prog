@@ -1,0 +1,12 @@
+@echo off & chcp 1250 & rem Set date and time for folders
+::dt.cmd 0 - start with date 1980-01-01 and...
+::dt.cmd - recurs. date like it newest file or folder
+::dt.cmd 1 - non recurs.
+if [%1] EQU [0] for /D /r %%G in (*.*) do Touch32.exe "%%G" 1980-01-01
+if [%1] NEQ [1] for /D /r %%G in (*.*) do call :DirLastFile "%%G"
+call :DirLastFile "."
+pause&goto:eof
+:DirLastFile
+  for /f "tokens=*" %%i in ('dir "%~1\*.*" /b /o-d') do (
+    Touch32.exe "%~1" /f "%~1\%%~i" & exit /b )
+  Touch32.exe "%~1" 1980-01-01

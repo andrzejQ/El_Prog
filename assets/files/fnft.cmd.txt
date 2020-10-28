@@ -1,0 +1,6 @@
+::Rename all files in directory '.' to names like '2020-03-27 10-44-55.jpg'
+::based on files timestamp.
+::(plus a copy number with a leading '_' if a file with the same name already exists)
+::After some tests change TestName to FileName !
+::-ext "*" --ext . -> all but those with no ext; https://exiftool.org/exiftool_pod.html
+exiftool.exe -k -ext "*" --ext . -P -d "%%Y-%%m-%%d %%H-%%M-%%S%%%%+c.%%%%e" "-TestName<FileModifyDate" .
