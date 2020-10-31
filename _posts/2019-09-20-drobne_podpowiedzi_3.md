@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Drobne podpowiedzi 3 (programowanie)"
+title:  "Uruchamianie Pythona w Windows"
 date:   2019-09-20 11:21:59 +0100
 categories: Programowanie
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Drobne podpowiedzi 4 (kabelki)"
+title:  "Kabel USB tylko do ładowania"
 date:   2019-09-20 13:21:59 +0100
 categories: Elektronika
 ---
