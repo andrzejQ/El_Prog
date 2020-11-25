@@ -33,13 +33,17 @@ Szczegółowy opis instalacji modułu Teams PowerShell na podstawie
 
 ### Testowanie modułu
 
-Uruchom skrypt [Connect-MicrosoftTeams.ps1]({{ site.baseurl }}/assets/files/Connect-MicrosoftTeams.zip "Connect-MicrosoftTeams.zip") w `PowerShell ISE`, logując się na swoje konto Office365. Zostaną wyświetlone Twoje zespoły i członkowie pierwszego zespołu. Można następnie testować inne [funkcje modułu](https://docs.microsoft.com/en-us/powershell/module/teams/?view=teams-ps).
+![PowerShell_ISE.png]({{ site.baseurl }}/assets/img/PowerShell_ISE.png "PowerShell_ISE.png"){:style="float:right;width:188px;"} 
+Wypakuj i otwórz skrypt [Connect-MicrosoftTeams.ps1]({{ site.baseurl }}/assets/files/Connect-MicrosoftTeams.zip "Connect-MicrosoftTeams.zip")
+ w `PowerShell ISE`. 
+ Po uruchomieniu (F5) należy zalogować się na swoje konto Office365. Zostaną wyświetlone Twoje zespoły i członkowie pierwszego zespołu. <small> Można następnie testować inne [funkcje modułu](https://docs.microsoft.com/en-us/powershell/module/teams/?view=teams-ps).</small>
 
+Można też skopiować poniższy skrypt i uruchomić.
 
 ````powershell
 $ConnectTeams = Connect-MicrosoftTeams
 $ConnectTeams #: Account ... TenantDomain
-# Lista zespołów - bez parametrów się zawiesza, więc coś trzeba podać...
+# Lista zespołów - Get-Team bez parametrów się zawiesza, więc coś trzeba podać...
 $Team = Get-Team -User $ConnectTeams.Account
 $Team | Format-Table
 $Team[0].DisplayName
@@ -47,4 +51,11 @@ $Team[0].DisplayName
 $Team[0] | Get-TeamUser
 Write-Host 'Wypróbuj: Get-Team -DisplayName "..." | Get-TeamChannel'
 ````
+
+### Pobieranie listy członków swoich zespołów
+
+Skrypt [GetUsers-Teams.ps1]({{ site.baseurl }}/assets/files/GetUsers-Teams.zip "GetUsers-Teams.zip") pobiera listę zespołów użytkownika Office365 i dla każdego z zespołów pobiera kanały i listę członków zespołu. Wynik zapisuje do pliku CSV.  
+<small> Jest to wersja dla modułu MicrosoftTeams - General Availability (GA), która pozawala zarządzać członkami zespołów. Zarządzanie członkami kanałów jest obecnie (2020r) możliwe tylko w wersji MicrosoftTeams Public Preview, która wymaga osobnej instalacji. 
+<https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-install></small>
+
 <style> pre code {font-size: smaller;} </style>
