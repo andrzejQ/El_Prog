@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Kabel USB tylko do ładowania"
-date:   2019-09-20 13:21:59 +0100
+date:   2019-09-20 09:21:59 +0100
 categories: Elektronika
 ---
 
