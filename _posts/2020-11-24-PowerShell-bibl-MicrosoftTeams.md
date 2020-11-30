@@ -76,7 +76,9 @@ Po jednorazowym zapytaniu o login i hasło zapamiętuje je zaszyfrowane w pliku 
  MicrosoftTeams Public Preview (np. v.1.1.7), która wymaga osobnej instalacji.
 <https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-install></small>
 
-
+<small>
+_Jeśli chodzi o tylko szybkie pobranie listy członków to można to zrobić za pomocą [skryptozakładki 4. \[TeamsLi\]](https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/18/Skryptozakladki.html)._
+</small>
 
 ### Automatyczne dodawanie członków do swoich zespołów
 
