@@ -27,5 +27,10 @@ function clrCsv { param( [string[]]$strArr )
 }#clrCsv @("abc","`"ab`"c;ą`r`nć",'ef"g','h,i','j;k') 
 #     ->      abc; "ab"c,ą      ć;ef"g;h,i;j,k
 ````
+![FileExplorer.png]({{ site.baseurl }}/assets/img/FileExplorer.png "FileExplorer.png"){:style="float:right;width:50%;"} 
+<small>
+Wskazówka - aby uruchomić PowerShell w folderze, w którym znajduje się skrypt - przejdź w Eksploratorze Plików do tego foldera i w pasku adresu wpisz `powershell_ise` lub `powershell.exe` [Enter].
+</small>
+
 
 <style> pre code {font-size: smaller;} </style>
