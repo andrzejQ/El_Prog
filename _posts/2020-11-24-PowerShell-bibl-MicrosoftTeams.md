@@ -30,7 +30,7 @@ Szczegółowy opis instalacji modułu MicrosoftTeams PowerShell na podstawie
 `Install-Module MicrosoftTeams`, `Y`  
 (tu tryb administratora nie jest wymagany)
 
-![InstallModule.png]({{ site.baseurl }}/assets/img/InstallModule.png "InstallModule.png")
+![InstallModule.png]({{ site.baseurl }}/assets/img/InstallModule.png "InstallModule.png"){:style="width:83%;"}
 
 
 ### Testowanie modułu
