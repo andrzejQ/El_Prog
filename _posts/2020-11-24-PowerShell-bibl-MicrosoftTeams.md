@@ -28,7 +28,6 @@ Szczegółowy opis instalacji modułu MicrosoftTeams PowerShell na podstawie
 
 3. Instalujemy moduł:  
 `Install-Module MicrosoftTeams`, `Y`  
-(tu tryb administratora nie jest wymagany)
 
 ![InstallModule.png]({{ site.baseurl }}/assets/img/InstallModule.png "InstallModule.png"){:style="width:83%;"}
 
@@ -76,9 +75,10 @@ Po jednorazowym zapytaniu o login i hasło zapamiętuje je zaszyfrowane w pliku 
  MicrosoftTeams Public Preview (np. v.1.1.7), która wymaga osobnej instalacji.
 <https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-install></small>
 
-<small>
-_Jeśli chodzi o tylko szybkie pobranie listy członków to można to zrobić za pomocą [skryptozakładki 4. \[TeamsLi\]](https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/18/Skryptozakladki.html)._
-</small>
+
+1. <small>Jeśli chodzi o tylko szybkie pobranie listy członków to można to zrobić za pomocą [skryptozakładki 4. \[TeamsLi\]](https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/18/Skryptozakladki.html).</small>
+2. <small>Jeśli użytkownik ma udział w wielu zespołach to zalogowanie do Teams i pobieranie list może trwać długie minuty. Gdy po długim czekaniu proces zakończy się błędem to warto spróbować ponownie.</small>
+
 
 ### Automatyczne dodawanie członków do swoich zespołów
 
