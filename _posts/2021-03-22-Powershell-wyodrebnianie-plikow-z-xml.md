@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "PowerShell - wyodrębnianie plików z XML"
-date:   2020-11-24 09:55:00 +0100
+date:   2021-03-22 08:55:00 +0100
 categories: Programowanie
 ---
 
@@ -10,20 +10,22 @@ Szablon do wyodrębniania plików-załączników zakodowanych jako base64 w XML 
 ----
 
 
-Czasem może się przydać wyodrębnianie plików binarnych zakodowanych w XML (base64). Tutaj szkic takiego skryptu o nazwie np. `base64inXML.ps1`:
+Czasem może się przydać wyodrębnianie plików binarnych zakodowanych w XML (base64). Tutaj szkic takiego skryptu o nazwie np. `b64xml.ps1`:
 
 ````powershell
+                       Set-StrictMode -Version 3
 #nazwa pliku:
-$xmlFName = "base64inXMLfile.xml"
-
-[xml]$xmlElm = Get-Content -Path $xmlFName #teraz można będzie używac notacji kropkowej
+($xmlFName = "1.xml")
+"==================== (poczekaj ...)"
+$xmlElm = New-Object -TypeName XML; $xmlElm.Load($xmlFName) 
+#$xmlElm # teraz można będzie używac notacji kropkowej
       #/Dokument/TrescDokumentu/Zalaczniki/Zalacznik (skopiowne w N++: XML Tools / Current XML Path)
 $xmlElm.Dokument.TrescDokumentu.Zalaczniki.Zalacznik | ForEach-Object {
-  $nazwaPliku = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String( $_.nazwaPliku ))
-  "Zapis do pliku: $nazwaPliku    (poczekaj ...)" #, $_.DaneZalacznika
+  ( $nazwaPliku = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String( $_.nazwaPliku )) )
   [System.Convert]::FromBase64String($_.DaneZalacznika) | Set-Content $nazwaPliku -Encoding Byte
 }
-"koniec."
+
+"==koniec=="
 ````
 
 ### Hybrydowy plik CMD-PowerShell
@@ -53,23 +55,37 @@ w Default. Pamiętane jest ostatnie ustawienie właściwości.
 
 Pierwszy wiersz przekazuje zawartość pliku - tego który jest właśnie uruchomiony (`"%~f0"`), jako strumień do `|powershell` z pominięciem pierwszego wiersza (`findstr/v ...`). 
 
-Nasz skrypt o przykładowej nazwie `base64inXML.ps1.cmd` wyodrębniający pliki z XML może wyglądać tak:
+Nasz skrypt o przykładowej nazwie `1.cmd` wyodrębniający pliki z `1.xml` może wyglądać tak:
 
 ````powershell
 @chcp 65001>nul&@findstr/v "^@chcp.* -&goto:eof$" "%~f0"|powershell -&goto:eof
-
+                      Set-StrictMode -Version 3
 #nazwa pliku:
-$xmlFName = "base64inXMLfile.xml"
- 
-[xml]$xmlElm = Get-Content -Path $xmlFName #teraz można będzie używac notacji kropkowej
+($xmlFName = "1.xml")
+"==================== (poczekaj ...)"
+$xmlElm = New-Object -TypeName XML; $xmlElm.Load($xmlFName) 
+#$xmlElm # teraz można będzie używac notacji kropkowej
       #/Dokument/TrescDokumentu/Zalaczniki/Zalacznik (skopiowne w N++: XML Tools / Current XML Path)
 $xmlElm.Dokument.TrescDokumentu.Zalaczniki.Zalacznik | ForEach-Object {
-  $nazwaPliku = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String( $_.nazwaPliku ))
-  "Zapis do pliku: $nazwaPliku    (poczekaj ...)"
+  ( $nazwaPliku = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String( $_.nazwaPliku )) )   
   [System.Convert]::FromBase64String($_.DaneZalacznika) | Set-Content $nazwaPliku -Encoding Byte
 }
 
-"koniec."
+"==koniec=="
 ````
+
+Dla osób, które nie mają doświadczenia z uruchamianiem takich skryptów można podać przepis:
+
+1. W pustym folderze utwórz notatnikiem plik `1.cmd` o trześci jak powyżej.
+2. Do tego foldera skopiuj plik XML i zmień jego nazwę na `1.xml`.
+3. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`
+4. Poczekaj dłuższą chwilę, aż zniknie czarne okienko z komunikatami wykonania skryptu.
+5. W folderze powinny pojawić się rozpakowane pliki.
+
+----
+Odnośniki:
+* <https://www.powershellmagazine.com/2013/08/19/mastering-everyday-xml-tasks-in-powershell/>
+* <https://dotnet-helpers.com/powershell/reading-xml-files-with-powershell/>
+
 
 <style> code {font-size: smaller;} </style>

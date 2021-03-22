@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Moduł MicrosoftTeams PowerShell w praktyce"
-date:   2020-11-24 10:00:00 +0100
+date:   2021-03-22 12:00:00 +0100
 categories: Programowanie
 ---
 
