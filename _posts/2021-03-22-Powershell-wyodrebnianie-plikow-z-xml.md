@@ -75,9 +75,9 @@ $xmlElm.Dokument.TrescDokumentu.Zalaczniki.Zalacznik | ForEach-Object {
 ````
 
 Dla osób, które nie mają doświadczenia z uruchamianiem takich skryptów można podać przepis:
-
+![FileExplorer-1.cmd.png]({{ site.baseurl }}/assets/img/FileExplorer-1.cmd.png "FileExplorer-1.cmd.png"){:style="float:right;width:242px;"} 
 1. W pustym folderze utwórz notatnikiem plik `1.cmd` o trześci jak powyżej.
-2. Do tego foldera skopiuj plik XML i zmień jego nazwę na `1.xml`.
+2. Do tego foldera skopiuj plik XML i zmień jego nazwę na `1.xml`. 
 3. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`
 4. Poczekaj dłuższą chwilę, aż zniknie czarne okienko z komunikatami wykonania skryptu.
 5. W folderze powinny pojawić się rozpakowane pliki.
