@@ -5,13 +5,13 @@ date:   2021-03-22 07:00:00 +0100
 categories: Programowanie
 ---
 
-Moja ściągawka (zapewe tylko do użytku własnego) ... 
+Moja ściągawka (zapewne tylko do użytku własnego) ... 
 
 ... będzie miała poziomy - od najkrótszego przypomnienia, które się przyda po długim czasie nie-praktykowania po nieco bardziej rozbudowane przypominajki
 
 0:
 
-`($x='coś')` , `"2+3=$(2+3)"` , `@()`
+`($x='coś')` , `"2+3=$(2+3)"` , `@()`, `${a b}`
 
 
 
@@ -24,6 +24,7 @@ Moja ściągawka (zapewe tylko do użytku własnego) ...
 `&` - wykonaj  
 `.` - wykonaj skrypt ps1 zapamiętując jego zmienne  
 `..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`
+`${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)
 
 Linki 01:
 
