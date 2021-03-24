@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "PowerShell ściągawka"
-date:   2021-03-22 07:00:00 +0100
+date:   2020-11-24 07:00:00 +0100
 categories: Programowanie
 ---
 
@@ -20,11 +20,13 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...
 `()` - wykonaj teraz, np. `($x='coś')` podstaw i wyświetl  
 `$()` - wykonaj teraz i potraktuj jak zmienną, np. `"2+3=$(2+3)"`  
 `@()` - potaktuj jako tablicę (także pustą lub 1-el.)  
-` , ` - literał tablicy  
+`, `  - literał tablicy  
 `&` - wykonaj  
-`.` - wykonaj skrypt ps1 zapamiętując jego zmienne  
-`..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`
-`${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)
+`. `  - wykonaj skrypt ps1 zapamiętując jego zmienne (spacja po kropce)  
+`..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`  
+`${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)  
+
+
 
 Linki 01:
 
