@@ -32,36 +32,13 @@ ForEach ($plikXml in Get-ChildItem '.' -Filter *.XML) {
 Ten skrypt działa na pliki XML podpisane profilem zaufanym - zob.:  
 -> <https://www.gov.pl/web/gov/podpisz-dokument-elektronicznie-wykorzystaj-podpis-zaufany>
 
-Na tej stronie www można też sprawdzić podpis i wyodrębnić podpisane dokumenty - ale chyba tylko z pojedynczego pliku XML, więc powyższy skrypt może się przydać, gdy jest więcej plików XML (zob. też `1.cmd` poniżej).
+Na tej stronie www można też sprawdzić podpis i wyodrębnić podpisane dokumenty - ale chyba tylko z pojedynczego pliku XML, więc powyższy skrypt może się przydać, gdy jest więcej plików XML.
 
-### Hybrydowy plik CMD-PowerShell
-
-Można podczas wywoływania Powershell można skorzystać hybrydowego pliku CMD-Powershell, tj. pliku *.CMD, który nie wymaga odblokowania uruchamiania skryptu `*.ps1` - po prostu zadziała u każdego. Np.: 
-
-````powershell
-@chcp 65001>nul&@findstr/v "^@chcp.*&goto:eof$" "%~f0"|powershell -&pause&goto:eof
-<#
-Tu jest komentarz powershell
-#>
-
-# Nie wiem dlaczego po `#>` lub `"@` czy `}` musi być pusty wiersz...
-${ąćę} = "ĄĆŁĘŃÓŚŹŻ ąćłęńóśźż €" 
-"polskie literki (kodowanie pliku: utf-8 bez BOM) - ${ąćę}" 
-"test@chcp ... &goto:eof"
-@"
-===
-Uwaga - w nowej wersji konsoli Win10 - czcionka `"Consolas`" jakoś przełącza 
-się na mikroczcionkę rastrową po wywołaniu Powershell. Ale np. 
-`"Source Code Pro Medium`" działa dobrze. Już nie trzeba włączać czcionki 
-w Default. Pamiętane jest ostatnie ustawienie właściwości.
-"@
-
-"==="
-````
-
-Pierwszy wiersz przekazuje zawartość pliku - tego który jest właśnie uruchomiony (`"%~f0"`), jako strumień do (`|powershell -`) z pominięciem pierwszego wiersza (`findstr/v ...`). Na koniec są wywoływane jeszcze polecenia `pause` i `goto:eof`.
+Powyższy skrypt wygodnie jest  używać jako ([_zob. objaśnienie_]({% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})):
 
 #### Hybrydowy skrypt 1.CMD (CMD-PowerShell)
+
+
 
 Skrypt o przykładowej nazwie `1.cmd` wyodrębniający pliki wewnętrzne z wszystkich  `*.xml` może wyglądać tak:
 
@@ -82,17 +59,18 @@ ForEach ($plikXml in Get-ChildItem '.' -Filter *.XML) {
 "`n==koniec=="
 ````
 
-Osoby, które nie mają doświadczenia z uruchamianiem takich skryptów mogą skorzystać z przepisu:
+Taki skrypt można uruchomić wprost z eksploratora plików:
 
 ![FileExplorer-1.cmd.png]({{ site.baseurl }}/assets/img/FileExplorer-1.cmd.png "FileExplorer-1.cmd.png"){:style="float:right;width:242px;"} 
-1. W pustym folderze utwórz plik `1.cmd` o treści jak powyżej (np. użyj notatnika). <sup>*)</sup>
-2. Do tego foldera skopiuj pliki XML z których mają być wyodrębnione pliki wewnętrzne. 
-3. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`.
-4. Poczekaj dłuższą chwilę, aż pojawi się napis `==koniec==` i naciśnij `[Enter]`.
-5. W folderze powinny pojawić się wyodrębnione pliki wewnętrzne.
+1. Przygotuj sobie pusty folder roboczy.
+2. W tym folderze utwórz plik `1.cmd` o treści jak powyżej (np. użyj notatnika, kodowanie utf-8). <sup>*)</sup>
+3. Do tego foldera skopiuj pliki XML z których mają być wyodrębnione pliki wewnętrzne. 
+4. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`.
+5. Poczekaj dłuższą chwilę, aż pojawi się napis `==koniec==` i naciśnij `[Enter]`.
+6. W folderze powinny pojawić się wyodrębnione pliki wewnętrzne.
 
 
-<sup>*)</sup> <small>Jeszcze lepszym sposobem jest umieszczenie pliku `1.cmd` w jednej ze ścieżek Path (w menu START zacznij pisać “Edytuj zmienne środowiskowe dla konta” aby zobaczyć/edytować listę ścieżek). Wtedy krok 1 jest zbędny.</small> 
+<sup>*)</sup> <small>Jeszcze lepszym sposobem jest umieszczenie pliku `1.cmd` w jednej ze ścieżek Path (w menu START zacznij pisać “Edytuj zmienne środowiskowe dla konta” aby zobaczyć/edytować listę ścieżek). Wtedy krok 2 jest zbędny.</small> 
 
 - - - -
 
