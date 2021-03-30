@@ -43,7 +43,7 @@ Powyższy skrypt wygodnie jest  używać jako ([_zob. objaśnienie_]({% post_url
 Skrypt o przykładowej nazwie `1.cmd` wyodrębniający pliki wewnętrzne z wszystkich  `*.xml` może wyglądać tak:
 
 ````powershell
-@chcp 65001>nul&@findstr/v "^@chcp.*&goto:eof$" "%~f0"|powershell -&pause&goto:eof
+@chcp 65001>nul&more +1 "%~f0"|powershell -&pause&goto:eof
 $i=0;                                                  Set-StrictMode -Version 3
 ForEach ($plikXml in Get-ChildItem '.' -Filter *.XML) {
   ++$i; "`n$i.$($plikXml.FullName)"

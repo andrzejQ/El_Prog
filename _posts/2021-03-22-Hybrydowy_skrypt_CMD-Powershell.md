@@ -27,27 +27,27 @@ Powershell -NoExit -c "$c=Get-Culture; $c.DateTimeFormat"
 Można także skorzystać z **hybrydowego pliku CMD-Powershell**, tj. pliku `*.CMD`, który nie wymaga odblokowania uruchamiania skryptów `*.ps1` - po prostu zadziała u każdego. Plik taki poza pierwszym wierszem to skrypt PoweShell. Np.: 
 
 ````powershell
-@chcp 65001>nul&@findstr/v "^@chcp.*&goto:eof$" "%~f0"|powershell -&pause&goto:eof
+@chcp 65001>nul&@more +1 "%~f0"|powershell -&pause&goto:eof
 <#
 Tu jest komentarz powershell
+Pamiętaj - `more` wymaga nie więcej niż 65536 wierszy.
 #>
 
-# Nie wiem dlaczego po `#>` lub `"@` czy `}` musi być pusty wiersz...
+'Wygląda na to, że po `#>` lub `"@` czy `}` powienien być pusty wiersz...'
 ${ąćę} = "ĄĆŁĘŃÓŚŹŻ ąćłęńóśźż €" 
-"polskie literki (kodowanie pliku: utf-8 bez BOM) - ${ąćę}" 
-"test@chcp ... &goto:eof"
+"TEST-polskie literki (kodowanie pliku: utf-8 bez BOM) - ${ąćę}" 
 @"
 ===
-Uwaga - w nowej wersji konsoli Win10 - czcionka `"Consolas`" jakoś przełącza 
-się na mikroczcionkę rastrową po wywołaniu Powershell. Ale np. 
-`"Source Code Pro Medium`" działa dobrze. Już nie trzeba włączać czcionki 
-w Default. Pamiętane jest ostatnie ustawienie właściwości.
+Uwaga - w nowej wersji konsoli Win10 - czcionka `"Consolas`" jakoś
+przełącza się na mikroczcionkę rastrową po wywołaniu Powershell. 
+Ale np. `"Source Code Pro Medium`" działa dobrze.
+Wystarczy na taką czcionkę zmienć "Właściwości" tego okna konsoli zanim się go zamknie.
 "@
 
 "==="
 ````
 
-Pierwszy wiersz przekazuje zawartość pliku - tego który jest właśnie uruchomiony (`"%~f0"`), jako strumień do (`|powershell -`) z pominięciem pierwszego wiersza (`findstr/v ...`). Na koniec są wywoływane jeszcze polecenia `pause` i `goto:eof`. Początkowe `chcp 65001` włącza kodowanie utf-8.
+Pierwszy wiersz przekazuje zawartość pliku - tego który jest właśnie uruchomiony (`"%~f0"`), jako strumień do (`|powershell -`) z pominięciem pierwszego wiersza (`more +1`). Na koniec są wywoływane jeszcze polecenia `pause` i `goto:eof`. Początkowe `chcp 65001` włącza kodowanie utf-8.
 
 Taki skrypt np. o nazwie `1.cmd` można uruchomić wprost z eksploratora plików:
 
