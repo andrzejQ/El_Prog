@@ -26,7 +26,9 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...
 `..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`  
 `${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)  
 
+2:
 
+`$a -replace $b,$c` to .NET `Regex.Replace($a, $b, $c, RegexOptions.IgnoreCase)`; `$a.replace($b, $c)` - zwykła zamiana
 
 Linki 01:
 
@@ -39,6 +41,7 @@ Linki 01:
 
 Linki 02:
 
-...
+* [Regular Expression Language - Quick Reference](https://docs.microsoft.com/pl-pl/dotnet/standard/base-types/regular-expression-language-quick-reference); [Regex.Replace(...)](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace?view=net-5.0); [.NET Replace(String, String), Replace(String, String, StringComparison)](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?redirectedfrom=MSDN&view=net-5.0#System_String_Replace_System_String_System_String_), [StringComparison](https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison?view=net-5.0)
+
 
 <style> pre code {font-size: smaller;} </style>
