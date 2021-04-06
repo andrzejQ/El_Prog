@@ -59,6 +59,9 @@ ForEach ($plikXml in Get-ChildItem '.' -Filter *.XML) {
 "`n==koniec=="
 ````
 
+(zob. też [_problem małej czcionki w oknie konsoli_]({% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %}#kodowanie-utf-8-czcionka-raczej-inna-niż-consolas))
+{:style="font-size: smaller;"}
+
 Taki skrypt można uruchomić wprost z eksploratora plików:
 
 ![FileExplorer-1.cmd.png]({{ site.baseurl }}/assets/img/FileExplorer-1.cmd.png "FileExplorer-1.cmd.png"){:style="float:right;width:242px;"} 
