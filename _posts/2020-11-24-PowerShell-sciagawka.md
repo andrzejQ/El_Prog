@@ -26,9 +26,22 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...
 `..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`  
 `${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)  
 
+PSCustomObject  
+`$myObj=[PSCustomObject]@{Nm='K'}` lub `$ht=@{Nm='K'};$myObj=[pscustomobject]$ht`  
+`$myObj | ConvertTo-Json -depth 1 | Set-Content -Path $Path` - zapis do pliku  
+`$myObj=Get-Content -Path $Path | ConvertFrom-Json` - odczyt z pliku  
+`$myObj | Add-Member -MemberType NoteProperty -Name 'ID' -Value 'KMarquette'`  
+wszystkie własności: `$myObj | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name` ; czy wł. istnieje:  
+`if( $null -ne $myObj.ID )` lub `if( $myObj.psobject.properties.match('ID').Count )`  
+`$myObj.Nm` lub `$myObj.'Nm'` lub `$myObj.$prop` - odczytaj wartość  
+`$b=$myObj.psobject.copy()` - prawdziwa kopia (a nie tylko referencja)  
+
+
 2:
 
 `$a -replace $b,$c` to .NET `Regex.Replace($a, $b, $c, RegexOptions.IgnoreCase)`; `$a.replace($b, $c)` - zwykła zamiana
+
+
 
 Linki 01:
 
@@ -42,6 +55,7 @@ Linki 01:
 Linki 02:
 
 * [Regular Expression Language - Quick Reference](https://docs.microsoft.com/pl-pl/dotnet/standard/base-types/regular-expression-language-quick-reference); [Regex.Replace(...)](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace?view=net-5.0); [.NET Replace(String, String), Replace(String, String, StringComparison)](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?redirectedfrom=MSDN&view=net-5.0#System_String_Replace_System_String_System_String_), [StringComparison](https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison?view=net-5.0)
+
 
 
 <style> pre code {font-size: smaller;} </style>
