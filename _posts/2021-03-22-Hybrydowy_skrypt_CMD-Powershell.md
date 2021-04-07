@@ -6,7 +6,8 @@ categories: Programowanie
 ---
 
 
-`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`, albo po prostu skrypt CMD.
+(`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned` - albo skrypt CMD).
+{:style="font-size: smaller;"}
 
 Gdy chcemy uruchamiać skrypty PowerShell `*.ps1` na swoim komputerze, to jednorazowo trzeba wpisać w oknie Powershell (Adminstrator):  
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
@@ -20,8 +21,8 @@ Można też wykonać polecenie Powershell w jedno-wierszowym skrypcie CMD, np. p
 ````bat
 Powershell -NoExit -c "$c=Get-Culture; $c.DateTimeFormat"
 ````
-<small>`-NoExit` - gdy nie chcemy abo po wykonaniu `c.cmd` okno się zamykało; wewnątrz `"..."` wygodnie jest używać `'...'`.
-</small>
+`-NoExit` - gdy nie chcemy abo po wykonaniu `c.cmd` okno się zamykało; wewnątrz `"..."` wygodnie jest używać `'...'`.
+{:style="font-size: smaller;"}
 
 
 Można także skorzystać z **hybrydowego pliku CMD-Powershell**, tj. pliku `*.CMD`, który nie wymaga odblokowania uruchamiania skryptów `*.ps1` - po prostu zadziała u każdego. Jest to skrypt PowerShell z dodatkowym wierszem poleceń CMD na początku, np.: 
@@ -51,7 +52,7 @@ Taki skrypt np. o nazwie `1.cmd` można uruchomić wprost z eksploratora plików
 
 ![FileExplorer-1.cmd.png]({{ site.baseurl }}/assets/img/FileExplorer-1.cmd.png "FileExplorer-1.cmd.png"){:style="float:right;width:242px;"} 
 1. W wybranym folderze utwórz plik `1.cmd` o treści jak powyżej (np. użyj notatnika, zapisz jako, zmień kodowanie z `UTF-8` na `ANSI`).
-2. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`.
+2. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`. Plik `1.cmd` można umieścić w folderze dodanym do ścieżki PATH i wtedy powyższa metoda zadziała w dowolnym folderze. Zamiast tego wpisywania `1.cmd` można też 2x kliknąć na tym pliku, choć czasem trzeba przejść jednorazowo przez kilka ostrzeżeń.
 3. Po wykonaniu skryptu naciśnij `[Enter]` albo zamknij okno wyników.
 
 #### Kodowanie "utf-8", czcionka raczej inna niż "Consolas"
