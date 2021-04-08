@@ -25,6 +25,7 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...
 `. `  - wykonaj skrypt ps1 zapamiętując jego zmienne (spacja po kropce)  
 `..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`  
 `${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)  
+<code>`</code> = `\` w innych językach, choć w PowerShell RegExp jest normalnie `\`
 
 PSCustomObject  
 `$myObj=[PSCustomObject]@{Nm='K'}` lub `$ht=@{Nm='K'};$myObj=[pscustomobject]$ht`  
@@ -39,9 +40,20 @@ wszystkie własności: `$myObj | Get-Member -MemberType NoteProperty | Select -E
 
 2:
 
-`$a -replace $b,$c` to .NET `Regex.Replace($a, $b, $c, RegexOptions.IgnoreCase)`; `$a.replace($b, $c)` - zwykła zamiana
+`$a -replace $b,$c` to .NET `Regex.Replace($a, $b, $c, RegexOptions.IgnoreCase)`; `$a.replace($b, $c)` - zwykła zamiana  
 
+3:
 
+Przydatne ustawienia  
+`Set-StrictMode -Version 3`  
+`$ErrorActionPreference = "Stop"` - gdy chcemy na początku nie przeoczyć błędów  
+`$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'` - inaczej UTF16 LE BOM, czyli UCS2 LE BOM - też nieźle.  
+
+4:
+
+`$myArray = @(); $myArray += '...'` - bardzo powolne; za każdym `+=` kopiuje całą tablicę  
+`$myArrList = [System.Collections.ArrayList]@(); [void]$myArrList.Add()` - lista dynamiczna; gdy brak `[void]` do drukuje liczbę elementów  
+`$Arr.length`  
 
 Linki 01:
 
@@ -56,6 +68,11 @@ Linki 02:
 
 * [Regular Expression Language - Quick Reference](https://docs.microsoft.com/pl-pl/dotnet/standard/base-types/regular-expression-language-quick-reference); [Regex.Replace(...)](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace?view=net-5.0); [.NET Replace(String, String), Replace(String, String, StringComparison)](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?redirectedfrom=MSDN&view=net-5.0#System_String_Replace_System_String_System_String_), [StringComparison](https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison?view=net-5.0)
 
+Linki 03:
 
+
+Linki 04:
+
+* [PowerShell add or remove elements from an Array -> ](https://pscustomobject.github.io/powershell/Add-Remove-Items-From-Array/) pscustomobject.github.io
 
 <style> pre code {font-size: smaller;} </style>
