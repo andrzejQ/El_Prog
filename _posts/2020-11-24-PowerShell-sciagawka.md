@@ -28,7 +28,7 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...
 <code>`</code> = `\` w innych językach, choć w PowerShell RegExp jest normalnie `\`
 
 PSCustomObject  
-`$myObj=[PSCustomObject]@{Nm='K'}` lub `$ht=@{Nm='K'};$myObj=[pscustomobject]$ht`  
+`$myObj=[PSCustomObject]@{Nm='K'}`, `$ht=[ordered]@{Nm='K'};$myObj=[pscustomobject]$ht`  
 `$myObj | ConvertTo-Json -depth 1 | Set-Content -Path $Path` - zapis do pliku  
 `$myObj=Get-Content -Path $Path | ConvertFrom-Json` - odczyt z pliku  
 `$myObj | Add-Member -MemberType NoteProperty -Name 'ID' -Value 'KMarquette'`  
@@ -55,6 +55,29 @@ Przydatne ustawienia
 `$myArrList = [System.Collections.ArrayList]@(); [void]$myArrList.Add()` - lista dynamiczna; gdy brak `[void]` do drukuje liczbę elementów  
 `$Arr.length`  
 
+
+5:
+
+Odczyt rozszerzonych własności pliku  
+````powershell
+$shellFolder = $Shell.NameSpace("$($pwd.Path)\...\").self.GetFolder()
+$shellFile   = $shellFolder.ParseName('abc.mp4')
+$shellFile # m.in. Name ('abc.mp4'), Path, ModifyDate ('2021-04-08 19:11:27'), Size (bajty)
+0..400 | where-object {($details=$shellFolder.GetDetailsOf($shellFile,$_))} | ForEach {
+  " $($_.ToString('000')):$(($shellFolder.GetDetailsOf($null,$_)).PadLeft(40,'.')) : $details"
+} #rozmiar np. w MB, czas bez sek.
+                   # albo odczytaj wszystkie, także puste właściwości
+0..400 | ForEach {
+  " $($_.ToString('000')):$(($shellFolder.GetDetailsOf($null,$_)).PadLeft(40,'.')) " +
+  ":  $($shellFolder.GetDetailsOf($shellFile,$_))"
+}
+````
+
+<small>
+Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-US\propsys.dll.mui` 
+<br> 1. Dodaj na końcu rozszerzenie `.DLL`; 2. Otwórz w Visual Studio; 3. Zapisz jako `.RC`
+</small>
+
 Linki 01:
 
 * [PowerShell – mini kompendium -> ](http://tymoteuszkestowicz.com/2013/11/powershell-mini-kompendium/) tymoteuszkestowicz.com
@@ -76,3 +99,7 @@ Linki 04:
 * [PowerShell add or remove elements from an Array -> ](https://pscustomobject.github.io/powershell/Add-Remove-Items-From-Array/) pscustomobject.github.io
 
 <style> pre code {font-size: smaller;} </style>
+
+Linki 05:
+
+* [Getting file metadata with PowerShell ->](https://evotec.pl/getting-file-metadata-with-powershell-similar-to-what-windows-explorer-provides/) evotec.pl
