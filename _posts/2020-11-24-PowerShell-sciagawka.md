@@ -53,7 +53,17 @@ Przydatne ustawienia
 
 `$myArray = @(); $myArray += '...'` - bardzo powolne; za każdym `+=` kopiuje całą tablicę  
 `$myArrList = [System.Collections.ArrayList]@(); [void]$myArrList.Add()` - lista dynamiczna; gdy brak `[void]` do drukuje liczbę elementów  
-`$Arr.length`  
+`$Arr.length` szybko dla tablicy, `$ArrList.count` powolniejsze, używaj dla kolekcji  
+`$a=@(11,22,33,44); $a[0,2];`11,33 `@a[0,-1]`11,44 `$a[($a.Count-1)..0]`wspak `$b,$c=$a; $b`11 `$c`22,33,44  
+`[string[]]$s3=@('')*3` `[string[][]]$s2x4=(,(@('x')*4))*2` `$s2x4[1][3]='13'`  
+
+`$ArrayDeepCopy = $Array | foreach { $_ } # deep copy trick` to spłaszcza tablicę;  
+dla wielowymiarowych: `$MultiDimShallowCopy = $Array | foreach { , $_ }`  `$MultiDimDeepCopy = $Array | foreach { , ($_ | foreach{ $_ }) }`
+
+`$Obj | Export-Clixml -LiteralPath .\serialized.xml` `$ObjDeepCopy = Import-Clixml .\serialized.xml`  
+
+
+
 
 
 5:
@@ -78,28 +88,37 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 <br> 1. Dodaj na końcu rozszerzenie `.DLL`; 2. Otwórz w Visual Studio; 3. Zapisz jako `.RC`
 </small>
 
+6:
+
+Nie będziesz używał:  
+`... | foreach { ...` ~~`continue`~~ ~~`break`~~  
+`@a[`~~`0..-1`~~`]`
+
+
+
 Linki 01:
 
-* [PowerShell – mini kompendium -> ](http://tymoteuszkestowicz.com/2013/11/powershell-mini-kompendium/) tymoteuszkestowicz.com
-* [PowerShell Operators $( ) @( ) :: & -> ](https://ss64.com/ps/syntax-operators.html) ss64.com
-* [Getting started with PowerShell -> ](https://riptutorial.com/powershell) riptutorial.com
-* [Powershell: Everything you wanted to know about arrays -> ](https://powershellexplained.com/2018-10-15-Powershell-arrays-Everything-you-wanted-to-know/) powershellexplained.com
-* [Everything you wanted to know about PSCustomObject -> ](https://docs.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-pscustomobject?view=powershell-5.1) docs.microsoft.com
-* [PowerShell Commands Every Developer Should Know -> ](https://stackify.com/powershell-commands-every-developer-should-know/) stackify.com
+* [PowerShell – mini kompendium](http://tymoteuszkestowicz.com/2013/11/powershell-mini-kompendium/)  -> tymoteuszkestowicz.com
+* [PowerShell Operators $( ) @( ) :: &](https://ss64.com/ps/syntax-operators.html)  -> ss64.com
+* [Getting started with PowerShell](https://riptutorial.com/powershell)  -> riptutorial.com
+* [Powershell: Everything you wanted to know about arrays](https://powershellexplained.com/2018-10-15-Powershell-arrays-Everything-you-wanted-to-know/)  -> powershellexplained.com
+* [Everything you wanted to know about PSCustomObject](https://docs.microsoft.com/en-us/powershell/scripting/learn/deep-dives/everything-about-pscustomobject?view=powershell-5.1)  -> docs.microsoft.com
+* [PowerShell Commands Every Developer Should Know](https://stackify.com/powershell-commands-every-developer-should-know/)  -> stackify.com
 
 Linki 02:
 
-* [Regular Expression Language - Quick Reference](https://docs.microsoft.com/pl-pl/dotnet/standard/base-types/regular-expression-language-quick-reference); [Regex.Replace(...)](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace?view=net-5.0); [.NET Replace(String, String), Replace(String, String, StringComparison)](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?redirectedfrom=MSDN&view=net-5.0#System_String_Replace_System_String_System_String_), [StringComparison](https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison?view=net-5.0)
+* [Regular Expression Language - Quick Reference](https://docs.microsoft.com/pl-pl/dotnet/standard/base-types/regular-expression-language-quick-reference); [Regex.Replace(...)](https://docs.microsoft.com/en-us/dotnet/api/system.text.regularexpressions.regex.replace?view=net-5.0); [.NET Replace(String, String), Replace(String, String, StringComparison)](https://docs.microsoft.com/en-us/dotnet/api/system.string.replace?redirectedfrom=MSDN&view=net-5.0#System_String_Replace_System_String_System_String_), [StringComparison](https://docs.microsoft.com/en-us/dotnet/api/system.stringcomparison?view=net-5.0)  -> docs.microsoft.com
 
 Linki 03:
 
 
 Linki 04:
 
-* [PowerShell add or remove elements from an Array -> ](https://pscustomobject.github.io/powershell/Add-Remove-Items-From-Array/) pscustomobject.github.io
+* [PowerShell add or remove elements from an Array](https://pscustomobject.github.io/powershell/Add-Remove-Items-From-Array/) -> pscustomobject.github.io
+* [Deep copying arrays and objects](https://www.powershelladmin.com/wiki/Deep_copying_arrays_and_objects_in_PowerShell) -> powershelladmin.com
 
 <style> pre code {font-size: smaller;} </style>
 
 Linki 05:
 
-* [Getting file metadata with PowerShell ->](https://evotec.pl/getting-file-metadata-with-powershell-similar-to-what-windows-explorer-provides/) evotec.pl
+* [Getting file metadata with PowerShell](https://evotec.pl/getting-file-metadata-with-powershell-similar-to-what-windows-explorer-provides/) -> evotec.pl
