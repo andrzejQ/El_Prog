@@ -29,10 +29,13 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...
 
 PSCustomObject  
 `$myObj=[PSCustomObject]@{Nm='K'}`, `$ht=[ordered]@{Nm='K'};$myObj=[pscustomobject]$ht`  
-`$myObj | ConvertTo-Json -depth 1 | Set-Content -Path $Path` - zapis do pliku  
+`$myObj | ConvertTo-Json -depth 10 | Set-Content -Path $Path` - zapis do pliku  
 `$myObj=Get-Content -Path $Path | ConvertFrom-Json` - odczyt z pliku  
 `$myObj | Add-Member -MemberType NoteProperty -Name 'ID' -Value 'KMarquette'`  
-wszystkie własności: `$myObj | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name` ; czy wł. istnieje:  
+`$myObj | Add-Member @{ID='KMarquette'}` <small>(krótko, ale nie wiem, czy to to samo co powyżej)</small>  
+<small>wszystkie własności:</small>  
+`$myObj | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name`  
+<small>czy własność istnieje?:</small>  
 `if( $null -ne $myObj.ID )` lub `if( $myObj.psobject.properties.match('ID').Count )`  
 `$myObj.Nm` lub `$myObj.'Nm'` lub `$myObj.$prop` - odczytaj wartość  
 `$b=$myObj.psobject.copy()` - prawdziwa kopia (a nie tylko referencja)  
@@ -53,7 +56,8 @@ Przydatne ustawienia
 
 `$myArray = @(); $myArray += '...'` - bardzo powolne; za każdym `+=` kopiuje całą tablicę  
 `$myArrList = [System.Collections.ArrayList]@(); [void]$myArrList.Add()` - lista dynamiczna; gdy brak `[void]` do drukuje liczbę elementów  
-`$Arr.length` szybko dla tablicy, `$ArrList.count` powolniejsze, używaj dla kolekcji  
+`$Arr.length` szybko dla tablicy, `$ArrList.count` powolniejsze, używaj dla kolekcji.
+
 `$a=@(11,22,33,44); $a[0,2];`11,33 `@a[0,-1]`11,44 `$a[($a.Count-1)..0]`wspak `$b,$c=$a; $b`11 `$c`22,33,44  
 `[string[]]$s3=@('')*3` `[string[][]]$s2x4=(,(@('x')*4))*2` `$s2x4[1][3]='13'`  
 
