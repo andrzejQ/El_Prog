@@ -38,9 +38,9 @@ $tmp='.tmp'
 $filterImgVid=@( '(.jpg)|(.jpeg)|(.png)|(.heic)|(.heif)$',
                  '(.mp4)|(.mpeg)|(.mpg)|(.hevc)$' )
 ````
-
 URUCHAMIANIE: `powershell.exe -noexit -File "importCameraRoll.ps1"`  
-<small> Można sobie zrobić na pulpicie skrót z takim poleceniem w polu "Element docelowy:" i z "Rozpocznij w:" <_folder, w krórym jest skrypt_>. Warto też dobrać stosowną nazwę i ikonkę tego skrótu. </small>
+[![IKONA-Zgrywanie_zdjec_i_filmow.png]({{ site.baseurl }}/assets/img/IKONA-Zgrywanie_zdjec_i_filmow.png "IKONA-Zgrywanie_zdjec_i_filmow.png"){:style="float:right;width:88px;"}]({{ site.baseurl }}/assets/files/Zgrywanie_zdjec_i_filmow.zip "Zgrywanie_zdjec_i_filmow.zip ")
+<small> Możesz sobie zrobić na pulpicie skrót z takim poleceniem w polu "Element docelowy:" i z "Rozpocznij w:" <_folder, w krórym jest skrypt_>. Warto też dobrać stosowną nazwę i ikonkę tego skrótu. Możesz go wypakować z pliku ZIP (ikona po prawej) tylko we właściwościach musisz wpisać poprawną  ścieżkę "Rozpocznij w:" do foldera w któym jest plik "importCameraRoll.ps1". </small>
 
 
 Więcej informacji:
