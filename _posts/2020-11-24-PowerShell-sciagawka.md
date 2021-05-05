@@ -121,8 +121,9 @@ Linki 04:
 * [PowerShell add or remove elements from an Array](https://pscustomobject.github.io/powershell/Add-Remove-Items-From-Array/) -> pscustomobject.github.io
 * [Deep copying arrays and objects](https://www.powershelladmin.com/wiki/Deep_copying_arrays_and_objects_in_PowerShell) -> powershelladmin.com
 
-<style> pre code {font-size: smaller;} </style>
-
 Linki 05:
 
 * [Getting file metadata with PowerShell](https://evotec.pl/getting-file-metadata-with-powershell-similar-to-what-windows-explorer-provides/) -> evotec.pl
+
+
+<style> pre code {font-size: smaller;} </style>
