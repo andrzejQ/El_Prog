@@ -46,17 +46,14 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 
 ````py
 import csv
+#read
 from collections import namedtuple
-with open('x.csv', newline='', encoding='utf-8-sig') as csvF: #read
+with open('x.csv', newline='', encoding='utf-8-sig') as csvF:
   reader = csv.reader(csvF, delimiter=';')
   nTuple = namedtuple('nTuple', next(reader))  # get names from column headers
-  print(f'{nTuple.__doc__}\n') #$# np.: nTuple(col1,col2,col3)
-  arr = []
-  # map(nTuple._make, reader): - ale jest sporo zbędnych spacji
-  for row in reader: 
-    r = nTuple._make([x.strip() for x in row])
-    arr += [r]
-print(arr)
+  print(1, nTuple.__doc__) #$# np.:1 nTuple(col1,col2,col3)
+  arr = [ nTuple._make(row) for row in reader ] 
+print(2, f'{arr}'.replace('),','),\n')) #$#2 [nTuple(col1=...
 
 # write:
 nTuple = namedtuple('nTuple', ['col1', 'col2', 'col3'])
@@ -68,17 +65,17 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 
 ## nTuple -> dict
 di = row._asdict()
-print(1, di)                   #1 OrderedDict([('col1', ...
-print(2, dict(di))             #2 {'col1':
+print(3, di)                   #3 OrderedDict([('col1', ...
+print(4, dict(di))             #4 {'col1':
 
 ## dict -> nTuple
 d = {'col1':'xx', 'col2':'yy', 'col3':'zz'}
-print(3, nTuple(**d))          #3 nTuple(col1='xx', col2='yy', col3='zz')
+print(5, nTuple(**d))          #5 nTuple(col1='xx', col2='yy', col3='zz')
 di = {'col1':'xx', 'col3':'zz'} # missing 'col2'
 for x in set(nTuple._fields).difference(di.keys()): di[x] = None
-print(4, nTuple(**di))         #4 nTuple(col1='xx', col2=None, col3='zz')
+print(6, nTuple(**di))         #6 nTuple(col1='xx', col2=None, col3='zz')
 di = {'col1':'xx', 'col3':'zz'}
-print(5, [di.get(k,'') for k in nTuple._fields] ) #5 ['xx', '', 'zz']
+print(7, [di.get(k,'') for k in nTuple._fields] ) #7 ['xx', '', 'zz']
 ````
 
 ````py
@@ -99,5 +96,8 @@ print (x)
 Linki 1:
 
 * [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3
+* [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
+
+
 <style> pre code {font-size: smaller;} </style>
 
