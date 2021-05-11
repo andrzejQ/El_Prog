@@ -91,6 +91,9 @@ f'x: {x!r}'; 'x: '+repr(x)
 print ('opis: ',end ='')
 print (x)
 
+x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
+' '.join(filter(None,[di.get(k) for k in ['k1','k2',...]])) - scal, pomijając None
+
 ````
 
 Linki 1:
