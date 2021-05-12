@@ -25,6 +25,15 @@ with open('d.json', 'r', encoding='utf-8') as fj:
 
 json.dumps({'4': 5, '6': 7}, ensure_ascii=False, indent=2) #-> str
 ````
+
+Dla dość prostych struktur json, gdzie mamy listę słowników można uzyskać "hybrydowy format" json/csv, który od razu pozwala wkopiować taki tekst do arkusza kalkulacyjnego (rozdzielony '\t').
+
+````py
+with open('d.json', 'w', encoding='utf-8') as fj:
+    fj.write(json.dumps(di, ensure_ascii=False, separators=(',', ':\t')).replace('},{','},\n{'))
+````
+
+
 ````py
 import csv
 with open('x.csv','r',newline='',encoding='utf-8-sig') as csvF:
@@ -93,7 +102,15 @@ print (x)
 
 x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 ' '.join(filter(None,[di.get(k) for k in ['k1','k2',...]])) - scal, pomijając None
+````
 
+3 . List, Tuple
+
+````py
+>>> len(['abc','def',]) # przecinek na końcu jest ignorowany
+2
+>>> len(('abc',)) # 1-el. krotka
+1
 ````
 
 Linki 1:
