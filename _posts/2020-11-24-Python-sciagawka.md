@@ -113,6 +113,17 @@ x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 1
 ````
 
+4. Konwersja typów
+
+````py
+>>> [1*x for x in (True, False, '', [])]
+[1, 0, '', []]
+
+>>> '-'.join([])
+''
+````
+
+
 Linki 1:
 
 * [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3
