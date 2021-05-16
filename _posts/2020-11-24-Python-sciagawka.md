@@ -126,8 +126,12 @@ x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 
 Linki 1:
 
-* [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3
+* [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
 * [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
+
+
+Linki:
+* [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
 
 
 <style> pre code {font-size: smaller;} </style>
