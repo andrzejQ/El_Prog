@@ -113,7 +113,7 @@ x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 1
 ````
 
-4. Konwersja typów
+4 . Konwersja typów
 
 ````py
 >>> [1*x for x in (True, False, '', [])]
@@ -123,12 +123,59 @@ x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 ''
 ````
 
+5 . Zmienne globalne, pamięć stanu
+
+"
+W Pythonie zmienne, do których istnieją odwołania tylko wewnątrz funkcji, są niejawnie globalne. Jeśli zmiennej przypisano wartość w dowolnym miejscu w treści funkcji, przyjmuje się, że jest to wartość lokalna, chyba że jawnie zadeklarowano ją jako globalną `global x`.
+"  
+Ta zasada nie dotyczy modyfikowalnych (mutable) typów zmiennych, jak `[], {}, class`, bo wewnątrz funkcji mamy zawsze tylko referencję do zmiennej (czyli przypisanie wartości nie wymaga dekl. `global`)
+
+````py
+_G1 = None
+def f1():
+  global _G1
+  _G1=1
+f1();  print(_G1) # 1
+#-------------
+_G2 = [None]
+def f2():
+  _G2[0]=22
+f2();  print(_G2[0]) # 22
+#-------------
+class GVars: pass
+_gv = GVars()
+_gv.G3 = None;
+def f3():
+  _gv.G3=333
+f3();  print(_gv.G3) # 333
+````
+
+Gdy nie jest to uzasadnione to nie używaj zmiennych globalnych (wartości wynikowe funkcji najlepiej zwracać jako krotkę).
+
+Podobnie unikaj w funkcjach wartości domyślnych modyfikowalnych (mutable), jak `[], {}, ...`, gdyż takie wartości domyślne są inicjowane raz - przy pierwszym wywołaniu funkcji i są pamiętane przy kolejnych wywołaniach. Można tego użyć do pamiętania stany z poprzedniego wywołania - [zob.>>](https://docs.python.org/3.9/faq/programming.html#why-are-default-values-shared-between-objects)
+````py
+def expensive(arg1, arg2, *, _cache={}):  # po `*` mogą wystąpić tylko pary `k=v`
+  if (arg1, arg2) in _cache:
+    return _cache[(arg1, arg2)]
+
+  result = ... expensive computation ...  # Calculate the value
+  _cache[(arg1, arg2)] = result           # Store result in the cache
+  return result
+````
+
+
+- - - - - -
+
 
 Linki 1:
 
 * [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
 * [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
 
+Linki 5:
+* [create module-wide vars](https://stackoverflow.com/questions/1977362/how-to-create-module-wide-variables-in-python)  -> stackoverflow.com/questions
+* [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)  -> stackoverflow.com/questions
+* [default values shared between objects](https://docs.python.org/3.9/faq/programming.html#why-are-default-values-shared-between-objects)  -> docs.python.org/3.9/faq
 
 Linki:
 * [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
