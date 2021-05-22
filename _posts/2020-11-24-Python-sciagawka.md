@@ -95,7 +95,7 @@ x = set( open(lista.txt,'r',encoding='utf-8-sig').read().upper().splitlines() )
 ````
 
 
-2 . str:
+2 . Str
 
 ````py
 f'x: {x!r}'; 'x: '+repr(x)
@@ -105,6 +105,19 @@ print (x)
 
 x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 ' '.join(filter(None,[di.get(k) for k in ['k1','k2',...]])) - scal, pomijając None
+
+x = x.replace('a','aa') # wszystkie wystąpienia
+x = x.replace('a','A',1) # 1 wystąpienie
+````
+
+````py
+import re
+match = re.search(r'(\d+).*?(\d+)','x=01 y=02 z=03 z4=04') #nie re.match, które tylko szuka na pocz.
+>>> match[0],match[1],match[2] #znajduje 1-sze wystąpienie
+('01 y=02', '01', '02')
+x=re.sub(r'\S+?(\d+)',r'\1','x=01 y=02 z=03 z4=04')
+>>> x   # zamienia wszystkie wystąpienia
+'01 02 03 404'
 ````
 
 3 . List, Tuple
