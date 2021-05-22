@@ -180,6 +180,81 @@ def expensive(arg1, arg2, *, _cache={}):  # po `*` mogą wystąpić tylko pary `
 ````
 
 
+7 . Tree
+
+````py
+treeStr = f'''\
+1
+  11
+  12
+    121
+    122
+2
+3
+  31
+  32
+    321
+  33
+'''
+#https://gist.github.com/hrldcpr/2012250  (autovivification)
+from collections import defaultdict
+import json
+import re
+
+def tree(): return defaultdict(tree)
+def add(t, path):
+  for node in path: t = t[node]
+    
+indent='  '; indentLen=len(indent)
+dirsIn = treeStr.splitlines()
+
+tree0 = tree(); path = []
+for d in dirsIn:
+  level=len(re.match(r'\s+',indent+d)[0]) // indentLen #; print(level) #-> 1, ...
+  if level > len(path):
+    path.append(d.strip())
+  else:
+    path = path[:level-1]  + [d.strip()]
+  add(tree0, path)
+  
+print(json.dumps(tree0, ensure_ascii=False,indent=2,sort_keys=True))
+
+def prnTree(t, depth = 0):
+  for k in t.keys():
+    print(f'''{depth}: {"".join(depth * ["+ "])}{k}''')
+    depth += 1
+    prnTree(t[k], depth)
+    depth -= 1
+prnTree(tree0)
+  
+tree1 = tree() #kopia do tree1 i wydruk pełnych ścieżek
+def cpTree(t, depth = 1, path = []):
+  """ kopiuj drzewo do `tree1` i rozwiń (1:6:1) """
+  for k in t.keys():
+    #print(f'''{depth}: {"".join(depth * ["  "])}{k}''')
+    path = path + [k]
+    print(f'''{depth}: {path}''')
+    add(tree1,path)
+    depth += 1
+    cpTree(t[k], depth, path)
+    depth -= 1
+    path = path[:-1]
+
+cpTree(tree0)
+
+# 1: ['1']
+# 2: ['1', '11']
+# 2: ['1', '12']
+# 3: ['1', '12', '121']
+# 3: ['1', '12', '122']
+# 1: ['2']
+# 1: ['3']
+# 2: ['3', '31']
+# 2: ['3', '32']
+# 3: ['3', '32', '321']
+# 2: ['3', '33']
+````
+
 - - - - - -
 
 
@@ -193,9 +268,11 @@ Linki 5:
 * [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)  -> stackoverflow.com/questions
 * [default values shared between objects](https://docs.python.org/3.9/faq/programming.html#why-are-default-values-shared-between-objects)  -> docs.python.org/3.9/faq
 
+Linki 5:
+* [One-line Tree in Python](https://gist.github.com/hrldcpr/2012250) -> gist.github.com/hrldcpr/ (autovivification)
+
 Linki:
 * [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
-
 
 <style> pre code {font-size: smaller;} </style>
 
