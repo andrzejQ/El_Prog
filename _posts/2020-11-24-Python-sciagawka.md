@@ -180,7 +180,7 @@ def expensive(arg1, arg2, *, _cache={}):  # po `*` mogą wystąpić tylko pary `
 ````
 
 
-7 . Tree
+6 . Tree
 
 ````py
 treeStr = f'''\
@@ -225,38 +225,37 @@ def prnTree(t, depth = 0):
     depth += 1
     prnTree(t[k], depth)
     depth -= 1
-prnTree(tree0)
+print('tree0:'); prnTree(tree0)
   
-tree1 = tree() #kopia do tree1 i wydruk pełnych ścieżek
-def cpTree(t, depth = 1, path = []):
-  """ kopiuj drzewo do `tree1` i rozwiń (1:6:1) """
+print('kopia do `tree1` i (dla zobrazowania) wydruk pełnych ścieżek:')
+tree1=tree()
+def cpTree(t, depth = 0, path = []):
   for k in t.keys():
-    #print(f'''{depth}: {"".join(depth * ["  "])}{k}''')
     path = path + [k]
-    print(f'''{depth}: {path}''')
-    add(tree1,path)
+    print(f'''{depth}: {path}''') #$#
+    add(tree1,path) # kopia w `tree1`
     depth += 1
     cpTree(t[k], depth, path)
     depth -= 1
     path = path[:-1]
 
 cpTree(tree0)
+# 0: ['1']
+# 1: ['1', '11']
+# 1: ['1', '12']
+# 2: ['1', '12', '121']
+# 2: ['1', '12', '122']
+# 0: ['2']
+# 0: ['3']
+# 1: ['3', '31']
+# 1: ['3', '32']
+# 2: ['3', '32', '321']
+# 1: ['3', '33']
 
-# 1: ['1']
-# 2: ['1', '11']
-# 2: ['1', '12']
-# 3: ['1', '12', '121']
-# 3: ['1', '12', '122']
-# 1: ['2']
-# 1: ['3']
-# 2: ['3', '31']
-# 2: ['3', '32']
-# 3: ['3', '32', '321']
-# 2: ['3', '33']
+print('tree1:'); prnTree(tree1)
 ````
 
 - - - - - -
-
 
 Linki 1:
 
@@ -268,7 +267,7 @@ Linki 5:
 * [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)  -> stackoverflow.com/questions
 * [default values shared between objects](https://docs.python.org/3.9/faq/programming.html#why-are-default-values-shared-between-objects)  -> docs.python.org/3.9/faq
 
-Linki 5:
+Linki 6:
 * [One-line Tree in Python](https://gist.github.com/hrldcpr/2012250) -> gist.github.com/hrldcpr/ (autovivification)
 
 Linki:
