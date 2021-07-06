@@ -17,7 +17,7 @@ Plik do pobrania [**importCameraRoll.ps1**(.zip)]({{ site.baseurl }}/assets/file
 
 <small>
 Jeśli uruchamiasz Powershel po raz pierwszy to przeczytaj początkowe 2 zdania w 
-["Hybrydowy skrypt CMD-PowerShell"]({% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})
+["Hybrydowy skrypt CMD-PowerShell"]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})
 .</small>
 
 Początkowy fragment skryptu:

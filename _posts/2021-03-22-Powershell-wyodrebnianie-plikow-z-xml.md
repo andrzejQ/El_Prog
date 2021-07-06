@@ -34,7 +34,7 @@ Ten skrypt działa na pliki XML podpisane profilem zaufanym - zob.:
 
 Na tej stronie www można też sprawdzić podpis i wyodrębnić podpisane dokumenty - ale chyba tylko z pojedynczego pliku XML, więc powyższy skrypt może się przydać, gdy jest więcej plików XML.
 
-Powyższy skrypt wygodnie jest  używać jako ([_zob. objaśnienie_]({% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})):
+Powyższy skrypt wygodnie jest  używać jako ([_zob. objaśnienie_]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})):
 
 #### Hybrydowy skrypt 1.CMD (CMD-PowerShell)
 
@@ -59,7 +59,7 @@ ForEach ($plikXml in Get-ChildItem '.' -Filter *.XML) {
 "`n==koniec=="
 ````
 
-(zob. też [_problem małej czcionki w oknie konsoli_]({% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %}#kodowanie-utf-8-czcionka-raczej-inna-niż-consolas))
+(zob. też [_problem małej czcionki w oknie konsoli_]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %}#kodowanie-utf-8-czcionka-raczej-inna-niż-consolas))
 {:style="font-size: smaller;"}
 
 Taki skrypt można uruchomić wprost z eksploratora plików:
