@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>unicodeDoubleQuote.py</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 9pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc4 {
+	color: #808080;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc9 {
+	color: #FF00FF;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc1">#!/usr/bin/env python</span><span class="sc0">
+</span><span class="sc1"># </span><span class="sc0">
+</span><span class="sc1"># u Dec     Hex   HTML      Unicode character </span><span class="sc0">
+</span><span class="sc1"># ""  34    0x22  &amp;quot;    quotation mark (2x)</span><span class="sc0">
+</span><span class="sc1"># “ 8220  0x201C  &amp;ldquo;   left double quotation mark</span><span class="sc0">
+</span><span class="sc1"># ” 8221  0x201D  &amp;rdquo;   right double quotation mark</span><span class="sc0">
+</span><span class="sc1"># „ 8222  0x201E  &amp;bdquo;   double low-9 quotation mark</span><span class="sc0">
+</span><span class="sc1"># ‟ 8223  0x201F  &amp;#8223;   double high-reversed-9 quotation mark</span><span class="sc0">
+</span><span class="sc1"># ❝ 10077 0x275D  &amp;#10077;  heavy double turned comma quotation mark ornament</span><span class="sc0">
+</span><span class="sc1"># ❞ 10078 0x275E  &amp;#10078;  heavy double comma quotation mark ornament</span><span class="sc0">
+</span><span class="sc1"># ⹂ 11842 0x2E42  &amp;#11842;  double low-reversed-9 quotation mark</span><span class="sc0">
+</span><span class="sc1"># 〝 12317 0x301D  &amp;#12317;  reversed double prime quotation mark</span><span class="sc0">
+</span><span class="sc1"># 〞 12318 0x301E  &amp;#12318;  double prime quotation mark</span><span class="sc0">
+</span><span class="sc1"># 〟 12319 0x301F  &amp;#12319;  low double prime quotation mark</span><span class="sc0">
+</span><span class="sc1"># </span><span class="sc0">
+</span><span class="sc1"># https://unicodelookup.com/#quo</span><span class="sc0">
+</span><span class="sc1"># </span><span class="sc0">
+</span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">re</span><span class="sc0">
+</span><span class="sc5">def</span><span class="sc0"> </span><span class="sc9">uni2dQuote</span><span class="sc10">(</span><span class="sc11">s</span><span class="sc10">):</span><span class="sc0">
+  </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">re</span><span class="sc10">.</span><span class="sc11">sub</span><span class="sc10">(</span><span class="sc4">r'[\u201C\u201D\u201E\u201F\u275D\u275E\u2E42\u301D\u301E\u301F]'</span><span class="sc10">,</span><span class="sc0">
+                </span><span class="sc4">r'"'</span><span class="sc10">,</span><span class="sc0">  </span><span class="sc11">s</span><span class="sc10">)</span><span class="sc0">   </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc11">type</span><span class="sc10">(</span><span class="sc11">s</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">is</span><span class="sc0"> </span><span class="sc11">str</span><span class="sc0"> </span><span class="sc5">else</span><span class="sc0"> </span><span class="sc11">s</span><span class="sc0">
+
+</span><span class="sc5">print</span><span class="sc10">(</span><span class="sc11">uni2dQuote</span><span class="sc10">(</span><span class="sc4">' Abc „Def” Ghi'</span><span class="sc10">))</span><span class="sc0"> </span><span class="sc1"># Abc "Def" Ghi</span><span class="sc0">
+
+</span><span class="sc1">#csvWr.writerow([uni2dQuote(s) for s in row])</span></div></body>
+</html>

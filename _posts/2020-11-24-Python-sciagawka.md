@@ -56,6 +56,11 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
   csvDiWr.writerows(dicts)
 ````
 
+<small>W korespondecji seryjnej MS Word 2016 jest błędna interpretacja cudzysłowów innych niż podstawowy `"`. Można zastosować konwersję jak w 
+[unicodeDoubleQuote.py]({{ site.baseurl }}/assets/files/unicodeDoubleQuote.py.html )</small>.
+
+
+
 ````py
 import csv
 #read
