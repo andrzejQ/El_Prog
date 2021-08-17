@@ -172,4 +172,8 @@ echo|set /p="*** %username%              "
 for /f "tokens=1,2,* " %%G in (
 'reg query "HKCU\Environment"'
 ) do echo setx %%G "%%I
-</pre>{:style="font-size: smaller;"} 
+</pre>{:style="font-size: smaller;"}
+
+<span style="font-size: smaller;">
+Zauważ, że w poleceniach setx mamy [otwarty, a niezamknięty cudzysłów](https://stackoverflow.com/questions/11011115/setx-setting-path-with-spaces#answer-28332961) `"` (`"%%I`). 
+</span>
