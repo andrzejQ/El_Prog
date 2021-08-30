@@ -10,8 +10,11 @@ Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego) ...
 1 . Pliki:
 
 ````py
-with open('a.txt', encoding='utf-8-sig') as txt: # 'utf-8', 'cp1250'
-  a = txt.read().splitlines()
+try:
+  with open('a.txt', encoding='utf-8-sig') as txt: # 'utf-8', 'cp1250'
+    a = txt.read().splitlines()
+except FileNotFoundError:
+  print('Brak "a.txt"')
 
 with open('a.txt','w',newline='\r\n',encoding='utf-8-sig') as txt:
   txt.write('\n'.join(a))
@@ -266,6 +269,7 @@ Linki 1:
 
 * [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
 * [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
+* [Check if a File or Directory Exists](https://linuxize.com/post/python-check-if-file-exists/) -> linuxize.com/
 
 Linki 5:
 * [create module-wide vars](https://stackoverflow.com/questions/1977362/how-to-create-module-wide-variables-in-python)  -> stackoverflow.com/questions
