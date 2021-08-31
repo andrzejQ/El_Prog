@@ -62,7 +62,7 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 <small>W korespondecji seryjnej MS Word 2016 jest błędna interpretacja cudzysłowów innych niż podstawowy `"`. Można zastosować konwersję jak w 
 [unicodeDoubleQuote.py]({{ site.baseurl }}/assets/files/unicodeDoubleQuote.py.html )</small>.
 
-
+CSV & namedtuple:
 
 ````py
 import csv
@@ -106,10 +106,26 @@ x = set( open(lista.txt,'r',encoding='utf-8-sig').read().upper().splitlines() )
 2 . Str
 
 ````py
-f'x: {x!r}'; 'x: '+repr(x)
+f'{x!r}' # v3.6 conversion: 's' str(), 'r' repr(), 'a' ascii().
 
-print ('opis: ',end ='')
-print (x)
+"{" [field_name] ["!" conversion] [":" format_spec] "}"
+format_spec  ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
+fill         ::=  <any character>
+align        ::=  "<" | ">" | "^" | "=" # left | right | center | v3.8 padding after the sign
+sign         ::=  "+" | "-" | " " # +: a sign should be used for positive numbers
+width        ::=  digit+
+grouping_opt ::=  "_" | "," # for a thousands separator, or every 4 digits for hex, bin, ...
+precision    ::=  digit+
+type         ::=  "b"|"c"|"d"|"e"|"E"|"f"|"F"|"g"|"G"|"n"|"o"|"s"|"x"|"X"|"%"
+
+>>> x=123; y=20
+>>> f'{x:*^20}   {x:*^{y}}'
+'********123*********   ********123*********'
+>>> f'{x:06d} {x:06x} {x:#x}'
+'000123 00007b 0x7b'
+
+>>> print ('opis: ',end =''); print (x)
+opis: 123
 
 x or '' - gdy x=None albo jest łańcuchem, to zamiast None jest ''
 ' '.join(filter(None,[di.get(k) for k in ['k1','k2',...]])) - scal, pomijając None
@@ -119,11 +135,11 @@ x = x.replace('a','A',1) # 1 wystąpienie
 ````
 
 ````py
-import re
-match = re.search(r'(\d+).*?(\d+)','x=01 y=02 z=03 z4=04') #nie re.match, które tylko szuka na pocz.
+>>> import re
+>>> match = re.search(r'(\d+).*?(\d+)','x=01 y=02 z=03 z4=04') #nie re.match, które tylko szuka na pocz.
 >>> match[0],match[1],match[2] #znajduje 1-sze wystąpienie
 ('01 y=02', '01', '02')
-x=re.sub(r'\S+?(\d+)',r'\1','x=01 y=02 z=03 z4=04')
+>>> x=re.sub(r'\S+?(\d+)',r'\1','x=01 y=02 z=03 z4=04')
 >>> x   # zamienia wszystkie wystąpienia
 '01 02 03 404'
 ````
@@ -270,6 +286,9 @@ Linki 1:
 * [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
 * [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
 * [Check if a File or Directory Exists](https://linuxize.com/post/python-check-if-file-exists/) -> linuxize.com/
+
+Linki 2:
+* [Format Specification Mini-Language](https://docs.python.org/pl/3/library/string.html#formatspec)  -> docs.python.org/3/
 
 Linki 5:
 * [create module-wide vars](https://stackoverflow.com/questions/1977362/how-to-create-module-wide-variables-in-python)  -> stackoverflow.com/questions
