@@ -5,7 +5,14 @@ date:   2020-11-24 06:55:00 +0100
 categories: Programowanie
 ---
 
-Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego) ... 
+Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego)... <br/> 
+[1.Pliki]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1--pliki) &nbsp; 
+[2.Str]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2--str) &nbsp; 
+[3.List, Tuple]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3--list-tuple) &nbsp; 
+[4.Konwersja typów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4--konwersja-typów) &nbsp; 
+[5.Zmienne globalne, pamięć stanu]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
+[6.Tree]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6--tree)
+
 
 ## 1 . Pliki:
 
@@ -23,6 +30,17 @@ with open('a.txt','w',newline='',encoding='utf-8-sig') as txt: print(s, file=txt
 ````
 
 * [Check if a File or Directory Exists](https://linuxize.com/post/python-check-if-file-exists/) -> linuxize.com/
+
+### Lista plików
+
+````py
+import os
+with os.scandir(path='.') as it: # iterator
+  for f in it:
+    if f.is_file(): print(f.name)
+````
+
+*  [os.scandir](https://docs.python.org/3/library/os.html#os.scandir)   -> docs.python.org/3/
 
 ### JSON
 

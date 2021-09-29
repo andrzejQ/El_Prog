@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Uruchamianie Pythona w Windows"
-date:   2019-09-20 11:21:59 +0100
+date:   2020-11-24 06:54:00 +0100
 categories: Programowanie
 ---
 
