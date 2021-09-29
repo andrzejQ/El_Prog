@@ -7,7 +7,7 @@ categories: Programowanie
 
 Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego) ... 
 
-1 . Pliki:
+## 1 . Pliki:
 
 ````py
 try:
@@ -22,7 +22,9 @@ with open('a.txt','w',newline='\r\n',encoding='utf-8-sig') as txt:
 with open('a.txt','w',newline='',encoding='utf-8-sig') as txt: print(s, file=txt)
 ````
 
-JSON
+* [Check if a File or Directory Exists](https://linuxize.com/post/python-check-if-file-exists/) -> linuxize.com/
+
+### JSON
 
 ````py
 import json # load(file) loads(str)
@@ -38,7 +40,8 @@ Dla dość prostych struktur json, gdzie mamy listę słowników można uzyskać
 with open('d.json', 'w', encoding='utf-8') as fj:
     fj.write(json.dumps(di, ensure_ascii=False, separators=(',', ':\t')).replace('},','},\n'))
 ````
-CSV
+
+### CSV
 
 ````py
 import csv
@@ -62,7 +65,7 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 <small>W korespondecji seryjnej MS Word 2016 jest błędna interpretacja cudzysłowów innych niż podstawowy `"`. Można zastosować konwersję jak w 
 [unicodeDoubleQuote.py]({{ site.baseurl }}/assets/files/unicodeDoubleQuote.py.html )</small>.
 
-CSV & namedtuple:
+### CSV & namedtuple:
 
 ````py
 import csv
@@ -103,7 +106,12 @@ x = set( open(lista.txt,'r',encoding='utf-8-sig').read().upper().splitlines() )
 ````
 
 
-2 . Str
+* [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
+* [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
+
+
+
+## 2 . Str
 
 ````py
 f'{x!r}' # v3.6 conversion: 's' str(), 'r' repr(), 'a' ascii().
@@ -123,7 +131,11 @@ type         ::=  "b"|"c"|"d"|"e"|"E"|"f"|"F"|"g"|"G"|"n"|"o"|"s"|"x"|"X"|"%"
 '********123*********   ********123*********'
 >>> f'{x:06d} {x:06x} {x:#x}'
 '000123 00007b 0x7b'
+````
 
+* [Format Specification Mini-Language](https://docs.python.org/pl/3/library/string.html#formatspec)  -> docs.python.org/3/
+
+````py
 >>> print ('opis: ',end =''); print (x)
 opis: 123
 
@@ -144,7 +156,7 @@ x = x.replace('a','A',1) # 1 wystąpienie
 '01 02 03 404'
 ````
 
-3 . List, Tuple
+## 3 . List, Tuple
 
 ````py
 >>> len(['abc','def',]) # przecinek na końcu jest ignorowany
@@ -153,7 +165,7 @@ x = x.replace('a','A',1) # 1 wystąpienie
 1
 ````
 
-4 . Konwersja typów
+## 4 . Konwersja typów
 
 ````py
 >>> [1*x for x in (True, False, '', [])]
@@ -163,7 +175,7 @@ x = x.replace('a','A',1) # 1 wystąpienie
 ''
 ````
 
-5 . Zmienne globalne, pamięć stanu
+## 5 . Zmienne globalne, pamięć stanu
 
 "
 W Pythonie zmienne, do których istnieją odwołania tylko wewnątrz funkcji, są niejawnie globalne. Jeśli zmiennej przypisano wartość w dowolnym miejscu w treści funkcji, przyjmuje się, że jest to wartość lokalna, chyba że jawnie zadeklarowano ją jako globalną `global x`.
@@ -203,8 +215,12 @@ def expensive(arg1, arg2, *, _cache={}):  # po `*` mogą wystąpić tylko pary `
   return result
 ````
 
+* [create module-wide vars](https://stackoverflow.com/questions/1977362/how-to-create-module-wide-variables-in-python)  -> stackoverflow.com/questions
+* [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)  -> stackoverflow.com/questions
+* [default values shared between objects](https://docs.python.org/3.9/faq/programming.html#why-are-default-values-shared-between-objects)  -> docs.python.org/3.9/faq
 
-6 . Tree
+
+## 6 . Tree
 
 ````py
 treeStr = f'''\
@@ -279,26 +295,13 @@ cpTree(tree0)
 print('tree1:'); prnTree(tree1)
 ````
 
-- - - - - -
-
-Linki 1:
-
-* [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
-* [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
-* [Check if a File or Directory Exists](https://linuxize.com/post/python-check-if-file-exists/) -> linuxize.com/
-
-Linki 2:
-* [Format Specification Mini-Language](https://docs.python.org/pl/3/library/string.html#formatspec)  -> docs.python.org/3/
-
-Linki 5:
-* [create module-wide vars](https://stackoverflow.com/questions/1977362/how-to-create-module-wide-variables-in-python)  -> stackoverflow.com/questions
-* [global variables in a function](https://stackoverflow.com/questions/423379/using-global-variables-in-a-function)  -> stackoverflow.com/questions
-* [default values shared between objects](https://docs.python.org/3.9/faq/programming.html#why-are-default-values-shared-between-objects)  -> docs.python.org/3.9/faq
-
-Linki 6:
 * [One-line Tree in Python](https://gist.github.com/hrldcpr/2012250) -> gist.github.com/hrldcpr/ (autovivification)
 
-Linki:
+- - - - - -
+
+&nbsp;
+
+Linki ogólne:
 * [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
 
 <style> pre code {font-size: smaller;} </style>
