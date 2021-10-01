@@ -322,5 +322,9 @@ print('tree1:'); prnTree(tree1)
 Linki ogólne:
 * [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
 
+* [utils_AK (.zip) files.py misc1.py]({{ site.baseurl }}/assets/files/utils_AK.zip "utils_AK.zip") 
+
+ 
+
 <style> pre code {font-size: smaller;} </style>
 
