@@ -315,6 +315,24 @@ print('tree1:'); prnTree(tree1)
 
 * [One-line Tree in Python](https://gist.github.com/hrldcpr/2012250) -> gist.github.com/hrldcpr/ (autovivification)
 
+
+## 7 . sorted
+
+````py
+import locale
+locale.setlocale(locale.LC_ALL, '')
+
+liPrac = [ ['Kowal Jan', 'dr'], ['Zych Jan','prof.'], ['Zorba Jan','mgr'], ['Ślisz Jan','mgr'] ]
+
+def odwrKluczTytSt(tytSt):
+  if not tytSt: return 0 # 0 gdy pusty tytSt
+  return -ord(tytSt[0] if tytSt[0]!='d' else 'n')
+       # -ord: sortowanie odwr.tj. najpierw 'prof.', 'dr' przed 'mgr', stąd 'd' na 'n'; 
+liPrac_ = sorted( liPrac, key = lambda r: (odwrKluczTytSt(r[1]), locale.strxfrm(r[0]) ))
+                                                               # Nazwiska PL-alfabetycznie PL
+#   [['Zych Jan', 'prof.'], ['Kowal Jan', 'dr'], ['Ślisz Jan', 'mgr'], ['Zorba Jan', 'mgr']]
+````
+
 - - - - - -
 
 &nbsp;
