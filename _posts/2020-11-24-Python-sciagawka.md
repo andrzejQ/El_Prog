@@ -12,6 +12,7 @@ Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego)... <br/>
 [4.Konwersja typów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4--konwersja-typów) &nbsp; 
 [5.Zmienne globalne, pamięć stanu]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
 [6.Tree]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6--tree)
+[7.sorted]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7--sorted)
 
 
 ## 1 . Pliki:
@@ -329,7 +330,7 @@ def odwrKluczTytSt(tytSt):
   return -ord(tytSt[0] if tytSt[0]!='d' else 'n')
        # -ord: sortowanie odwr.tj. najpierw 'prof.', 'dr' przed 'mgr', stąd 'd' na 'n'; 
 liPrac_ = sorted( liPrac, key = lambda r: (odwrKluczTytSt(r[1]), locale.strxfrm(r[0]) ))
-                                                               # Nazwiska PL-alfabetycznie PL
+                                                               # Nazwiska - alfabetycznie PL
 #   [['Zych Jan', 'prof.'], ['Kowal Jan', 'dr'], ['Ślisz Jan', 'mgr'], ['Zorba Jan', 'mgr']]
 ````
 
