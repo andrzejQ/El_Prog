@@ -10,8 +10,9 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 [2: RegExp                   ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-regexp) &nbsp; 
 [3: Ustawienia               ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-ustawienia) &nbsp; 
 [4: Array                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-array) &nbsp; 
-[5: Właściwości mutim. plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-właściwości-mutim-plików) &nbsp; 
-[6: Nie będziesz używał!     ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6-nie-będziesz-używał) &nbsp; 
+[5: Pliki                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-pliki) &nbsp; 
+[6: Właściwości mutim. plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6-właściwości-mutim-plików) &nbsp; 
+[# Nie będziesz używał!      ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#-nie-będziesz-używał) &nbsp; 
 
 
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
@@ -84,7 +85,25 @@ dla wielowymiarowych: `$MultiDimShallowCopy = $Array | foreach { , $_ }`  `$Mult
 * [Deep copying arrays and objects](https://www.powershelladmin.com/wiki/Deep_copying_arrays_and_objects_in_PowerShell) -> powershelladmin.com
 
 
-### 5: Właściwości mutim. plików
+### 5: Pliki
+
+````powershell
+$EnDefault = [System.Text.Encoding]::Default # gdy potrzeba ANSI, np. dla txt-CSV
+[Console]::OutputEncoding = [System.Text.Encoding]::Unicode
+Set-Location -Path $PSScriptRoot # gdy używam ścieżek względem położenia bieżącego skryptu
+            # System.IO.Stream - szybko, ale mało intuicyjnie:
+$fWe = new-object System.IO.StreamReader( (Resolve-Path ('we.txt')), $EnDefault) 
+                                        #  ^-- Reader: koniecznie pełna ścieżka!
+  try { while (($wiersz = $fWe.ReadLine()) -ne $null) { ... } finally { $fWe.Close() }
+$fWy = new-object System.IO.StreamWriter( ('..\Wyniki\' + 'wy1.txt'), $false, $EnDefault) 
+                                        # ^-- konieczny nawias, gdy "+"  ^--no-append
+  try { ...; $fWy.WriteLine( $kolejnyWiersz )  } finally { $fWy.Close() }
+````
+
+* [The many ways to read and write to files](https://powershellexplained.com/2017-03-18-Powershell-reading-and-saving-data-to-files/)  -> powershellexplained.com
+
+
+### 6: Właściwości mutim. plików
 
 Odczyt rozszerzonych własności pliku  
 ````powershell
@@ -109,7 +128,8 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 * [Getting file metadata with PowerShell](https://evotec.pl/getting-file-metadata-with-powershell-similar-to-what-windows-explorer-provides/) -> evotec.pl
 
 
-### 6: Nie będziesz używał!
+
+### # Nie będziesz używał!
 
 
 `... | foreach { ...` ~~`continue`~~ ~~`break`~~  
