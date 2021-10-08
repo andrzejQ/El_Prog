@@ -338,7 +338,8 @@ liPrac_ = sorted( liPrac, key = lambda r: (odwrKluczTytSt(r[1]), locale.strxfrm(
 
 &nbsp;
 
-Linki ogólne:
+Różne odnośniki:
+
 * [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
 
 * [utils_AK (.zip) files.py misc1.py]({{ site.baseurl }}/assets/files/utils_AK.zip "utils_AK.zip") 

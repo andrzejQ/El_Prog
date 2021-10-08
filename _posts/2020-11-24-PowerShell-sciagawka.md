@@ -129,6 +129,19 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 
 
 
+- - - - - -
+
+&nbsp;
+
+Różne odnośniki:
+
+* [unicodeSupSub_test.ps1 (html)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.zip "unicodeSupSub_test.zip") 
+
+
+- - - - - -
+
+&nbsp;
+
 ### # Nie będziesz używał!
 
 
@@ -136,8 +149,6 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 `@a[`~~`0..-1`~~`]`
 
 
-
------
 
 <style> 
   pre code {font-size: smaller;} 

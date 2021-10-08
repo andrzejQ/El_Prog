@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>unicodeSupSub_test.ps1 </title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc2 {
+	color: #800000;
+}
+.sc3 {
+	color: #804040;
+}
+.sc4 {
+	color: #B55A00;
+}
+.sc5 {
+	font-weight: bold;
+}
+.sc6 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc7 {
+}
+.sc8 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc13 {
+	color: #008080;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc7">Set-StrictMode</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">Version</span><span class="sc0"> </span><span class="sc7">Latest</span><span class="sc0">
+
+</span><span class="sc1">##########################################</span><span class="sc0">
+</span><span class="sc1"># ˢᵘᵖᵉʳˢᶜʳⁱᵖᵗ and ₛᵤbₛcᵣᵢₚₜ in unicode text </span><span class="sc0">
+</span><span class="sc1">##########################################</span><span class="sc0">
+
+</span><span class="sc6">[</span><span class="sc7">char</span><span class="sc6">[]]</span><span class="sc5">$unisup</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc0"> </span><span class="sc2">"`0      `a`b`t`n`v`f`r                  "</span><span class="sc0"> </span><span class="sc13">&lt;#0..31#&gt;</span><span class="sc0">  </span><span class="sc6">+</span><span class="sc0">
+</span><span class="sc3">' !˝#ᙚ%&amp;ˈ⁽⁾*⁺,⁻·/⁰¹²³⁴⁵⁶⁷⁸⁹:;&lt;⁼&gt;?@ᴬᴮCᴰᴱFᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿSᵀᵁⱽᵂXYZ[\]^_`ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖqʳˢᵗᵘᵛʷˣʸᶻ{|}˜'</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0">
+
+</span><span class="sc8">function</span><span class="sc0"> </span><span class="sc7">USup</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+  </span><span class="sc7">param</span><span class="sc6">(</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">string</span><span class="sc6">]</span><span class="sc5">$str</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0">
+  </span><span class="sc5">$r</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc3">''</span><span class="sc0">
+  </span><span class="sc8">foreach</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ch</span><span class="sc0"> </span><span class="sc8">in</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">char</span><span class="sc6">[]]</span><span class="sc5">$str</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+    </span><span class="sc5">$r</span><span class="sc0"> </span><span class="sc6">+=</span><span class="sc0"> </span><span class="sc8">if</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ch</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">cle</span><span class="sc0"> </span><span class="sc3">'~'</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc5">$unisup</span><span class="sc6">[</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">int</span><span class="sc6">][</span><span class="sc7">char</span><span class="sc6">]</span><span class="sc5">$ch</span><span class="sc0"> </span><span class="sc6">]}</span><span class="sc0"> </span><span class="sc8">else</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc5">$ch</span><span class="sc6">}</span><span class="sc0">
+  </span><span class="sc6">}</span><span class="sc0">
+  </span><span class="sc5">$r</span><span class="sc0">
+</span><span class="sc6">}</span><span class="sc0">
+
+</span><span class="sc6">[</span><span class="sc7">char</span><span class="sc6">[]]</span><span class="sc5">$unisub</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc0"> </span><span class="sc2">"`0      `a`b`t`n`v`f`r                  "</span><span class="sc0"> </span><span class="sc13">&lt;#0..31#&gt;</span><span class="sc0">  </span><span class="sc6">+</span><span class="sc0">
+</span><span class="sc3">' !˶#$%&amp;˒₍₎*₊ˏ₋./₀₁₂₃₄₅₆₇₈₉:;&lt;₌&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^ˍ˴abcdₑfgₕᵢⱼₖₗₘₙₒₚqᵣₛₜᵤᵥwₓᵧz{|}˷'</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0">
+
+</span><span class="sc8">function</span><span class="sc0"> </span><span class="sc7">USub</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+  </span><span class="sc7">param</span><span class="sc6">(</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">string</span><span class="sc6">]</span><span class="sc5">$str</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0">
+  </span><span class="sc5">$r</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc3">''</span><span class="sc0">
+  </span><span class="sc8">foreach</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ch</span><span class="sc0"> </span><span class="sc8">in</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">char</span><span class="sc6">[]]</span><span class="sc5">$str</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+    </span><span class="sc5">$r</span><span class="sc0"> </span><span class="sc6">+=</span><span class="sc0"> </span><span class="sc8">if</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ch</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">cle</span><span class="sc0"> </span><span class="sc3">'~'</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc5">$unisub</span><span class="sc6">[</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">int</span><span class="sc6">][</span><span class="sc7">char</span><span class="sc6">]</span><span class="sc5">$ch</span><span class="sc0"> </span><span class="sc6">]}</span><span class="sc0"> </span><span class="sc8">else</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc5">$ch</span><span class="sc6">}</span><span class="sc0">
+  </span><span class="sc6">}</span><span class="sc0">
+  </span><span class="sc5">$r</span><span class="sc0">
+</span><span class="sc6">}</span><span class="sc0">
+
+</span><span class="sc7">USup</span><span class="sc0"> </span><span class="sc2">"ABCabc 0`t1"</span><span class="sc0">
+     </span><span class="sc1">#ᴬᴮCᵃᵇᶜ ⁰  ¹</span><span class="sc0">
+</span><span class="sc7">USup</span><span class="sc0"> </span><span class="sc4">590.6</span><span class="sc0">
+    </span><span class="sc1">#⁵⁹⁰·⁶</span><span class="sc0">
+</span><span class="sc7">USup</span><span class="sc0"> </span><span class="sc3">' !"#$%&amp;''()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ąćę'</span><span class="sc0">
+     </span><span class="sc1"># !˝#ᙚ%&amp;ˈ⁽⁾*⁺,⁻·/⁰¹²³⁴⁵⁶⁷⁸⁹:;&lt;⁼&gt;?@ᴬᴮCᴰᴱFᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾQᴿSᵀᵁⱽᵂXYZ[\]^_`ᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖqʳˢᵗᵘᵛʷˣʸᶻ{|}˜ąćę</span><span class="sc0">
+
+</span><span class="sc7">USub</span><span class="sc0"> </span><span class="sc3">' !"#$%&amp;''()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~ąćę'</span><span class="sc0">
+     </span><span class="sc1"># !˶#$%&amp;˒₍₎*₊ˏ₋./₀₁₂₃₄₅₆₇₈₉:;&lt;₌&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^ˍ˴abcdₑfgₕᵢⱼₖₗₘₙₒₚqᵣₛₜᵤᵥwₓᵧz{|}˷ąćę</span><span class="sc0">
+
+</span><span class="sc13">&lt;# Greek xᵝ ᵞ ᵟ ᵠ ᵡ ᶿ xᵦ ᵧ ᵨ ᵩ ᵪ
+x ᶛ ᶜ ᶝ ᶞ ᶟ ᶠ ᶡ ᶢ ᶣ ᶤ ᶥ ᶦ ᶧ ᶨ ᶩ ᶪ ᶫ ᶬ ᶭ ᶮ ᶯ ᶰ ᶱ ᶲ ᶳ ᶴ ᶵ ᶶ ᶷ ᶸ ᶹ ᶺ ᶻ ᶼ ᶽ ᶾ
+x ᘁ ᙆ ᙇ ᙚ ᙾ ᙿ ᣔ ᣕ ᣖ ᣗ ᣘ ᣙ ᣚ ᣛ ᣜ ᣝ ᣞ ᣟ ᣳ ᣴ ᣵ ᐧ xᕀ ᕁ #&gt;</span></div></body>
+</html>
