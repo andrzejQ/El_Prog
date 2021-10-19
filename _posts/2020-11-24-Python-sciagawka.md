@@ -334,6 +334,21 @@ liPrac_ = sorted( liPrac, key = lambda r: (odwrKluczTytSt(r[1]), locale.strxfrm(
 #   [['Zych Jan', 'prof.'], ['Kowal Jan', 'dr'], ['Ślisz Jan', 'mgr'], ['Zorba Jan', 'mgr']]
 ````
 
+
+## 8 . filter() replacement
+
+````py
+    # Equivalent list comprehension
+list(filter(function, iterable))
+[item for item in iterable if function(item)]
+    # Use a generator expression
+filter(function, iterable)
+(item for item in iterable if function(item))
+````
+
+* <https://realpython.com/python-filter-function/#replacing-filter-with-a-list-comprehension>
+* <https://www.programiz.com/python-programming/generator#expression>
+
 - - - - - -
 
 &nbsp;
