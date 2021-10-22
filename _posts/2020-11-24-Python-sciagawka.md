@@ -5,7 +5,7 @@ date:   2020-11-24 06:55:00 +0100
 categories: Programowanie
 ---
 
-Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego)... <br/> 
+Moja ściągawka Python 3.7+ (zapewne tylko do użytku własnego)... <br/> 
 [1.Pliki]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1--pliki) &nbsp; 
 [2.Str]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2--str) &nbsp; 
 [3.List, Tuple]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3--list-tuple) &nbsp; 
@@ -13,7 +13,8 @@ Moja ściągawka Python 3.6+ (zapewne tylko do użytku własnego)... <br/>
 [5.Zmienne globalne, pamięć stanu]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
 [6.Tree]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6--tree)
 [7.sorted]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7--sorted)
-
+[8.filter() replacement]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8--filter-replacement")
+[9.linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail)
 
 ## 1 . Pliki:
 
@@ -348,6 +349,30 @@ filter(function, iterable)
 
 * <https://realpython.com/python-filter-function/#replacing-filter-with-a-list-comprehension>
 * <https://www.programiz.com/python-programming/generator#expression>
+
+
+## 9 . linux sendmail
+
+````py
+from email.message import EmailMessage
+from subprocess import Popen, PIPE
+def e_addrss(adrLi):
+  return ', '.join(adrLi)
+  #po przecinku MUSI BYĆ SPACJA - z powodu błędu Pythona(np.v3.9)
+msg = EmailMessage()
+msg.set_content('''Treść ĄĆĘŁŃÓŚŹŻ ąćęłńóśźż €''')
+msg['From'] = 'a <a@x.y>'
+msg['To'] = e_addrss(['Ab C <abc@x.y>','D. Żółw <dz@x.y>','A Ć<ac@x.y>'])
+#   'Cc' 'Bcc' 'Reply-To' 'Subject'
+print(msg.as_string()) #$#
+p = Popen(["/usr/sbin/sendmail", "-t", "-oi"], stdin=PIPE)
+p.communicate(msg.as_bytes())
+````
+
+Teksty nie-ascii są w EmailMessage automatycznie enkodowane na 'utf-8'.
+
+* <https://bugs.python.org/issue45551>
+* <https://www.ietf.org/rfc/rfc2822.txt> , 2.2.3. Long Header Fields
 
 - - - - - -
 
