@@ -5,7 +5,7 @@ date:   2020-11-24 06:55:00 +0100
 categories: Programowanie
 ---
 
-Moja ściągawka Python 3.7+ (zapewne tylko do użytku własnego)... <br/> 
+Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do użytku własnego)... <br/> 
 [1.Pliki]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1--pliki) &nbsp; 
 [2.Str]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2--str) &nbsp; 
 [3.List, Tuple]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3--list-tuple) &nbsp; 
