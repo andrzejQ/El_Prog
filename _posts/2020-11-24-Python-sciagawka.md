@@ -15,6 +15,7 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
 [7.sorted]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7--sorted)
 [8.filter() replacement]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8--filter-replacement")
 [9.linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail)
+[10. Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www)
 
 ## 1 . Pliki:
 
@@ -373,6 +374,28 @@ Teksty nie-ascii są w EmailMessage automatycznie enkodowane na 'utf-8'.
 
 * <https://bugs.python.org/issue45551>
 * <https://www.ietf.org/rfc/rfc2822.txt> , 2.2.3. Long Header Fields
+
+
+
+
+## 10 . Czytanie danych z www
+
+````py
+import requests #py -m pip install requests
+import re
+url='https://andrzejq.github.io/El_Prog/'
+response = requests.get(url) #;print(response.text)
+#...<h3>
+#   <a class="post-link" href="/El_Prog/...
+# można przeskakiwać łamanie wiersza z pomocą '\s+' lub '[^<]+',
+# albo rozdzielić tekst na wiersze z interesującymi nas sekcjami:
+html = response.text.replace('\n',' ').replace('<h3','\n<h3') #;print(html)
+aLi2 = re.findall(r'<h3> +' + re.escape('<a class="post-link"')
++ r'.+?href=' + r'"(.+?)">' 
++ r'(.+?)'+r'</a>', html) ;print(f'{aLi2}'.replace(', ',',\n'))
+#[('/El_Prog/programowanie/2020/11/24/Python-sciagawka.html',
+#'             Python ściągawka           '), ...
+````
 
 - - - - - -
 
