@@ -17,7 +17,8 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
 
-`($x='coś')` , <code>"2+3=$(2+3)`n"</code> , `@()`, `${a b}`
+`($x='coś')` , <code>"2+3=$(2+3)`n"</code> , `@()`, `${a b}`  
+<code>Write-Host "`$x: $x" -ForegroundColor Yellow</code>
 
 
 ### 1: Podstawy
@@ -73,7 +74,7 @@ Przydatne ustawienia
 `$Arr.length` szybko dla tablicy, `$ArrList.count` powolniejsze, używaj dla kolekcji.
 
 `$a=@(11,22,33,44); $a[0,2];`11,33 `@a[0,-1]`11,44 `$a[($a.Count-1)..0]`wspak `$b,$c=$a; $b`11 `$c`22,33,44  
-`[string[]]$s3=@('')*3` `[string[][]]$s2x4=(,(@('x')*4))*2` `$s2x4[1][3]='13'`  
+`[string[]]$s3=@('')*3` `[string[][]]$s2x4=(,(@('x')*4))*2` `$s2x4[1][3]`x  
 
 `$ArrayDeepCopy = $Array | foreach { $_ } # deep copy trick` to spłaszcza tablicę;  
 dla wielowymiarowych: `$MultiDimShallowCopy = $Array | foreach { , $_ }`  `$MultiDimDeepCopy = $Array | foreach { , ($_ | foreach{ $_ }) }`
@@ -146,7 +147,7 @@ Różne odnośniki:
 
 
 `... | foreach { ...` ~~`continue`~~ ~~`break`~~  
-`@a[`~~`0..-1`~~`]`
+`@a[`~~0 . .-1~~`]`
 
 
 
