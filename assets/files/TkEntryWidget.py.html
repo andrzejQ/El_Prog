@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>TkEntryWidget.py</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc2 {
+	color: #FF0000;
+}
+.sc3 {
+	color: #808080;
+}
+.sc4 {
+	color: #808080;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc9 {
+	color: #FF00FF;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc14 {
+	font-weight: bold;
+	color: #880088;
+}
+.sc19 {
+	color: #FF8000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">tkinter</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc0">
+</span><span class="sc1"># https://python-course.eu/tkinter_entry_widgets.php</span><span class="sc0">
+</span><span class="sc1"># https://www.pythontutorial.net/tkinter/tkinter-grid/</span><span class="sc0">
+</span><span class="sc11">optns</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{</span><span class="sc4">'padx'</span><span class="sc10">:</span><span class="sc2">7</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">'pady'</span><span class="sc10">:</span><span class="sc2">7</span><span class="sc10">}</span><span class="sc0"> </span><span class="sc1">#</span><span class="sc0">
+
+</span><span class="sc11">master</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Tk</span><span class="sc10">()</span><span class="sc0">
+</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Label</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc3">"First Name"</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">**</span><span class="sc11">optns</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Label</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc3">"Last Name "</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">**</span><span class="sc11">optns</span><span class="sc10">)</span><span class="sc0">
+
+</span><span class="sc11">e1</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Entry</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc11">e1</span><span class="sc10">.</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">**</span><span class="sc11">optns</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc11">e2</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Entry</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc11">e2</span><span class="sc10">.</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">**</span><span class="sc11">optns</span><span class="sc10">)</span><span class="sc0">
+
+</span><span class="sc5">def</span><span class="sc0"> </span><span class="sc9">print_data</span><span class="sc10">():</span><span class="sc0"> </span><span class="sc1"># pierwszy string to e1.get(); zamiast e1 można użyć nazwy więcej-mówiącej</span><span class="sc0">
+  </span><span class="sc14">print</span><span class="sc10">(</span><span class="sc19">f"""First Name: {</span><span class="sc11">e1</span><span class="sc10">.</span><span class="sc11">get</span><span class="sc10">()</span><span class="sc19">}
+Last Name : {</span><span class="sc11">e2</span><span class="sc10">.</span><span class="sc11">get</span><span class="sc10">()</span><span class="sc19">}"""</span><span class="sc10">)</span><span class="sc0">
+
+</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Button</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc4">'Show'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">command</span><span class="sc10">=</span><span class="sc11">print_data</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc2">3</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">sticky</span><span class="sc10">=</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">W</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">**</span><span class="sc11">optns</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Button</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc4">'Ok (&amp;quit)'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">command</span><span class="sc10">=</span><span class="sc11">master</span><span class="sc10">.</span><span class="sc14">quit</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc2">3</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">sticky</span><span class="sc10">=</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">E</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">**</span><span class="sc11">optns</span><span class="sc10">)</span><span class="sc0">
+
+</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">mainloop</span><span class="sc10">()</span><span class="sc0">
+</span><span class="sc5">try</span><span class="sc10">:</span><span class="sc0">
+  </span><span class="sc1"># Po [Ok (quit)] weź wyniki z e1, e2:</span><span class="sc0">
+  </span><span class="sc11">print_data</span><span class="sc10">()</span><span class="sc0">
+  </span><span class="sc1">#...</span><span class="sc0">
+  </span><span class="sc1"># master.destroy() # gdy już nie potrzebne</span><span class="sc0">
+</span><span class="sc5">except</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">TclError</span><span class="sc10">:</span><span class="sc0">
+  </span><span class="sc14">print</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc4">'Anulowanie - po zamknięciu okna przez [x] w nagłówku'</span><span class="sc10">)</span><span class="sc0">
+
+</span></div></body>
+</html>
