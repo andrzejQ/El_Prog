@@ -406,31 +406,37 @@ Można wyświetlić okno dialogowe do pobrania danych dla skryptu (GUI tkinter d
 
 ````py
 import tkinter as tk
-optns = {'padx':7, 'pady':7} #
+def tkForm(fields): 
+  # fields: etykiety pól ( , ...) lub [ , ...]
+  # zwraca: {etykieta: wartość, ...} lub {} gdy Esc
+  master = tk.Tk()
+  entries = {}
+  for i, field in enumerate(fields):
+    tk.Label(master, text=field).grid(row=i, sticky=tk.E, padx=3)
+    ent = tk.Entry(master); ent.grid(row=i, column=1, padx=5, pady=5)
+    if i==0: ent.focus_set()
+    entries[field] = ent # ent.get() - wartość pola
+  tk.Button(master, text='Esc', command=master.destroy).grid(row=len(fields), column=0, ipadx=5, pady=9)
+  master.bind('<Escape>', lambda _: master.destroy())
+  tk.Button(master, text='Ok', command=master.quit).grid(row=len(fields), column=1, ipadx=5, pady=9)
+  master.bind('<Return>', lambda _: master.quit()) # [Enter] = [Ok]
+  master.mainloop()
+  try: # Po [Ok] weź wartości z formularza
+    entries_di = {}
+    for k,v in entries.items():
+      entries_di[k] = v.get()
+    master.destroy() # gdy już nie potrzebne
+  except tk.TclError: # Anulowanie - po zamknięciu przez [x] albo [Esc]
+    entries_di = {}
+  return entries_di
 
-master = tk.Tk()
-tk.Label(master, text="First Name").grid(row=0, **optns)
-tk.Label(master, text="Last Name ").grid(row=1, **optns)
-
-e1 = tk.Entry(master); e1.grid(row=0, column=1, **optns)
-e2 = tk.Entry(master); e2.grid(row=1, column=1, **optns)
-
-def print_data(): # pierwszy string to e1.get(); zamiast e1 można użyć nazwy więcej-mówiącej
-  print(f"""First Name: {e1.get()}
-Last Name : {e2.get()}""")
-
-tk.Button(master, text='Show', command=print_data).grid(row=3, column=0, sticky=tk.W, **optns)
-tk.Button(master, text='Ok (&quit)', command=master.quit).grid(row=3, column=1, sticky=tk.E, **optns)
-
-tk.mainloop()
-try:
-  # Po [Ok (quit)] weź wyniki z e1, e2:
-  print_data()
-  #...
-  # master.destroy() # gdy już nie potrzebne
-except tk.TclError:
-  print ('Anulowanie - po zamknięciu okna przez [x] w nagłówku')
+if __name__ == '__main__':
+  dane = tkForm( ('Imię', 'Imię 2', 'Nazwisko') )
+  print(dane)
 ````
+![TkEntryWidget.png]({{ site.baseurl }}/assets/img/TkEntryWidget.png "TkEntryWidget.png"){:style="float:right;width:30%;"}
+
+
 * <https://python-course.eu/tkinter_entry_widgets.php>
 * <https://www.pythontutorial.net/tkinter/tkinter-grid/>
 
