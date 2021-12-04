@@ -15,14 +15,20 @@ span {
 	color: #008000;
 }
 .sc2 {
-	color: #FF0000;
+	color: #FF00FF;
+}
+.sc3 {
+	color: #00A400;
 }
 .sc4 {
-	color: #808080;
+	color: #008080;
 }
 .sc5 {
 	font-weight: bold;
 	color: #0000FF;
+}
+.sc7 {
+	color: #008000;
 }
 .sc9 {
 	color: #FF00FF;
@@ -33,47 +39,51 @@ span {
 }
 .sc11 {
 }
-.sc14 {
-	font-weight: bold;
-	color: #880088;
-}
 </style>
 </head>
 <body>
 <div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc1">#!/usr/bin/python3 -i</span><span class="sc0">
-
+</span><span class="sc1"># v.3.7+ order in dict()</span><span class="sc0">
 </span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">tkinter</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc0">
 </span><span class="sc1"># based on https://python-course.eu/tkinter_entry_widgets.php</span><span class="sc0">
 </span><span class="sc1"># https://www.pythontutorial.net/tkinter/tkinter-grid/</span><span class="sc0">
 
-</span><span class="sc5">def</span><span class="sc0"> </span><span class="sc9">tkForm</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">):</span><span class="sc0"> 
-  </span><span class="sc1"># fields: etykiety pól ( , ...) lub [ , ...]</span><span class="sc0">
-  </span><span class="sc1"># zwraca: {etykieta: wartość, ...} lub {} gdy Esc</span><span class="sc0">
+</span><span class="sc5">def</span><span class="sc0"> </span><span class="sc9">tkForm</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">):</span><span class="sc0">
+  </span><span class="sc7">"""tkForm(fields: dict)-&gt;dict
+  fields: {'label1': 'defVal1', ...}
+  return: modified fields or {} if Esc
+  &gt;&gt;&gt; tkForm( {'Imię':'Iii', 'Imię 2':'iii 2', 'Nazwisko':'Nnn'} )
+  {'Imię': 'Iii', 'Imię 2': 'iii 2', 'Nazwisko': 'Nnn'}
+  """</span><span class="sc0">
   </span><span class="sc11">master</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Tk</span><span class="sc10">()</span><span class="sc0">
   </span><span class="sc11">entries</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
-  </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">field</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc14">enumerate</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">):</span><span class="sc0">
+  </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc11">field</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">defVal</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">enumerate</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">.</span><span class="sc11">items</span><span class="sc10">()):</span><span class="sc0">
     </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Label</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc11">field</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc11">i</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">sticky</span><span class="sc10">=</span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">E</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">padx</span><span class="sc10">=</span><span class="sc2">3</span><span class="sc10">)</span><span class="sc0">
-    </span><span class="sc11">ent</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Entry</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc11">ent</span><span class="sc10">.</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc11">i</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">padx</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">pady</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc11">ent</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Entry</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc11">ent</span><span class="sc10">.</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc11">i</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">padx</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">pady</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">);</span><span class="sc0"> </span><span class="sc11">ent</span><span class="sc10">.</span><span class="sc11">insert</span><span class="sc10">(</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">defVal</span><span class="sc10">)</span><span class="sc0">
     </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc11">i</span><span class="sc10">==</span><span class="sc2">0</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">ent</span><span class="sc10">.</span><span class="sc11">focus_set</span><span class="sc10">()</span><span class="sc0">
-    </span><span class="sc11">entries</span><span class="sc10">[</span><span class="sc11">field</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">ent</span><span class="sc0"> </span><span class="sc1"># ent.get() - wartość pola</span><span class="sc0">
-  </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Button</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc4">'Esc'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">command</span><span class="sc10">=</span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">destroy</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc14">len</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">ipadx</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">pady</span><span class="sc10">=</span><span class="sc2">9</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc11">entries</span><span class="sc10">[</span><span class="sc11">field</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">ent</span><span class="sc0"> </span><span class="sc1"># ent.get() - value</span><span class="sc0">
+  </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Button</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc4">'Esc'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">command</span><span class="sc10">=</span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">destroy</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc11">len</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">0</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">ipadx</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">pady</span><span class="sc10">=</span><span class="sc2">9</span><span class="sc10">)</span><span class="sc0">
   </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">bind</span><span class="sc10">(</span><span class="sc4">'&lt;Escape&gt;'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">lambda</span><span class="sc0"> </span><span class="sc11">_</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">destroy</span><span class="sc10">())</span><span class="sc0">
-  </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Button</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc4">'Ok'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">command</span><span class="sc10">=</span><span class="sc11">master</span><span class="sc10">.</span><span class="sc14">quit</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc14">len</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">ipadx</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">pady</span><span class="sc10">=</span><span class="sc2">9</span><span class="sc10">)</span><span class="sc0">
-  </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">bind</span><span class="sc10">(</span><span class="sc4">'&lt;Return&gt;'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">lambda</span><span class="sc0"> </span><span class="sc11">_</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc14">quit</span><span class="sc10">())</span><span class="sc0"> </span><span class="sc1"># [Enter] = [Ok]</span><span class="sc0">
+  </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Button</span><span class="sc10">(</span><span class="sc11">master</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">text</span><span class="sc10">=</span><span class="sc4">'Ok'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">command</span><span class="sc10">=</span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">quit</span><span class="sc10">).</span><span class="sc11">grid</span><span class="sc10">(</span><span class="sc11">row</span><span class="sc10">=</span><span class="sc11">len</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc11">column</span><span class="sc10">=</span><span class="sc2">1</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">ipadx</span><span class="sc10">=</span><span class="sc2">5</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">pady</span><span class="sc10">=</span><span class="sc2">9</span><span class="sc10">)</span><span class="sc0">
+  </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">bind</span><span class="sc10">(</span><span class="sc4">'&lt;Return&gt;'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc5">lambda</span><span class="sc0"> </span><span class="sc11">_</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">quit</span><span class="sc10">())</span><span class="sc0"> </span><span class="sc1"># [Enter] = [Ok]</span><span class="sc0">
     
   </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">mainloop</span><span class="sc10">()</span><span class="sc0">
-  </span><span class="sc5">try</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># Po [Ok] weź wartości z formularza</span><span class="sc0">
+  </span><span class="sc5">try</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># [Ok] - get modified values</span><span class="sc0">
     </span><span class="sc11">entries_di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
     </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">k</span><span class="sc10">,</span><span class="sc11">v</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">entries</span><span class="sc10">.</span><span class="sc11">items</span><span class="sc10">():</span><span class="sc0">
       </span><span class="sc11">entries_di</span><span class="sc10">[</span><span class="sc11">k</span><span class="sc10">]</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">v</span><span class="sc10">.</span><span class="sc11">get</span><span class="sc10">()</span><span class="sc0">
-    </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">destroy</span><span class="sc10">()</span><span class="sc0"> </span><span class="sc1"># gdy już nie potrzebne</span><span class="sc0">
-  </span><span class="sc5">except</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">TclError</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># Anulowanie - po zamknięciu przez [x] albo [Esc]</span><span class="sc0">
+    </span><span class="sc11">master</span><span class="sc10">.</span><span class="sc11">destroy</span><span class="sc10">()</span><span class="sc0">
+  </span><span class="sc5">except</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">TclError</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># on master.destroy() = [x] or [Esc] - cancel</span><span class="sc0">
     </span><span class="sc11">entries_di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
   </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">entries_di</span><span class="sc0">
 
 </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc11">__name__</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">'__main__'</span><span class="sc10">:</span><span class="sc0">
-  </span><span class="sc11">dane</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tkForm</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc10">(</span><span class="sc4">'Imię'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">'Imię 2'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">'Nazwisko'</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0">
-  </span><span class="sc14">print</span><span class="sc10">(</span><span class="sc11">dane</span><span class="sc10">)</span><span class="sc0">
+  </span><span class="sc1"># from TkEntryWidget import tkForm</span><span class="sc0">
+  </span><span class="sc1"># di = tkForm( {'Imię':'Iii', 'Imię 2': 'iii 2', 'Nazwisko': 'Nnn'} )</span><span class="sc0">
+  </span><span class="sc1"># print(di) # {'Imię': 'Iii', 'Imię 2': 'iii 2', 'Nazwisko': 'Nnn'}</span><span class="sc0">
+  </span><span class="sc5">print</span><span class="sc10">(</span><span class="sc3">"doctest: press ENTER"</span><span class="sc10">)</span><span class="sc0">
+  </span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">doctest</span><span class="sc0">
+  </span><span class="sc11">doctest</span><span class="sc10">.</span><span class="sc11">testmod</span><span class="sc10">()</span><span class="sc0">
 
 </span></div></body>
 </html>
