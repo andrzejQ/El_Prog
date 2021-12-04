@@ -52,8 +52,8 @@ span {
   </span><span class="sc7">"""tkForm(fields: dict)-&gt;dict
   fields: {'label1': 'defVal1', ...}
   return: modified fields or {} if Esc
-  &gt;&gt;&gt; tkForm( {'Imię':'Iii', 'Imię 2':'iii 2', 'Nazwisko':'Nnn'} )
-  {'Imię': 'Iii', 'Imię 2': 'iii 2', 'Nazwisko': 'Nnn'}
+  &gt;_&gt; tkForm( {'Imię':'iii', 'Imię 2':'iii 2', 'Nazwisko':'Nnn'} )
+  {'Imię': 'iii 1', 'Imię 2': 'iii 2', 'Nazwisko': 'nnn 3'}
   """</span><span class="sc0">
   </span><span class="sc11">master</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">Tk</span><span class="sc10">()</span><span class="sc0">
   </span><span class="sc11">entries</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
@@ -76,6 +76,32 @@ span {
   </span><span class="sc5">except</span><span class="sc0"> </span><span class="sc11">tk</span><span class="sc10">.</span><span class="sc11">TclError</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># on master.destroy() = [x] or [Esc] - cancel</span><span class="sc0">
     </span><span class="sc11">entries_di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
   </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">entries_di</span><span class="sc0">
+
+
+</span><span class="sc5">def</span><span class="sc0"> </span><span class="sc9">tkFormConf</span><span class="sc10">(</span><span class="sc11">fields</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">confCsv</span><span class="sc10">=</span><span class="sc4">'conf_0.csv'</span><span class="sc10">):</span><span class="sc0">
+  </span><span class="sc7">"""tkFormConf(fields: dict, confCsv: str)-&gt;dict (saving data in Csv)
+  fields: {'label1': 'defVal1', ...} - used if confCsv is missing (on start)
+  confCsv - text file UTF-16 (=UCS-2) Little Endian with BOM with &lt;tab&gt; separator
+  return: modified fields saved in confCsv or {} if Esc (confCsv remain unchanged)
+  &gt;&gt;&gt; with open('conf_0.csv', 'w', encoding='utf-16') as cnf: cnf.write('') # clean Csv for doctest
+  0
+  &gt;&gt;&gt; tkFormConf( {'Imię':'iii 1', 'Imię 2':'iii 2', 'Nazwisko':'nnn 3'}, confCsv='conf_0.csv')
+  {'Imię': 'iii 1', 'Imię 2': 'iii 2', 'Nazwisko': 'nnn 3'}
+  """</span><span class="sc0">
+  </span><span class="sc5">try</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># ordered dict py 3.7+</span><span class="sc0">
+    </span><span class="sc5">with</span><span class="sc0"> </span><span class="sc11">open</span><span class="sc10">(</span><span class="sc11">confCsv</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">'r'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">encoding</span><span class="sc10">=</span><span class="sc4">'utf-16'</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">cnf</span><span class="sc10">:</span><span class="sc0">
+      </span><span class="sc11">di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">dict</span><span class="sc10">([</span><span class="sc11">row</span><span class="sc10">.</span><span class="sc11">split</span><span class="sc10">(</span><span class="sc4">'\t'</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">row</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">cnf</span><span class="sc10">.</span><span class="sc11">read</span><span class="sc10">().</span><span class="sc11">splitlines</span><span class="sc10">()])</span><span class="sc0">
+  </span><span class="sc5">except</span><span class="sc0"> </span><span class="sc11">FileNotFoundError</span><span class="sc10">:</span><span class="sc0">
+    </span><span class="sc11">di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
+  </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc5">not</span><span class="sc0"> </span><span class="sc11">di</span><span class="sc10">:</span><span class="sc0">
+    </span><span class="sc11">di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">fields</span><span class="sc0">
+  </span><span class="sc11">di</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">tkForm</span><span class="sc10">(</span><span class="sc0"> </span><span class="sc11">di</span><span class="sc0"> </span><span class="sc10">)</span><span class="sc0"> </span><span class="sc1"># show and edit form</span><span class="sc0">
+  </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc5">not</span><span class="sc0"> </span><span class="sc11">di</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1"># ie. [Esc]</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc10">{}</span><span class="sc0">
+  </span><span class="sc5">else</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc1">#[Ok]</span><span class="sc0">
+    </span><span class="sc5">with</span><span class="sc0"> </span><span class="sc11">open</span><span class="sc10">(</span><span class="sc11">confCsv</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc4">'w'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">newline</span><span class="sc10">=</span><span class="sc4">'\r\n'</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc11">encoding</span><span class="sc10">=</span><span class="sc4">'utf-16'</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">cnf</span><span class="sc10">:</span><span class="sc0">
+      </span><span class="sc11">cnf</span><span class="sc10">.</span><span class="sc11">write</span><span class="sc10">(</span><span class="sc4">'\n'</span><span class="sc10">.</span><span class="sc11">join</span><span class="sc10">([</span><span class="sc4">'\t'</span><span class="sc10">.</span><span class="sc11">join</span><span class="sc10">(</span><span class="sc11">kv</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">kv</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">di</span><span class="sc10">.</span><span class="sc11">items</span><span class="sc10">()]))</span><span class="sc0">
+    </span><span class="sc5">return</span><span class="sc0"> </span><span class="sc11">di</span><span class="sc0">
 
 </span><span class="sc5">if</span><span class="sc0"> </span><span class="sc11">__name__</span><span class="sc0"> </span><span class="sc10">==</span><span class="sc0"> </span><span class="sc4">'__main__'</span><span class="sc10">:</span><span class="sc0">
   </span><span class="sc1"># from TkEntryWidget import tkForm</span><span class="sc0">

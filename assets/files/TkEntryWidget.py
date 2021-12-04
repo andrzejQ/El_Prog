@@ -8,8 +8,8 @@ def tkForm(fields):
   """tkForm(fields: dict)->dict
   fields: {'label1': 'defVal1', ...}
   return: modified fields or {} if Esc
-  >>> tkForm( {'Imię':'Iii', 'Imię 2':'iii 2', 'Nazwisko':'Nnn'} )
-  {'Imię': 'Iii', 'Imię 2': 'iii 2', 'Nazwisko': 'Nnn'}
+  >_> tkForm( {'Imię':'iii', 'Imię 2':'iii 2', 'Nazwisko':'Nnn'} )
+  {'Imię': 'iii 1', 'Imię 2': 'iii 2', 'Nazwisko': 'nnn 3'}
   """
   master = tk.Tk()
   entries = {}
@@ -32,6 +32,32 @@ def tkForm(fields):
   except tk.TclError: # on master.destroy() = [x] or [Esc] - cancel
     entries_di = {}
   return entries_di
+
+
+def tkFormConf(fields, confCsv='conf_0.csv'):
+  """tkFormConf(fields: dict, confCsv: str)->dict (saving data in Csv)
+  fields: {'label1': 'defVal1', ...} - used if confCsv is missing (on start)
+  confCsv - text file UTF-16 (=UCS-2) Little Endian with BOM with <tab> separator
+  return: modified fields saved in confCsv or {} if Esc (confCsv remain unchanged)
+  >>> with open('conf_0.csv', 'w', encoding='utf-16') as cnf: cnf.write('') # clean Csv for doctest
+  0
+  >>> tkFormConf( {'Imię':'iii 1', 'Imię 2':'iii 2', 'Nazwisko':'nnn 3'}, confCsv='conf_0.csv')
+  {'Imię': 'iii 1', 'Imię 2': 'iii 2', 'Nazwisko': 'nnn 3'}
+  """
+  try: # ordered dict py 3.7+
+    with open(confCsv, 'r', encoding='utf-16') as cnf:
+      di = dict([row.split('\t') for row in cnf.read().splitlines()])
+  except FileNotFoundError:
+    di = {}
+  if not di:
+    di = fields
+  di = tkForm( di ) # show and edit form
+  if not di: # ie. [Esc]
+    return {}
+  else: #[Ok]
+    with open(confCsv, 'w', newline='\r\n', encoding='utf-16') as cnf:
+      cnf.write('\n'.join(['\t'.join(kv) for kv in di.items()]))
+    return di
 
 if __name__ == '__main__':
   # from TkEntryWidget import tkForm
