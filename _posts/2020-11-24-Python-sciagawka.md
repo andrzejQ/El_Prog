@@ -6,17 +6,17 @@ categories: Programowanie
 ---
 
 Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do użytku własnego)... <br/> 
-[1.Pliki]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1--pliki) &nbsp; 
-[2.Str]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2--str) &nbsp; 
-[3.List, Tuple]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3--list-tuple) &nbsp; 
-[4.Konwersja typów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4--konwersja-typów) &nbsp; 
-[5.Zmienne globalne, pamięć stanu]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
-[6.Tree]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6--tree)
-[7.sorted]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7--sorted)
-[8.filter() replacement]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8--filter-replacement")
-[9.linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail)
-[10. Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www)
-[11. GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe)
+ [1.&nbsp;Pliki]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1--pliki) &nbsp; 
+ [2.&nbsp;Str]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2--str) &nbsp; 
+ [3.&nbsp;List, Tuple]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3--list-tuple) &nbsp; 
+ [4.&nbsp;Konwersja typów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4--konwersja-typów) &nbsp; 
+ [5.&nbsp;Zmienne globalne, pamięć stanu]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
+ [6.&nbsp;Tree]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6--tree) &nbsp; 
+ [7.&nbsp;sorted]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7--sorted) 
+ [8.&nbsp;filter() replacement]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8--filter-replacement") &nbsp; 
+ [9.&nbsp;linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail) &nbsp; 
+[10.&nbsp;Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www) &nbsp; 
+[11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe)
 
 ## 1 . Pliki:
 
