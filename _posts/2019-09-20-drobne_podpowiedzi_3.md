@@ -65,7 +65,7 @@ Natomiast specjalne znaczenie ma `#!/usr/bin/env python` - [wg. dokumentacji](ht
 ````py
 #!/usr/bin/env python
 import sys
-input('\n'.join(['',sys.executable,sys.version,'','naciśnij Enter']))
+input('\n'.join(['',sys.executable,sys.version,'','nacisnij Enter']))
 ````
 
 Lista wersji kompilatorów do wyboru m.in za pomocą `#!....`: 
@@ -175,5 +175,16 @@ for /f "tokens=1,2,* " %%G in (
 </pre>{:style="font-size: smaller;"}
 
 <span style="font-size: smaller;">
-Zauważ, że w poleceniach setx mamy [otwarty, a niezamknięty cudzysłów](https://stackoverflow.com/questions/11011115/setx-setting-path-with-spaces#answer-28332961) `"` (`"%%I`). 
+Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://stackoverflow.com/questions/11011115/setx-setting-path-with-spaces#answer-28332961) `"` (`"%%I`). 
 </span>
+
+- - - -
+
+<span style="font-size: smaller; color:DarkGrey;">
+**#!/usr/bin/env python** - uruchamianie w Linux. Po zalogowaniu na root:  
+	cd /usr/bin/  
+	unlink python  
+	ln -sv /usr/bin/python3 python
+</span>
+
+
