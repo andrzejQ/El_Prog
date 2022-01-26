@@ -84,5 +84,32 @@ Wystarczy jednorazowo zmienić na taką czcionkę "Właściwości" tego okna kon
 
 Pojawiają się drobne problemy z czcionką konsoli, które można zlikwidować zmieniając czcionkę np. na "Source Code Pro Medium" jak opisano powyżej.
 
+Można też włączyć domyślne kodowanie UTF-8 dla wszyskich plików bez początkowego BOM - które dotąd były traktowane jako kodowanew ANSI lub OEM:
+<https://stackoverflow.com/questions/57131654/using-utf-8-encoding-chcp-65001-in-command-prompt-windows-powershell-window>
+(nie testowałem).
+
+Nowa aplikacja terminala Microsoft [Windows Terminal](https://www.microsoft.com/pl-pl/p/windows-terminal-preview/9n0dx20hk701)
+obsługuje domyślnie UTF-8. W Windows 10 trzeba ją zainstalować. W Win 11 jest instalowana domyślnie.
+
+Podobno wersja PowerShell 7 nie ma tej wady z podmianą czcionki.
+
+#### Polecenie zapisane w skrócie *.LNK
+
+Polecenie 1-wierszowe, które mogło by być w pliku `*.CMD` można też zapisywać w ramach skrótu `*.LNK`. Musi to być 1 wiersz ograniczony do 260 znaków.
+
+Przykład:
+````powershell
+powershell.exe -NoExit -c "polecenie1 -ErrorAction SilentlyContinue;...;'Zrobione.'"
+````
+Takie polecenie może mieć maksymalnie 260-43 znaków (-43, bo i tak automatycznie dopisane będzie na początku 
+`C:\Windows\system32\WindowsPowerShell\v1.0\`). Na zewnątrz ciągu poleceń oddzielonych `;` musi być `"`, więc w środku warto używać `'` dla łańcuchów.
+{:style="font-size: smaller;"}
+
+Czasem przydaje używanie krótszych poleceń PowerShell - lista: `get-alias`
+{:style="font-size: smaller;"}
+
+
+
+
 
 <style> code {font-size: smaller;} </style>
