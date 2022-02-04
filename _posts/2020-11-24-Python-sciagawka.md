@@ -17,6 +17,8 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
  [9.&nbsp;linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail) &nbsp; 
 [10.&nbsp;Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www) &nbsp; 
 [11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe)
+[12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html)
+
 
 ## 1 . Pliki:
 
@@ -456,6 +458,13 @@ def tkFormConf(fields, confCsv='conf_0.csv'):
 * <https://python-course.eu/tkinter_entry_widgets.php>
 * <https://www.pythontutorial.net/tkinter/tkinter-grid/>
 
+
+## 12 . Galeria JPG w pliku HTML
+
+Pliki JPG zakodowane w BASE64 scalone w jednym pliku HTML jako responsywna galeria.
+
+* [jpgGallery_1html.py]({{ site.baseurl }}/assets/files/jpgGallery_1html.py.html)
+* [jpgGallery_1html.zip]({{ site.baseurl }}/assets/files/jpgGallery_1html.zip) - test
 
 
 - - - - - -
