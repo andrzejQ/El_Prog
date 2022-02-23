@@ -5,8 +5,10 @@ date:   2019-09-08 08:08:59 +0100
 categories: Programowanie
 ---
 
-[Edycja treści tekstowej]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edycja-treści-tekstowej) &nbsp; 
-[Zmiana litery dysku]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zmiana-litery-dysku) &nbsp; 
+[Edycja treści tekstowej]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edycja-treści-tekstowej) &nbsp; *
+[Zmiana litery dysku]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zmiana-litery-dysku) &nbsp; *
+[Wykonanie operacji na najnowszym pliku]({{ site.url }}{{ site.baseurl }}{{ page.url }}#wykonanie-operacji-na-najnowszym-pliku) &nbsp; 
+
 
 ### Edycja treści tekstowej
 
@@ -30,6 +32,27 @@ assign letter=L
 * [Robocopy (Robust File Copy)](https://andrzejq.github.io/Office_S_Tips/system/2020/02/20/Backup_dysku_SSD.html#6-robocopy-robust-file-copy) -> andrzejq.github.io/Office_S_Tips
 .
 
+
+### Wykonanie operacji na najnowszym pliku
+
+Tutaj przykładowa operacja to `echo ...`
+
+```` bat
+@echo off & for /F "delims=" %%G in ('dir *.* /b /a-d /o-d') do (set LATEST=%%G & goto found)
+:found
+echo "%LATEST%"
+````
+Krócej:
+```` bat
+@echo off & for /F "delims=" %%G in ('dir *.* /b /a-d /o-d') do (
+echo %%G & goto:EOF)
+````
+
+Do wklejenia w oknie CMD:
+
+```` bat
+for /F "delims=" %G in ('dir *.* /b /a-d /o-d') do (echo %G & pause & exit)
+````
 
 
 
