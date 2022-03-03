@@ -7,8 +7,8 @@ categories: Programowanie
 
 [Edycja treści tekstowej]({{ site.url }}{{ site.baseurl }}{{ page.url }}#edycja-treści-tekstowej) &nbsp; *
 [Zmiana litery dysku]({{ site.url }}{{ site.baseurl }}{{ page.url }}#zmiana-litery-dysku) &nbsp; *
-[Wykonanie operacji na najnowszym pliku]({{ site.url }}{{ site.baseurl }}{{ page.url }}#wykonanie-operacji-na-najnowszym-pliku) &nbsp; 
-
+[Wykonanie operacji na najnowszym pliku]({{ site.url }}{{ site.baseurl }}{{ page.url }}#wykonanie-operacji-na-najnowszym-pliku) &nbsp; * 
+[Wiersz polecenia w Eksploratorze plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#wiersz-polecenia-w-eksploratorze-plików) &nbsp; 
 
 ### Edycja treści tekstowej
 
@@ -54,6 +54,20 @@ Do wklejenia w oknie CMD:
 for /F "delims=" %G in ('dir *.* /b /a-d /o-d') do (echo %G & pause & exit)
 ````
 
+### Wiersz polecenia w Eksploratorze plików
 
+
+![Eksplorator_cmd_k.png]({{ site.baseurl }}/assets/img/Eksplorator_cmd_k.png "Eksplorator_cmd_k.png"){:style="float:left;width:38%;margin-right:15px;"}
+W eksploratorze ustawiając się na wybranym folderze można od razu wywołać polecenia konsoli. W tym celu czyścimy pasek adresu i wpisujemy polecenie, np. 
+```` bat
+cmd /k tree
+````
+które wyświetli nam okno konsoli z tekstową wersją drzewa podfolderów, co można skopiować choćby do notatnika.
+
+Gdy chcemy użyć `echo off` np. z powodu użycia `for` w dalszej części w celu iteracji po podfolderach, to warto w zakończeniu użyć `echo on`.
+
+```` bat
+cmd /k @echo off & echo === %cd% === & (for /D %G in (*.*) do (echo %G)) & echo on
+````
 
 <style> pre code {font-size: smaller;} </style>
