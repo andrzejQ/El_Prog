@@ -197,6 +197,10 @@ x = x.replace('a','A',1) # 1 wystąpienie
 
 >>> '-'.join([])
 ''
+
+# Symulacja orderedSet za pomocą dict py 3.7+: 
+>>> ", ".join(dict.fromkeys("aa, b1, b1, aa, cd".split(", ")))
+'aa, b1, cd'
 ````
 
 ## 5 . Zmienne globalne, pamięć stanu
