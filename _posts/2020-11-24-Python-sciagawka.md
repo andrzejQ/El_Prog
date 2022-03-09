@@ -187,6 +187,9 @@ x = x.replace('a','A',1) # 1 wystąpienie
 2
 >>> len(('abc',)) # 1-el. krotka
 1
+
+#Odczyt 3-ciego parametru linii poleceń
+sysArgv3 = (sys.argv+['']*3)[3]
 ````
 
 ## 4 . Konwersja typów
