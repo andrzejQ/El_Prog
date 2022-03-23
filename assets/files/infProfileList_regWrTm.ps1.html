@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>infProfileList_regWrTm.ps1</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc2 {
+	color: #800000;
+}
+.sc3 {
+	color: #804040;
+}
+.sc4 {
+	color: #B55A00;
+}
+.sc5 {
+	font-weight: bold;
+}
+.sc6 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc7 {
+}
+.sc8 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc9 {
+	color: #8000FF;
+}
+.sc10 {
+	color: #0080FF;
+}
+.sc14 {
+	color: #970000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc8">function</span><span class="sc0"> </span><span class="sc7">fTime</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">   </span><span class="sc7">param</span><span class="sc6">(</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">System</span><span class="sc6">.</span><span class="sc7">UInt32</span><span class="sc6">]</span><span class="sc5">$timeHigh</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">System</span><span class="sc6">.</span><span class="sc7">UInt32</span><span class="sc6">]</span><span class="sc5">$timeLow</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0">
+  </span><span class="sc8">if</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$timeHigh</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">or</span><span class="sc0"> </span><span class="sc5">$timeLow</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+    </span><span class="sc6">[</span><span class="sc7">datetime</span><span class="sc6">]::</span><span class="sc7">FromFileTime</span><span class="sc6">((([</span><span class="sc7">long</span><span class="sc6">]</span><span class="sc5">$timeHigh</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">shl</span><span class="sc0"> </span><span class="sc4">32</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">bor</span><span class="sc0"> </span><span class="sc5">$timeLow</span><span class="sc6">)).</span><span class="sc7">ToString</span><span class="sc6">(</span><span class="sc2">"yyyy'-'MM'-'dd' 'HH'.'mm'.'ss"</span><span class="sc6">)</span><span class="sc0">
+  </span><span class="sc6">}</span><span class="sc0"> </span><span class="sc8">else</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc3">'0'</span><span class="sc6">}</span><span class="sc0">
+</span><span class="sc6">}</span><span class="sc0">
+</span><span class="sc8">function</span><span class="sc0"> </span><span class="sc7">oTime</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">   </span><span class="sc7">param</span><span class="sc6">(</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">PSCustomObject</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$o</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">string</span><span class="sc6">]</span><span class="sc5">$tName</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0">
+  </span><span class="sc7">fTime</span><span class="sc0"> </span><span class="sc5">$o</span><span class="sc6">.(</span><span class="sc5">$tName</span><span class="sc6">+</span><span class="sc3">'High'</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc5">$o</span><span class="sc6">.(</span><span class="sc5">$tName</span><span class="sc6">+</span><span class="sc3">'Low'</span><span class="sc6">)</span><span class="sc0">
+</span><span class="sc6">}</span><span class="sc0">
+</span><span class="sc1"># PowerShell – Return LastWriteTime Registry Key # http://eddiejackson.net/wp/?p=18374</span><span class="sc0">
+</span><span class="sc5">$Namespace</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc2">"ReadRegDate"</span><span class="sc0">
+</span><span class="sc7">Add-Type</span><span class="sc0"> </span><span class="sc14">@"
+  using System;  using System.Text;
+  using System.Runtime.InteropServices;
+  $($Namespace | ForEach-Object { "namespace $_ {" })
+  public class advapi32 {
+    [DllImport("advapi32.dll", CharSet = CharSet.Auto)]
+    public static extern Int32 RegQueryInfoKey(
+      Microsoft.Win32.SafeHandles.SafeRegistryHandle hKey,        StringBuilder lpClass,
+      [In, Out] ref UInt32 lpcbClass, UInt32 lpReserved,          out UInt32 lpcSubKeys,
+      out UInt32 lpcbMaxSubKeyLen,    out UInt32 lpcbMaxClassLen, out UInt32 lpcValues,
+      out UInt32 lpcbMaxValueNameLen, out UInt32 lpcbMaxValueLen, out UInt32 lpcbSecurityDescriptor,
+      out System.Runtime.InteropServices.ComTypes.FILETIME lpftLastWriteTime
+    );
+  }
+  $($Namespace | ForEach-Object { "}" })
+"@</span><span class="sc0">
+</span><span class="sc5">$RegTools</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc2">"$($Namespace -join '.').advapi32"</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">as</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc10">type</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc1"># Store the type in a variable</span><span class="sc0">
+</span><span class="sc5">$LastWrite</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc9">New-Object</span><span class="sc0"> </span><span class="sc7">System</span><span class="sc6">.</span><span class="sc7">Runtime</span><span class="sc6">.</span><span class="sc7">InteropServices</span><span class="sc6">.</span><span class="sc7">ComTypes</span><span class="sc6">.</span><span class="sc7">FILETIME</span><span class="sc0"> </span><span class="sc1"># properties that we want returned</span><span class="sc0">
+</span><span class="sc1">#------------------------------</span><span class="sc0">
+
+</span><span class="sc5">$RegParentPath</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc2">"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList"</span><span class="sc0">
+</span><span class="sc5">$Profiles</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc9">Get-ChildItem</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">Path</span><span class="sc0"> </span><span class="sc7">Registry</span><span class="sc6">::</span><span class="sc5">$RegParentPath</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> 
+  </span><span class="sc8">foreach</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+    </span><span class="sc5">$rNm</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$_</span><span class="sc6">.</span><span class="sc7">Name</span><span class="sc6">).</span><span class="sc7">Replace</span><span class="sc6">(</span><span class="sc3">'HKEY_LOCAL_MACHINE\'</span><span class="sc0"> </span><span class="sc6">,</span><span class="sc3">'HKLM:\'</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc1">#; Write-Host -ForegroundColor Magenta $rNm</span><span class="sc0">
+    </span><span class="sc5">$RegKey</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc9">Get-Item</span><span class="sc0"> </span><span class="sc5">$rNm</span><span class="sc0"> </span><span class="sc1">#(we will need the handle)</span><span class="sc0">
+    </span><span class="sc6">[</span><span class="sc7">void</span><span class="sc6">]</span><span class="sc5">$RegTools</span><span class="sc6">::</span><span class="sc7">RegQueryInfoKey</span><span class="sc6">(</span><span class="sc5">$RegKey</span><span class="sc6">.</span><span class="sc7">Handle</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> 
+          </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">ref</span><span class="sc6">]</span><span class="sc0"> </span><span class="sc5">$LastWrite</span><span class="sc6">)</span><span class="sc0">
+    </span><span class="sc5">$y</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$LastWrite</span><span class="sc6">.</span><span class="sc7">dwHighDateTime</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc5">$LastWrite</span><span class="sc6">.</span><span class="sc7">dwLowDateTime</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc8">foreach</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0"> </span><span class="sc6">[</span><span class="sc7">System</span><span class="sc6">.</span><span class="sc7">BitConverter</span><span class="sc6">]::</span><span class="sc7">ToUInt32</span><span class="sc6">([</span><span class="sc7">System</span><span class="sc6">.</span><span class="sc7">BitConverter</span><span class="sc6">]::</span><span class="sc7">GetBytes</span><span class="sc6">(</span><span class="sc5">$_</span><span class="sc6">),</span><span class="sc0"> </span><span class="sc4">0</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">}</span><span class="sc0">
+    </span><span class="sc5">$LastWriteTime</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc7">fTime</span><span class="sc0"> @</span><span class="sc7">y</span><span class="sc0">
+
+    </span><span class="sc5">$a</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> </span><span class="sc5">$_</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Get-ItemProperty</span><span class="sc0">
+
+    </span><span class="sc8">foreach</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$tName</span><span class="sc0"> </span><span class="sc8">in</span><span class="sc0"> </span><span class="sc3">'LocalProfileLoadTime'</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc3">'LocalProfileUnloadTime'</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc3">'ProfileAttemptedProfileDownloadTime'</span><span class="sc6">,</span><span class="sc0"> </span><span class="sc3">'ProfileLoadTime'</span><span class="sc6">){</span><span class="sc0">
+      </span><span class="sc8">if</span><span class="sc6">(</span><span class="sc0"> </span><span class="sc5">$null</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">ne</span><span class="sc0"> </span><span class="sc5">$a</span><span class="sc6">.(</span><span class="sc5">$tName</span><span class="sc6">+</span><span class="sc3">'Low'</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0"> </span><span class="sc1"># exists ...TimeLow</span><span class="sc0">
+        </span><span class="sc5">$a</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Add-Member</span><span class="sc0"> @</span><span class="sc6">{</span><span class="sc5">$tName</span><span class="sc6">=(</span><span class="sc7">oTime</span><span class="sc0"> </span><span class="sc5">$a</span><span class="sc0"> </span><span class="sc5">$tName</span><span class="sc6">)}</span><span class="sc0">
+        </span><span class="sc5">$a</span><span class="sc6">.</span><span class="sc7">psobject</span><span class="sc6">.</span><span class="sc7">properties</span><span class="sc6">.</span><span class="sc7">remove</span><span class="sc6">(</span><span class="sc5">$tName</span><span class="sc6">+</span><span class="sc3">'High'</span><span class="sc6">)</span><span class="sc0">
+        </span><span class="sc5">$a</span><span class="sc6">.</span><span class="sc7">psobject</span><span class="sc6">.</span><span class="sc7">properties</span><span class="sc6">.</span><span class="sc7">remove</span><span class="sc6">(</span><span class="sc5">$tName</span><span class="sc6">+</span><span class="sc3">'Low'</span><span class="sc6">)</span><span class="sc0">
+      </span><span class="sc6">}</span><span class="sc0">
+    </span><span class="sc6">}</span><span class="sc0">
+    </span><span class="sc5">$a</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Add-Member</span><span class="sc0"> @</span><span class="sc6">{</span><span class="sc7">LastWriteTime</span><span class="sc6">=</span><span class="sc5">$LastWriteTime</span><span class="sc6">}</span><span class="sc0">
+    </span><span class="sc5">$a</span><span class="sc0">        
+</span><span class="sc6">}</span><span class="sc0">
+
+</span><span class="sc5">$ProfileImagePathList</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> @</span><span class="sc6">()</span><span class="sc0"> </span><span class="sc1">#;$ProfileImagePathList += 'C:\Windows\ServiceProfiles\NetworkService' #-test non-unique</span><span class="sc0">
+</span><span class="sc5">$ProfileImagePathDUPLICATED</span><span class="sc0"> </span><span class="sc6">=</span><span class="sc0"> @</span><span class="sc6">()</span><span class="sc0">
+
+</span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc2">"`n  "</span><span class="sc0"> </span><span class="sc5">$RegParentPath</span><span class="sc0"> </span><span class="sc2">"`n"</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">ForegroundColor</span><span class="sc0"> </span><span class="sc7">Cyan</span><span class="sc0">
+</span><span class="sc5">$Profiles</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc8">foreach</span><span class="sc6">{</span><span class="sc0">
+  </span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc5">$_</span><span class="sc6">.</span><span class="sc7">PSChildName</span><span class="sc0">  </span><span class="sc6">-</span><span class="sc7">ForegroundColor</span><span class="sc0"> </span><span class="sc7">Magenta</span><span class="sc0">
+  </span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc3">'LastWriteTime:'</span><span class="sc0"> </span><span class="sc5">$_</span><span class="sc6">.</span><span class="sc7">LastWriteTime</span><span class="sc0">
+
+  </span><span class="sc8">if</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$_</span><span class="sc6">.</span><span class="sc7">ProfileImagePath</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc8">in</span><span class="sc0"> </span><span class="sc5">$ProfileImagePathList</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+    </span><span class="sc5">$ProfileImagePathDUPLICATED</span><span class="sc0"> </span><span class="sc6">+=</span><span class="sc0"> </span><span class="sc5">$_</span><span class="sc6">.</span><span class="sc7">ProfileImagePath</span><span class="sc0">
+    </span><span class="sc5">$color</span><span class="sc6">=</span><span class="sc2">"Red"</span><span class="sc0">
+  </span><span class="sc6">}</span><span class="sc0"> </span><span class="sc8">Else</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc5">$color</span><span class="sc6">=</span><span class="sc2">"White"</span><span class="sc6">}</span><span class="sc0">
+  </span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$_</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Format-List</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Out-String</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">ForegroundColor</span><span class="sc0"> </span><span class="sc5">$color</span><span class="sc0">
+  </span><span class="sc5">$ProfileImagePathList</span><span class="sc0"> </span><span class="sc6">+=</span><span class="sc0"> </span><span class="sc5">$_</span><span class="sc6">.</span><span class="sc7">ProfileImagePath</span><span class="sc0">
+</span><span class="sc6">}</span><span class="sc0">
+</span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc3">'ProfileImagePath_List:'</span><span class="sc0">
+</span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ProfileImagePathList</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Format-Table</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Out-String</span><span class="sc6">)</span><span class="sc0">
+</span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc3">'ProfileImagePathDUPLICATED:'</span><span class="sc0">
+</span><span class="sc8">if</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ProfileImagePathDUPLICATED</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc0">
+  </span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc6">(</span><span class="sc5">$ProfileImagePathDUPLICATED</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Format-Table</span><span class="sc0"> </span><span class="sc6">|</span><span class="sc0"> </span><span class="sc9">Out-String</span><span class="sc6">)</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">ForegroundColor</span><span class="sc0"> </span><span class="sc2">"Red"</span><span class="sc0">
+</span><span class="sc6">}</span><span class="sc0"> </span><span class="sc8">else</span><span class="sc0"> </span><span class="sc6">{</span><span class="sc9">Write-Host</span><span class="sc0"> </span><span class="sc2">"All profiles are unique"</span><span class="sc0"> </span><span class="sc6">-</span><span class="sc7">ForegroundColor</span><span class="sc0"> </span><span class="sc2">"Cyan"</span><span class="sc6">}</span></div></body>
+</html>
