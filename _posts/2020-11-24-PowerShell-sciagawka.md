@@ -11,9 +11,9 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 [3: Ustawienia               ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-ustawienia) &nbsp; 
 [4: Array                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-array) &nbsp; 
 [5: Pliki                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-pliki) &nbsp; 
-[6: Właściwości mutim. plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6-właściwości-mutim-plików) &nbsp; 
+[6: Operator <strong>@</strong>]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6-operator-) &nbsp; 
+[7: Właściwości mutim. plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7-właściwości-mutim-plików) &nbsp; 
 [# Nie będziesz używał!      ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#-nie-będziesz-używał) &nbsp; 
-
 
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
 
@@ -73,7 +73,7 @@ Przydatne ustawienia
 `$myArrList = [System.Collections.ArrayList]@(); [void]$myArrList.Add()` - lista dynamiczna; gdy brak `[void]` do drukuje liczbę elementów  
 `$Arr.length` szybko dla tablicy, `$ArrList.count` powolniejsze, używaj dla kolekcji.
 
-`$a=@(11,22,33,44); $a[0,2];`11,33 `@a[0,-1]`11,44 `$a[($a.Count-1)..0]`wspak `$b,$c=$a; $b`11 `$c`22,33,44  
+`$a=@(11,22,33,44); $a[0,2];`11,33 `$a[0,-1]`11,44 `$a[($a.Count-1)..0]`wspak `$b,$c=$a; $b`11 `$c`22,33,44  
 `[string[]]$s3=@('')*3` `[string[][]]$s2x4=(,(@('x')*4))*2` `$s2x4[1][3]`x  
 
 `$ArrayDeepCopy = $Array | foreach { $_ } # deep copy trick` to spłaszcza tablicę;  
@@ -104,7 +104,27 @@ $fWy = new-object System.IO.StreamWriter( ('..\Wyniki\' + 'wy1.txt'), $false, $E
 * [The many ways to read and write to files](https://powershellexplained.com/2017-03-18-Powershell-reading-and-saving-data-to-files/)  -> powershellexplained.com
 
 
-### 6: Właściwości mutim. plików
+### 6: Operator **@**
+
+1. `@()` -array , `@{}` -hash table
+2.  `@` [operator rozwinięcia (splat)](https://ss64.com/ps/syntax-hash-tables.html#splat)
+````powershell
+function fun1 { param([int]$x, [int]$y)
+  $x + $y
+}
+fun1 10 11     #-> 21 ( NIE: fun1(10, 11); NIE: fun1 10, 11 )
+$a = @(10, 11)
+fun1 @a        #-> 21
+````
+3. Here string
+````powershell
+$c = @"
+Wiele
+"wierszy" $a 
+"@
+````
+
+### 7: Właściwości mutim. plików
 
 Odczyt rozszerzonych własności pliku  
 ````powershell
@@ -147,7 +167,7 @@ Różne odnośniki:
 
 
 `... | foreach { ...` ~~`continue`~~ ~~`break`~~  
-`@a[`~~0 . .-1~~`]`
+`$a[`~~0 . .-1~~`]`
 
 
 
