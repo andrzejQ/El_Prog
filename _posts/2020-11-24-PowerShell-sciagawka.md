@@ -13,6 +13,7 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 [5: Pliki                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-pliki) &nbsp; 
 [6: Operator <strong>@</strong>]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6-operator-) &nbsp; 
 [7: Właściwości mutim. plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7-właściwości-mutim-plików) &nbsp; 
+[8: Odczyt rejestru Windows  ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8-odczyt-rejestru-windows) &nbsp; 
 [# Nie będziesz używał!      ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#-nie-będziesz-używał) &nbsp; 
 
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
@@ -149,6 +150,11 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 * [Getting file metadata with PowerShell](https://evotec.pl/getting-file-metadata-with-powershell-similar-to-what-windows-explorer-provides/) -> evotec.pl
 
 
+### 8: Odczyt rejestru Windows
+
+Zob. przykłady: [WinInst_error_migrate_data]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2022-03-22-WinInst_error_migrate_data %})  
+<small>m.in. [infProfileList_regWrTm.ps1 (html)]({{ site.baseurl }}/assets/files/infProfileList_regWrTm.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/infProfileList_regWrTm.zip "infProfileList_regWrTm.zip")</small>
+
 
 - - - - - -
 
@@ -160,7 +166,6 @@ Różne odnośniki:
 
 
 - - - - - -
-
 &nbsp;
 
 ### # Nie będziesz używał!

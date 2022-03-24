@@ -484,6 +484,9 @@ Różne odnośniki:
 
 * [utils_AK (.zip) files.py misc1.py]({{ site.baseurl }}/assets/files/utils_AK.zip "utils_AK.zip") 
 
+* [Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})  
+
+
  
 
 <style> pre code {font-size: smaller;} </style>
