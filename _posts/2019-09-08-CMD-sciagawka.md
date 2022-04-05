@@ -62,12 +62,17 @@ W eksploratorze ustawiając się na wybranym folderze można od razu wywołać p
 ```` bat
 cmd /k tree
 ````
-które wyświetli nam okno konsoli z tekstową wersją drzewa podfolderów, co można skopiować choćby do notatnika.
+które wyświetli nam okno konsoli z tekstową wersją drzewa podfolderów, co można skopiować choćby do notatnika (`/k` - remains).
 
 Gdy chcemy użyć `echo off` np. z powodu użycia `for` w dalszej części w celu iteracji po podfolderach, to warto w zakończeniu użyć `echo on`.
 
 ```` bat
 cmd /k @echo off & echo === %cd% === & (for /D %G in (*.*) do (echo %G)) & echo on
+````
+
+A tu najlepiej używać przełącznika `/Q` (- turns echo off):
+```` bat
+cmd /Q /k echo === %cd% === & (for /D %G in (*.*) do (echo %G))
 ````
 
 <style> pre code {font-size: smaller;} </style>
