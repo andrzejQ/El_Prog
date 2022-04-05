@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Wiersz polceń CMD - ściągawka"
+title:  "Wiersz poleceń CMD - ściągawka"
 date:   2019-09-08 08:08:59 +0100
 categories: Programowanie
 ---
