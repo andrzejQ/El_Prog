@@ -24,13 +24,11 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
 
 ````py
 try:
-  with open('a.txt', encoding='utf-8-sig') as txt: # 'utf-8', 'cp1250'
+  with open('a.txt', encoding='utf-8-sig') as txt:
     a = txt.read().splitlines()
-except FileNotFoundError:
-  print('Brak "a.txt"')
+except FileNotFoundError as e: print(e); exit()
 
-with open('a.txt','w',newline='\r\n',encoding='utf-8-sig') as txt:
-  txt.write('\n'.join(a))
+with open('a.txt','w',newline='\r\n',encoding='utf-8-sig') as txt: txt.write('\n'.join(a))
 
 with open('a.txt','w',newline='',encoding='utf-8-sig') as txt: print(s, file=txt)
 ````
