@@ -56,11 +56,12 @@ with open('d.json', 'r', encoding='utf-8') as fj:
 json.dumps({'4': 5, '6': 7}, ensure_ascii=False, indent=2) #-> str
 ````
 
-Dla dość prostych struktur json, gdzie mamy listę słowników można uzyskać "hybrydowy format" json/csv, który ułatwia wkopiowanie takiego tekst do arkusza kalkulacyjnego (rozdzielany '\t'). Można też zastosować kodowanie `UTF-16 (=UCS-2) Little Endian with BOM`, tj. `encoding='utf-16'` i od razu otwierać w arkuszu kalk., albo wcześniej dodać rozszerzenie `CSV`.
+Dla dość prostych struktur json, gdzie mamy listę słowników można uzyskać "hybrydowy format" json/csv, który ułatwia wkopiowanie takiego tekst do arkusza kalkulacyjnego (rozdzielany '\t'). Można też zastosować kodowanie `UTF-16 (=UCS-2) Little Endian with BOM`, tj. `encoding='utf-16'` i od razu otwierać w arkuszu kalk., dodając rozszerzenie `CSV` do nazwy pliku.
 
 ````py
+d=[{'aa': 1, 'bb': 2},{'aa': 33, 'bb': 44},{'aa': 'abc', 'bb': 'ddd'}]
 with open('d.json', 'w', encoding='utf-8') as fj:
-    fj.write(json.dumps(di, ensure_ascii=False, separators=(',', ':\t')).replace('},','},\n'))
+  fj.write(json.dumps(d,ensure_ascii=False,separators=('\t,',':\t')).replace('}','\t}').replace('}\t,','},\n'))
 ````
 
 ### CSV
