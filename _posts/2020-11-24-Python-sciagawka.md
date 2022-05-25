@@ -64,6 +64,34 @@ with open('d.json', 'w', encoding='utf-8') as fj:
   fj.write(json.dumps(d,ensure_ascii=False,separators=('\t,',':\t')).replace('}','\t}').replace('}\t,','},\n'))
 ````
 
+Do skondensowanego wypisywania istotnych wartości w złożonej strukturze może się przydać:
+````py
+def allValuesList(d):
+  ''' Lista wartości ze złożonej struktury, z pomijaniem pewnych kluczy i wartości None
+>>> x = {'a':'aaa', 'b':'bb', 0:None, 'arr':[{'a':'AAA','b':'BB'},{'c':'CCC'}], '..':'..', 123:[1,2,3]}
+>>> list(allValuesList(x))
+['aaa', 'bb', 'AAA', 'BB', 'CCC', '1', '2', '3']
+>>> list(allValuesList( [4,5] ))
+['4', '5']
+>>> list(allValuesList( {'a':None} ))
+[]'''
+  if isinstance(d, dict):
+    for k,v in d.items():
+      if k not in ['...','..']:
+        yield from allValuesList(v)
+  elif not isinstance(d,str) and hasattr(d,'__iter__'):
+    for v in d: 
+      yield from allValuesList(v)
+  else:
+    if not (d is None):
+      yield str(d)
+
+if __name__ == "__main__":
+  import doctest
+  doctest.testmod()
+````
+
+
 ### CSV
 
 ````py
@@ -404,6 +432,18 @@ aLi2 = re.findall(r'<h3> +' + re.escape('<a class="post-link"')
 + r'(.+?)'+r'</a>', html) ;print(f'{aLi2}'.replace(', ',',\n'))
 #[('/El_Prog/programowanie/2020/11/24/Python-sciagawka.html',
 #'             Python ściągawka           '), ...
+````
+
+REST API, gdy bez logowania
+
+````py
+import requests
+def RESTapi(service: str, api_base='https://apps.edu.pl/', timeout=15, **kwargs):
+  response = requests.post(api_base + service, timeout=timeout, data=kwargs)
+  if not (response.ok): # OK - response code 200
+    response.raise_for_status()
+  return response.json()
+print(RESTapi('services/a_index', fields='id|name'))
 ````
 
 ## 11 . GUI - dane wejściowe
