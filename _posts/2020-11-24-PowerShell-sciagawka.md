@@ -43,7 +43,7 @@ PSCustomObject
 <small>wszystkie własności:</small>  
 `$myObj | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name`  
 <small>czy własność istnieje?:</small>  
-`if( $null -ne $myObj.ID )` lub `if( $myObj.psobject.properties.match('ID').Count )`  
+`if( [bool] $myObj.psobject.Properties['ID'] )`  
 `$myObj.Nm` lub `$myObj.'Nm'` lub `$myObj.$prop` - odczytaj wartość  
 `$b=$myObj.psobject.copy()` - prawdziwa kopia (a nie tylko referencja)  
 
