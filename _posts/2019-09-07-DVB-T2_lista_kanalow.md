@@ -13,4 +13,6 @@ z aktualną informacją o dostępnych kanałach DVB-T/T2.
 
 Uruchamiając  [`py channels.py`]({{ site.baseurl }}/assets/files/channels.py) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo.csv`
 
+Analogiczny skrypt w PowerShell: Uruchamiając [`channels.ps1`]({{ site.baseurl }}/assets/files/channels.ps1) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo_.csv`
+
 <style> pre code {font-size: smaller;} </style>
