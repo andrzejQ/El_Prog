@@ -10,9 +10,10 @@ chInfocsv = 'chInfo.csv'
 with open(r'C:\ProgramData\SichboPVR4\service-channels.json', 'r', encoding='utf-8') as fj:
   d = json.load(fj) 
 
-def cTV (MHz): 
+def cTV (MHz_): 
   '''cTV(474) -> "C21"; cTV(177.5) -> "E5"'''
-  MHz = float(MHz)
+  try: MHz = float(MHz_ or 0)
+  except ValueError: MHz = 0.0
   Band = namedtuple("Band", 'CSE Nr F0 dF')
   bands = (          Band( 'C',21,470.0,8.0 ),
                      Band( 'S', 9,230.0,8.0 ),

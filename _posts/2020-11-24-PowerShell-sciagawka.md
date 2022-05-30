@@ -26,13 +26,16 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 
 `()` - wykonaj teraz, np. `($x='coś')` podstaw i wyświetl  
 `$()` - wykonaj teraz i potraktuj jak zmienną, np. `"2+3=$(2+3)"`  
-`@()` - potaktuj jako tablicę (także pustą lub 1-el.)  
+`@()` - potraktuj jako tablicę (także pustą lub 1-el.)  
 `, `  - literał tablicy  
 `&` - wykonaj  
 `. `  - wykonaj skrypt ps1 zapamiętując jego zmienne (spacja po kropce)  
 `..` - zakres liczb całk. np. `-5.1..1.9` -eq `-5..1`  
 `${}` - nazwa zmiennej z użyciem znaków niedozwolonych w nazwach, np. `${a b}` (ale `$ąćę` jest ok)  
-<code>`</code> = `\` w innych językach, choć w PowerShell RegExp jest normalnie `\`
+<code>`</code> = `\` w innych językach, choć w PowerShell RegExp jest normalnie `\`  
+<small>konwersja z wartością domyślną - bez zgłaszania błędów:</small>  
+`$x = $xIn -as [double]; if ($null -eq $x) { $x = 0.0 }`  
+
 
 PSCustomObject  
 `$myObj=[PSCustomObject]@{Nm='K'}`, `$ht=[ordered]@{Nm='K'};$myObj=[pscustomobject]$ht`  
@@ -42,7 +45,7 @@ PSCustomObject
 `$myObj | Add-Member @{ID='KMarquette'}` <small>(krótko, ale nie wiem, czy to to samo co powyżej)</small>  
 <small>wszystkie własności:</small>  
 `$myObj | Get-Member -MemberType NoteProperty | Select -ExpandProperty Name`  
-<small>czy własność istnieje?:</small>  
+<small>czy własność istnieje? (działa także przy wyższych StrictMode):</small>  
 `if( [bool] $myObj.psobject.Properties['ID'] )`  
 `$myObj.Nm` lub `$myObj.'Nm'` lub `$myObj.$prop` - odczytaj wartość  
 `$b=$myObj.psobject.copy()` - prawdziwa kopia (a nie tylko referencja)  

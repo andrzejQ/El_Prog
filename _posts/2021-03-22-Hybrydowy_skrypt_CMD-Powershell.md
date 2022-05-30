@@ -105,7 +105,7 @@ Takie polecenie może mieć maksymalnie 260-43 znaków (-43, bo i tak automatycz
 `C:\Windows\system32\WindowsPowerShell\v1.0\`). Na zewnątrz ciągu poleceń oddzielonych `;` musi być `"`, więc w środku warto używać `'` dla łańcuchów.
 {:style="font-size: smaller;"}
 
-Czasem przydaje używanie krótszych poleceń PowerShell - lista: `get-alias`
+Tu może się przydać używanie krótszych poleceń PowerShell - lista: `get-alias`
 {:style="font-size: smaller;"}
 
 

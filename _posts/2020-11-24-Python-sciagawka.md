@@ -227,10 +227,18 @@ sysArgv3 = (sys.argv+['']*3)[3]
 
 >>> '-'.join([])
 ''
+````
 
-# Symulacja orderedSet za pomocą dict py 3.7+: 
+<small>Symulacja orderedSet za pomocą dict py 3.7+:</small>
+````py
 >>> ", ".join(dict.fromkeys("aa, b1, b1, aa, cd".split(", ")))
 'aa, b1, cd'
+````
+
+<small>Konwersja z wartością domyślną:</small>
+````py
+try: y = float(xIn or 0)
+except ValueError: y=0.0
 ````
 
 ## 5 . Zmienne globalne, pamięć stanu

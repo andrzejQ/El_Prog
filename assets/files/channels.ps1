@@ -18,8 +18,8 @@ $bands = @(
   [PSCustomObject]@{ CSE='S'; Nr= 1; F0=110.0; dF=8.0 },
   [PSCustomObject]@{ CSE='?'; Nr= 0; F0=0.0; dF=110.0 }
 )
-function cTV { param ($MHz) # cTV(474) -> "C21"; cTV(177.5) -> "E5"
-  [double] $MHz = $MHz
+function cTV { param ($MHz_) # cTV(474) -> "C21"; cTV(177.5) -> "E5"
+  $MHz = $MHz_ -as [double]; if (($null -eq $MHz) -or ($MHz -lt 0.0)) { $MHz = 0.0 }
   foreach ($b in $bands) {
     if ($MHz -gt $b.F0) { break }
   }
@@ -34,7 +34,7 @@ foreach ($ch in $Channels) {
   $transp = (($Transponders | where {$_.UID -eq $ch.TransponderUID}).info).Split(' ')
   $C = cTV $transp[1] 
   ( $s = @( $ch.Name.s[0].v ,
-           ($ch.Streams | where {[bool] $_.psobject.Properties['Video']}).Video.Height ,
+           ($ch.Streams | where {[bool] $_.psobject.Properties['Video']} | select -First 1).Video.Height ,
             $C 
          ) + $transp `
          -join ";" )
