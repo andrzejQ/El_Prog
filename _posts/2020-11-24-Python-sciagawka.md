@@ -237,7 +237,7 @@ sysArgv3 = (sys.argv+['']*3)[3]
 
 <small>Konwersja z wartością domyślną:</small>
 ````py
-try: y = float(xIn or 0)
+try: y = float(xIn or 0) # 0 if None
 except ValueError: y=0.0
 ````
 
