@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "DVB-T2 lista kanałów"
-date:   2019-09-07 08:08:59 +0100
+date:   2019-09-07 06:08:59 +0100
 categories: Programowanie
 ---
 
