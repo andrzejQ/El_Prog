@@ -42,6 +42,5 @@ git config merge.tool tortoisemerge
 
 git status
 
-git pull
 
 ````

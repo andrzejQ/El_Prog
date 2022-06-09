@@ -4,6 +4,7 @@ title:  "Regular Expression - ściągawka"
 date:   2019-09-07 08:08:49 +0100
 categories: Programowanie
 docs: https://github.com/notepad-plus-plus/npp-usermanual/blob/master/content/docs/searching.md
+i_: "Powyżej długi odnośnik do ktróego są częste odwołania = ` page.docs `"
 ---
 
 Moja ściągawka Regular Expression (zapewne tylko do użytku własnego)... 
