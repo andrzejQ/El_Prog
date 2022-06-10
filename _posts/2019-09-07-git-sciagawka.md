@@ -27,11 +27,16 @@ git branch -v
 git branch -vv
 git branch --no-merged
 
+
+# gałąź śledząca zdalne repo
+
 git remote add aabbcc https://github.com/aabbcc/abc.git
 git fetch aabbcc
 
 git remote -v
 git remote -vv
+
+#lista plików do rozw. konfliktów:
 
 git diff --name-only --diff-filter=U --relative
 
@@ -41,6 +46,13 @@ git config --global core.autocrlf false
 git config merge.tool tortoisemerge
 
 git status
+
+
+-------------------
+
+git config --global core.autocrlf false
+git config --global core.eol lf
+
 
 
 ````

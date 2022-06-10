@@ -68,6 +68,10 @@ Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdziel
 \xA0
 ````
 
+------
+* <https://www.regular-expressions.info/>
+* <https://regex101.com/> - testowanie
+
 #### Przydatne znaki Unicode
 
 Wizualizacja spacji (podkreślenie z zawijasami) - nie zawsze dobrze widoczne, w zależności od czcionki:  
@@ -84,6 +88,8 @@ Trochę indeksów górnych
 `ᵝᵞᵟᵠᵡᶿᶛᶜᶝᶞᶟᶠᶡᶢᶣᶤᶥᶦᶧᶨᶩᶪᶫᶬᶭᶮᶯᶰᶱᶲᶳᶴᶵᶶᶷᶸᶹᶺᶻᶼᶽᶾᘁᙆᙇᙚᙾᙿᣔᣕᣖᣗᣘᣙᣚᣛᣜᣝᣞᣟᣳᣴᣵ`  
 i dolnych  
 `˒₍₎₊ˏ₋₀₁₂₃₄₅₆₇₈₉₌ˍ˴ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ˷ᵦᵧᵨᵩᵪ`
+
+
 
 <style> pre > code {font-size: 95%;} 
 code.language-regexp {background-color: Aqua;} </style>
