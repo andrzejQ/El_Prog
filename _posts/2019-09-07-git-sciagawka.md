@@ -7,7 +7,7 @@ categories: Programowanie
 
 Ściągawka **git** - na razie brudnopis... 
 
-````
+````bash
 git init
 
 git add .
@@ -44,3 +44,6 @@ git status
 
 
 ````
+* [Pro GIT wyd.2](https://git-scm.com/book/pl/v2) >> git-scm.com/book/pl/v2
+* [git - prosty przewodnik](http://rogerdudler.github.io/git-guide/index.pl.html) >>  rogerdudler.github.io
+* [Managing remote repositories](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories?utm_source=pocket_mylist) >> docs.github.com
