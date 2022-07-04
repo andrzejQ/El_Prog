@@ -95,7 +95,15 @@ if __name__ == "__main__":
 ````
 </details>
 
+Można skorzystać z propozycji [konwersji XML <-> JSON](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html) i obsługiwać XML [z pomocą xmltodict](https://pypi.org/project/xmltodict/)
 
+````py
+import xmltodict
+with open('a.xml') as fd:
+  doc = xmltodict.parse(fd.read())
+````
+
+Można [spłaszczać strukturę zagnieżdżoną](https://www.freecodecamp.org/news/how-to-flatten-a-dictionary-in-python-in-4-different-ways) (najprościej z pomocą [FlatDict](https://github.com/gmr/flatdict/)), np. w celu konwersji danych do CSV.
 
 
 ### CSV
