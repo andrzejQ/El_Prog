@@ -64,7 +64,10 @@ with open('d.json', 'w', encoding='utf-8') as fj:
   fj.write(json.dumps(d,ensure_ascii=False,separators=('\t,',':\t')).replace('}','\t}').replace('}\t,','},\n'))
 ````
 
-Do skondensowanego wypisywania istotnych wartości w złożonej strukturze może się przydać:
+<!-- https://github.com/root-project/web/pull/529#issue-832096581-->
+<details markdown=1><summary markdown="span">Do skondensowanego wypisywania istotnych wartości w złożonej strukturze może się przydać  
+`def allValuesList(d): ...` <br> . . . </summary>
+
 ````py
 def allValuesList(d):
   ''' Lista wartości ze złożonej struktury, z pomijaniem pewnych kluczy i wartości None
@@ -90,6 +93,9 @@ if __name__ == "__main__":
   import doctest
   doctest.testmod()
 ````
+</details>
+
+
 
 
 ### CSV
@@ -288,6 +294,9 @@ def expensive(arg1, arg2, *, _cache={}):  # po `*` mogą wystąpić tylko pary `
 
 ## 6 . Tree
 
+<details markdown=1><summary markdown="span"> One-line Tree in Python `...` <br> . . . </summary>
+
+
 ````py
 treeStr = f'''\
 1
@@ -360,6 +369,7 @@ cpTree(tree0)
 
 print('tree1:'); prnTree(tree1)
 ````
+</details>
 
 * [One-line Tree in Python](https://gist.github.com/hrldcpr/2012250) -> gist.github.com/hrldcpr/ (autovivification)
 
@@ -458,7 +468,7 @@ print(RESTapi('services/a_index', fields='id|name'))
 
 Można wyświetlić okno dialogowe do pobrania danych dla skryptu (GUI tkinter działa w dowolnym systemie operacyjnym)
 
-* [TkEntryWidget.py]({{ site.baseurl }}/assets/files/TkEntryWidget.py.html):
+<details markdown=1><summary markdown="span"> `TkEntryWidget.py ...` <br> . . . </summary>
 
 ````py
 #!/usr/bin/python3 -i
@@ -505,6 +515,8 @@ def tkFormConf(fields, confCsv='conf_0.csv'):
   """
 ...
 ````
+</details>
+
 ![TkEntryWidget.png]({{ site.baseurl }}/assets/img/TkEntryWidget.png "TkEntryWidget.png"){:style="float:right;width:30%;"}
 
 
