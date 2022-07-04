@@ -102,8 +102,9 @@ import xmltodict
 with open('a.xml') as fd:
   doc = xmltodict.parse(fd.read())
 ````
+* [xml2dict2csv_test.zip]({{ site.baseurl }}/assets/files/xml2dict2csv_test.zip  "xml2dict2csv_test.zip ") 
 
-Można [spłaszczać strukturę zagnieżdżoną](https://www.freecodecamp.org/news/how-to-flatten-a-dictionary-in-python-in-4-different-ways) (najprościej z pomocą [FlatDict](https://github.com/gmr/flatdict/)), np. w celu konwersji danych do CSV.
+Można [spłaszczać strukturę zagnieżdżoną](https://www.freecodecamp.org/news/how-to-flatten-a-dictionary-in-python-in-4-different-ways) (najprościej z pomocą [FlatDict](https://github.com/gmr/flatdict/)).
 
 
 ### CSV
@@ -561,7 +562,5 @@ Różne odnośniki:
 * [Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})  
 
 
- 
 
 <style> pre code {font-size: smaller;} </style>
-
