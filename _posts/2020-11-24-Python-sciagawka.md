@@ -198,7 +198,14 @@ type         ::=  "b"|"c"|"d"|"e"|"E"|"f"|"F"|"g"|"G"|"n"|"o"|"s"|"x"|"X"|"%"
 '000123 00007b 0x7b'
 ````
 
+````py
+>>> x=11; f"{x=}" # py 3.8+: 'x=11'
+````
+
+
 * [Format Specification Mini-Language](https://docs.python.org/pl/3/library/string.html#formatspec)  -> docs.python.org/3/
+* [f-str 73 examples](https://miguendes.me/73-examples-to-help-you-master-pythons-f-strings) -> miguendes.me
+
 
 ````py
 >>> print ('opis: ',end =''); print (x)
