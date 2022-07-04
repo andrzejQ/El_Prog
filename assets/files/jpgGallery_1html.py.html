@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/1999/REC-html401-19991224/strict.dtd">
+<html lang="" class="notranslate" translate="no">
+<head>
+<META http-equiv=Content-Type content="text/html; charset=UTF-8">
+<title>jpgGallery_1html.py</title>
+<style type="text/css">
+span {
+	font-family: 'Consolas';
+	font-size: 10pt;
+	color: #000000;
+}
+.sc0 {
+}
+.sc1 {
+	color: #008000;
+}
+.sc3 {
+	color: #00A400;
+}
+.sc4 {
+	color: #008080;
+}
+.sc5 {
+	font-weight: bold;
+	color: #0000FF;
+}
+.sc6 {
+	color: #408080;
+}
+.sc7 {
+	color: #008000;
+}
+.sc10 {
+	font-weight: bold;
+	color: #000080;
+}
+.sc11 {
+}
+.sc18 {
+	color: #FF8000;
+}
+</style>
+</head>
+<body>
+<div style="float: left; white-space: pre; line-height: 1; background: #FFFFFF; "><span class="sc1">#!/usr/bin/env python</span><span class="sc0">
+
+</span><span class="sc5">from</span><span class="sc0"> </span><span class="sc11">pathlib</span><span class="sc0"> </span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">Path</span><span class="sc0">
+</span><span class="sc5">import</span><span class="sc0"> </span><span class="sc11">base64</span><span class="sc0">
+</span><span class="sc5">print</span><span class="sc10">(</span><span class="sc7">"""
+Write JPG responsive gallery as one-file HTML
+"""</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc1"># see https://www.w3schools.com/css/tryit.asp?filename=trycss_image_gallery_responsive</span><span class="sc0">
+</span><span class="sc11">jpgImagePath</span><span class="sc10">=</span><span class="sc4">'jpg/'</span><span class="sc0">
+</span><span class="sc11">title</span><span class="sc10">=</span><span class="sc4">'Photos...'</span><span class="sc0">
+
+</span><span class="sc11">htmlHd</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc18">f'''&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;meta charset="utf-8"&gt;
+&lt;title&gt;{</span><span class="sc11">title</span><span class="sc18">}&lt;/title&gt;'''</span><span class="sc10">+</span><span class="sc6">'''&lt;style&gt;
+div.gallery {border: 1px solid #ccc;}
+div.gallery:hover {border: 1px solid #777;}
+div.gallery img {width: 100%; height: auto;}
+div.desc {padding: 15px; text-align: center;}
+* {box-sizing: border-box;}
+.responsive {padding: 0 6px; float: left; width: 33.33333%;}
+@media only screen and (max-width: 950px) {.responsive { width: 49.99999%;  margin: 6px 0; }}
+@media only screen and (max-width: 700px) {.responsive { width: 100%; }}
+.clearfix:after {content: ""; display: table; clear: both;}
+&lt;/style&gt;&lt;/head&gt;&lt;body&gt;
+'''</span><span class="sc0">
+</span><span class="sc11">htmlFt</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc18">f'''&lt;div class="clearfix"&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;'''</span><span class="sc0">
+</span><span class="sc11">html</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc18">f'''&lt;h2&gt;{</span><span class="sc11">title</span><span class="sc18">}&lt;/h2&gt;'''</span><span class="sc0">
+</span><span class="sc11">p</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">Path</span><span class="sc10">(</span><span class="sc11">jpgImagePath</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc11">jpgList</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">sorted</span><span class="sc10">(</span><span class="sc11">p</span><span class="sc10">.</span><span class="sc11">glob</span><span class="sc10">(</span><span class="sc4">'*.jpg'</span><span class="sc10">),</span><span class="sc0"> </span><span class="sc11">key</span><span class="sc10">=</span><span class="sc5">lambda</span><span class="sc0"> </span><span class="sc11">f</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">f</span><span class="sc10">.</span><span class="sc11">stem</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc1">#;print(jpgList) #sorted excluding '.jpg'</span><span class="sc0">
+</span><span class="sc5">for</span><span class="sc0"> </span><span class="sc11">jpg</span><span class="sc0"> </span><span class="sc5">in</span><span class="sc0"> </span><span class="sc11">jpgList</span><span class="sc10">:</span><span class="sc0">
+  </span><span class="sc5">with</span><span class="sc0"> </span><span class="sc11">open</span><span class="sc10">(</span><span class="sc11">jpg</span><span class="sc10">,</span><span class="sc0"> </span><span class="sc3">"rb"</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">imgFile</span><span class="sc10">:</span><span class="sc0">
+    </span><span class="sc5">print</span><span class="sc10">(</span><span class="sc4">'\t'</span><span class="sc10">+</span><span class="sc11">jpg</span><span class="sc10">.</span><span class="sc11">name</span><span class="sc10">)</span><span class="sc0">
+    </span><span class="sc11">encoded_string</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc11">base64</span><span class="sc10">.</span><span class="sc11">b64encode</span><span class="sc10">(</span><span class="sc11">imgFile</span><span class="sc10">.</span><span class="sc11">read</span><span class="sc10">())</span><span class="sc0"> </span><span class="sc1">#;print(encoded_string[-5:])</span><span class="sc0">
+    </span><span class="sc11">html</span><span class="sc0"> </span><span class="sc10">+=</span><span class="sc0"> </span><span class="sc18">f'''&lt;div class="responsive"&gt;&lt;div class="gallery"&gt;
+&lt;img src="data:image/jpg;base64, {</span><span class="sc11">encoded_string</span><span class="sc10">.</span><span class="sc11">decode</span><span class="sc10">(</span><span class="sc4">'utf-8'</span><span class="sc10">)</span><span class="sc18">}" alt="{</span><span class="sc11">jpg</span><span class="sc10">.</span><span class="sc11">name</span><span class="sc18">}"&gt;
+&lt;div class="desc"&gt;{</span><span class="sc11">jpg</span><span class="sc10">.</span><span class="sc11">name</span><span class="sc18">}&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+'''</span><span class="sc0">
+</span><span class="sc11">html</span><span class="sc0"> </span><span class="sc10">=</span><span class="sc0"> </span><span class="sc18">f'''{</span><span class="sc11">htmlHd</span><span class="sc18">}
+{</span><span class="sc11">html</span><span class="sc18">}
+{</span><span class="sc11">htmlFt</span><span class="sc18">}
+'''</span><span class="sc0">
+</span><span class="sc11">htmlFileName</span><span class="sc10">=</span><span class="sc18">f'''{</span><span class="sc11">title</span><span class="sc18">}.html'''</span><span class="sc0">
+</span><span class="sc5">with</span><span class="sc0"> </span><span class="sc11">open</span><span class="sc10">(</span><span class="sc11">htmlFileName</span><span class="sc10">,</span><span class="sc4">'w'</span><span class="sc10">,</span><span class="sc11">encoding</span><span class="sc10">=</span><span class="sc4">'utf-8'</span><span class="sc10">)</span><span class="sc0"> </span><span class="sc5">as</span><span class="sc0"> </span><span class="sc11">txt</span><span class="sc10">:</span><span class="sc0"> </span><span class="sc11">txt</span><span class="sc10">.</span><span class="sc11">write</span><span class="sc10">(</span><span class="sc11">html</span><span class="sc10">)</span><span class="sc0">
+</span><span class="sc5">print</span><span class="sc10">(</span><span class="sc4">'-&gt;'</span><span class="sc10">,</span><span class="sc11">htmlFileName</span><span class="sc10">);</span><span class="sc0">
+</span></div></body>
+</html>
