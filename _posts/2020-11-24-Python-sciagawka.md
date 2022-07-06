@@ -16,8 +16,9 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
  [8.&nbsp;filter() replacement]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8--filter-replacement") &nbsp; 
  [9.&nbsp;linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail) &nbsp; 
 [10.&nbsp;Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www) &nbsp; 
-[11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe)
-[12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html)
+[11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe) &nbsp; 
+[12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html) &nbsp; 
+[13.&nbsp;Notepad++ QuickText]({{ site.url }}{{ site.baseurl }}{{ page.url }}#13--notepad-quicktext) &nbsp; 
 
 
 ## 1 . Pliki:
@@ -549,6 +550,41 @@ Pliki JPG zakodowane w BASE64 scalone w jednym pliku HTML jako responsywna galer
 * [jpgGallery_1html.zip]({{ site.baseurl }}/assets/files/jpgGallery_1html.zip) - test
 
 
+
+## 13 . Notepad++ QuickText
+
+
+Przykładowe ustawienia dodatku N++ - `QuickText`:  
+<small> `[_] Use Scintilla Autocomplite`, `[_] Auto Insert Autocomplite`; Replace Tag: `Alt+Space`
+</small>
+
+`Alt+Space`, zaczynam pisać uściślając wybór z listy, `Tab`, `Alt+Space`. <small>Kolejne `Alt+Space` przeskakują do miejsc oznanczonych w "QuickText.ini" przez `$`</small>
+
+
+<details markdown=1><summary markdown="span"> `QuickText.ini ...` <br> . . . </summary>
+
+````ini
+...
+#LANGUAGE_NAME=Python
+class=class $($object):\n  """$"""\n\n  def __init__(self, $):\n    $\n$
+def=def $($):\n  """$"""\n\n  $\n$
+elif=elif $:\n  $\n$
+else=else:\n  $\n$
+for=for $ in $:\n  $\n$
+if=if $:\n  $\n$
+ifelif=if $:\n  $\nelif $:\n  $\nelse:\n  $\n$
+ifelse=if $:\n  $\nelse:\n  $\n$
+main=if __name__ == '__main__':\n  main()\n$
+maintest=if __name__ == "__main__":\n  import doctest\n  doctest.testmod()\n$
+readjson=with open('$.json', 'r', encoding='utf-8') as fj:\n  d$ = json.load(fj)\n$
+readtxt=try:\n  with open('$.txt', encoding='utf-8-sig') as txt:\n    a$ = txt.read().splitlines()\nexcept FileNotFoundError as e: print(e); exit()\n$
+start=#!/usr/bin/env python\n\nimport os\nimport sys\n\n$
+try=try:\n  $\nexcept $:\n  $\n$
+writejson=with open('$.json', 'w', encoding='utf-8') as fj:\n  fj.write(json.dumps( d$ , ensure_ascii=False, separators=('\t,',':\t')).replace('}','\t}').replace('}\t,','},\\n'))\n$
+writetxt=with open('$.txt','w',newline='\r\\n',encoding='utf-8-sig') as txt: txt.write('\\n'.join( a$ ))\n$
+...
+````
+</details>
 - - - - - -
 
 &nbsp;
@@ -564,3 +600,4 @@ Różne odnośniki:
 
 
 <style> pre code {font-size: smaller;} </style>
+<style> small code {font-size: smaller;} </style>
