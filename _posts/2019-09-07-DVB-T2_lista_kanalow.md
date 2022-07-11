@@ -19,11 +19,24 @@ otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo.csv`
 
 Analogiczny skrypt w PowerShell: Uruchamiając [`channels.ps1`]({{ site.baseurl }}/assets/files/channels.ps1) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo_.csv`
 
+- - - - - 
+<br>
+Do tunera DTV USB [`MyGica T230A`](https://www.mygica.com/support/) załączany jest program `MyGicaHiDTV`.  
+<small>Nie umiem znaleźć informacji o jego licencji i autorach.</small>  
+Po wyszukaniu stacji także uzyskasz listę programów z inf. o częstotliwościach  
+[`py xml_HiDTV.py`]({{ site.baseurl }}/assets/files/xml_HiDTV.py) 
+(używa [`DTV_DK_CCIR.py`]({{ site.baseurl }}/assets/files/DTV_DK_CCIR.py))
+
+- - - - - 
+<br>
 <small>
 Można też uruchomić skrypt, który daje listę częstotliwości kanałów w standardzie D/K (CCIR) - 
 [`tvMHz.py`]({{ site.baseurl }}/assets/files/tvMHz.py)
 lub
 [`tvMHz.ps1`]({{ site.baseurl }}/assets/files/tvMHz.ps1).
 </small>
+
+
+
 
 <style> pre code {font-size: smaller;} </style>
