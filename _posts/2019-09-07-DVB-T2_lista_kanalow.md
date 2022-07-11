@@ -13,7 +13,9 @@ Każdorazowo po wyszukaniu kanałów w **SichboPVR** powstaje plik
 `%ProgramData%\SichboPVR4\service-channels.json`  
 z aktualną informacją o dostępnych kanałach DVB-T/T2.
 
-Uruchamiając  [`py channels.py`]({{ site.baseurl }}/assets/files/channels.py) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo.csv`
+Uruchamiając  [`py channels.py`]({{ site.baseurl }}/assets/files/channels.py) 
+(używa [`DTV_DK_CCIR.py`]({{ site.baseurl }}/assets/files/DTV_DK_CCIR.py))
+otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo.csv`
 
 Analogiczny skrypt w PowerShell: Uruchamiając [`channels.ps1`]({{ site.baseurl }}/assets/files/channels.ps1) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo_.csv`
 

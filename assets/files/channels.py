@@ -1,6 +1,6 @@
 import json 
 import csv
-from collections import namedtuple
+from DTV_DK_CCIR import cTV
 ''''
 Po wyszukaniu kanałów w programie SichboPVR -> https://sichbopvr.com/pl-pl/
 powstaje plik "%ProgramData%\SichboPVR4\service-channels.json",
@@ -10,21 +10,6 @@ chInfocsv = 'chInfo.csv'
 with open(r'C:\ProgramData\SichboPVR4\service-channels.json', 'r', encoding='utf-8') as fj:
   d = json.load(fj) 
 
-def cTV (MHz_): 
-  '''cTV(474) -> "C21"; cTV(177.5) -> "E5"'''
-  try: MHz = float(MHz_ or 0)
-  except ValueError: MHz = 0.0
-  Band = namedtuple("Band", 'CSE Nr F0 dF')
-  bands = (          Band( 'C',21,470.0,8.0 ),
-                     Band( 'S', 9,230.0,8.0 ),
-                     Band( 'E', 5,174.0,7.0 ),
-                     Band( 'S', 1,110.0,8.0 )
-  )
-  for b in bands:
-    if MHz > b.F0 : break
-  else: return '?'
-  return b.CSE+str(int( b.Nr + (MHz-b.F0)/b.dF ))
-  
 Transponders = {}
 for t in d['Transponders']:
   transp = t.get('Info').split(' ')
