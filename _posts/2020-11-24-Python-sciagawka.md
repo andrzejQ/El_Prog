@@ -115,7 +115,8 @@ import csv
 with open('x.csv','r',newline='',encoding='utf-8-sig') as csvF:
   csvRd = csv.reader(csvF, delimiter=';')
   csvHeader = next(csvRd)
-  r = next(csvRd)
+  for r in csvRd:
+    print(r)
 
 with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
   csvWr = csv.writer(csvF, delimiter=';',quoting=csv.QUOTE_MINIMAL)
