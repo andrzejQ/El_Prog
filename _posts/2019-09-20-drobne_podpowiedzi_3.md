@@ -187,4 +187,4 @@ Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://
 	ln -sv /usr/bin/python3 python
 </span>
 
-
+Dalsza lektura - [Hello World Program w Pythonie](https://www.scaler.com/topics/hello-world-program-in-python/)
