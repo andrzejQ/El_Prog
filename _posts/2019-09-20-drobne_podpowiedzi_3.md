@@ -140,50 +140,6 @@ Można tu jeszcze wspomnieć o wymyślaniu [własnych poleceń](https://www.pyth
 
 - - - -
 
-
-
-
-W **Notepad++** można zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):  
-`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
-
-**Można też skorzystać z wtyczki Notepad++ NppExec:**
-
-Na podstawie - NppExec help/manual - 4.6.4. "Running Python & wxPython"  
-oraz  
-<https://mountcreo.com/article/running-and-debugging-python-in-notepad-with-idle/>
-
-Script "RunPython" dla wersji interaktywnej Pythona:
-
-1. Wtyczki \ NppExec: Execute NppExec Script...  
-````bat
-npp_console local -
-npp_save
-cd "$(CURRENT_DIRECTORY)"
-set local @exit_cmd_silent = exit()
-npp_setfocus con
-npp_console local +
-py -i -u -X utf8 "$(FILE_NAME)"
-````
-\ [Save] \ Nazwa np. "RunPython" \ [OK]
-
-
-2. Wtyczki \ NppExec:  
-\ Associated script (na dole z lewej): RunPython \ [Add/Modify]  
-[x] Place to the Macros submenu (z lewej u góry)  
-Restart Notepad++
-
-3. Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
-[x] `*File "%ABSFILE%", line %LINE%`  
-Red `FF`
-
-4. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz
-
-5. Console Output...: UTF8
-
-6. Wtyczki \ NppExec \ Show NppExec Console lub [Ctrl + ~]
-
-- - - -
-
 <span style="font-size: smaller; color:DarkGrey;">
 Można wyświetlić ścieżki PATH w linii poleceń wstawiając łamanie wierszy:
 </span>
@@ -227,5 +183,10 @@ Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://
 	unlink python  
 	ln -sv /usr/bin/python3 python
 </span>
+
+- - - - -
+
+Zob. też 
+* [Python ściągawka -- 13 . Notepad++ QuickText, NppExec]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2020-11-24-Python-sciagawka %}#13--notepad-quicktext-nppexec)
 
 

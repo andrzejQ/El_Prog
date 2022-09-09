@@ -18,7 +18,7 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
 [10.&nbsp;Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www) &nbsp; 
 [11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe) &nbsp; 
 [12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html) &nbsp; 
-[13.&nbsp;Notepad++ QuickText]({{ site.url }}{{ site.baseurl }}{{ page.url }}#13--notepad-quicktext) &nbsp; 
+[13.&nbsp;Notepad++ QuickText, NppExec]({{ site.url }}{{ site.baseurl }}{{ page.url }}#13--notepad-quicktext-nppexec) &nbsp; 
 
 
 ## 1 . Pliki:
@@ -552,7 +552,7 @@ Pliki JPG zakodowane w BASE64 scalone w jednym pliku HTML jako responsywna galer
 
 
 
-## 13 . Notepad++ QuickText
+## 13 . Notepad++ QuickText, NppExec
 
 
 Przykładowe ustawienia dodatku N++ - `QuickText`:  
@@ -586,6 +586,52 @@ writetxt=with open('$.txt','w',newline='\r\\n',encoding='utf-8-sig') as txt: txt
 ...
 ````
 </details>
+
+- - - -
+
+<br>
+**Można też skorzystać z wtyczki N++ `NppExec`:**
+
+<small>Na podstawie - NppExec help/manual - 4.6.4. "Running Python & wxPython" oraz  
+<https://mountcreo.com/article/running-and-debugging-python-in-notepad-with-idle/></small>
+
+Skrypt "RunPython" dla wersji interaktywnej Pythona:
+
+1. Wtyczki \ NppExec: Execute NppExec Script...  
+````bat
+npp_console local -
+npp_save
+cd "$(CURRENT_DIRECTORY)"
+set local @exit_cmd_silent = exit()
+npp_setfocus con
+npp_console local +
+py -i -u -X utf8 "$(FILE_NAME)"
+````
+ \ [Save] \ Nazwa np. "RunPython" \ [OK]
+
+
+2. Wtyczki \ NppExec:  
+\ Associated script (na dole z lewej): RunPython \ [Add/Modify]  
+[x] Place to the Macros submenu (z lewej u góry)  
+Restart Notepad++
+
+3. Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
+[x] `*File "%ABSFILE%", line %LINE%`  
+Red `FF`
+
+4. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz
+
+5. Console Output...: UTF8
+
+6. Wtyczki \ NppExec \ Show NppExec Console lub [Ctrl + ~]
+
+- - - -
+
+<small>  
+W **Notepad++** można też zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):</small>  
+`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
+
+
 - - - - - -
 
 &nbsp;
