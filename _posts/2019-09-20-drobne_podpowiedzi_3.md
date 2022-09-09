@@ -74,9 +74,6 @@ py -0p
 ````
 `py` bez parametrów wywołuje swój domyślny kompilator `python.exe` - oznaczany na liście gwiazdką. Ale gdy uruchamiamy jakiś plik z pierwszym wierszem _#!..._, to to ustawienie ma priorytet. Generalnie wywołanie z `py` może dawać całkiem inne efekty niż z `python` (wyszukany w PATH).
 
-W Notepad++ można zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):  
-`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
-
 Sprawdzenie aktualnej obsługi pliku `*.py` - skopiuj do linii poleceń:
 ````bat
 for /f "tokens=2 delims==" %i in ('assoc .py') do (ftype %i)
@@ -140,6 +137,35 @@ Sprawdzenie: `type %LocalAppData%\py.ini`{:style="font-size: smaller;"}
 W [środowisku wirtualnym](https://docs.python.org/3/library/venv.html) [(zob.^)](https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/) regułą nadrzędną jest wywołanie aktywowanego kompilatora Python.exe.
 
 Można tu jeszcze wspomnieć o wymyślaniu [własnych poleceń](https://www.python.org/dev/peps/pep-0397/#customized-commands) wpisywanych w _py.ini_, które można używać w _#!..._.,tylko należy pamiętać, że nie mogą zaczynać się od _python_.
+
+- - - -
+
+
+W **Notepad++** można zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):  
+`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
+
+**Można też skorzystać z wtyczki Notepad++ NppExec:**
+
+Na podstawie - NppExec help/manual - 4.6.4. "Running Python & wxPython"  
+oraz  
+<https://mountcreo.com/article/running-and-debugging-python-in-notepad-with-idle/>
+
+Script "RunPython" dla wersji interaktywnej Pythona:
+````bat
+npp_console local -
+npp_save
+cd "$(CURRENT_DIRECTORY)"
+set local @exit_cmd_silent = exit()
+npp_setfocus con
+npp_console local +
+py -i -u "$(FILE_NAME)
+````
+
+Console Output Filters -> HighLight:
+````
+*File "%ABSFILE%", line %LINE%
+````
+Red 'FF'
 
 - - - -
 
