@@ -605,7 +605,7 @@ cd "$(CURRENT_DIRECTORY)"
 set local @exit_cmd_silent = exit()
 npp_setfocus con
 npp_console local +
-py -i -u -X utf8 "$(FILE_NAME)"
+python -i -u -X utf8 "$(FILE_NAME)"
 ````
  \ [Save] \ Nazwa np. "RunPython" \ [OK]
 
