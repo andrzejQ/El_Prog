@@ -631,6 +631,10 @@ Red `FF`
 W **Notepad++** można też zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):</small>  
 `%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
 
+<small>  
+Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktywowania jak opisano pod odnośnikiem _Uruchamianie Pythona w Windows_ (analogicznie działa powyższy skrypt dla NppExec):</small>  
+`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & python "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
+
 
 - - - - - -
 
