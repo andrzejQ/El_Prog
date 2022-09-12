@@ -489,7 +489,7 @@ Można wyświetlić okno dialogowe do pobrania danych dla skryptu (GUI tkinter d
 <details markdown=1><summary markdown="span"> `TkEntryWidget.py ...` <br> . . . </summary>
 
 ````py
-#!/usr/bin/python3 -i
+#!/usr/bin/env python
 import tkinter as tk
 # based on https://python-course.eu/tkinter_entry_widgets.php
 
@@ -631,8 +631,10 @@ Red `FF`
 W **Notepad++** można też zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):</small>  
 `%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
 
-<small>  
-Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktywowania jak opisano pod odnośnikiem _Uruchamianie Pythona w Windows_ (analogicznie działa powyższy skrypt dla NppExec):</small>  
+<small>
+Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktywowania jak opisano pod odnośnikiem 
+[Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})
+ (analogicznie działa powyższy skrypt dla NppExec):</small>  
 `%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & python "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
 
 
