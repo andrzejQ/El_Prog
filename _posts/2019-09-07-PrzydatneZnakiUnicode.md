@@ -1,0 +1,100 @@
+---
+layout: post
+title:  "Przydatne znaki Unicode"
+date:   2019-09-07 08:08:48 +0100
+categories: Programowanie
+---
+
+Mój selektywny wybór. Przydaje mi się w tworzeniu tekstowych raportów i instrukcji, w komórkach Excela (także CSV), itp.
+
+Wizualizacja spacji (podkreślenie z zawijasami) - nie zawsze dobrze widoczne, w zależności od czcionki:  
+`␣` lub `∙`  
+<small>
+(Przy okazji można wspomnieć o znaku spacji nierozdzielającej: [Alt+0160] → ` `. Zob. 
+[więcej skrótów Alt+](https://unicode-table.com/pl/alt-codes/))
+</small>
+
+Wizualizacja znaku końca wiersza:  
+`↵` lub `¤`
+
+Prawie jak hamburger - symbol menu:  
+`Ξ` , `⫶`
+
+Prawie jak spinacz - załącznik:  
+`₪` <small>(=New Sheqel)</small>
+
+Trochę indeksów górnych  
+`ᙚˈ⁽⁾*⁺⁻⁰¹²³⁴⁵⁶⁷⁸⁹⁼ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᐧ`  
+`ᵝᵞᵟᵠᵡᶿᶛᶜᶝᶞᶟᶠᶡᶢᶣᶤᶥᶦᶧᶨᶩᶪᶫᶬᶭᶮᶯᶰᶱᶲᶳᶴᶵᶶᶷᶸᶹᶺᶻᶼᶽᶾᘁᙆᙇᙚᙾᙿᣔᣕᣖᣗᣘᣙᣚᣛᣜᣝᣞᣟᣳᣴᣵ`  
+i dolnych  
+`˒₍₎₊ˏ₋₀₁₂₃₄₅₆₇₈₉₌ˍ˴ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ˷ᵦᵧᵨᵩᵪ`
+
+- - -
+
+zob. też <https://unicode-table.com/pl/sets/>  
+<small>(np. [unicode-table.com_symbols.pdf]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.pdf "unicode-table.com_symbols.pdf") 
+ | [.docx]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.docx "unicode-table.com_symbols.docx") 
+ | [.txt]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.txt "unicode-table.com_symbols.txt"))</small> : 
+
+_Telefon, e-mail, biuro:_    ℡   ⌕   ☏   ✆   @   ✁   ✃   ✄   ✎   ✐   ✑   ⌦   ⌫   ⌧   ㍶
+
+_Znaczniki wyboru:_    ✓   ✗   ✘   ☒
+
+_Specjalne symbole:_    •   °   ★   «   »   ❝   ❞   ×   ⦂   ⁃   ‐   ‑   ‒   –   ⎯   —   ―   ~   ⁓   %   ‰   ‱   &   ⅋   §   ÷   ±   ¡   ¿   ⸮   ⁇   ⁈   ‽   ⸘   ℠   ℻   ℅   ℁   ⅍   ¶   ⁋   ≠   √   ∛   ∜   ∞   β   Φ   Σ   €   ₤   ＄   ⚢   ⚣   ⌘
+
+_Strzały:_    ←   ↑   →   ↓   ▲   ▼   ➔   ➘   ➙   ➚   ➛   ➜   ➝   ➞   ➟   ➠   ➢   ➣   ➤   ➥   ➦   ↚   ↛   ↜   ↝   ↞   ↟   ↠   ↡   ↢   ↣   ↤   ↦   ↥   ↧   ↨   ↫   ↬   ↭   ↮   ↯   ↰   ↱   ↲   ↴   ↳   ↵   ↶   ↷   ↸   ↹   ↺   ↻   ↼   ↽   ↾   ↿   ⇀   ⇁   ⇂   ⇃   ⇄   ⇅   ⇆   ⇇   ⇈   ⇉   ⇊   ⇋   ⇌   ⇍   ⇏   ⇕   ⇖   ⇗   ⇘   ⇙   ⇙   ⇚   ⇛   ⇜   ⇝   ⇞   ⇟   ⇟   ⇟   ⇠   ⇡   ⇢   ⇣   ⇤   ⇥   ⇦   ⇨   ⇩   ⇪   ⇧   ➧   ➨   ➩   ➪   ➫   ➬   ➭   ➮   ➯   ➱   ➲   ➳   ➴   ➵   ➶   ➷   ➸   ➹   ➺   ➻   ➼   ➽   ➾   ⏎   ☈   ☇
+
+_Kierki:_    ❦   ❧   ☙   ❥   ♡   ➳   ღ
+
+_Gwiazdy, płatki śniegu:_    ★   ☆   ✪   ✫   ✯   ⚝   ⚹   ✵   ❉   ❋   ✺   ✹   ✸   ✶   ✷   ✵   ✲   ✱   ✧   ✦   ⍟   ⊛   ﹡   ❃   ❂   ✼   ✻   ✰   ⍣   ✭   ≛   *   ٭   ❅   ❆   ⁂
+
+_Kwiaty:_    ✥   ✤   ✻   ✼   ✽   ✾   ❀   ✿   ❁   ❃   ❈   ❉   ❊   ❋   ⚘
+
+_Krzyże:_    ᛭   ╳   ☓   ☨   ☩   ♰   ♱   ✙   ✚   ✛   ✛   ✜   ✞   ✟   ✠   ❖   ×   ⨳   ⨻   ☥   ⨶   ⨷
+
+_Cyfry arabskie i rzymskie:_    ❶   ❷   ❸   ❹   ❺   ❻   ❼   ❽   ❾   ❿   ⓫   ⓬   ⓭   ⓮   ⓯   ⓰   ⓱   ⓲   ⓳   ⓴   ①   ②   ③   ④   ⑤   ⑥   ⑦   ⑧   ⑨   ⑩   ⑪   ⑫   ⑬   ⑭   ⑮   ⑯   ⑰   ⑱   ⑲   ⑳   Ⅰ   Ⅱ   Ⅲ   Ⅳ   Ⅴ   Ⅵ   Ⅶ   Ⅷ   Ⅸ   Ⅹ   Ⅺ   Ⅻ   Ⅼ   Ⅽ   Ⅾ   Ⅿ   ↀ   ↁ   ↂ   ½   ¼   ⅕   ¾   ⅛   ⅜   ⅝   ⅞   ⅓   ⅔   ⅖   ⅗   ⅘   ⅙   ⅚
+
+_Litery łacińskie w kole:_    Ⓐ   Ⓑ   Ⓒ   Ⓓ   Ⓔ   Ⓕ   Ⓖ   Ⓗ   Ⓘ   Ⓙ   Ⓚ   Ⓛ   Ⓝ   Ⓞ   Ⓟ   Ⓠ   Ⓡ   Ⓢ   Ⓣ   Ⓤ   Ⓥ   Ⓦ   Ⓧ   Ⓨ   Ⓩ
+
+_Kolory kart do gry i szachy:_    ♤   ♡   ♧   ♢   ♔   ♕   ♖   ♗   ♘   ♙   ♚   ♛   ♜   ♝   ♞
+
+_Znaki walutowe:_    ₽   ₳   ฿   ￠   ₡   ¢   ₢   ₵   ₫   €   ￡   £   ₤   ₣   ƒ   ₲   ₭   Ł   ₥   ₦   ₱   ＄   $   ℳ   ₩   ￦   ¥   ￥   ₴   ₸   ¤   ₰   ៛   ₪   ₯   ₠   ₧   ﷼   円   元   圓   ㍐   원   ৳   ₹   ₨   ৲   ௹   ₮
+
+_Kształty geometryczne:_    ■   □   ▢   ▣   ▤   ▥   ▦   ▧   ▨   ▩   ▬   ▭   ▮   ▯   ▰   ▱   ▲   △   ▴   ▵   ▷   ►   ▻   ▼   ▽   ▾   ▿   ◁   ◄   ◅   ◆   ◇   ◈   ◉   ◊   ○   ◌   ◍   ◎   ●   ◐   ◑   ◒   ◓   ◔   ◕   ◖   ◗   ◘   ◙   ◚   ◛   ◜   ◝   ◞   ◟   ◠   ◡   ◢   ◣   ◤   ◥   ◦   ◧   ◨   ◩   ◪   ◫   ◬   ◭   ◮   ◯   ░   ▒   ▓   █   ❏   ❐   ❑   ❒
+
+_Płeć:_    ⚢   ⚣   ⚤   ⚥   ⚦   ⚨   ⚩
+
+_Dziwne wzory:_    ஆ   இ   ஐ   ஓ   ண   ன   ஹ   ௫   ஞ   ௵   ௸   ஊ   ௹   ௺   ௐ   ඐ   ඇ   ජ   ණ   ඏ   බ   ෆ   ឈ   ឱ   ណ   ឃ   ៚   ៙
+
+_Musical:_    ♩   ♪   ♫   ♬   ♭   ♮   ♯
+
+_Palce:_    ☚   ☛   ☜   ☞   ☟
+
+_Recykling:_    ♲   ♳   ♴   ♵   ♶   ♷   ♸   ♹   ♺
+
+_Arytmetyka:_    +   −   ±   ∓   ÷   ∗   ∙   ×   ∑   ⨊   ⅀   ∏   ∐   ∔   ∸   ≂   ⊕   ⊖   ⊗   ⊘   ⊙   ⊚   ⊛   ⊝   ⊞   ⊟   ⊠   ⊡   ⋄   ⋇   ⋆   ⋋   ⋌   ~   ⩱   ⩲   Δ
+
+_Różny:_    ∀   ∞   ∃   ∄   `|`   ∤   ‱   ∇   ∘   ∻   ∽   ∾   ∿   ≀   ≁   ≬   ⊏   ⊐   ⊑   ⊒   ⋢   ⋣   ⊓   ⊔   ⊶   ⊷   ⊸   ⊹   ⊺   ⋈   ⋉   ⋊   ⋮   ⋯   ⋰   ⋱   ⌈   ⌉   ⌊   ⌋   〈   〉   ⊲   ⊳   ⊴   ⊵   ⋪   ⋫   ⋬   ⋭
+
+_Oparty na równości:_    ≠   ≈   ≂   ≃   ≄   ⋍   ≅   ≆   ≇   ≉   ≊   ≋   ≌   ≍   ≎   ≏   ≐   ≑   ≒   ≓   ≔   ≕   ≖   ≗   ≙   ≚   ≜   ≟   ≡   ≢   ≭   ⋕
+
+_Potęgi i pierwiastki:_    ^   ⁰   ¹   ²   ³   ⁴   ⁵   ⁶   ⁷   ⁸   ⁹   ⁺   ⁻   ⁼   ⁽   ⁾   √   ∛   ∜
+
+_Porównanie:_    <   >   ≤   ≥   ≦   ≧   ≨   ≩   ≪   ≫   ≮   ≯   ≰   ≱   ≲   ≳   ≴   ≵   ≶   ≷   ≸   ≹   ≺   ≻   ≼   ≽   ≾   ≿   ⊀   ⊁   ⊰   ⋖   ⋗   ⋘   ⋙   ⋚   ⋛   ⋞   ⋟   ⋠   ⋡   ⋦   ⋧   ⋨   ⋩
+
+_Całki:_    ∫   ∬   ∭   ∮   ∯   ∰   ∱   ∲   ∳   ⨌   ⨍   ⨎   ⨏   ⨐   ⨑   ⨒   ⨓   ⨔   ⨕   ⨖   ⨗   ⨘   ⨙   ⨚   ⨛   ⨜
+
+_Geometryczne:_    ⌀   ∠   ∡   ∢   ⦛   ⦜   ⦝   ⦞   ⦟   ⦠   ⦡   ⦢   ⦣   °   ⟂   ⏊   ⊥   ∥   ∦   ∝   ∟   ∺   ≅   ⊾   ⋕
+
+_Ryciny:_    ⌒   ◠   ◡   ⊿   △   ▷   ▽   ◁   □   ▭   ▱   ○   ◊   ⋄
+
+_Logiczne:_    →   ←   ↛   ↚   ↓   ⇒   ⇐   ⇔   ⇋   ↯   ⇏   ∧   ∨   ⋀   ⋁   ⋂   ⋃   ¬   ≡   ∴   ∵   ∶   ∷   ∼   ⊧   ⊢   ⊣   ⊤   ⊥   ⊨   ⊩   ⊪   ⊫   ⊬   ⊭   ⊮   ⊯   ⊻   ⊽   ⋎   ⋏
+
+_Listy:_    ƒ   ∂   ℵ   ℶ   ℕ   ℝ   ℚ   ℙ   ℤ   ℍ   ℂ
+
+_Zbiór:_    ∅   ∁   ∈   ∉   ∋   ∌   ∖   ∩   ∪   ⊂   ⊃   ⊄   ⊅   ⊆   ⊇   ⊈   ⊉   ⊊   ⊋   ⊍   ⊎   ⋐   ⋑   ⋒   ⋓   ⋔   ⋲   ⋳   ⋴   ⋵   ⋶   ⋷   ⋹   ⋺   ⋻   ⋼   ⋽   ⋾
+
+
+
+<style> pre > code {font-size: 95%;}
+em {color: DodgerBlue} </style>

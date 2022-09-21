@@ -72,23 +72,9 @@ Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdziel
 * <https://www.regular-expressions.info/>
 * <https://regex101.com/> - testowanie
 
-#### Przydatne znaki Unicode
 
-Wizualizacja spacji (podkreślenie z zawijasami) - nie zawsze dobrze widoczne, w zależności od czcionki:  
-`␣` tj. `\x2423` lub inny -> `∙`
-
-Wizualizacja znaku końca wiersza:  
-`↵` lub `¤`
-
-Prawie jak hamburger - symbol menu:  
-`Ξ` , `⫶`
-
-Trochę indeksów górnych  
-`ᙚˈ⁽⁾*⁺⁻⁰¹²³⁴⁵⁶⁷⁸⁹⁼ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᐧ`  
-`ᵝᵞᵟᵠᵡᶿᶛᶜᶝᶞᶟᶠᶡᶢᶣᶤᶥᶦᶧᶨᶩᶪᶫᶬᶭᶮᶯᶰᶱᶲᶳᶴᶵᶶᶷᶸᶹᶺᶻᶼᶽᶾᘁᙆᙇᙚᙾᙿᣔᣕᣖᣗᣘᣙᣚᣛᣜᣝᣞᣟᣳᣴᣵ`  
-i dolnych  
-`˒₍₎₊ˏ₋₀₁₂₃₄₅₆₇₈₉₌ˍ˴ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ˷ᵦᵧᵨᵩᵪ`
-
+* zob. też: 
+[Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %})
 
 
 <style> pre > code {font-size: 95%;} 

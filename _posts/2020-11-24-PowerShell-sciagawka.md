@@ -165,8 +165,8 @@ Zob. przykłady: [WinInst_error_migrate_data]({% if jekyll.environment == "produ
 
 Różne odnośniki:
 
-* [unicodeSupSub_test.ps1 (html)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.zip "unicodeSupSub_test.zip") 
-
+* [unicodeSupSub_test.ps1 (html)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.zip "unicodeSupSub_test.zip")
+(zob. przy okazji [Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %}))
 
 - - - - - -
 &nbsp;

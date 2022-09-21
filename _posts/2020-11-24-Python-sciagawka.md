@@ -131,7 +131,9 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 ````
 
 <small>W korespondecji seryjnej MS Word 2016 jest błędna interpretacja cudzysłowów innych niż podstawowy `"`. Można zastosować konwersję jak w 
-[unicodeDoubleQuote.py]({{ site.baseurl }}/assets/files/unicodeDoubleQuote.py.html )</small>.
+[unicodeDoubleQuote.py]({{ site.baseurl }}/assets/files/unicodeDoubleQuote.py.html ) 
+(zob. przy okazji [Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %}))
+</small>.
 
 ### CSV & namedtuple:
 
