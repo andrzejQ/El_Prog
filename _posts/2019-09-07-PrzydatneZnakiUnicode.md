@@ -11,7 +11,9 @@ Wizualizacja spacji (podkreślenie z zawijasami) - nie zawsze dobrze widoczne, w
 `␣` lub `∙`  
 <small>
 (Przy okazji można wspomnieć o znaku spacji nierozdzielającej: [Alt+0160] → ` `. Zob. 
-[więcej skrótów Alt+](https://unicode-table.com/pl/alt-codes/))
+[więcej skrótów Alt+](https://unicode-table.com/pl/alt-codes/)  
+[Można też korzystać z `[Win+.]` >>](https://andrzejq.github.io/Office_S_Tips/system/2019/10/04/windows_10-uaktualnienie_1903.html)
+)
 </small>
 
 Wizualizacja znaku końca wiersza:  
@@ -96,5 +98,5 @@ _Zbiór:_    ∅   ∁   ∈   ∉   ∋   ∌   ∖   ∩   ∪   ⊂
 
 
 
-<style> pre > code {font-size: 95%;}
+<style> code {font-size: 95%;}
 em {color: DodgerBlue} </style>
