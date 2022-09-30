@@ -612,14 +612,14 @@ python -i -u -X utf8 "$(FILE_NAME)"
  \ [Save] \ Nazwa np. "RunPython" \ [OK]
 
 
-2. Wtyczki \ NppExec:  
+2. Wtyczki \ NppExec \ Advanced Options... :  
 \ Associated script (na dole z lewej): RunPython \ [Add/Modify]  
 [x] Place to the Macros submenu (z lewej u góry)  
 Restart Notepad++
 
 3. Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
 [x] `*File "%ABSFILE%", line %LINE%`  
-Red `FF`
+Red 0x`FF`
 
 4. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz
 
