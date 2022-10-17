@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Seryjne wypełnianie formularza HTML"
-date:   2022-10-17 08:08:49 +0100
+date:   2022-10-17 06:30:49 +0100
 categories: Programowanie
 ---
 
