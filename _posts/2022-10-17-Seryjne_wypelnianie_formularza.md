@@ -25,19 +25,20 @@ To przykładowy plik Excela pasujący do powyższego formularza.
 * x lub brak oznacza "zaznacz" lub "odznacz" i powoduje kliknięcie na elemencie, gdy stan elementu jest inny niż wpisany/brakujący "x". 
 * Gdy pole "radio" jest wskazywane przez "name", to wstawiasz wartość "value", która ma być wybrana. 
 * Aby wywołać funkcję javascript w nagłówku w 2-gim wierszu wpisz "new Function()()", a w danych  - treść funkcji. 
-* Całość arkusza skopiuj z pomocą edytora tekstowego do pliku "Zapisz dane do localStorage.user.js" powyżej ostatniego wiersza, poniżej wiersza "let lista1=". Wygodnie jest używać wtyczki https://www.tampermonkey.net/ 
-* Łamanie wiersza w komórce Excela [Alt+Enter] nie jest obecnie możliwe (tzn. nie jest oprogramowane). Nie można też nigdzie używać odwrotnego apostrofu. 
+* Całość arkusza skopiuj z pomocą edytora tekstowego do pliku "Wstawiaj kolejne paczki danych.js" poniżej wiersza "let lista1=". Wygodnie jest używać wtyczki https://www.tampermonkey.net/ 
+* Łamanie wiersza w komórce Excela [Alt+Enter] nie jest obecnie możliwe (tzn. nie jest oprogramowane). Nie można też nigdzie używać odwrotnego apostrofu `\``. 
 * Aby obsłużyć edytor WYSIWYG Tiny MCE, możesz wstawić treść funkcji js:  
 `tinymce.activeEditor.setContent("gdy w formularzu jest jeden edytor Tiny MCE.");`
 
-3. "Zapisz dane do localStorage.user.js"
-* Wpisuje dane skopiowane z Excela do localStorage.user.
-
-4. "Wstawiaj kolejne paczki danych.js" 
+3. "Wstawiaj kolejne paczki danych.js" 
+* `lista1` to łańcuch wielowierszowy. Jest to tekstowa kopia z Excela - pola są oddzielone \t (
+* Uwaga pierwszy i ostatni wiersz jest pusty (zob. `` let lista1=` `` i `` `; ``).
+* Początkowy wiersz danych to zrozumiałe dla człowieka nazwy, a drugi wiersz to atrybut "name" albo "id" poprzedzone "#".
+* `formSel`, np `[name="form1"]` czy `#fomId` to selektor obszaru dla formy do wstawiania danych -> querySelector(), np. div, form, ...  
+.
 * Po odświeżeniu strony zatwierdź dane do seryjnego wypełniania.
 * Po tym pojawia się przycisk dla kolejnej paczki danych do wypełnienia
-* Po jego kliknięciu otrzymujemy wypełniony formularz - można wysłać dane, albo je zignorować.
-* Można klikać dowolną liczbę razy - będą się wypełniały kolejne dane.
+* Po jego kliknięciu otrzymujemy wypełniony formularz - można wysłać dane, albo je zignorować. Równocześnie przycisk pokazuje dane z kolejnego wiersza, które zostaną podstawione po jego kliknięciu. Można go klikać dowolną liczbę razy - w formularzu będą się pojawiały kolejne paczki danych.
 
 
 <style> code {font-size: 85%;} </style>
