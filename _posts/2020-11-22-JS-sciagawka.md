@@ -48,10 +48,14 @@ String.prototype.toCmsFNameExt = function  () { //nie powinno być '/' w nazwie
 `let x=y=...`  
 `with `
 
+- - - -
+zob.:
+
+* <https://andrzejq.github.io/El_Prog/programowanie/2022/10/17/Seryjne_wypelnianie_formularza.html>
+
 <style> 
   pre code {font-size: smaller;} 
   h3 small em {font-size: 14px;} 
-  ul {font-size: smaller;} 
 </style>
 
 
