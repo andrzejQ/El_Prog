@@ -32,7 +32,7 @@ Podczas umieszczania plików w systemie CMS nazwy plików podlegają konwersji, 
 ````js
 String.prototype.toCmsFNameExt = function  () { //nie powinno być '/' w nazwie
   return this //ES2015/ES6 str.normalize() - działa w przeglądarkach od roku 2014
-    .toString().trim().toLowerCase().replace(/ /g, '_')//znaki małe, ' ' -> '_'
+    .toLowerCase().replace(/ /g, '_')//znaki małe, ' ' -> '_'
     .normalize('NFD').replace(/[\u0300-\u036f]/g, '') //usuwa wszelkie ogonki, ...
                      .replace(/ł/g, 'l')             //... ale na "Ł" i "ł" nie działa.
     .replace(/\.([^\.]*)$/, '/$1')                  //na chwilę ostatnią kropkę zamień na '/'
@@ -41,6 +41,16 @@ String.prototype.toCmsFNameExt = function  () { //nie powinno być '/' w nazwie
 //np.
 ("c m s_~!@#$%^()_+`-=-ąćęłńóśźżĄĆĘŁŃÓŚŹŻ{}[];'-.. ,.txt".toCmsFNameExt()==="c_m_s__--acelnoszzacelnoszz-_.txt")
 && ("c m s_~!@#$%^()_+`-=-ąćęłńóśźżĄĆĘŁŃÓŚŹŻ{}[];'- -".toCmsFNameExt()==="c_m_s__--acelnoszzacelnoszz-_-");
+````
+
+### 2: Data
+
+````js
+  String.prototype.numDate = function  () { //date_time -> YYYY-MM-dd HH:mm:ss
+    let dt = new Date(this);
+    return `${dt.getFullYear()}-${('0'+(1+dt.getMonth())).slice(-2)}-${('0'+dt.getDate()).slice(-2)} ${dt.toTimeString().substring(0,8)}`; 
+  }; //np. 
+  ("Thu Oct 27 2022 00:17:21 GMT+0200".numDate()==="2022-10-27 00:17:21")
 ````
 
 ### # Nie będziesz używał!
