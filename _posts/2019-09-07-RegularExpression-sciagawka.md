@@ -17,7 +17,13 @@ Głównie dotyczy Notepad++ - zob.
 
 [Dla znajdź (>> PerlRegExp)](https://www.boost.org/doc/libs/1_70_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html)  
 `.[{}()\*+?|^$`  
-<small>Inne znaki stają się specjalne w pewnym kontekście - np. `]` jest specjalny, po `[`</small>
+<small>Czasem zalecane jest też traktowanie `]` jako znaku specjalnego</small>  
+
+W zbiorze znaków "jeden z"/"żaden z" po `[`/`[^`...  
+`]\-^`  
+<small>, przy czym `^` nie na początku  i `-` na pocz. lub końcu nie jest zn. specjalnym</small>  
+
+
 
 [Dla zamień (>> PerlRegExp repl.)](https://www.boost.org/doc/libs/1_70_0/libs/regex/doc/html/boost_regex/format/boost_format_syntax.html)  
 `$\()?:`
