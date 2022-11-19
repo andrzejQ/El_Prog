@@ -62,6 +62,7 @@ String.prototype.toCmsFNameExt = function  () { //nie powinno być '/' w nazwie
 zob.:
 
 * <https://andrzejq.github.io/El_Prog/programowanie/2022/10/17/Seryjne_wypelnianie_formularza.html>
+* <https://kursjs.pl/>
 
 <style> 
   pre code {font-size: smaller;} 
