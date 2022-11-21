@@ -14,10 +14,16 @@ String.prototype.fun1 = function  () {...}
 `x: ${x}`
 str.replace(patternStr, replacementStr) //jednorazowo
 str.replace(RegExp, replacement) //np. str.replace(/ab/g, '');
+
 $(document).ready(function () {...});// - może wystąpić wielokrotnie  
+
 $.get('https://domain.pl/rss/70.xml', function (data){
   $(data).find('item').each( function () {let $el = $(this);...
+
 $div.append($li1.clone());
+
+const obj = { a:'d1', ą:'d2' }; obj.a = 'x';
+[ obj.a, obj['a'], obj.ą, obj['ą'] ] //[ "x", "x", "d2", "d2" ]
 ````
 
 ### 1: Inne nazwy plików po załadowaniu do CMS
