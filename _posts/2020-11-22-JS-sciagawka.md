@@ -14,6 +14,8 @@ String.prototype.fun1 = function  () {...}
 `x: ${x}`
 str.replace(patternStr, replacementStr) //jednorazowo
 str.replace(RegExp, replacement) //np. str.replace(/ab/g, '');
+"123"+1 //"1231" 
++"123"+1 //124
 
 $(document).ready(function () {...});// - może wystąpić wielokrotnie  
 
