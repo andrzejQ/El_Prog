@@ -19,6 +19,7 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
 [11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe) &nbsp; 
 [12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html) &nbsp; 
 [13.&nbsp;Notepad++ QuickText, NppExec]({{ site.url }}{{ site.baseurl }}{{ page.url }}#13--notepad-quicktext-nppexec) &nbsp; 
+[14.&nbsp;Pola statyczne]({{ site.url }}{{ site.baseurl }}{{ page.url }}#14--pola-statyczne) &nbsp; 
 
 
 ## 1 . Pliki:
@@ -639,6 +640,24 @@ Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktyw
  (analogicznie działa powyższy skrypt dla NppExec):</small>  
 `%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & python "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
 
+
+- - - - - -
+
+&nbsp;
+
+## 14 . Pola statyczne
+
+````py
+class Test(object):
+  c = 1;  d = {'x':3}
+  def log(self): print('class:', Test.c, Test.d, ' self:', self.c, self.d)
+
+class T2(Test): pass
+t2 = T2()
+t2.log()    # class: 1 {'x': 3}  self: 1 {'x': 3}
+t2.c = 100;  t2.d['x'] = 44
+t2.log()    # class: 1 {'x': 44}  self: 100 {'x': 44}
+````
 
 - - - - - -
 
