@@ -19,17 +19,17 @@ Wizualizacja spacji (podkreślenie z zawijasami) - nie zawsze dobrze widoczne, w
 Wizualizacja znaku końca wiersza:  
 `↵` lub `¤`
 
-Prawie jak hamburger - symbol menu:  
-`Ξ` , `⫶`
+Prawie jak "hamburger" - symbol menu:  
+`Ξ` , **`⫶`** <small> lub </small> **`⋯`**
 
 Prawie jak spinacz - załącznik:  
 `₪` <small>(=New Sheqel)</small>
 
 Trochę indeksów górnych  
-`ᙚˈ⁽⁾*⁺⁻⁰¹²³⁴⁵⁶⁷⁸⁹⁼ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᐧ`  
+`˝ᙚˈ⁽⁾*⁺⁻⁰¹²³⁴⁵⁶⁷⁸⁹⁼ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᐧ˜`  
 `ᵝᵞᵟᵠᵡᶿᶛᶜᶝᶞᶟᶠᶡᶢᶣᶤᶥᶦᶧᶨᶩᶪᶫᶬᶭᶮᶯᶰᶱᶲᶳᶴᶵᶶᶷᶸᶹᶺᶻᶼᶽᶾᘁᙆᙇᙚᙾᙿᣔᣕᣖᣗᣘᣙᣚᣛᣜᣝᣞᣟᣳᣴᣵ`  
 i dolnych  
-`˒₍₎₊ˏ₋₀₁₂₃₄₅₆₇₈₉₌ˍ˴ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥₓᵧ˷ᵦᵧᵨᵩᵪ`
+`˶˒₍₎₊ˏ₋₀₁₂₃₄₅₆₇₈₉₌ˍ˴ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥ˷ₓᵧᵦᵧᵨᵩᵪ`
 
 - - -
 
