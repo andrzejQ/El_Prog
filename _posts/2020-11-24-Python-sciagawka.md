@@ -628,6 +628,52 @@ Red 0x`FF`
 
 6. Wtyczki \ NppExec \ Show NppExec Console lub [Ctrl + ~]
 
+Podobnie można sprawdzać [**jakość stylu kodu źródłowego**](https://peps.python.org/pep-0008/) z pomocą [**Pylint**](https://pypi.org/project/pylint/),
+także z wykorzystaniem [NppExec](https://stackoverflow.com/questions/4987920/python-correctness-i-e-lint-analyzing-for-notepad),
+gdzie ostatni wiersz w skrypcie jak pozwyżej (p.1) zastępujemy przez  
+`python -X utf8 -u -m pylint --rcfile %USERPROFILE%\.pylintrc "$(FILE_NAME)"`  
+i zapisujemy jako np. "PyLint".  
+Dodajemy kolejny filtr (zob. p.3, Red: 0xFF) [x] `%FILE%:%LINE%:%CHAR%` 
+<details markdown=1><summary markdown="span"> <small>Tutaj mamy przywołane dodatkowe [własne reguły poprawności]() w pliku `%USERPROFILE%\.pylintrc`.</small> <br> . . . </summary>
+````yaml
+# pylint --generate-rcfile > .pylintrc
+# --rcfile %USERPROFILE%\.pylintrc
+
+[BASIC]
+
+# Good variable names regexes, separated by a comma. If names match any regex,
+# they will always be accepted
+# good-names-rgxs=^[a-z_]\w*
+# argument-rgx=^[a-z_]\w*
+# attr-rgx=^[a-z_]\w*
+# function-rgx=^[a-z_]\w*
+
+[FORMAT]
+
+# Expected format of line ending, e.g. empty (any line ending), LF or CRLF.
+expected-line-ending-format=
+
+# Regexp for a line that is allowed to be longer than the limit.
+ignore-long-lines=^\s*(# )?<?https?://\S+>?$
+
+# Number of spaces of indent required inside a hanging or continued line.
+# indent-after-paren=4
+indent-after-paren=2
+
+# String used as indentation unit. This is usually "    " (4 spaces) or "\t".
+# indent-string='    '
+indent-string='  '
+
+# Maximum number of characters on a single line.
+max-line-length=100
+
+[MESSAGES CONTROL]
+
+disable=
+    missing-function-docstring,
+    multiple-statements,
+````
+</details>
 - - - -
 
 <small>  
