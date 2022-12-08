@@ -636,6 +636,7 @@ i zapisujemy jako np. "PyLint".
 Dodajemy kolejny filtr (zob. p.3, Red: 0xFF) [x] `%FILE%:%LINE%:%CHAR%` 
 <details markdown=1><summary markdown="span"> <small>Tutaj mamy przywołane dodatkowe [własne reguły poprawności]() w pliku `%USERPROFILE%\.pylintrc`.</small> <br> . . . </summary>
 ````yaml
+# python -m pip install pylint
 # pylint --generate-rcfile > .pylintrc
 # --rcfile %USERPROFILE%\.pylintrc
 
@@ -694,7 +695,7 @@ Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktyw
 ## 14 . Pola statyczne
 
 ````py
-class Test(object):
+class Test:
   c = 1;  d = {'x':3}
   def log(self): print('class:', Test.c, Test.d, ' self:', self.c, self.d)
 
