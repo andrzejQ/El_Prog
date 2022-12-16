@@ -463,8 +463,7 @@ url='https://andrzejq.github.io/El_Prog/'
 response = requests.get(url) #;print(response.text)
 #...<h3>
 #   <a class="post-link" href="/El_Prog/...
-# można przeskakiwać łamanie wiersza z pomocą '\s+' lub '[^<]+',
-# albo rozdzielić tekst na wiersze z interesującymi nas sekcjami:
+# warto rozdzielić tekst na wiersze z interesującymi nas sekcjami:
 html = response.text.replace('\n',' ').replace('<h3','\n<h3') #;print(html)
 aLi2 = re.findall(r'<h3> +' + re.escape('<a class="post-link"')
 + r'.+?href=' + r'"(.+?)">' 

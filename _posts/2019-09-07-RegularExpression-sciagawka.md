@@ -74,6 +74,12 @@ Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdziel
 \xA0
 ````
 
+Kompletne usuwanie tagu HTML (tu `<(\S+) ...<\/\1>`) z zadanym fragmentem nazwy klasy (ale bez zagnieżdżeń takich samych tagów)
+````regexp
+<(\S+) class="[^"]*FragmentKlasy[^>]*>(.*?)<\/\1>
+¤
+````
+
 ------
 * <https://www.regular-expressions.info/>
 * <https://regex101.com/> - testowanie
