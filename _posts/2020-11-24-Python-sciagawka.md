@@ -461,15 +461,18 @@ import requests #py -m pip install requests
 import re
 url='https://andrzejq.github.io/El_Prog/'
 response = requests.get(url) #;print(response.text)
-#...<h3>
-#   <a class="post-link" href="/El_Prog/...
+html = response.text
+# Ta metoda nie uwzględnia drzewiastej struktury HTML
+# więc czasem wato usuwać zbędne fragmenty, np. z początku
+html = re.sub(r'^.*(<h2 class="post-list-head)', r'\1', html, 
+  count=1, flags=re.DOTALL) # '<h2 class="post-list-heading">Spis ...
+#...<h3> ... <a class="post-link" href="/El_Prog/...
 # warto rozdzielić tekst na wiersze z interesującymi nas sekcjami:
-html = response.text.replace('\n',' ').replace('<h3','\n<h3') #;print(html)
-aLi2 = re.findall(r'<h3> +' + re.escape('<a class="post-link"')
-+ r'.+?href=' + r'"(.+?)">' 
-+ r'(.+?)'+r'</a>', html) ;print(f'{aLi2}'.replace(', ',',\n'))
-#[('/El_Prog/programowanie/2020/11/24/Python-sciagawka.html',
-#'             Python ściągawka           '), ...
+html = html.replace('\n','\t').replace('<h3','\n<h3') #;print(html)
+aLi2 = re.findall(r'<h3>\s+' + re.escape('<a class="post-link"')
++ r'.+?href="(.+?)">(.+?)</a>', html) ;print(f'{aLi2}'.replace(', ',',\n'))
+#[('/El_Prog/programowanie/2022/10/17/Seryjne_wypelnianie_formularza.html',
+#'\t            Seryjne wypełnianie formularza HTML\t          '), ...
 ````
 
 REST API, gdy bez logowania
