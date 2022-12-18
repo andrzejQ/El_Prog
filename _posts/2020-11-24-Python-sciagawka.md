@@ -479,12 +479,12 @@ REST API, gdy bez logowania
 
 ````py
 import requests
-def RESTapi(service: str, api_base='https://apps.edu.pl/', timeout=15, **kwargs):
+def RESTapi(service: str, api_base='https://httpbin.org', timeout=15, **kwargs):
   response = requests.post(api_base + service, timeout=timeout, data=kwargs)
   if not (response.ok): # OK - response code 200
     response.raise_for_status()
   return response.json()
-print(RESTapi('services/a_index', fields='id|name'))
+print(RESTapi('/post', d1='coś', d2=112))
 ````
 
 ## 11 . GUI - dane wejściowe
