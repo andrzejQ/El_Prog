@@ -604,6 +604,7 @@ Skrypt "RunPython" dla wersji interaktywnej Pythona:
 
 1. Wtyczki \ NppExec: Execute NppExec Script...  
 ````bat
+npp_console 1
 npp_console local -
 npp_save
 cd "$(CURRENT_DIRECTORY)"
@@ -614,19 +615,18 @@ python -i -u -X utf8 "$(FILE_NAME)"
 ````
  \ [Save] \ Nazwa np. "RunPython" \ [OK]
 
+2. Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
+[x] `*File "%ABSFILE%", line %LINE%`  
+Red 0x`FF`
 
-2. Wtyczki \ NppExec \ Advanced Options... :  
+3. Console Output...: UTF8 (dalsze 4..6 chyba zbędne)
+
+4. Wtyczki \ NppExec \ Advanced Options... :  
 \ Associated script (na dole z lewej): RunPython \ [Add/Modify]  
 [x] Place to the Macros submenu (z lewej u góry)  
 Restart Notepad++
 
-3. Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
-[x] `*File "%ABSFILE%", line %LINE%`  
-Red 0x`FF`
-
-4. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz
-
-5. Console Output...: UTF8
+5. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz
 
 6. Wtyczki \ NppExec \ Show NppExec Console lub [Ctrl + ~]
 
