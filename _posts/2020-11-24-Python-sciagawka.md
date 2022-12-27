@@ -475,7 +475,7 @@ aLi2 = re.findall(r'<h3>\s+' + re.escape('<a class="post-link"')
 #'\t            Seryjne wypełnianie formularza HTML\t          '), ...
 ````
 
-<small>Można też rodzielić wszystkie tagi jako listę i liczyć `....startswith()` ich zamknięcia (regexp): `tags = re.split(r'(?=<)', html)`</small> 
+<small>Można też rodzielić wszystkie tagi jako listę i liczyć `....startswith()` ich zamknięcia: `tags = re.split(r'(?=<)', html)`</small> 
 
 REST API, gdy bez logowania
 
