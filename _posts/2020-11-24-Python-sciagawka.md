@@ -720,7 +720,7 @@ Rozpakowuję `fluidsynth-....zip`, np. `c:\AUDIO\fluidsynth\`. Do PATH (zm. śro
 3. `py -m pip install pyfluidsynth`
 4. `py -m pip install pygame`. Gdy niepowodzenie, to z <https://www.lfd.uci.edu/~gohlke/pythonlibs/> pobieram odpowiedni do systemu `pygame-...whl`, potem `py -m pip install `py -m pip install pygame-...whl`
 5. `py -m pip install mingus`.  
-W `...\Python\Python311\Lib\site-packages\mingus\midi\pyfluidsynth.py`  poprawka:
+W `...\Python\Lib\site-packages\mingus\midi\pyfluidsynth.py`  poprawka:
 ````py
 lib = (
     find_library("libfluidsynth-3")
