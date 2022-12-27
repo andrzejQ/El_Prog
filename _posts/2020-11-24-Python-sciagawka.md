@@ -462,7 +462,7 @@ import re
 url='https://andrzejq.github.io/El_Prog/'
 response = requests.get(url) #;print(response.text)
 html = response.text
-# Ta metoda nie uwzględnia drzewiastej struktury HTML
+# Ta prymitywna metoda nie uwzględnia drzewiastej struktury HTML
 # więc czasem wato usuwać zbędne fragmenty, np. z początku
 html = re.sub(r'^.*(<h2 class="post-list-head)', r'\1', html, 
   count=1, flags=re.DOTALL) # '<h2 class="post-list-heading">Spis ...
@@ -474,6 +474,8 @@ aLi2 = re.findall(r'<h3>\s+' + re.escape('<a class="post-link"')
 #[('/El_Prog/programowanie/2022/10/17/Seryjne_wypelnianie_formularza.html',
 #'\t            Seryjne wypełnianie formularza HTML\t          '), ...
 ````
+
+<small>Można też rodzielić wszystkie tagi jako listę i liczyć `....startswith()` ich zamknięcia (regexp): `tags = re.split(r'(?=<)', html)`</small> 
 
 REST API, gdy bez logowania
 
