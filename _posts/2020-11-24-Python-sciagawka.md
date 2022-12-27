@@ -728,6 +728,7 @@ lib = (
     or find_library("libfluidsynth")
 ...
 ````
+6. Podczas startu skryptu słychać czasem nieprzyjemny trzask w głośnikach. Być może skopiowanie `libfluidsynth-3.dll` do foldera skryptu coś porawia. <small>A może paczkę z `...\fluidsynth\bin` warto skopiować do `C:\Windows\System32`? - Nie sprawdzałem.</small>
 
 - - - - - -
 
