@@ -621,16 +621,16 @@ python -i -u -X utf8 "$(FILE_NAME)"
 [x] `*File "%ABSFILE%", line %LINE%`  
 Red 0x`FF`
 
-3. Console Output...: UTF8 (dalsze 4..6 chyba zbędne)
+3. Console Output...: UTF8
 
+<small>(dalsze 4..6 chyba zbędne)  
 4. Wtyczki \ NppExec \ Advanced Options... :  
 \ Associated script (na dole z lewej): RunPython \ [Add/Modify]  
 [x] Place to the Macros submenu (z lewej u góry)  
-Restart Notepad++
-
-5. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz
-
+Restart Notepad++  
+5. Uruchom \ Zmień skrót/usuń polecenie... \ Polecenia Wtyczek \ "RunPython" - dodaj gorący klawisz  
 6. Wtyczki \ NppExec \ Show NppExec Console lub [Ctrl + ~]
+</small>
 
 Podobnie można sprawdzać [**jakość stylu kodu źródłowego**](https://peps.python.org/pep-0008/) z pomocą [**Pylint**](https://pypi.org/project/pylint/),
 także z wykorzystaniem [NppExec](https://stackoverflow.com/questions/4987920/python-correctness-i-e-lint-analyzing-for-notepad),
