@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+            <html>
+                <head>
+                    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+                    <title>RegEx-Marcin_Kuta,_AGH.md</title>
+                    <style type="text/css">
+                    /*
+Copyright (c) 2017 Chris Patuzzo
+https://twitter.com/chrispatuzzo
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+body {
+  font-family: /*Helvetica*/ "Segoe UI", Roboto, "Helvetica Neue", Calibri, arial, Helvetica, sans-serif;
+  font-size: 16px; /*14px*/
+  line-height: 1.4;/*1.6*/
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px;
+  color: #333;
+}
+
+body &gt; *:first-child {
+  margin-top: 0 !important;
+}
+
+body &gt; *:last-child {
+  margin-bottom: 0 !important;
+}
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a.absent {
+  color: #cc0000;
+}
+
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative;
+}
+
+h2:first-child, h1:first-child, h1:first-child + h2, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  text-decoration: none;
+}
+
+h1 tt, h1 code {
+  font-size: inherit;
+}
+
+h2 tt, h2 code {
+  font-size: inherit;
+}
+
+h3 tt, h3 code {
+  font-size: inherit;
+}
+
+h4 tt, h4 code {
+  font-size: inherit;
+}
+
+h5 tt, h5 code {
+  font-size: inherit;
+}
+
+h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 26px;/*28px;*/
+  border-bottom: double #cccccc;
+  color: black;
+}
+
+h2 {
+  font-size: 22px;
+  border-bottom: 1px solid #cccccc;
+  color: black;
+}
+
+h3 {
+  font-size: 20px;/*17px;*/
+}
+
+h4 {
+  font-size: 18px/*15px;*/
+}
+
+h5 {
+  font-size: 17px/*14px;*/
+}
+
+h6 {
+  color: #777777;
+  font-size: 16px;/*14px;*/
+}
+
+p, blockquote, ul, ol, dl, li, table, pre {
+/*  margin: 15px 0; */
+  margin: 7px 0;
+}
+
+/*
+hr {
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+*/
+body &gt; h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body &gt; h1:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body &gt; h1:first-child + h2 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+body &gt; h3:first-child, body &gt; h4:first-child, body &gt; h5:first-child, body &gt; h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0;
+}
+
+li p.first {
+  display: inline-block;
+}
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul :first-child, ol :first-child {
+  margin-top: 0;
+}
+
+ul :last-child, ol :last-child {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 16px;/*14px;*/
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt &gt; :first-child {
+  margin-top: 0;
+}
+
+dl dt &gt; :last-child {
+  margin-bottom: 0;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd &gt; :first-child {
+  margin-top: 0;
+}
+
+dl dd &gt; :last-child {
+  margin-bottom: 0;
+}
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777;
+}
+
+blockquote &gt; :first-child {
+  margin-top: 0;
+}
+
+blockquote &gt; :last-child {
+  margin-bottom: 0;
+}
+
+table {
+  padding: 0;
+}
+table tr {
+  border-top: 1px solid #cccccc;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr td {
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr th :first-child, table tr td :first-child {
+  margin-top: 0;
+}
+
+table tr th :last-child, table tr td :last-child {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+span.frame {
+  display: block;
+  overflow: hidden;
+}
+
+span.frame &gt; span {
+  border: 1px solid #dddddd;
+  display: block;
+  float: left;
+  overflow: hidden;
+  margin: 13px 0 0;
+  padding: 7px;
+  width: auto;
+}
+
+span.frame span img {
+  display: block;
+  float: left;
+}
+
+span.frame span span {
+  clear: both;
+  color: #333333;
+  display: block;
+  padding: 5px 0 0;
+}
+
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+span.align-center &gt; span {
+  display: block;
+  overflow: hidden;
+  margin: 13px auto 0;
+  text-align: center;
+}
+
+span.align-center span img {
+  margin: 0 auto;
+  text-align: center;
+}
+
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both;
+}
+
+span.align-right &gt; span {
+  display: block;
+  overflow: hidden;
+  margin: 13px 0 0;
+  text-align: right;
+}
+
+span.align-right span img {
+  margin: 0;
+  text-align: right;
+}
+
+/*Seafile 7*/
+img {
+  vertical-align: middle;
+}
+
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left;
+}
+
+span.float-left span {
+  margin: 13px 0 0;
+}
+
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right;
+}
+
+span.float-right &gt; span {
+  display: block;
+  overflow: hidden;
+  margin: 13px auto 0;
+  text-align: right;
+}
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+pre, code {
+  font-family: Monaco, Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+}
+
+pre {
+  tab-width: 4;
+/*  white-space: pre-wrap; */
+}
+
+.nPg {page-break-before: always;}
+
+                    </style>
+                </head>
+                <body style="">
+                <p id="1"><a href="http://home.agh.edu.pl/%7Emkuta/tk/WyrazeniaRegularne.html">http://home.agh.edu.pl/~mkuta/tk/WyrazeniaRegularne.html</a> (nieczynne) (Marcin Kuta, AGH)</p>
+<h1 id="5">Wyrażenia regularne</h1>
+<p id="7">Wyrażenia regularne pokazane są na przykładzie implementacji w języku <code>Python 3</code> w module <code>re</code>.</p>
+<h2 id="10">Znaki specjalne</h2>
+<p id="12">Większość znaków może być używana jako literały. Istnieją jednak znaki specjalne, które muszą być poprzedzone ukośnikiem <code>\</code>, aby można było ich używać jako literałów. Wspomniane znaki specjalne to: <code>\ . ^ $ ? + * { } [ ] |</code></p>
+<h2 id="15">Klasy znaków</h2>
+<p id="17">Jeśli chcemy dopasować jeden znak z określonego zbioru znaków należy użyć klasy znaków. Klasa znaków to jeden lub większa liczba znaków ujętych w nawiasy kwadratowe. Klasa znaków jest wyrażeniem. Jeśli nie jest podany po niej kwantyfikator, zostanie dopasowany dokładnie jeden znak spośród znaków zdefiniowanych w klasie znaków.</p>
+<p id="19">Dla częstych klas znaków dostępne są poniższe skróty.</p>
+<table id="21">
+<thead>
+<tr id="21">
+<th style="text-align: center;" id="21">Klasa znaków</th>
+<th id="21">Dopasowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="23">
+<td style="text-align: center;" id="23"><code>.</code></td>
+<td id="23">Dowolny znak z wyjątkiem znaku nowej linii</td>
+</tr>
+<tr id="24">
+<td style="text-align: center;" id="24"><code>\d</code></td>
+<td id="24">Dowolna cyfra</td>
+</tr>
+<tr id="25">
+<td style="text-align: center;" id="25"><code>\D</code></td>
+<td id="25">Dowolna znak nie będący cyfrą</td>
+</tr>
+<tr id="26">
+<td style="text-align: center;" id="26"><code>\s</code></td>
+<td id="26">Dowolny biały znak</td>
+</tr>
+<tr id="27">
+<td style="text-align: center;" id="27"><code>\S</code></td>
+<td id="27">Dowolny znak nie będący białym znakiem</td>
+</tr>
+<tr id="28">
+<td style="text-align: center;" id="28"><code>\w</code></td>
+<td id="28">Dowolny znak alfanumeryczny (litera lub cyfra)</td>
+</tr>
+<tr id="29">
+<td style="text-align: center;" id="29"><code>\W</code></td>
+<td id="29">Dowolny znak nie będący znakiem alfanumerycznym</td>
+</tr>
+</tbody>
+</table>
+<h2 id="32">Kwantyfikatory wyrażeń regularnych</h2>
+<p id="34">Kwantyfikatory określają ilość powtórzeń znaków lub sekwencji we wzorcach. Domyślnie kwantyfikatory są zachłanne, tzn. starają się dopasować maksymalną możliwą ilość znaków w tekście.</p>
+<table id="36">
+<thead>
+<tr id="36">
+<th style="text-align: center;" id="36">Kwantyfikator</th>
+<th id="36">Dopasowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="38">
+<td style="text-align: center;" id="38"><code>*</code></td>
+<td id="38">0 lub więcej wystąpień</td>
+</tr>
+<tr id="39">
+<td style="text-align: center;" id="39"><code>+</code></td>
+<td id="39">1 lub więcej wystąpień</td>
+</tr>
+<tr id="40">
+<td style="text-align: center;" id="40"><code>?</code></td>
+<td id="40">0 lub 1 wystąpienie</td>
+</tr>
+<tr id="41">
+<td style="text-align: center;" id="41"><code>{m}</code></td>
+<td id="41">dokładnie <code>m</code> wystąpień</td>
+</tr>
+<tr id="42">
+<td style="text-align: center;" id="42"><code>{m,}</code></td>
+<td id="42">co najmniej <code>m</code> wystąpień</td>
+</tr>
+<tr id="43">
+<td style="text-align: center;" id="43"><code>{,n}</code></td>
+<td id="43">co najwyżej <code>n</code> wystąpień</td>
+</tr>
+<tr id="44">
+<td style="text-align: center;" id="44"><code>{m,n}</code></td>
+<td id="44">od <code>m</code> do <code>n</code> wystąpień</td>
+</tr>
+<tr id="45">
+<td style="text-align: center;" id="45"><code>[...]</code></td>
+<td id="45">jeden znak spośród zbioru znaków</td>
+</tr>
+<tr id="46">
+<td style="text-align: center;" id="46"><code>[^...]</code></td>
+<td id="46">jeden znak spoza zbioru znaków</td>
+</tr>
+<tr id="47">
+<td style="text-align: center;" id="47"><code>A</code>I<code>B</code></td>
+<td id="47">dopasowanie <code>A</code> lub (kreska pionowa) <code>B</code>, operator alternatywy jest zachłanny</td>
+</tr>
+</tbody>
+</table>
+<h2 id="50">Kwantyfikatory niezachłanne</h2>
+<p id="52">Dodanie znaku zapytania po kwantyfikatorze przekształca go w kwantyfikator niezachłanny (leniwy). Kwantyfikator niezachłanny stara się dopasować minimalną możliwą ilość tekstu.</p>
+<table id="54">
+<thead>
+<tr id="54">
+<th style="text-align: center;" id="54">Kwantyfikator</th>
+<th id="54">Dopasowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="56">
+<td style="text-align: center;" id="56"><code>*?</code></td>
+<td id="56">0 lub więcej wystąpień, wersja niezachłanna</td>
+</tr>
+<tr id="57">
+<td style="text-align: center;" id="57"><code>+?</code></td>
+<td id="57">1 lub więcej wystąpień, wersja niezachłanna</td>
+</tr>
+<tr id="58">
+<td style="text-align: center;" id="58"><code>??</code></td>
+<td id="58">0 lub 1 wystąpienie, wersja niezachłanna</td>
+</tr>
+<tr id="59">
+<td style="text-align: center;" id="59"><code>{m,n}?</code></td>
+<td id="59">od <code>m</code> do <code>n</code> wystąpień, wersja niezachłanna</td>
+</tr>
+</tbody>
+</table>
+<h2 id="62">Asercje</h2>
+<p id="64">Asercje (kotwice) pozwalają wyznaczyć miejsce w tekście, w którym musi pojawić się dopasowanie. Asercje mają w dopasowaniu zerową długość.</p>
+<table id="66">
+<thead>
+<tr id="66">
+<th style="text-align: center;" id="66">Asercja</th>
+<th id="66">Dopasowanie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="68">
+<td style="text-align: center;" id="68"><code>^</code></td>
+<td id="68">początek tekstu, także początek nowej linii w przypadku włączonej opcji re.MULTILINE</td>
+</tr>
+<tr id="69">
+<td style="text-align: center;" id="69"><code>$</code></td>
+<td id="69">koniec tekstu, także koniec nowej linii w przypadku włączonej opcji re.MULTILINE</td>
+</tr>
+<tr id="70">
+<td style="text-align: center;" id="70"><code>\A</code></td>
+<td id="70">początek tekstu</td>
+</tr>
+<tr id="71">
+<td style="text-align: center;" id="71"><code>\Z</code></td>
+<td id="71">koniec tekstu</td>
+</tr>
+<tr id="72">
+<td style="text-align: center;" id="72"><code>\b</code></td>
+<td id="72">pusty string na początku lub końcu słowa (dopasowuje granicę słowa albo początek lub koniec tekstu)</td>
+</tr>
+<tr id="73">
+<td style="text-align: center;" id="73"><code>\B</code></td>
+<td id="73">pusty string, lecz nie na początku lub końcu słowa (dopasowanie wewnątrz słowa)</td>
+</tr>
+<tr id="74">
+<td style="text-align: center;" id="74"><code>(?=e)</code></td>
+<td id="74">dopasowuje łańcuch, jeśli bezpośrednio po nim następuje wyrażenie pasujące do <code>e</code> (ang. positive lookeahead)</td>
+</tr>
+<tr id="75">
+<td style="text-align: center;" id="75"><code>(?!e)</code></td>
+<td id="75">dopasowuje łańcuch, jeśli bezpośrednio po nim nie następuje wyrażenie pasujące do <code>e</code> (ang. negative lookeahead)</td>
+</tr>
+<tr id="76">
+<td style="text-align: center;" id="76"><code>(?&lt;=e)</code></td>
+<td id="76">dopasowuje łańcuch, jeśli bezpośrednio przed nim następuje wyrażenie pasujące do <code>e</code> (ang. positive lookebehind)</td>
+</tr>
+<tr id="77">
+<td style="text-align: center;" id="77"><code>(?&lt;!e)</code></td>
+<td id="77">dopasowuje łańcuch, jeśli bezpośrednio przed nim nie następuje wyrażenie pasujące do <code>e</code> (ang. negative lookebehind)</td>
+</tr>
+</tbody>
+</table>
+<p id="79">W przypadku asercji wstecznych (ang. lookbehind) implementacja dla Pythona dopuszcza skończoną i ustaloną długość wzorca <code>e</code>. Zatem użycie operatora Kleen'a <code>*</code> lub operatora zakresu <code>{n,m}</code> jest niedozwolone w asercji wstecznej.</p>
+<h2 id="82">Surowe ciągi znaków</h2>
+<p id="84">Surowe ciągi znaków (ang. raw strings) ułatwiają pisanie wyrażeń regularnych w Pythonie, zmniejszając potrzebę użycia znaków ukośnika (backslash'a). Łańcuch znaków poprzedza się literą r, która wyłącza specjalne znaczenie ukośnika. Dobrą praktyką jest zawsze definiowanie wzorców jako surowych łańcuchów.</p>
+<p id="86">Przykłady zwykłych łańcuchów i równoważnych im surowych łańcuchów:</p>
+<table id="88">
+<thead>
+<tr id="88">
+<th style="text-align: center;" id="88">Zwykły łańcuch</th>
+<th style="text-align: center;" id="88">Łańcuch surowy</th>
+</tr>
+</thead>
+<tbody>
+<tr id="90">
+<td style="text-align: center;" id="90"><code>&quot;ab*&quot;</code></td>
+<td style="text-align: center;" id="90"><code>r&quot;ab*&quot;</code></td>
+</tr>
+<tr id="91">
+<td style="text-align: center;" id="91"><code>&quot;\\ten&quot;</code></td>
+<td style="text-align: center;" id="91"><code>r&quot;\ten&quot;</code></td>
+</tr>
+<tr id="92">
+<td style="text-align: center;" id="92"><code>&quot;\\w+\\s+&quot;</code></td>
+<td style="text-align: center;" id="92"><code>r&quot;\w+\s+&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="95">Grupowanie</h2>
+<p id="97">Nawiasy oprócz zwykłej funkcji, wpływania na kolejność obliczeń, pełnią drugą ważną rolę - tworzą z wyrażenia w nawiasach tzw. grupę.</p>
+<table id="99">
+<thead>
+<tr id="99">
+<th style="text-align: center;" id="99">Wyrażenie</th>
+<th id="99">Znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="101">
+<td style="text-align: center;" id="101"><code>(...)</code></td>
+<td id="101">dopasowanie wyrażenia w nawiasie jako grupy, po dopasowaniu pierwszej grupy można odwoływać się we wzorcu do jej zawartości poprzez odwołanie wsteczne <code>\1</code> i odpowiednio poprzez <code>\2</code>,<code>\3</code>... do zawartości kolejnych dopasowanych grup</td>
+</tr>
+<tr id="102">
+<td style="text-align: center;" id="102"><code>(?:...)</code></td>
+<td id="102">nawiasy nieprzechwytujące, od zwykłych nawiasów różnią się tym, że po dopasowaniu nie można odwoływać się do zawartości dopasowanego wyrażenia poprzez odwołania wsteczne</td>
+</tr>
+<tr id="103">
+<td style="text-align: center;" id="103"><code>(?P&lt;name&gt;...)</code></td>
+<td id="103">tworzy grupę nazwaną name</td>
+</tr>
+<tr id="104">
+<td style="text-align: center;" id="104"><code>(?P=name)</code></td>
+<td id="104">dopasowuje tekst, który został dopasowany wcześniej przez grupę nazwaną name</td>
+</tr>
+<tr id="105">
+<td style="text-align: center;" id="105"><code>(?(1)then</code>I<code>else)</code></td>
+<td id="105">wyrażenie warunkowe, jeśli pierwsza grupa przechwytująca dopasowała porcję tekstu, dopasuj wyrażenie then. Jeśli grupa przechwytująca nr 1 nie brała udziału w dopasowaniu tekstu, dopasuj wyrażenie else (poprzedzone kreską pionową)</td>
+</tr>
+</tbody>
+</table>
+<ul id="107">
+<li id="107">Po dopasowaniu grupy we wzorcu można odwoływać się we wzorcu do jej zawartości poprzez odwołania wsteczne <code>\numer</code>.</li>
+<li id="108">Numerowanie grup we wzorcu przebiega począwszy od 1, od lewej do prawej, wg. wystąpienia lewego nawiasu otwierającego.</li>
+<li id="109">Cały wzorzec tworzy grupę zerową, do jej zawartości możemy się odwoływać przy zamianie tekstów funkcją sub.</li>
+<li id="110">Dodanie we wzorcu nowej grupy przechwytującej (wyrażenia w nawiasach) może wprowadzić konieczność zmiany numeracji odwołań wstecznych. W celu uniknięcia błędów i większej czytelności wprowadzono także grupy nazwane.</li>
+</ul>
+<p id="112">W przypadku użycia grupowania przy zastępowaniu tekstów z użyciem funkcji sub:</p>
+<ul id="114">
+<li id="114">w łańcucu zastępującym możemy użyć odwołań wstecznych <code>\1</code>, <code>\2</code>, ....</li>
+<li id="115">Do grupy zerowej (całe dopasowanie) oraz do grup nazwanych musimy się odwoływać odpowiednio poprzez <code>\g&lt;0&gt;</code> oraz <code>\g&lt;name&gt;</code>, gdzie <code>name</code> to nazwa grupy nazwanej.</li>
+<li id="116">Do grup 1, 2, ... możemy też odwoływać się poprzez <code>\g&lt;1&gt;</code>,<code>\g&lt;2&gt;</code>,.... Jest to przydatne np. do rozróżnienia pomiędzy zawartością grupy dwudziestej <code>\20</code> a zawartością grupy drugiej, po której następuje literał 0: <code>\g&lt;2&gt;0</code></li>
+</ul>
+<p id="118">Przykłady zastosowania grupowania do wyszukiwania i zastępowania wzorców:</p>
+<pre><code id="120">pattern = r'\w+ \w+'
+r = re.compile(pattern)
+m = r.match('Hello world, ...') #dopasowuje pare slow rozdzielonych spacja
+</code></pre>
+<p id="126">Dopasowanie pary identycznych słów:</p>
+<pre><code id="128">pattern = r'(\w+) \1'
+r = re.compile(pattern)
+m = r.match('Hello world, ...') # brak dopasowania
+m = r.match('Hello Hello, ...') # dopasowanie
+</code></pre>
+<p id="135">Dopasowanie pary identycznych słów przy pomocy grupy nazwanej:</p>
+<pre><code id="137">pattern = r'(?P&lt;word&gt;\w+) (?P=word)'# to samo co r'(\w+) \1' przy pomocy grupy nazwanej
+r = re.compile(pattern)
+m = r.match('Hello Hello, ...') 
+</code></pre>
+<p id="143">Zamiana adresu www na hyperlink:</p>
+<pre><code id="145">str = r'http://www.python.org'
+pattern = r'(http://\w+(\.\w+)+)' 
+r = re.compile(pattern)
+link = r.sub(r'&lt;a href=&quot;\1&quot;&gt;\1&lt;/a&gt;', str)
+</code></pre>
+<p id="152">Zamiana adresu www na hyperlink z użyciem grup nazwanych:</p>
+<pre><code id="154">str = r'http://www.python.org'
+pattern = r'(?P&lt;addr&gt;http://\w+(\.\w+)+)'
+r = re.compile(pattern)
+link = r.sub(r'&lt;a href=&quot;\g&lt;addr&gt;&quot;&gt;\g&lt;addr&gt;&lt;/a&gt;', str)
+</code></pre>
+<details markdown=1><summary markdown="span"> `grouping.py ...` <br> . . . </summary>
+<pre><code id="163" class="language-py">import re
+
+pattern = r'\w+ \w+'
+r = re.compile(pattern)
+str = 'Hello world, ...'
+m = r.match(str) # dopasowuje pare slow rozdzielonych spacja
+if(m):
+    print(m.group(0), &quot;pasuje do wzorca&quot;, pattern)
+else:
+    print(str, &quot;nie pasuje do wzorca&quot;, pattern)
+
+
+pattern = r'(\w+) \1'
+r = re.compile(pattern)
+
+str = 'Hello world, ...'
+m = r.match(str) # brak dopasowania
+if(m):
+    print(m.group(0), &quot;pasuje do wzorca&quot;, pattern)
+else:
+    print(str, &quot;nie pasuje do wzorca&quot;, pattern)
+
+str = 'Hello Hello, ...'
+m = r.match(str) # dopasowuje pare identycznych slow
+if(m):
+    print(m.group(0), &quot;pasuje do wzorca&quot;, pattern)
+else:
+    print(str, &quot;nie pasuje do wzorca&quot;, pattern)
+
+
+pattern = r'(?P&lt;word&gt;\w+) (?P=word)'  # to samo co r'(\w+) \1' przy pomocy grupy nazwanej
+r = re.compile(pattern)
+m = r.match(str) # dopasowuje pare identycznych slow
+if(m):
+    print(m.group(0), &quot;pasuje do wzorca&quot;, pattern)
+    print(m.group('word'))
+else:
+    print(str, &quot;nie pasuje do wzorca&quot;, pattern)
+
+
+str = r'http://www.python.org'
+pattern = r'(http://\w+(\.\w+)+)'
+r = re.compile(pattern)
+link = r.sub(r'&lt;a href=&quot;\1&quot;&gt;\1&lt;/a&gt;', str)
+print(&quot;link=&quot;, link)
+
+
+str = r'http://www.python.org'
+pattern = r'(?P&lt;addr&gt;http://\w+(\.\w+)+)'
+r = re.compile(pattern)
+link = r.sub(r'&lt;a href=&quot;\g&lt;addr&gt;&quot;&gt;\g&lt;addr&gt;&lt;/a&gt;', str)
+print(&quot;link=&quot;, link)
+</code></pre>
+</details>
+<h2 id="221">Opcje i modyfikatory</h2>
+<p id="223">Opcje i modyfikatory wpływają na sposób dopasowywania wzorca w tekście.</p>
+<table id="225">
+<thead>
+<tr id="225">
+<th style="text-align: center;" id="225">Opcja (długa)</th>
+<th style="text-align: center;" id="225">Opcja (krótka)</th>
+<th style="text-align: center;" id="225">Znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="227">
+<td style="text-align: center;" id="227"><code>re.IGNORECASE</code></td>
+<td style="text-align: center;" id="227"><code>re.I</code></td>
+<td style="text-align: center;" id="227">Wielkość liter nie jest brana pod uwagę przy dopasowywaniu</td>
+</tr>
+<tr id="228">
+<td style="text-align: center;" id="228"><code>re.DOTALL</code></td>
+<td style="text-align: center;" id="228"><code>re.S</code></td>
+<td style="text-align: center;" id="228">Znak . pasuje również do znaku nowej linii</td>
+</tr>
+<tr id="229">
+<td style="text-align: center;" id="229"><code>re.MULTILINE</code></td>
+<td style="text-align: center;" id="229"><code>re.M</code></td>
+<td style="text-align: center;" id="229">^ pasuje nie tylko do początku łańcucha, ale także do początku każdej nowej linii w przypadku łańcucha składającego się z wielu linii. W analogiczny sposób modyfikowane jest dopasowanie $</td>
+</tr>
+<tr id="230">
+<td style="text-align: center;" id="230"><code>re.VERBOSE</code></td>
+<td style="text-align: center;" id="230"><code>re.X</code></td>
+<td style="text-align: center;" id="230">Możliwość umieszczania komentarzy w wyrażeniu regularnym, spacje nie są częścią wzorca</td>
+</tr>
+</tbody>
+</table>
+<p id="232">Opcje można przekazywać do szeregu funkcji, w tym funkcji re.compile. Chcąc przekazać do funkcji wiele opcji należy użyć alternatywy bitowej:</p>
+<pre><code id="234">r = re.compile(&quot;This is regex pattern&quot;,  re.VERBOSE | re.IGNORECASE | re.DOTALL | re.MULTILINE)
+</code></pre>
+<p id="238">W odróżnieniu od opcji, modyfikatory są częścią samego wzorca.</p>
+<table id="240">
+<thead>
+<tr id="240">
+<th style="text-align: center;" id="240">Modyfikator</th>
+<th id="240">Znaczenie</th>
+</tr>
+</thead>
+<tbody>
+<tr id="242">
+<td style="text-align: center;" id="242"><code>(?i)</code></td>
+<td id="242">odpowiednik re.I</td>
+</tr>
+<tr id="243">
+<td style="text-align: center;" id="243"><code>(?s)</code></td>
+<td id="243">odpowiednik re.S</td>
+</tr>
+<tr id="244">
+<td style="text-align: center;" id="244"><code>(?m)</code></td>
+<td id="244">odpowiednik re.M</td>
+</tr>
+<tr id="245">
+<td style="text-align: center;" id="245"><code>(?x)</code></td>
+<td id="245">odpowiednik re.X</td>
+</tr>
+</tbody>
+</table>
+<ul id="247">
+<li id="247">Modyfikatory można łączyć ze sobą. Przykładowo modyfikatory (?i) oraz (?m) można zapisać łącznie jako (?im).</li>
+<li id="248">Włączona modyfikatorem opcja dotyczy całego wzorca w którym się znajduje, niezależnie od położenia.</li>
+<li id="249">W Pythonie opcje można włączać, ale nie można ich wyłączać modyfikatorem, tzn. nie są zaimplementowane wyłączniki typu (?-i).</li>
+</ul>
+<p id="251">Poniżej mamy trzy równoważne sposoby użycia tego samego wzorca bez oraz z użyciem komentarzy:</p>
+<pre><code id="253">a = re.compile(r&quot;\d+\.\d*&quot;)
+
+b = re.compile(r&quot;&quot;&quot;\d+   # czesc calkowita
+                    \.    # kropka dziesietna
+                    \d*   # czesc ulamkowa&quot;&quot;&quot;, re.X)
+
+c = re.compile(r&quot;&quot;&quot;(?x)  # wlacz komentarze
+                    \d+   # czesc calkowita
+                    \.    # kropka dziesietna
+                    \d*   # czesc ulamkowa&quot;&quot;&quot;)
+</code></pre>
+<p id="266">Dodatkowo istnieje jeszcze możliwość wstawiania we wzorcu komentarzy w postaci <code>(?#komentarz)</code>.</p>
+<h2 id="269">Moduł <code>re</code></h2>
+<p id="271">Wyrażenia regularne w Pythonie zaimplementowane są w module re. Moduł ten pozwala na dopasowywanie oraz zastępownie fragmentów tekstów przy pomocy opisanej powyżej składni.</p>
+<p id="273">Poniższy przykład znajduje w łańcuchu liczbę zmiennoprzecinkową przy pomocy prostej wersji wyrażenia regularnego dla liczb zmiennoprzecinkowych.</p>
+<pre><code id="275">import re
+
+pattern = r'(\d+).(\d*)'
+str = '342.79+12.56'
+
+m = re.match(pattern,str)
+if m:
+    print(&quot;{0} pasuje do {1}&quot;.format(pattern, str) )
+else:
+    print(&quot;{0} nie pasuje do {1}&quot;.format(pattern, str) )
+</code></pre>
+<details markdown=1><summary markdown="span"> `simple.py ...` <br> . . . </summary>
+<pre><code id="290" class="language-py">import re
+
+pattern = r'(\d+).(\d*)'
+str = '342.79+12.56'
+
+m = re.match(pattern,str)
+if m:
+    print(&quot;{0} pasuje do {1}&quot;.format(pattern, str) )
+else:
+    print(&quot;{0} nie pasuje do {1}&quot;.format(pattern, str) )
+</code></pre>
+</details>
+<p id="305">W przypadku, gdy będziemy wyszukiwali dany wzorzec wiele razy, efektywniej jest na początku dokonać kompilacji wzorca do obiektu. Obiekty wyrażeń regularnych tworzone są metodą re.compile Poprzedni przykład, tym razem z kompilacją wzorca będzie wyglądał następująco:</p>
+<pre><code id="307">import re
+
+pattern = r'(\d+).(\d*)'
+str = '342.79+12.56'
+
+r = re.compile(pattern)
+m = r.match(str)
+if m:
+    print(&quot;{0} pasuje do {1}&quot;.format(pattern, str) )
+else:
+    print(&quot;{0} nie pasuje do {1}&quot;.format(pattern, str) )
+</code></pre>
+<p id="321">Poprzedni przykład z kompilacją wzorca:</p>
+<details markdown=1><summary markdown="span"> `simple_compile.py ...` <br> . . . </summary>
+<pre><code id="324" class="language-py">import re
+
+pattern = r'(\d+).(\d*)'
+str = '342.79+12.56'
+
+r = re.compile(pattern)
+m = r.match(str)
+if m:
+    print(&quot;{0} pasuje do {1}&quot;.format(pattern, str) )
+else:
+    print(&quot;{0} nie pasuje do {1}&quot;.format(pattern, str) )
+</code></pre>
+</details>
+_  
+<p id="340">Analogicznie do metody <code>match</code> w powyższych przykładach, większość metod modułu <code>re</code> istnieje w dwóch wariantach: z kompilacją wzorca i bez kompilacji wzorca.</p>
+<h2 id="343">Obiekty dopasowania</h2>
+<p id="345">W przypadku dopasowania zwracany jest tzw. obiekt dopasowania (ang. match object). Obiekty dopasowania posiadają m.in. następujące metody:</p>
+<ul id="347">
+<li id="347"><code>group(n)</code> - zwraca tekst dopasowania dla grupy n,</li>
+<li id="348"><code>groups()</code> - zwraca krotkę zawierającą dopasowania wszystkich grup, począwszy od 1. grupy,</li>
+<li id="349"><code>start(n)</code> - zwraca indeks początkowy dla grupy n,</li>
+<li id="350"><code>end(n)</code> - zwraca indeks końcowy dla grupy n,</li>
+<li id="351"><code>span(n)</code> - zwraca dla grupy n krotkę (indeks początkowy, indeks końcowy).</li>
+</ul>
+<p id="353">Najważniejsza z powyższych jest funkcja group. Dla grupy 0 funkcja zwraca całe dopasowane wyrażenie regularne. Dla grup 1,2,... funkcja zwraca dopasowania w kolejnych nawiasach (nawiasy nieprzechwytujące nie są brane pod uwagę).</p>
+<pre><code id="355">import re
+
+pattern = r'(\d+).(\d*)'
+str = '342.79+12.56'
+
+r = re.compile(pattern)
+m = r.match(str)
+
+print( m.group(0) )           # 342.79, cale dopasowanie
+print( m.group(1) )           # 342, dopasowanie (\d+)
+print( m.group(2) )           # 79, dopasowanie (\d*)
+print( m.start(1), m.end(1) ) # 0, 3
+print( m.start(2), m.end(2) ) # 4, 6
+
+match.py
+</code></pre>
+<h2 id="374">Metody modułu <code>re</code></h2>
+<dl id="376">
+<dt id="376"><strong>re.search(pattern, str [, pos [, endpos]])</strong>  </dt>
+<dd id="377">Szuka dopasowania wyrażenia regularnego pattern w całym łańcuchu str. Zakres poszukiwań można ograniczyć podając parametry pos (indeks łańcucha, gdzie rozpocznie się poszukiwanie) oraz endpos, (indeks łańcucha, gdzie skończy się poszukiwanie).</dd>
+<dt id="379"><strong>re.match(pattern, str [, pos [, endpos]])</strong>  </dt>
+<dd id="380">Szuka dopasowania wyrażenia regularnego pattern, ale tylko na początku łańcucha str, czym różni się od funkcji search</dd>
+<dt id="382"><strong>re.split(pattern, str)</strong>  </dt>
+<dd id="383">Zwraca listę stringów powstałą z podzielenia łańcucha str na każdym dopasowania wyrażenia regularnego pattern. Jeśli wzorzec pattern umieszczono w nawiasach, każde dopasowanie tego wzorca na łańcuchu str znajdzie się w liście wynikowej.</dd>
+<dt id="385"><strong>re.findall(pattern, str)</strong>  </dt>
+<dd id="386">Jeśli wzorzec nie zawiera nawiasów przechwytujących znajduje wszystkie dopasowania wyrażenia regularnego pattern w łańcuchu str i zwraca je w formie listy stringów. Jeśli wzorzec pattern zawiera nawiasy przechwytujące, zwraca dopasowania grup przechwytujących w formie listy krotek. W odróżnieniu od funkcji <code>findall</code> funkcje <code>search</code> oraz <code>match</code> znajdują tylko jedno dopasowanie.</dd>
+<dt id="388"><strong>re.finditer(pattern, str)</strong>  </dt>
+<dd id="389">Zwraca iterator zwracający kolejne obiekty dopasowania wzorca <code>pattern</code> w łańcuchu <code>str</code>.</dd>
+<dt id="391"><strong>re.sub(pattern, repl, str)</strong>  </dt>
+<dd id="392">Zwraca kopię łańcucha <code>str</code>, gdzie wszystkie dopasowania wyrażenia regularnego <code>pattern</code> zamienione zostały na <code>repl</code>.</dd>
+<dt id="394"><strong>re.subn(pattern, repl, str)</strong>  </dt>
+<dd id="395">Działa podobnie jak funkcja <code>sub</code>, zwraca parę (zmodyfikowany łańcuch, liczba zamian)</dd>
+</dl>
+<p id="397">Analogiczne metody istnieją dla obiektów wyrażeń regularnych, powstałych w wyniku kompilacji wzorca. Metody te nie przyjmują pierwszego parametru pattern, gdyż są wywoływane dla skompilowanego obiektu wzorca.</p>
+<h3 id="399">Przykłady</h3>
+<p id="401">Poniżej znajdują się przykłady użycia wyżej opisanych funkcji.</p>
+<details markdown=1><summary markdown="span"> `funcs.py ...` <br> . . . </summary>
+<pre><code id="405" class="language-py">import re
+
+pattern = r'(\d+)\.(\d*)'
+str = 'a + 342.79+ b + 12.56 * 10'
+r = re.compile(pattern)
+
+m = r.match(str)   # brak dopasowania
+
+m = r.search(str)  # dopasowuje pierwsza liczbe zmiennoprzecinkowa, tj. 342.79
+if m:
+    print(m.group() )
+
+
+floats = [ x[0] for x in re.findall( r'((\d+)\.(\d*))', str) ]
+print(&quot;floats=&quot;, floats)
+
+for m in r.finditer(str):
+    print(m.group())
+
+list = [ m.group() for m in r.finditer(str) ]
+print(&quot;list=&quot;, list)
+
+terms = re.split(&quot;\s*[+*]\s*&quot;, str);
+print(terms)
+
+terms = re.split(&quot;(\s*[+*]\s*)&quot;, str);
+print(terms)
+
+
+newstr = r.sub(&quot;\\2.\\1&quot;, str);
+print(str)
+print(newstr)
+
+print( r.subn(r&quot;\2.\1&quot;, str) );
+
+s = &quot;http://python.org&quot;
+pattern = r'(http://[\w]+(.[\w]+)*(/[\w~]*)?)'
+r = re.compile(pattern)
+s2 = r.sub(r'&lt;a href=&quot;\1&quot;&gt;\1&lt;/a&gt;', s)
+print(s2)
+</code></pre>
+</details>
+<h3 id="449">Materiały</h3>
+<p id="451"><a href="https://docs.python.org/3/library/re.html">Szczegółowa dokumentacja modułu python re</a></p>
+
+                </body>
+            </html>
+            

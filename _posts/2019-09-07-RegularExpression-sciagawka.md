@@ -83,6 +83,11 @@ Kompletne usuwanie tagu HTML (tu `<(\S+) ...<\/\1>`) z zadanym fragmentem nazwy 
 ------
 * <https://www.regular-expressions.info/>
 * <https://regex101.com/> - testowanie
+* [Regular_Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) -> developer.mozilla.org
+* Wyrażenia regularne, Marcin Kuta, AGH (obecnie niedostępne - tu kopia w formacie MarkDown): [RegEx-Marcin_Kuta,_AGH.md]({{ site.baseurl }}/assets/files/RegEx-Marcin_Kuta,_AGH.md)
+[...html]({{ site.baseurl }}/assets/files/RegEx-Marcin_Kuta,_AGH.md.html)
+
+
 
 
 * zob. też: 
