@@ -175,6 +175,46 @@ for /f "tokens=1,2,* " %%G in (
 Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://stackoverflow.com/questions/11011115/setx-setting-path-with-spaces#answer-28332961) `"` (`"%%I`). 
 </span>
 
+- - - - 
+
+### Instalacja kolejnej wersji Python w Windows
+
+1 . Uruchom: `cmd /k py -0p`
+- aby ustalić położenie obecnie używanego kompilatora Python.exe (i obok zainstalować nowszą wersję).
+
+2 . Tu jest dobry moment aby zapamiętać zainstalowane globalnie biblioteki przez `pip install ...`: `py -m pip freeze`
+- ale część z nich jest zainstalowana jako pochodna innych instalacji, więc może lepiej sobie zapamiętywać sukcesywnie w pliku kolejne doinstalowane moduły, albo `powershell`:
+	
+```powershell
+# Lista modułów zainstalowanycg przez `pip install` (bez `==v.x.y`)
+($m = (py -m pip freeze).Split("`n") | foreach { $_ -replace '==.+$', ''})
+# Instalacja wszystkich modułów - spis:
+# $m | foreach {"py -m pip install $($_)"}
+
+###################################################
+#Wyszukanie modułów głównych z pominięciem zależnych (to długo trwa!)
+$mGl = @{}
+foreach ($k in $m) {
+  $k
+  $v = (py -m pip show $k) | Select-String "^Required-by"
+  if ($v.ToString().Length -le "Required-by: ".Length) {
+    $mGl[$k] = $v
+  }
+}
+# $mGl["rauth"]   -> "Required-by: " (tzn. główny modół)      
+# $mGl["requests"]-> "Required-by: rauth" (moduł zależny - sam się zainstaluje)
+"Instalacja modułów głównych - spis"
+$mGl.keys | foreach {"py -m pip install $($_)"}
+```
+
+3 . <https://www.python.org/>
+- Download
+
+4 . ...
+
+5 . `py -m pip install --upgrade pip setuptools wheel`
+
+
 - - - -
 
 <span style="font-size: smaller; color:DarkGrey;">
