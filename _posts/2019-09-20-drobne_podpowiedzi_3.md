@@ -126,12 +126,15 @@ Równoważny zapis w `py.ini`:
 python=3
 python3=3.6-32
 ````
-Skutecznie działa również `set PY_PYTHON=3.6-32`, lub trwale pamiętane `setx PY_PYTHON 3.6-32`
-
+Skutecznie działa również `set PY_PYTHON=3.6-32`, lub trwale pamiętane `setx PY_PYTHON 3.6-32` i ma pierwszeństwo nad `py.ini`. Działanie zmiennych jest takie samo (?) jak dane w `py.ini` po pominięciu `PY_`. <https://docs.python.org/3.5/using/windows.html#shebang-lines>. W `py.ini` może być np. tylko:
+````ini
+[defaults]
+python=3.11-64
+````
 
 <span style="font-size: smaller;">
 Z linii poleceń można dopisać tekst do swojego _py.ini_ (modyfikacja działa od razu i nie trzeba restartu aplikacji np. _cmd_ albo _N++_ jak w przypadku SetX): 
-`(echo:[defaults]&echo:python=3.6-32)>%LocalAppData%\py.ini`{:style="font-size: smaller;"}  
+`(echo:[defaults]&echo:python=3.11-64)>%LocalAppData%\py.ini`{:style="font-size: smaller;"}  
 Sprawdzenie: `type %LocalAppData%\py.ini`{:style="font-size: smaller;"}
 </span>
 
@@ -190,8 +193,7 @@ Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://
 
 ````py
 # Lista modułów zainstalowanych przez `pip install`
-import subprocess
-# https://stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output
+import subprocess # https://stackoverflow.com/questions/4760215/
 import re
 py = 'py' # py='c:\Kompil\Python39\python'
 pip_freeze = subprocess.run([py,'-m','pip','freeze'], capture_output=True, text=True).stdout 
@@ -200,8 +202,8 @@ modules = [re.sub(r'==.+$', '', m) for m in pip_freeze.split()] # bez `==v.x.y`
 # ['rauth','requests',...
 print('\n'.join([f'''py -m pip install {m}''' for m in modules]))
 ####################################################
-# Wyszukanie modułów zależnych, które zainstalują się same (to długo trwa!)
-depended = set()
+#Wyszukanie modułów głównych z pominięciem zależnych (to trochę trwa!)
+mGl = set()
 for m in modules:
   print(f''' === {m} === ''')
   pip_show = subprocess.run([py,'-m','pip','show', m], capture_output=True, text=True).stdout
@@ -215,15 +217,14 @@ for m in modules:
 # Zdarzają się błędy, które raczej nie dotyczą wiersza 'Requires: ...
 # UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe3 ...
   if not pip_show: continue # >>>>>>>>
-  match = re.search(r'^Requires: (.+)$', pip_show, flags=re.MULTILINE)
-  if match: # np. match[1] -> 'certifi, chardet, idna, urllib3'
-    dep = match[1].split(', ')
-    print(dep) # np. ['certifi', 'chardet', 'idna', 'urllib3']
-    depended.update(dep)
+  match = re.search(r'^Requires: (.*)$[\r\n]+^Required-by: (.*)$', pip_show, flags=re.MULTILINE)
+  if match: # np. match[1] -> 'certifi, chardet, idna, urllib3', match[2] -> 'rauth'
+    print(match[0]) # 'Requires: certifi, chardet, idna, urllib3\nRequired-by: rauth'
+    if match[2] == '':
+      mGl.add(m) 
 
 print('\n  ',"Moduły nadrzędne:")
-modules0 = set(modules) - depended
-print('\n'.join([f'''py -m pip install {m}''' for m in modules0]))
+print('\n'.join([f'''py -m pip install {m}''' for m in mGl]))
 ````
 </details>
 
@@ -236,7 +237,7 @@ print('\n'.join([f'''py -m pip install {m}''' for m in modules0]))
 # $m | foreach {"py -m pip install $($_)"}
 
 ###################################################
-#Wyszukanie modułów głównych z pominięciem zależnych (to długo trwa!)
+#Wyszukanie modułów głównych z pominięciem zależnych (to trochę trwa!)
 $mGl = @{}
 foreach ($k in $m) {
   $k
@@ -245,7 +246,7 @@ foreach ($k in $m) {
     $mGl[$k] = $v
   }
 }
-# $mGl["rauth"]   -> "Required-by: " (tzn. główny modół)      
+# $mGl["rauth"]   -> "Required-by: " (tzn. główny moduł)
 # $mGl["requests"]-> "Required-by: rauth" (moduł zależny - sam się zainstaluje)
 "Instalacja modułów głównych - spis"
 $mGl.keys | foreach {"py -m pip install $($_)"}
@@ -256,10 +257,21 @@ $mGl.keys | foreach {"py -m pip install $($_)"}
 3 . <https://www.python.org/>
 - Download
 
-4 . ...
+4 . <s>➜ Install Now ...<s>   
+* `[✓]` Add python.exe to PATH
+* ➜ Customize installation
+	* `[✓]` ... `[✓]` py launcher `[_]` for all...
+	* `[_]` `[✓]` `[✓]` `[✓]` `[_]` `[_]` `[_]`
+	* Customize install location `[C:\Kompil\Python\Python311]`  
+	(wygodnie jest używać klarownej lokalizacji)
 
-5 . `py -m pip install --upgrade pip setuptools wheel`
+5 . W zmiennych środowiskowych użytkownika - `PATH` - *%PY_PTH%* na pierwsze miejsce; usuwam ścieżki do starszych wersji Python.
 
+6. Uruchom `cmd`. Uruchom kontrolnie `py -0p`, potem `py`, `exit()`.
+
+7 . `py -m pip install --upgrade pip setuptools wheel`
+
+8 . Odtwarzam potrzebne `py -m pip install ...` z listy z p.2
 
 - - - -
 
