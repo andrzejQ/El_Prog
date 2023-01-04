@@ -5,10 +5,11 @@ date:   2020-11-24 06:54:00 +0100
 categories: Programowanie
 ---
 
-[Szukanie ścieżek do plików .exe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#szukanie-plików-exe-dostępnych-poprzez-path) * [Python Launcher for Windows]({{ site.url }}{{ site.baseurl }}{{ page.url }}#python-launcher-for-window) 
+[Szukanie ścieżek do plików .exe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#szukanie-plików-exe-dostępnych-poprzez-path) * 
+[Python Launcher for Windows]({{ site.url }}{{ site.baseurl }}{{ page.url }}#python-launcher-for-window) *
+[Instalacja kolejnej wersji Python w Windows]({{ site.url }}{{ site.baseurl }}{{ page.url }}#instalacja-kolejnej-wersji-python-w-windows)
 
-
-### Wyszukiwanie dostępnych wersji kompilatora Python w Windows
+### Wyszukiwanie dostępnych wersji Pythona w Windows
 
 #### W SKRÓCIE
 
@@ -183,10 +184,53 @@ Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://
 - aby ustalić położenie obecnie używanego kompilatora Python.exe (i obok zainstalować nowszą wersję).
 
 2 . Tu jest dobry moment aby zapamiętać zainstalowane globalnie biblioteki przez `pip install ...`: `py -m pip freeze`
-- ale część z nich jest zainstalowana jako pochodna innych instalacji, więc może lepiej sobie zapamiętywać sukcesywnie w pliku kolejne doinstalowane moduły, albo `powershell`:
-	
-```powershell
-# Lista modułów zainstalowanycg przez `pip install` (bez `==v.x.y`)
+- ale część z nich jest zainstalowana jako pochodna innych instalacji, więc może lepiej sobie zapamiętywać sukcesywnie w pliku kolejne doinstalowane moduły, albo skorzystać ze skryptu:
+
+<details markdown=1><summary markdown="span">`Python pip_install_list.py ...` <br> . . . </summary>
+
+````py
+# Lista modułów zainstalowanych przez `pip install`
+import subprocess
+# https://stackoverflow.com/questions/4760215/running-shell-command-and-capturing-the-output
+import re
+py = 'py' # py='c:\Kompil\Python39\python'
+pip_freeze = subprocess.run([py,'-m','pip','freeze'], capture_output=True, text=True).stdout 
+# 'rauth==0.7.3\nrequests==2.25.1\n...
+modules = [re.sub(r'==.+$', '', m) for m in pip_freeze.split()] # bez `==v.x.y`
+# ['rauth','requests',...
+print('\n'.join([f'''py -m pip install {m}''' for m in modules]))
+####################################################
+# Wyszukanie modułów zależnych, które zainstalują się same (to długo trwa!)
+depended = set()
+for m in modules:
+  print(f''' === {m} === ''')
+  pip_show = subprocess.run([py,'-m','pip','show', m], capture_output=True, text=True).stdout
+#  print('-.-.-\n',pip_show)
+# -.-.-
+# Name: requests
+# ...
+# Requires: certifi, chardet, idna, urllib3
+# Required-by: rauth
+# ...
+# Zdarzają się błędy, które raczej nie dotyczą wiersza 'Requires: ...
+# UnicodeDecodeError: 'utf-8' codec can't decode byte 0xe3 ...
+  if not pip_show: continue # >>>>>>>>
+  match = re.search(r'^Requires: (.+)$', pip_show, flags=re.MULTILINE)
+  if match: # np. match[1] -> 'certifi, chardet, idna, urllib3'
+    dep = match[1].split(', ')
+    print(dep) # np. ['certifi', 'chardet', 'idna', 'urllib3']
+    depended.update(dep)
+
+print('\n  ',"Moduły nadrzędne:")
+modules0 = set(modules) - depended
+print('\n'.join([f'''py -m pip install {m}''' for m in modules0]))
+````
+</details>
+
+<details markdown=1><summary markdown="span">`PowerShell pip_install_list.ps1 ...` <br> . . . </summary>
+
+````powershell
+# Lista modułów zainstalowanych przez `pip install` (bez `==v.x.y`)
 ($m = (py -m pip freeze).Split("`n") | foreach { $_ -replace '==.+$', ''})
 # Instalacja wszystkich modułów - spis:
 # $m | foreach {"py -m pip install $($_)"}
@@ -205,7 +249,9 @@ foreach ($k in $m) {
 # $mGl["requests"]-> "Required-by: rauth" (moduł zależny - sam się zainstaluje)
 "Instalacja modułów głównych - spis"
 $mGl.keys | foreach {"py -m pip install $($_)"}
-```
+````
+</details>
+
 
 3 . <https://www.python.org/>
 - Download
@@ -230,3 +276,5 @@ Zob. też
 * [Python ściągawka -- 13 . Notepad++ QuickText, NppExec]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2020-11-24-Python-sciagawka %}#13--notepad-quicktext-nppexec)
 
 
+<style> pre code {font-size: smaller;} </style>
+<style> small code {font-size: smaller;} </style>
