@@ -5,9 +5,9 @@ date:   2019-09-09 11:21:59 +0100
 categories: Programowanie
 ---
 
-...np. po tym gdy nadejdzie ponaglenie z Github, że coś muszę uaktualnić.
+...np. po tym gdy nadejdzie ponaglenie z Github, że coś muszę uaktualnić. 2023-01-07 - dodatek: Giscus - komentarze w Jekyll 
 
-Po takim ponagleniu można np. wykonać synchronizację lokalnej kopii. Następnie w dowolnym wybranym blogu:
+Po ponagleniu o konieczności uaktualnienia można np. wykonać synchronizację lokalnej kopii. Następnie w dowolnym wybranym blogu:
 
 ### Zmiana na wyższą wersję Ruby
 
@@ -67,5 +67,29 @@ Jeśli kolejne blogi są analogiczne do uaktualnionego:
 
 1. Gemfile: (dopisz) `gem "minima"`
 2. `bundle`
+
+- - - -
+
+### Giscus - komentarze w Jekyll 
+
+* <https://blog.jakelee.co.uk/migrating-from-utterances-to-giscus-comments/>
+
+1. Repository -> Settings -> discussions enabled
+2. Strona "discussion" - edycja (ikona ołówka). Można usunąć zbędne kategorie i dodać nową, np. Title: "Komentarze" ;  Description: "Komentarze gości" ;  Discussion Format: (*) Annoucement. Można wybrać też ikonę dla kategorii.
+3. Dodanie Giscus <https://github.com/apps/giscus> do każdego repozytorium.
+4. https://giscus.app - dla każdego repozytorium generujemy parametry:  
+  repository: "andrzejQ/El_Prog" (np.) ;  Page ↔️ Discussions Mapping: (*) Discussion title contains page pathname ;  Discussion Category: ;-) Komentarze ;  [x] Only search for discussions in this category ;  [x] Enable reactions for the main post ;  [x] Wczytaj komentarze leniwie ;  Theme [Preferred].
+5. Wygenerowany `<script>` wklejam do "El_Prog\_includes\giscus_js.html"
+6. "El_Progs\_includes\footer.html" <small>(tu trzeba usunąć spację z `{ %`)</small>
+````html
+...
+    { %- if page.comments == true -%}
+      <p style="font-size:small"> Włącz się do dyskusji. 
+      Będą zachowane te komentarze, które jakoś dotyczą treści na blogu. 
+      Na początek trzeba mieć (darmowe) konto na   <a href="https://github.com/">GitHub</a>.</p>
+      { %- include giscus_js.html -%}
+    { %- endif -%}
+````
+
 
 <style> pre code {font-size: smaller;} </style>
