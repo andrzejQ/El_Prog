@@ -86,10 +86,10 @@ Jeśli kolejne blogi są analogiczne do uaktualnionego:
     { %- if page.comments == true -%}
       <p style="font-size:small"> Włącz się do dyskusji. 
       Będą zachowane te komentarze, które jakoś dotyczą treści na blogu. 
-      Na początek trzeba mieć (darmowe) konto na   <a href="https://github.com/">GitHub</a>.</p>
+      <br> Na początek trzeba mieć (darmowe) konto na   <a href="https://github.com/">GitHub</a>.</p>
       { %- include giscus_js.html -%}
     { %- endif -%}
 ````
 
 
-<style> pre code {font-size: smaller;} </style>
+<style> pre code, small code {font-size: smaller;} </style>
