@@ -257,7 +257,7 @@ $mGl.keys | foreach {"py -m pip install $($_)"}
 3 . <https://www.python.org/>
 - Download
 
-4 . <s>➜ Install Now ...<s>   
+4 . <s>➜ Install Now ...</s>   
 * `[✓]` Add python.exe to PATH
 * ➜ Customize installation
 	* `[✓]` ... `[✓]` py launcher `[_]` for all...
