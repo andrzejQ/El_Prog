@@ -638,7 +638,9 @@ gdzie ostatni wiersz w skrypcie jak pozwyżej (p.1) zastępujemy przez
 `python -X utf8 -u -m pylint --rcfile %USERPROFILE%\.pylintrc "$(FILE_NAME)"`  
 i zapisujemy jako np. "PyLint".  
 Dodajemy kolejny filtr (zob. p.3, Red: 0xFF) [x] `%FILE%:%LINE%:%CHAR%` 
-<details markdown=1><summary markdown="span"> <small>Tutaj mamy przywołane dodatkowe [własne reguły poprawności]() w pliku `%USERPROFILE%\.pylintrc`.</small> <br> . . . </summary>
+<details markdown=1>
+<summary markdown="span"> <small>Tutaj mamy przywołane dodatkowe [własne reguły poprawności]() w pliku `%USERPROFILE%\.pylintrc`.</small> <br> . . . </summary>
+
 ````yaml
 # python -m pip install pylint
 # pylint --generate-rcfile > .pylintrc
@@ -679,6 +681,7 @@ disable=
     multiple-statements,
 ````
 </details>
+
 - - - -
 
 <small>  
