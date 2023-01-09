@@ -4,4 +4,4 @@ Notatki elektronika programisty.
 
 Zapraszam do odwiedzenia bloga https://andrzejq.github.io/El_Prog/
 
-(github - jekyll - staticman)
+(github - jekyll - giscus -> GitHub Discussions)
