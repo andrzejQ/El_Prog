@@ -74,10 +74,11 @@ Jeśli kolejne blogi są analogiczne do uaktualnionego:
 
 * <https://blog.jakelee.co.uk/migrating-from-utterances-to-giscus-comments/>
 
-1. Repository -> Settings -> discussions enabled
+1. Repository -> Settings -> discussions enabled.   ## 👋 Witaj!  
+  Będzie mi bardzo miło jeśli zechcesz skomentować moje wpisy. 
 2. Strona "discussion" - edycja (ikona ołówka). Można usunąć zbędne kategorie i dodać nową, np. Title: "Komentarze" ;  Description: "Komentarze gości" ;  Discussion Format: (*) Annoucement. Można wybrać też ikonę dla kategorii.
-3. Dodanie Giscus <https://github.com/apps/giscus> do każdego repozytorium.
-4. https://giscus.app - dla każdego repozytorium generujemy parametry:  
+3. Dodanie Giscus <https://github.com/apps/giscus> do każdego repozytorium: [Configure] (*) Only select repositories - wybranych lista repozytoriów.
+4. <https://giscus.app> ( =  Website ) - dla każdego repozytorium generujemy parametry:  
   repository: "andrzejQ/El_Prog" (np.) ;  Page ↔️ Discussions Mapping: (*) Discussion title contains page pathname ;  Discussion Category: ;-) Komentarze ;  [x] Only search for discussions in this category ;  [x] Enable reactions for the main post ;  [x] Wczytaj komentarze leniwie ;  Theme [Preferred].
 5. Wygenerowany `<script>` wklejam do "El_Prog\_includes\giscus_js.html"
 6. "El_Progs\_includes\footer.html" <small>(tu trzeba usunąć spację z `{ %`)</small>
@@ -90,6 +91,8 @@ Jeśli kolejne blogi są analogiczne do uaktualnionego:
       { %- include giscus_js.html -%}
     { %- endif -%}
 ````
+7. W każdym poście inicjalny wpis (pozwala każdemu na "odpowiedz")  
+Nowa wersja komentarzy z użyciem `giscus -> GitHub Discussions`.
 
 
 <style> pre code, small code {font-size: smaller;} </style>

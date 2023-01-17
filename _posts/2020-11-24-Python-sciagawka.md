@@ -20,7 +20,8 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
 [12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html) &nbsp; 
 [13.&nbsp;Notepad++ QuickText, NppExec]({{ site.url }}{{ site.baseurl }}{{ page.url }}#13--notepad-quicktext-nppexec) &nbsp; 
 [14.&nbsp;Pola statyczne]({{ site.url }}{{ site.baseurl }}{{ page.url }}#14--pola-statyczne) &nbsp; 
-
+[15.&nbsp;mingus.midi, fluidsynth]({{ site.url }}{{ site.baseurl }}{{ page.url }}#15--mingusmidi-fluidsynth) &nbsp; 
+[16.&nbsp;subprocess run()]({{ site.url }}{{ site.baseurl }}{{ page.url }}#16--subprocess-run) &nbsp; 
 
 ## 1 . Pliki:
 
@@ -715,6 +716,8 @@ t2.log()    # class: 1 {'x': 44}  self: 100 {'x': 44}
 
 - - - - - -
 
+&nbsp;
+
 ## 15 . mingus.midi, fluidsynth
 
 1. Instalacja FluidSynth: <https://github.com/FluidSynth/fluidsynth/releases>  
@@ -733,6 +736,30 @@ lib = (
 ````
 Można testować działanie skryptem `...\Python\mingus_examples\pygame-piano\pygame-piano.py`. <small>Nie działa w `NppExec` - tylko `cmd`. Trzeba podawać ścieżkę do `default.sf2`</small>
 6. <small>Podczas startu skryptu słychać czasem nieprzyjemny trzask w głośnikach. Być może skopiowanie `libfluidsynth-3.dll` do foldera skryptu coś porawia. A może paczkę z `...\fluidsynth\bin` warto skopiować do `C:\Windows\System32`? - Nie sprawdzałem.</small>
+
+
+- - - - - -
+
+&nbsp;
+
+## 16 . subprocess run()
+
+````py
+from subprocess import Popen, PIPE, CalledProcessError
+def run(args): # args=[...] lub '...'
+  print('>>>', args)
+  with Popen(args, stdout=PIPE, bufsize=1, universal_newlines=True) as p:
+    for line in p.stdout:
+      print(line, end='')
+  if p.returncode == 0:
+    print('ok.')
+  else:
+    raise CalledProcessError(p.returncode, p.args)
+````
+
+* <small> [https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running](https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running#answer-28319191) </small>
+* <small> <https://docs.python.org/3/library/subprocess.html#converting-an-argument-sequence-to-a-string-on-windows> </small>
+
 
 - - - - - -
 
