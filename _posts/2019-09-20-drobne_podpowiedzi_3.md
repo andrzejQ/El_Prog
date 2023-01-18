@@ -277,9 +277,13 @@ $mGl.keys | foreach {"py -m pip install $($_)"}
 
 <span style="font-size: smaller; color:DarkGrey;">
 **#!/usr/bin/env python** - uruchamianie w Linux. Po zalogowaniu na root:  
-	cd /usr/bin/  
-	unlink python  
-	ln -sv /usr/bin/python3 python
+_	cd /usr/bin/  
+_	unlink python  
+_	ln -sv /usr/bin/python3 python  
+**albo w ~/.bashrc** dopisać:  
+_	alias python=python3  
+i potem uruchomić  
+_	source ~/.bashrc
 </span>
 
 - - - - -
