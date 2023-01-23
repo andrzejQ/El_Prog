@@ -27,6 +27,26 @@ git branch -vv
 git branch --no-merged
 ````
 
+
+#### poprawka commit
+````bash
+git commit --amend --no-edit
+git push -f
+````
+
+#### synchronizacja
+````bash
+git pull --verbose
+# =
+git fetch
+git merge
+
+# na ostro!
+git fetch
+git reset --hard
+````
+
+
 #### gałąź śledząca zdalne repo
 ````bash
 git remote add aabbcc https://github.com/aabbcc/abc.git
@@ -39,6 +59,8 @@ git remote -vv
 #### różne działania na repo zdalnym:
 ````bash
 git push ...
+# uaktualnienie wszystkich lokalnych gałęzi śledzących
+git fetch --all -v --progress
 ````
 
 #### lista plików do rozw. konfliktów:
