@@ -633,6 +633,8 @@ Restart Notepad++
 6.Wtyczki \ NppExec \ Show NppExec Console lub [Ctrl + ~]
 </small>
 
+`[Ctrl+W]` w oknie konsoli przełącza łamanie długich wierszy.
+
 Podobnie można sprawdzać [**jakość stylu kodu źródłowego**](https://peps.python.org/pep-0008/) z pomocą [**Pylint**](https://pypi.org/project/pylint/),
 także z wykorzystaniem [NppExec](https://stackoverflow.com/questions/4987920/python-correctness-i-e-lint-analyzing-for-notepad),
 gdzie ostatni wiersz w skrypcie jak pozwyżej (p.1) zastępujemy przez  
@@ -640,7 +642,7 @@ gdzie ostatni wiersz w skrypcie jak pozwyżej (p.1) zastępujemy przez
 i zapisujemy jako np. "PyLint".  
 Dodajemy kolejny filtr (zob. p.3, Red: 0xFF) [x] `%FILE%:%LINE%:%CHAR%` 
 <details markdown=1>
-<summary markdown="span"> <small>Tutaj mamy przywołane dodatkowe [własne reguły poprawności]() w pliku `%USERPROFILE%\.pylintrc`.</small> <br> . . . </summary>
+<summary markdown="span"> <small>Tutaj mamy przywołane dodatkowe własne reguły poprawności w pliku `%USERPROFILE%\.pylintrc`.</small> <br> . . . </summary>
 
 ````yaml
 # python -m pip install pylint
@@ -683,7 +685,7 @@ disable=
 ````
 </details>
 
-- - - -
+- - - - 
 
 <small>  
 W **Notepad++** można też zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):</small>  
@@ -705,13 +707,13 @@ Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktyw
 ````py
 class Test:
   c = 1;  d = {'x':3}
-  def log(self): print('class:', Test.c, Test.d, ' self:', self.c, self.d)
+  def log(self): print('class c d :', Test.c, Test.d, ' self c d :', self.c, self.d)
 
 class T2(Test): pass
 t2 = T2()
-t2.log()    # class: 1 {'x': 3}  self: 1 {'x': 3}
+t2.log()    # class c d : 1 {'x': 3}  self c d : 1 {'x': 3}
 t2.c = 100;  t2.d['x'] = 44
-t2.log()    # class: 1 {'x': 44}  self: 100 {'x': 44}
+t2.log()    # class c d : 1 {'x': 44}  self c d : 100 {'x': 44}
 ````
 
 - - - - - -
