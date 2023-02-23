@@ -17,9 +17,12 @@ categories: Programowanie
 using System;
 using System.Globalization;
 
-CultureInfo ddMMyyyCI = new CultureInfo("pl-PL", false); 
-    // "pl-PL" or any other culture with dd at the beginning (PL: dd.MM.yyyy)
-    // without the user-selected culture settings. 
+CultureInfo ddMMyyyCI = new CultureInfo("da-DK", false);
+// "da-DK" or any other culture with dd at the beginning (Denmark: dd-MM-yyyy)
+// false = without the user-selected culture settings. 
+// Separator sign is not important.
+// "pl-PL" now has dd.MM.yyyy, but in Win7 it was yyyy-MM-dd !
+
 if (DateTime.TryParse(dateString, out dateValue)) 
     // local culture with user-selected culture settings in the system
     // yyyy MM dd are also parsed
@@ -31,7 +34,8 @@ else
     Console.WriteLine("  Unable to parse '{0}'.", dateString);
 ````
 
-Wypisanie uniwersalnej, sortowalnej postaci yyyy.MM.dd ... w casie lokalnym, np.: `DateTime.Now.ToString("u") // 2023-02-15 08:48:18Z`. Można to sobie przyciąć do wymaganej dokładności.
+
+Wypisanie uniwersalnej, sortowalnej postaci `yyyy-MM-dd hh:mm:ssZ` w czasie lokalnym (tzn. nie uniwersalnym), np.: `DateTime.Now.ToString("u") // 2023-02-15 08:48:18Z`. Można to sobie przyciąć do wymaganej dokładności.
 
 
 * [DateTime1-test.zip]({{ site.baseurl }}/assets/files/DateTime1-test.zip)
