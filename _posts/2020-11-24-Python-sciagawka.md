@@ -49,6 +49,39 @@ with os.scandir(path='.') as it: # iterator
 
 *  [os.scandir](https://docs.python.org/3/library/os.html#os.scandir)   -> docs.python.org/3/
 
+### Usuwanie pustych podfolderów
+
+<details markdown=1><summary markdown="span">... począwszy od najbardziej zagłębionych pustych podfolderów: <br> . . . </summary>
+
+````py
+import os
+#https://stackoverflow.com/questions/23488924/how-to-delete-recursively-empty-folders-in-python3
+
+def remove_empty_dirs(dir0):
+  def remove_empty_dir(path):
+    try:
+      os.rmdir(path)
+      return True
+    except OSError: #not empty
+      return False
+
+  print(f'Usuwam puste foldery poniżej {dir0!r}:')
+  for root, dirnames, filenames in os.walk(dir0, topdown=False):
+  #  print(f'{root=} >>> {dirnames=} >>> {filenames=}')
+    for dirname in dirnames:
+      d = os.path.realpath(os.path.join(root, dirname))
+      if remove_empty_dir(d):
+        print(d)
+  print('Koniec.')
+
+remove_empty_dirs('wFolderze')
+````
+* <https://stackoverflow.com/questions/23488924/how-to-delete-recursively-empty-folders-in-python3>
+
+</details>
+
+
+
 ### JSON
 
 ````py
