@@ -31,8 +31,12 @@ Trochę indeksów górnych
 i dolnych  
 `˶˒₍₎₊ˏ₋₀₁₂₃₄₅₆₇₈₉₌ˍ˴ₑₕᵢⱼₖₗₘₙₒₚᵣₛₜᵤᵥ˷ₓᵧᵦᵧᵨᵩᵪ`
 
-- - -
+Kilka klawiszy ([zob. wikipedia »](https://en.wikipedia.org/wiki/Windows_key#Windows_10)):
 
+`⊞ Win` `⌘ Command` `↵ Enter` `⇧ Shift` `Tab ↹` `↑` `↓` `←` `→`
+
+- - -
+.  
 zob. też <https://unicode-table.com/pl/sets/>  
 <small>(np. [unicode-table.com_symbols.pdf]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.pdf "unicode-table.com_symbols.pdf") 
  | [.docx]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.docx "unicode-table.com_symbols.docx") 
@@ -40,7 +44,7 @@ zob. też <https://unicode-table.com/pl/sets/>
 
 _Telefon, e-mail, biuro:_    ℡   ⌕   ☏   ✆   @   ✁   ✃   ✄   ✎   ✐   ✑   ⌦   ⌫   ⌧   ㍶
 
-_Znaczniki wyboru:_    ✓   ✗   ✘   ☒
+_Znaczniki wyboru:_    ✓   ✗   ✘   ☒   ◉   ○
 
 _Specjalne symbole:_    •   °   ★   «   »   ❝   ❞   ×   ⦂   ⁃   ‐   ‑   ‒   –   ⎯   —   ―   ~   ⁓   %   ‰   ‱   &   ⅋   §   ÷   ±   ¡   ¿   ⸮   ⁇   ⁈   ‽   ⸘   ℠   ℻   ℅   ℁   ⅍   ¶   ⁋   ≠   √   ∛   ∜   ∞   β   Φ   Σ   €   ₤   ＄   ⚢   ⚣   ⌘
 
