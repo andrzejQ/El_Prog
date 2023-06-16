@@ -89,7 +89,15 @@ Można też włączyć domyślne kodowanie UTF-8 dla wszyskich plików bez pocz�
 (nie testowałem).
 
 Nowa aplikacja terminala Microsoft [Windows Terminal](https://www.microsoft.com/pl-pl/p/windows-terminal-preview/9n0dx20hk701)
-obsługuje domyślnie UTF-8. W Windows 10 trzeba ją zainstalować. W Win 11 jest instalowana domyślnie.
+obsługuje domyślnie UTF-8. W Windows 10 trzeba ją zainstalować. 
+
+W Win 11 ten terminal jest domyślnie instalowany i domyślnie uruchamia się powershell, czcionka "Cascadia Mono". A jednak domyślnie ma ustawione archaiczne kodowanie OEM (chcp -> 852). 
+Można zmienić [konfigurację startową powershell](https://stackoverflow.com/questions/49476326/displaying-unicode-in-powershell/49481797) wpisując 
+```powershell
+$OutputEncoding = [console]::InputEncoding = [console]::OutputEncoding = New-Object System.Text.UTF8Encoding
+```
+
+Nazwa pliku konfiguracji jest w zmiennej `$PROFILE`, która ma typowo wartość: `<moje dokumenty>\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`.
 
 Podobno wersja PowerShell 7 nie ma tej wady z podmianą czcionki.
 
