@@ -36,6 +36,11 @@ with open('a.txt','w',newline='\r\n',encoding='utf-8-sig') as txt: txt.write('\n
 with open('a.txt','w',newline='',encoding='utf-8-sig') as txt: print(s, file=txt)
 ````
 
+<small>Przy okazji uniwersalna obsługa wyjątków:</small>
+````py
+try: ... except Exception as e:  print(str(e)); exit()
+````
+
 * [Check if a File or Directory Exists](https://linuxize.com/post/python-check-if-file-exists/) -> linuxize.com/
 
 ### Lista plików
