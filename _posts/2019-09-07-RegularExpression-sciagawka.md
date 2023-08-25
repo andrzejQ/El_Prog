@@ -74,10 +74,17 @@ Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdziel
 \xA0
 ````
 
-Kompletne usuwanie tagu HTML (tu `<(\S+) ...<\/\1>`) z zadanym fragmentem nazwy klasy (ale bez zagnieżdżeń takich samych tagów)
+Kompletne usuwanie tagu HTML (tu `<(\S+) ...<\/\1>`) z zadanym fragmentem nazwy klasy o ile nie zawiera zagnieżdżeń takich samych tagów jak tag `(\S+)`.
 ````regexp
-<(\S+) class="[^"]*FragmentKlasy[^>]*>(.*?)<\/\1>
+<(\S+) class="[^"]*FragmentNazwyKlasy[^>]*>(.*?)<\/\1>
 ¤
+````
+
+Scalenie akapitów, np. skopiowanych z PDF - gdy faktyczny podział  akapitu wyznacza pusty wiersz, a inne łamania wierszy wewnątrz akapitu należy zamienić na spację. Tzn. mamy pojedyncze łamanie wiersza `\r?\n` z opcjonalną dodatkową spacją ` ?` poprzedzone nie-białym znakiem `(?<=\S)` i występującym po łamaniu wiersza nie-białym znakiem `(?=\S)`:
+
+````regexp
+(?<=\S) ?\r?\n(?=\S)
+ 
 ````
 
 ------
