@@ -13,11 +13,11 @@ Skrypt Powershell "importCameraRoll.ps1"
 3. Zmienia nazwy plików na "yyyy-MM-dd_hh.mm.ss..." i umieszcza je w bibliotekach Obrazy albo Wideo w folderach jak rok i podfolderach jak data dnia albo miesiąca.
 4. Wymaga jednorazowej konfiguracji dla każdego telefonu / aparatu na podstawie danych wyświetlanych w eksploratorze Windows po podłączeniu urządzenia kablem USB.
 
-Plik do pobrania [**importCameraRoll.ps1**(.zip)]({{ site.baseurl }}/assets/files/importCameraRoll.zip "importCameraRoll.zip") 
+Plik do pobrania [**importCameraRoll.ps1**(.zip)]({{site.baseurl}}/assets/files/importCameraRoll.zip "importCameraRoll.zip") 
 
 <small>
 Jeśli uruchamiasz Powershel po raz pierwszy to przeczytaj początkowe 2 zdania w 
-["Hybrydowy skrypt CMD-PowerShell"]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})
+["Hybrydowy skrypt CMD-PowerShell"]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})
 .</small>
 
 Początkowy fragment skryptu:
@@ -39,7 +39,7 @@ $filterImgVid=@( '(.jpg)|(.jpeg)|(.png)|(.heic)|(.heif)$',
                  '(.mp4)|(.mpeg)|(.mpg)|(.hevc)$' )
 ````
 URUCHAMIANIE: `powershell.exe -noexit -File "importCameraRoll.ps1"`  
-[![IKONA-Zgrywanie_zdjec_i_filmow.png]({{ site.baseurl }}/assets/img/IKONA-Zgrywanie_zdjec_i_filmow.png "IKONA-Zgrywanie_zdjec_i_filmow.png"){:style="float:right;width:88px;"}]({{ site.baseurl }}/assets/files/Zgrywanie_zdjec_i_filmow.zip "Zgrywanie_zdjec_i_filmow.zip ")
+[![IKONA-Zgrywanie_zdjec_i_filmow.png]({{site.baseurl}}/assets/img/IKONA-Zgrywanie_zdjec_i_filmow.png "IKONA-Zgrywanie_zdjec_i_filmow.png"){: style="float:right;width:88px;"}]({{site.baseurl}}/assets/files/Zgrywanie_zdjec_i_filmow.zip "Zgrywanie_zdjec_i_filmow.zip ")
 <small> Możesz sobie zrobić na pulpicie skrót z takim poleceniem w polu "Element docelowy:" i z "Rozpocznij w:" <_folder, w krórym jest skrypt_>. Warto też dobrać stosowną nazwę i ikonkę tego skrótu. Możesz go wypakować z pliku ZIP (ikona po prawej) tylko we właściwościach musisz wpisać poprawną  ścieżkę "Rozpocznij w:" do foldera w któym jest plik "importCameraRoll.ps1". </small>
 
 
@@ -62,3 +62,15 @@ Filmy są kopiowane do biblioteki "Wideo" do foldera "yyyy\yyyy-MM".
         - wstępnie sprawdzany jest rozmiar w px i wielkość w bajtach itp.
         - jeśli te są identyczne, to plik nie jest kopiowany, a na końcu, po porównaniu binarnym jest usuwany z ".tmp". Na koniec folder ".tmp" powinien być pusty.
 
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

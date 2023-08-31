@@ -38,9 +38,9 @@ Kilka klawiszy ([zob. wikipedia »](https://en.wikipedia.org/wiki/Windows_key#Wi
 - - -
 .  
 zob. też <https://unicode-table.com/pl/sets/>  
-<small>(np. [unicode-table.com_symbols.pdf]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.pdf "unicode-table.com_symbols.pdf") 
- | [.docx]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.docx "unicode-table.com_symbols.docx") 
- | [.txt]({{ site.baseurl }}/assets/files/unicode-table.com_symbols.txt "unicode-table.com_symbols.txt"))</small> : 
+<small>(np. [unicode-table.com_symbols.pdf]({{site.baseurl}}/assets/files/unicode-table.com_symbols.pdf "unicode-table.com_symbols.pdf") 
+ | [.docx]({{site.baseurl}}/assets/files/unicode-table.com_symbols.docx "unicode-table.com_symbols.docx") 
+ | [.txt]({{site.baseurl}}/assets/files/unicode-table.com_symbols.txt "unicode-table.com_symbols.txt"))</small> : 
 
 _Telefon, e-mail, biuro:_    ℡   ⌕   ☏   ✆   @   ✁   ✃   ✄   ✎   ✐   ✑   ⌦   ⌫   ⌧   ㍶
 
@@ -104,3 +104,16 @@ _Zbiór:_    ∅   ∁   ∈   ∉   ∋   ∌   ∖   ∩   ∪   ⊂
 
 <style> code {font-size: 95%;}
 em {color: DodgerBlue} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

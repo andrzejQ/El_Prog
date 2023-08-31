@@ -6,15 +6,15 @@ categories: Programowanie
 ---
 
 Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
-[1: Podstawy                 ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1-podstawy) &nbsp; 
-[2: RegExp                   ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2-regexp) &nbsp; 
-[3: Ustawienia               ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3-ustawienia) &nbsp; 
-[4: Array                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4-array) &nbsp; 
-[5: Pliki                    ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5-pliki) &nbsp; 
-[6: Operator <strong>@</strong>]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6-operator-) &nbsp; 
-[7: Właściwości mutim. plików]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7-właściwości-mutim-plików) &nbsp; 
-[8: Odczyt rejestru Windows  ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8-odczyt-rejestru-windows) &nbsp; 
-[# Nie będziesz używał!      ]({{ site.url }}{{ site.baseurl }}{{ page.url }}#-nie-będziesz-używał) &nbsp; 
+[1: Podstawy                 ]({{site.url}}{{site.baseurl}}{{page.url}}#1-podstawy) &nbsp; 
+[2: RegExp                   ]({{site.url}}{{site.baseurl}}{{page.url}}#2-regexp) &nbsp; 
+[3: Ustawienia               ]({{site.url}}{{site.baseurl}}{{page.url}}#3-ustawienia) &nbsp; 
+[4: Array                    ]({{site.url}}{{site.baseurl}}{{page.url}}#4-array) &nbsp; 
+[5: Pliki                    ]({{site.url}}{{site.baseurl}}{{page.url}}#5-pliki) &nbsp; 
+[6: Operator <strong>@</strong>]({{site.url}}{{site.baseurl}}{{page.url}}#6-operator-) &nbsp; 
+[7: Właściwości mutim. plików]({{site.url}}{{site.baseurl}}{{page.url}}#7-właściwości-mutim-plików) &nbsp; 
+[8: Odczyt rejestru Windows  ]({{site.url}}{{site.baseurl}}{{page.url}}#8-odczyt-rejestru-windows) &nbsp; 
+[# Nie będziesz używał!      ]({{site.url}}{{site.baseurl}}{{page.url}}#-nie-będziesz-używał) &nbsp; 
 
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
 
@@ -155,8 +155,8 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 
 ### 8: Odczyt rejestru Windows
 
-Zob. przykłady: [WinInst_error_migrate_data]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2022-03-22-WinInst_error_migrate_data %})  
-<small>m.in. [infProfileList_regWrTm.ps1 (html)]({{ site.baseurl }}/assets/files/infProfileList_regWrTm.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/infProfileList_regWrTm.zip "infProfileList_regWrTm.zip")</small>
+Zob. przykłady: [WinInst_error_migrate_data]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2022-03-22-WinInst_error_migrate_data %})  
+<small>m.in. [infProfileList_regWrTm.ps1 (html)]({{site.baseurl}}/assets/files/infProfileList_regWrTm.ps1.html ) [(.zip)]({{site.baseurl}}/assets/files/infProfileList_regWrTm.zip "infProfileList_regWrTm.zip")</small>
 
 
 - - - - - -
@@ -165,8 +165,8 @@ Zob. przykłady: [WinInst_error_migrate_data]({% if jekyll.environment == "produ
 
 Różne odnośniki:
 
-* [unicodeSupSub_test.ps1 (html)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/unicodeSupSub_test.zip "unicodeSupSub_test.zip")
-(zob. przy okazji [Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %}))
+* [unicodeSupSub_test.ps1 (html)]({{site.baseurl}}/assets/files/unicodeSupSub_test.ps1.html ) [(.zip)]({{site.baseurl}}/assets/files/unicodeSupSub_test.zip "unicodeSupSub_test.zip")
+(zob. przy okazji [Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %}))
 
 - - - - - -
 &nbsp;
@@ -185,4 +185,15 @@ Różne odnośniki:
   ul {font-size: smaller;} 
 </style>
 
+<!-- {% unless jekyll.environment %} -->
+<script>
 
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

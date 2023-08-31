@@ -13,30 +13,43 @@ Każdorazowo po wyszukaniu kanałów w **SichboPVR** powstaje plik
 `%ProgramData%\SichboPVR4\service-channels.json`  
 z aktualną informacją o dostępnych kanałach DVB-T/T2.
 
-Uruchamiając  [`py channels.py`]({{ site.baseurl }}/assets/files/channels.py) 
-(używa [`DTV_DK_CCIR.py`]({{ site.baseurl }}/assets/files/DTV_DK_CCIR.py))
+Uruchamiając  [`py channels.py`]({{site.baseurl}}/assets/files/channels.py) 
+(używa [`DTV_DK_CCIR.py`]({{site.baseurl}}/assets/files/DTV_DK_CCIR.py))
 otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo.csv`
 
-Analogiczny skrypt w PowerShell: Uruchamiając [`channels.ps1`]({{ site.baseurl }}/assets/files/channels.ps1) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo_.csv`
+Analogiczny skrypt w PowerShell: Uruchamiając [`channels.ps1`]({{site.baseurl}}/assets/files/channels.ps1) otrzymasz listę programów TV i kilka dodatkowych danych - wynik w `chInfo_.csv`
 
 - - - - - 
 <br>
 Do tunera DTV USB [`MyGica T230A`](https://www.mygica.com/support/) załączany jest program `MyGicaHiDTV`.  
 <small>Nie umiem znaleźć informacji o jego licencji i autorach.</small>  
 Po wyszukaniu stacji także uzyskasz listę programów z inf. o częstotliwościach  
-[`py xml_HiDTV.py`]({{ site.baseurl }}/assets/files/xml_HiDTV.py) 
-(używa [`DTV_DK_CCIR.py`]({{ site.baseurl }}/assets/files/DTV_DK_CCIR.py))
+[`py xml_HiDTV.py`]({{site.baseurl}}/assets/files/xml_HiDTV.py) 
+(używa [`DTV_DK_CCIR.py`]({{site.baseurl}}/assets/files/DTV_DK_CCIR.py))
 
 - - - - - 
 <br>
 <small>
 Można też uruchomić skrypt, który daje listę częstotliwości kanałów w standardzie D/K (CCIR) - 
-[`tvMHz.py`]({{ site.baseurl }}/assets/files/tvMHz.py)
+[`tvMHz.py`]({{site.baseurl}}/assets/files/tvMHz.py)
 lub
-[`tvMHz.ps1`]({{ site.baseurl }}/assets/files/tvMHz.ps1).
+[`tvMHz.ps1`]({{site.baseurl}}/assets/files/tvMHz.ps1).
 </small>
 
 
 
 
 <style> pre code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

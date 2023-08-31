@@ -11,7 +11,7 @@ Moja ściągawka Regular Expression (zapewne tylko do użytku własnego)...
 
 Głównie dotyczy Notepad++ - zob. 
 [Notepad++ User Manual](https://github.com/notepad-plus-plus/npp-usermanual) - 
-[Searching]({{ page.docs }}#user-content-regular-expressions)
+[Searching]({{page.docs}}#user-content-regular-expressions)
 
 #### Znaki specjalne
 
@@ -57,7 +57,7 @@ Usuwanie całych wierszy, które nie zaczynają się od "abc" (łącznie z końc
 ¤
 ````
 
-`\R` jest [uniwersalnym znakiem końca wiersza]({{ page.docs }}#user-content-special-control-escapes)
+`\R` jest [uniwersalnym znakiem końca wiersza]({{page.docs}}#user-content-special-control-escapes)
  i może obejmować 2 znaki np. `\r\n` (Windows) czy 1 znak `\n` (Unix). 
 <small>Nie może być używany wewnątrz `[...]`.</small>
 
@@ -67,7 +67,7 @@ Dowolny ciąg znaków obejmujący także znaki końca wiersza (przydatne w javas
 ````
 
 Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdzielającą \xA0 ([Alt+0160]) spacji (1+) poprzedzonej jedną z liter 'awizou', po której następuje 
-[początek wyrazu]({{ page.docs }}#user-content-anchors):
+[początek wyrazu]({{page.docs}}#user-content-anchors):
 
 ````regexp
 (?<=\<[awizou]) +\<
@@ -91,15 +91,28 @@ Scalenie akapitów, np. skopiowanych z PDF - gdy faktyczny podział  akapitu wyz
 * <https://www.regular-expressions.info/>
 * <https://regex101.com/> - testowanie
 * [Regular_Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) -> developer.mozilla.org
-* Wyrażenia regularne, Marcin Kuta, AGH (obecnie niedostępne - tu kopia w formacie MarkDown): [RegEx-Marcin_Kuta,_AGH.md]({{ site.baseurl }}/assets/files/RegEx-Marcin_Kuta,_AGH.md)
-[...html]({{ site.baseurl }}/assets/files/RegEx-Marcin_Kuta,_AGH.md.html)
+* Wyrażenia regularne, Marcin Kuta, AGH (obecnie niedostępne - tu kopia w formacie MarkDown): [RegEx-Marcin_Kuta,_AGH.md]({{site.baseurl}}/assets/files/RegEx-Marcin_Kuta,_AGH.md)
+[...html]({{site.baseurl}}/assets/files/RegEx-Marcin_Kuta,_AGH.md.html)
 
 
 
 
 * zob. też: 
-[Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %})
+[Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %})
 
 
 <style> pre > code {font-size: 95%;} 
 code.language-regexp {background-color: Aqua;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

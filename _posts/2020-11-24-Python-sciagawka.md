@@ -6,22 +6,22 @@ categories: Programowanie
 ---
 
 Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do użytku własnego)... <br/> 
- [1.&nbsp;Pliki]({{ site.url }}{{ site.baseurl }}{{ page.url }}#1--pliki) &nbsp; 
- [2.&nbsp;Str]({{ site.url }}{{ site.baseurl }}{{ page.url }}#2--str) &nbsp; 
- [3.&nbsp;List, Tuple]({{ site.url }}{{ site.baseurl }}{{ page.url }}#3--list-tuple) &nbsp; 
- [4.&nbsp;Konwersja typów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#4--konwersja-typów) &nbsp; 
- [5.&nbsp;Zmienne globalne, pamięć stanu]({{ site.url }}{{ site.baseurl }}{{ page.url }}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
- [6.&nbsp;Tree]({{ site.url }}{{ site.baseurl }}{{ page.url }}#6--tree) &nbsp; 
- [7.&nbsp;sorted]({{ site.url }}{{ site.baseurl }}{{ page.url }}#7--sorted) 
- [8.&nbsp;filter() replacement]({{ site.url }}{{ site.baseurl }}{{ page.url }}#8--filter-replacement") &nbsp; 
- [9.&nbsp;linux sendmail]({{ site.url }}{{ site.baseurl }}{{ page.url }}#9--linux-sendmail) &nbsp; 
-[10.&nbsp;Czytanie danych z wwww]({{ site.url }}{{ site.baseurl }}{{ page.url }}#10--czytanie-danych-z-www) &nbsp; 
-[11.&nbsp;GUI - dane wejściowe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#11--gui---dane-wejściowe) &nbsp; 
-[12.&nbsp;Galeria JPG w pliku HTML]({{ site.url }}{{ site.baseurl }}{{ page.url }}#12--galeria-jpg-w-pliku-html) &nbsp; 
-[13.&nbsp;Notepad++ QuickText, NppExec]({{ site.url }}{{ site.baseurl }}{{ page.url }}#13--notepad-quicktext-nppexec) &nbsp; 
-[14.&nbsp;Pola statyczne]({{ site.url }}{{ site.baseurl }}{{ page.url }}#14--pola-statyczne) &nbsp; 
-[15.&nbsp;mingus.midi, fluidsynth]({{ site.url }}{{ site.baseurl }}{{ page.url }}#15--mingusmidi-fluidsynth) &nbsp; 
-[16.&nbsp;subprocess run()]({{ site.url }}{{ site.baseurl }}{{ page.url }}#16--subprocess-run) &nbsp; 
+ [1.&nbsp;Pliki]({{site.url}}{{site.baseurl}}{{page.url}}#1--pliki) &nbsp; 
+ [2.&nbsp;Str]({{site.url}}{{site.baseurl}}{{page.url}}#2--str) &nbsp; 
+ [3.&nbsp;List, Tuple]({{site.url}}{{site.baseurl}}{{page.url}}#3--list-tuple) &nbsp; 
+ [4.&nbsp;Konwersja typów]({{site.url}}{{site.baseurl}}{{page.url}}#4--konwersja-typów) &nbsp; 
+ [5.&nbsp;Zmienne globalne, pamięć stanu]({{site.url}}{{site.baseurl}}{{page.url}}#5--zmienne-globalne-pamięć-stanu) &nbsp; 
+ [6.&nbsp;Tree]({{site.url}}{{site.baseurl}}{{page.url}}#6--tree) &nbsp; 
+ [7.&nbsp;sorted]({{site.url}}{{site.baseurl}}{{page.url}}#7--sorted) 
+ [8.&nbsp;filter() replacement]({{site.url}}{{site.baseurl}}{{page.url}}#8--filter-replacement") &nbsp; 
+ [9.&nbsp;linux sendmail]({{site.url}}{{site.baseurl}}{{page.url}}#9--linux-sendmail) &nbsp; 
+[10.&nbsp;Czytanie danych z wwww]({{site.url}}{{site.baseurl}}{{page.url}}#10--czytanie-danych-z-www) &nbsp; 
+[11.&nbsp;GUI - dane wejściowe]({{site.url}}{{site.baseurl}}{{page.url}}#11--gui---dane-wejściowe) &nbsp; 
+[12.&nbsp;Galeria JPG w pliku HTML]({{site.url}}{{site.baseurl}}{{page.url}}#12--galeria-jpg-w-pliku-html) &nbsp; 
+[13.&nbsp;Notepad++ QuickText, NppExec]({{site.url}}{{site.baseurl}}{{page.url}}#13--notepad-quicktext-nppexec) &nbsp; 
+[14.&nbsp;Pola statyczne]({{site.url}}{{site.baseurl}}{{page.url}}#14--pola-statyczne) &nbsp; 
+[15.&nbsp;mingus.midi, fluidsynth]({{site.url}}{{site.baseurl}}{{page.url}}#15--mingusmidi-fluidsynth) &nbsp; 
+[16.&nbsp;subprocess run()]({{site.url}}{{site.baseurl}}{{page.url}}#16--subprocess-run) &nbsp; 
 
 ## 1 . Pliki:
 
@@ -143,7 +143,7 @@ import xmltodict
 with open('a.xml') as fd:
   doc = xmltodict.parse(fd.read())
 ````
-* [xml2dict2csv_test.zip]({{ site.baseurl }}/assets/files/xml2dict2csv_test.zip  "xml2dict2csv_test.zip ") 
+* [xml2dict2csv_test.zip]({{site.baseurl}}/assets/files/xml2dict2csv_test.zip  "xml2dict2csv_test.zip ") 
 
 Można [spłaszczać strukturę zagnieżdżoną](https://www.freecodecamp.org/news/how-to-flatten-a-dictionary-in-python-in-4-different-ways) (najprościej z pomocą [FlatDict](https://github.com/gmr/flatdict/)).
 
@@ -171,8 +171,8 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 ````
 
 <small>W korespondecji seryjnej MS Word 2016 jest błędna interpretacja cudzysłowów innych niż podstawowy `"`. Można zastosować konwersję jak w 
-[unicodeDoubleQuote.py]({{ site.baseurl }}/assets/files/unicodeDoubleQuote.py.html ) 
-(zob. przy okazji [Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %}))
+[unicodeDoubleQuote.py]({{site.baseurl}}/assets/files/unicodeDoubleQuote.py.html ) 
+(zob. przy okazji [Przydatne znaki unicode]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-PrzydatneZnakiUnicode %}))
 </small>.
 
 ### CSV & namedtuple:
@@ -217,7 +217,7 @@ x = set( open(lista.txt,'r',encoding='utf-8-sig').read().upper().splitlines() )
 
 
 * [namedtuple()](https://docs.python.org/3/library/collections.html#collections.namedtuple)  -> docs.python.org/3/
-* [testCsvNamedtuple.py (.zip)]({{ site.baseurl }}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
+* [testCsvNamedtuple.py (.zip)]({{site.baseurl}}/assets/files/testCsvNamedtuple.zip "testCsvNamedtuple.zip") 
 
 
 
@@ -581,10 +581,10 @@ def tkFormConf(fields, confCsv='conf_0.csv'):
 ````
 </details>
 
-![TkEntryWidget.png]({{ site.baseurl }}/assets/img/TkEntryWidget.png "TkEntryWidget.png"){:style="float:right;width:30%;"}
+![TkEntryWidget.png]({{site.baseurl}}/assets/img/TkEntryWidget.png "TkEntryWidget.png"){: style="float:right;width:30%;"}
 
 
-* [TkEntry_json.zip]({{ site.baseurl }}/assets/files/TkEntry_json.zip  "TkEntry_json.zip ") 
+* [TkEntry_json.zip]({{site.baseurl}}/assets/files/TkEntry_json.zip  "TkEntry_json.zip ") 
 * <https://python-course.eu/tkinter_entry_widgets.php>
 * <https://www.pythontutorial.net/tkinter/tkinter-grid/>
 
@@ -593,8 +593,8 @@ def tkFormConf(fields, confCsv='conf_0.csv'):
 
 Pliki JPG zakodowane w BASE64 scalone w jednym pliku HTML jako responsywna galeria.
 
-* [jpgGallery_1html.py]({{ site.baseurl }}/assets/files/jpgGallery_1html.py.html)
-* [jpgGallery_1html.zip]({{ site.baseurl }}/assets/files/jpgGallery_1html.zip) - test
+* [jpgGallery_1html.py]({{site.baseurl}}/assets/files/jpgGallery_1html.py.html)
+* [jpgGallery_1html.zip]({{site.baseurl}}/assets/files/jpgGallery_1html.zip) - test
 
 
 
@@ -727,13 +727,13 @@ disable=
 
 <small>  
 W **Notepad++** można też zapamiętać sobie w _Uruchom_ wywołanie programu właściwego dla rozszerzenia aktualnie edytowanego pliku (to działa uniwersalnie na dowolne rozszerzenia, nie tylko _*.py_):</small>  
-`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
+`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & "$(FULL_CURRENT_PATH)" & pause`{: style="font-size: smaller;"}
 
 <small>
 Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktywowania jak opisano pod odnośnikiem 
-[Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})
+[Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})
  (analogicznie działa powyższy skrypt dla NppExec):</small>  
-`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & python "$(FULL_CURRENT_PATH)" & pause`{:style="font-size: smaller;"}
+`%ComSpec% /c chcp 65001 & cd /D "$(CURRENT_DIRECTORY)" & python "$(FULL_CURRENT_PATH)" & pause`{: style="font-size: smaller;"}
 
 
 - - - - - -
@@ -809,11 +809,24 @@ Różne odnośniki:
 
 * [Python - programing FAQ](https://docs.python.org/3/faq/programming.html)  -> docs.python.org/3/faq/
 
-* [utils_AK (.zip) files.py misc1.py]({{ site.baseurl }}/assets/files/utils_AK.zip "utils_AK.zip") 
+* [utils_AK (.zip) files.py misc1.py]({{site.baseurl}}/assets/files/utils_AK.zip "utils_AK.zip") 
 
-* [Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})  
+* [Uruchamianie Pythona w Windows]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-20-drobne_podpowiedzi_3 %})  
 
 
 
 <style> pre code {font-size: smaller;} </style>
 <style> small code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

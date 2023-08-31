@@ -5,7 +5,7 @@ date:   2020-11-24 12:00:00 +0100
 categories: Programowanie
 ---
 
-[Instrukcja instalacji modułu MicrosoftTeams PowerShell]({{ site.url }}{{ site.baseurl }}{{ page.url }}#szczegółowa-instrukcja-instalacji--modułu-microsoftteams-powershell) * [Pobieranie listy członków zespołów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#pobieranie-listy-członków-swoich-zespołów">Pobieranie listy członków swoich zespołów)  * [Automatyczne dodawanie członków do swoich zespołów]({{ site.url }}{{ site.baseurl }}{{ page.url }}#automatyczne-dodawanie-członków-do-swoich-zespołów) 
+[Instrukcja instalacji modułu MicrosoftTeams PowerShell]({{site.url}}{{site.baseurl}}{{page.url}}#szczegółowa-instrukcja-instalacji--modułu-microsoftteams-powershell) * [Pobieranie listy członków zespołów]({{site.url}}{{site.baseurl}}{{page.url}}#pobieranie-listy-członków-swoich-zespołów">Pobieranie listy członków swoich zespołów)  * [Automatyczne dodawanie członków do swoich zespołów]({{site.url}}{{site.baseurl}}{{page.url}}#automatyczne-dodawanie-członków-do-swoich-zespołów) 
 
 Szczegółowy opis instalacji modułu MicrosoftTeams PowerShell na podstawie  
 <https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-install>
@@ -15,12 +15,12 @@ Szczegółowy opis instalacji modułu MicrosoftTeams PowerShell na podstawie
 ... Domyślnie Galeria programu PowerShell (PSGallery) nie jest skonfigurowana jako zaufane repozytorium ... Odpowiedz "Yes", aby kontynuować instalację...  
 "
 
-![Win_X.png]({{ site.baseurl }}/assets/img/Win_X.png "Win_X.png"){:style="float:right;width:35%;"} 
+![Win_X.png]({{site.baseurl}}/assets/img/Win_X.png "Win_X.png"){: style="float:right;width:35%;"} 
 
 ### Szczegółowa instrukcja instalacji  modułu MicrosoftTeams PowerShell
 
-1. Uruchamiamy PowerShell w trybie administratora, np. [![WinKey]({{ site.baseurl }}/assets/img/WinKey.png "WinKey"){:style="width:18px;"}+**x**] \ `Program Windows PowerShell (Administrator)`
-![(adm)PowerShell.png]({{ site.baseurl }}/assets/img/(adm)PowerShell.png "(adm)PowerShell.png"){:style="width:59%;"} 
+1. Uruchamiamy PowerShell w trybie administratora, np. [![WinKey]({{site.baseurl}}/assets/img/WinKey.png "WinKey"){: style="width:18px;"}+**x**] \ `Program Windows PowerShell (Administrator)`
+![(adm)PowerShell.png]({{site.baseurl}}/assets/img/(adm)PowerShell.png "(adm)PowerShell.png"){: style="width:59%;"} 
 
 2. [Zezwalamy](https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/) na pracę skryptów PowerShell  
 <small>(jeśli nigdy wcześniej tego nie zrobiliśmy)</small>:  
@@ -29,13 +29,13 @@ Szczegółowy opis instalacji modułu MicrosoftTeams PowerShell na podstawie
 3. Instalujemy moduł:  
 `Install-Module MicrosoftTeams`, `Y`  
 
-![InstallModule.png]({{ site.baseurl }}/assets/img/InstallModule.png "InstallModule.png"){:style="width:83%;"}
+![InstallModule.png]({{site.baseurl}}/assets/img/InstallModule.png "InstallModule.png"){: style="width:83%;"}
 
 
 ### Testowanie modułu
 
-![PowerShell_ISE.png]({{ site.baseurl }}/assets/img/PowerShell_ISE.png "PowerShell_ISE.png"){:style="float:right;width:188px;"} 
-Wypakuj i otwórz skrypt [**Connect-MicrosoftTeams.ps1**(.zip)]({{ site.baseurl }}/assets/files/Connect-MicrosoftTeams.zip "Connect-MicrosoftTeams.zip")
+![PowerShell_ISE.png]({{site.baseurl}}/assets/img/PowerShell_ISE.png "PowerShell_ISE.png"){: style="float:right;width:188px;"} 
+Wypakuj i otwórz skrypt [**Connect-MicrosoftTeams.ps1**(.zip)]({{site.baseurl}}/assets/files/Connect-MicrosoftTeams.zip "Connect-MicrosoftTeams.zip")
  w `PowerShell ISE`. 
  Po uruchomieniu (F5) należy zalogować się na swoje konto Office365. Zostaną wyświetlone Twoje zespoły i członkowie pierwszego zespołu. <small> Można następnie testować inne [funkcje modułu](https://docs.microsoft.com/en-us/powershell/module/teams/?view=teams-ps).</small>
 
@@ -55,8 +55,8 @@ Write-Host 'Wypróbuj: Get-Team -DisplayName "..." | Get-TeamChannel'
 
 ### Pobieranie listy członków swoich zespołów
 
-Skrypt [**GetUsers-Teams.ps1**(.zip)]({{ site.baseurl }}/assets/files/GetUsers-Teams.zip "GetUsers-Teams.zip") pobiera listę zespołów użytkownika Office365 i dla każdego z zespołów pobiera kanały i listę członków zespołu. Wynik zapisuje do pliku CSV (który jest automatycznie otwierany): 
-![Credential.png]({{ site.baseurl }}/assets/img/Credential.png "Credential.png"){:style="float:right;width:344px;position: relative; top: 33px;"} 
+Skrypt [**GetUsers-Teams.ps1**(.zip)]({{site.baseurl}}/assets/files/GetUsers-Teams.zip "GetUsers-Teams.zip") pobiera listę zespołów użytkownika Office365 i dla każdego z zespołów pobiera kanały i listę członków zespołu. Wynik zapisuje do pliku CSV (który jest automatycznie otwierany): 
+![Credential.png]({{site.baseurl}}/assets/img/Credential.png "Credential.png"){: style="float:right;width:344px;position: relative; top: 33px;"} 
 
 
 User      | Name        | Role
@@ -66,7 +66,7 @@ User      | Name        | Role
 .         |             | Kanał 2
 uż.1@o365 | Imię Nazw.1 | owner
 uż.2@o365 | Imię Nazw.1 | member
-{:style="width:auto;font-size: smaller;"}
+{: style="width:auto;font-size: smaller;"}
 
 Po jednorazowym zapytaniu o login i hasło zapamiętuje je zaszyfrowane w pliku "...!o365.cred" 
 
@@ -90,8 +90,8 @@ Po jednorazowym zapytaniu o login i hasło zapamiętuje je zaszyfrowane w pliku 
 5. W `PowerShell ISE` uruchom skrypt `AddUsers-Teams.ps1`.
 6. Zmiany są (raczej) natychmiast widoczne w aplikacji MS Teams.
 
-![csvFileDialog.png]({{ site.baseurl }}/assets/img/csvFileDialog.png "csvFileDialog.png"){:style="float:right;width:477px;"} 
-Skrypt [**AddUsers-Teams.ps1**(.zip)]({{ site.baseurl }}/assets/files/AddUsers-Teams.zip "AddUsers-Teams.zip") Odczytuje plik CSV o formacie jak w skrypcie `GetUsers-Teams.ps1`.
+![csvFileDialog.png]({{site.baseurl}}/assets/img/csvFileDialog.png "csvFileDialog.png"){: style="float:right;width:477px;"} 
+Skrypt [**AddUsers-Teams.ps1**(.zip)]({{site.baseurl}}/assets/files/AddUsers-Teams.zip "AddUsers-Teams.zip") Odczytuje plik CSV o formacie jak w skrypcie `GetUsers-Teams.ps1`.
 
 Gdy napotka wiersz  
 `..;<nazwa zespołu>;`  
@@ -114,3 +114,16 @@ Po jednorazowym zapytaniu o login i hasło zapiętuje je zaszyfrowane w pliku ".
 
 
 <style> pre code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

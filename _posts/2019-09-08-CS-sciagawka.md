@@ -5,7 +5,7 @@ date:   2019-09-08 08:08:55 +0100
 categories: Programowanie
 ---
 
-[Prawie uniwersalne odczytanie łańcucha data-czas]({{ site.url }}{{ site.baseurl }}{{ page.url }}#prawie-uniwersalne-odczytanie-łańcucha-data-czas) &nbsp; *
+[Prawie uniwersalne odczytanie łańcucha data-czas]({{site.url}}{{site.baseurl}}{{page.url}}#prawie-uniwersalne-odczytanie-łańcucha-data-czas) &nbsp; *
 
 
 ### Prawie uniwersalne odczytanie łańcucha data-czas
@@ -38,6 +38,19 @@ else
 Wypisanie uniwersalnej, sortowalnej postaci `yyyy-MM-dd hh:mm:ssZ` w czasie lokalnym (tzn. nie uniwersalnym), np.: `DateTime.Now.ToString("u") // 2023-02-15 08:48:18Z`. Można to sobie przyciąć do wymaganej dokładności.
 
 
-* [DateTime1-test.zip]({{ site.baseurl }}/assets/files/DateTime1-test.zip)
+* [DateTime1-test.zip]({{site.baseurl}}/assets/files/DateTime1-test.zip)
 
 <style> pre code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

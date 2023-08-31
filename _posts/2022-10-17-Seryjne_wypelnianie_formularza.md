@@ -9,10 +9,10 @@ Sposób seryjnego wypełniania formularza danymi z kolejnych wierszy arkusza kal
 
 Dla strony HTML z formularzem przygotuj arkusz kalkulacyjny, gdzie w kolejnych wierszach są kolejne paczki danych do wypełniania. <small>Arkusz służy do przygotowania pliku tekstowego z polami oddzielonymi tabulatorem.</small>
 
-**Przykładowe pliki** - [FormTest-Wstaw-kolejne-paczki-danych.zip]({{ site.baseurl }}/assets/files/FormTest-Wstaw-kolejne-paczki-danych.zip  "FormTest-Wstaw-kolejne-paczki-danych.zip  ") :
+**Przykładowe pliki** - [FormTest-Wstaw-kolejne-paczki-danych.zip]({{site.baseurl}}/assets/files/FormTest-Wstaw-kolejne-paczki-danych.zip  "FormTest-Wstaw-kolejne-paczki-danych.zip  ") :
 
-![form.png]({{ site.baseurl }}/assets/img/form.png "form.png"){:style="float:right;width:25%;"}
-![html-form.png]({{ site.baseurl }}/assets/img/html-form.png "html-form.png"){:style="float:right;width:31%;"}
+![form.png]({{site.baseurl}}/assets/img/form.png "form.png"){: style="float:right;width:25%;"}
+![html-form.png]({{site.baseurl}}/assets/img/html-form.png "html-form.png"){: style="float:right;width:31%;"}
 
 1. **"FormTest-Wstaw-kolejne-paczki-danych.html"**  
 Formularz ze strony www najlepiej zapisać jako plik HTML i na nim ćwiczyć działanie skryptów.  
@@ -20,7 +20,7 @@ Tu jest testowy przykład.
 
 2. **"Paczki danych do formularza.xlsx"**  
 To przykładowy plik Excela pasujący do powyższego formularza.  
-![dane-excel.png]({{ site.baseurl }}/assets/img/dane-excel.png "dane-excel.png"){:style="float:right;width:57%;"}
+![dane-excel.png]({{site.baseurl}}/assets/img/dane-excel.png "dane-excel.png"){: style="float:right;width:57%;"}
 * Pierwszy wiersz arkusza to przyjazne nazwy danych - będzie ignorowany. 
 * Drugi wiersz to albo "name" pól formularza, albo ich "id" - poprzedzone "#". 
 * "x" lub brak oznacza "zaznacz" lub "odznacz" i powoduje kliknięcie na elemencie, gdy stan elementu jest inny niż wpisany/brakujący "x". 
@@ -45,3 +45,16 @@ To przykładowy plik Excela pasujący do powyższego formularza.
 
 
 <style> code {font-size: 85%;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

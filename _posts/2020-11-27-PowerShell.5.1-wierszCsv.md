@@ -9,7 +9,7 @@ Funkcja PowerShell 5.1 - konwersja do wiersza CSV z opcjonalnym otaczaniem cudzy
 
 Standardowo w PowerShell 5.1 konwersja do CSV powoduje zawsze otaczanie każdej komórki cudzysłowami. Nie działa -UseQuotes AsNeeded z v.7.
 
-Plik [**convToCsvRow.ps1**(.zip)]({{ site.baseurl }}/assets/files/convToCsvRow.zip "convToCsvRow.zip") zawiera funkcję do scalania tablicy łańcuchów w wiersz CSV.
+Plik [**convToCsvRow.ps1**(.zip)]({{site.baseurl}}/assets/files/convToCsvRow.zip "convToCsvRow.zip") zawiera funkcję do scalania tablicy łańcuchów w wiersz CSV.
 
 ````powershell
 function encCsvRow {param( [string[]]$strArr ) #dodaje okalające cudzysłowy, gdy trzeba i łączy wiersz CSV
@@ -27,10 +27,23 @@ function clrCsv { param( [string[]]$strArr )
 }#clrCsv @("abc","`"ab`"c;ą`r`nć",'ef"g','h,i','j;k') 
 #     ->      abc; "ab"c,ą      ć;ef"g;h,i;j,k
 ````
-![FileExplorer.png]({{ site.baseurl }}/assets/img/FileExplorer.png "FileExplorer.png"){:style="float:right;width:50%;"} 
+![FileExplorer.png]({{site.baseurl}}/assets/img/FileExplorer.png "FileExplorer.png"){: style="float:right;width:50%;"} 
 <small>
 Wskazówka - aby uruchomić PowerShell w folderze, w którym znajduje się skrypt - przejdź w Eksploratorze Plików do tego foldera i w pasku adresu wpisz `powershell_ise` lub `powershell.exe` [Enter].
 </small>
 
 
 <style> pre code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

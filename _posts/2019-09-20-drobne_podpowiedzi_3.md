@@ -5,9 +5,9 @@ date:   2020-11-24 06:54:00 +0100
 categories: Programowanie
 ---
 
-[Szukanie ścieżek do plików .exe]({{ site.url }}{{ site.baseurl }}{{ page.url }}#szukanie-plików-exe-dostępnych-poprzez-path) * 
-[Python Launcher for Windows]({{ site.url }}{{ site.baseurl }}{{ page.url }}#python-launcher-for-window) *
-[Instalacja kolejnej wersji Python w Windows]({{ site.url }}{{ site.baseurl }}{{ page.url }}#instalacja-kolejnej-wersji-python-w-windows)
+[Szukanie ścieżek do plików .exe]({{site.url}}{{site.baseurl}}{{page.url}}#szukanie-plików-exe-dostępnych-poprzez-path) * 
+[Python Launcher for Windows]({{site.url}}{{site.baseurl}}{{page.url}}#python-launcher-for-window) *
+[Instalacja kolejnej wersji Python w Windows]({{site.url}}{{site.baseurl}}{{page.url}}#instalacja-kolejnej-wersji-python-w-windows)
 
 ### Wyszukiwanie dostępnych wersji Pythona w Windows
 
@@ -79,7 +79,7 @@ Sprawdzenie aktualnej obsługi pliku `*.py` - skopiuj do linii poleceń:
 ````bat
 for /f "tokens=2 delims==" %i in ('assoc .py') do (ftype %i)
 ````
-<small>Można też znaleźć [bardziej rozbudowane wersje](https://ss64.com/nt/ftype.html) takiego sprawdzania:</small>  `FOR /F "tokens=2* delims==" %G IN ('assoc .py') DO for /f "tokens=2* delims==" %a in ('ftype %G') do @echo %a`{:style="font-size: smaller;"}
+<small>Można też znaleźć [bardziej rozbudowane wersje](https://ss64.com/nt/ftype.html) takiego sprawdzania:</small>  `FOR /F "tokens=2* delims==" %G IN ('assoc .py') DO for /f "tokens=2* delims==" %a in ('ftype %G') do @echo %a`{: style="font-size: smaller;"}
 
 <span style="font-size: smaller;"> [Przypisanie aplikacji do rozszerzenia](https://www.robvanderwoude.com/ntstart.php#FileAssociations) ".py" w linii poleceń administratora (`cmd`[Ctrl+Shift+Enter] ):</span>
 ````bat
@@ -90,7 +90,7 @@ FTYPE Python.File="C:\WINDOWS\py.exe" "%L" %*
 <small> Jest to już zrobione jak w tym przykładzie, jeśli instalowaliśmy jakikolwiek pakiet PYTHONa 3.3+.</small>
 
 <span style="font-size: smaller;">
-Uwaga - jeśli dodaliśmy swoją obsługę plików _*.py_ (poprzez _"Otwórz za pomocą"_), to ten nasz wybór będzie miał [priorytet nad powyższą konfiguracją](https://code.activestate.com/lists/python-list/727915/). Aby to naprawić należy wybierać do uruchomienia _*.py_ aplikację Python z ikoną rakiety ![py32.png]({{ site.baseurl }}/assets/img/py32.png "py32.png"). Wybieranie wprost "C:\WINDOWS\py.exe" [jest błędem](https://code.activestate.com/lists/python-list/727915/#as_lists_article_thread).
+Uwaga - jeśli dodaliśmy swoją obsługę plików _*.py_ (poprzez _"Otwórz za pomocą"_), to ten nasz wybór będzie miał [priorytet nad powyższą konfiguracją](https://code.activestate.com/lists/python-list/727915/). Aby to naprawić należy wybierać do uruchomienia _*.py_ aplikację Python z ikoną rakiety ![py32.png]({{site.baseurl}}/assets/img/py32.png "py32.png"). Wybieranie wprost "C:\WINDOWS\py.exe" [jest błędem](https://code.activestate.com/lists/python-list/727915/#as_lists_article_thread).
 </span>
 
 <span style="font-size: smaller;">
@@ -99,11 +99,11 @@ lub trwale zmodyfikować PATHEXT w ["Edytuj zmienne..."](#edytuj-zmienne).
 </span>
 
 <span style="font-size: smaller;">
-Więcej inf. o aktualnym stanie  konfiguracji, np. z pliku `%LocalAppData%\py.ini`{:style="font-size: smaller;"} uzyskamy włączając `PYLAUNCH_DEBUG`{:style="font-size: smaller;"} :  
-`set PYLAUNCH_DEBUG=1 & py -0p`{:style="font-size: smaller;"} . Następnie można uruchamiać plik testowy [_v.py_](#v_py) z rożnymi opcjami w _#!..._</span>
+Więcej inf. o aktualnym stanie  konfiguracji, np. z pliku `%LocalAppData%\py.ini`{: style="font-size: smaller;"} uzyskamy włączając `PYLAUNCH_DEBUG`{: style="font-size: smaller;"} :  
+`set PYLAUNCH_DEBUG=1 & py -0p`{: style="font-size: smaller;"} . Następnie można uruchamiać plik testowy [_v.py_](#v_py) z rożnymi opcjami w _#!..._</span>
 
 <span style="font-size: smaller;">
-Przykładowy wynik działania opcji  `PYLAUNCH_DEBUG`{:style="font-size: smaller;"} dla `#!/usr/bin/env python`{:style="font-size: smaller;"} w pliku _v.py_ z kodowaniem _utf-8-BOM_:</span>
+Przykładowy wynik działania opcji  `PYLAUNCH_DEBUG`{: style="font-size: smaller;"} dla `#!/usr/bin/env python`{: style="font-size: smaller;"} w pliku _v.py_ z kodowaniem _utf-8-BOM_:</span>
 <pre>  File 'C:\Users\user\AppData\Local\py.ini' non-existent  
   File 'C:\Windows\py.ini' non-existent  
   Called with command line: "C:\test\v.py"  
@@ -112,7 +112,7 @@ Przykładowy wynik działania opcji  `PYLAUNCH_DEBUG`{:style="font-size: smaller
   parse_shebang: found command: python  
   searching PATH for python executable  
   Python on path: C:\Kompil\Python36-32\python.exe  
-  ...</pre>{:style="font-size: smaller;"} 
+  ...</pre>{: style="font-size: smaller;"} 
 
 ----
 <br>
@@ -134,8 +134,8 @@ python=3.11-64
 
 <span style="font-size: smaller;">
 Z linii poleceń można dopisać tekst do swojego _py.ini_ (modyfikacja działa od razu i nie trzeba restartu aplikacji np. _cmd_ albo _N++_ jak w przypadku SetX): 
-`(echo:[defaults]&echo:python=3.11-64)>%LocalAppData%\py.ini`{:style="font-size: smaller;"}  
-Sprawdzenie: `type %LocalAppData%\py.ini`{:style="font-size: smaller;"}
+`(echo:[defaults]&echo:python=3.11-64)>%LocalAppData%\py.ini`{: style="font-size: smaller;"}  
+Sprawdzenie: `type %LocalAppData%\py.ini`{: style="font-size: smaller;"}
 </span>
 
 W [środowisku wirtualnym](https://docs.python.org/3/library/venv.html) [(zob.^)](https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/) regułą nadrzędną jest wywołanie aktywowanego kompilatora Python.exe.
@@ -147,7 +147,7 @@ Można tu jeszcze wspomnieć o wymyślaniu [własnych poleceń](https://www.pyth
 <span style="font-size: smaller; color:DarkGrey;">
 Można wyświetlić ścieżki PATH w linii poleceń wstawiając łamanie wierszy:
 </span>
-`echo:%PATH:;=; & echo:%`{:style="font-size: smaller;"}  
+`echo:%PATH:;=; & echo:%`{: style="font-size: smaller;"}  
 <span style="font-size: smaller; color:DarkGrey;">
 Uwaga - _Path_ jest składana z 2 części, które w ["Edytuj zmienne..."](#edytuj-zmienne) widzimy jako - _Path - system_ (priorytetowa) i _Path - użytkownika_. Warto je sobie uporządkować jak opisano na początku artykułu. 
 </span>
@@ -158,7 +158,7 @@ Można też wyświelić aktualny stan środowiska wykonując w oknie `cmd` polec
 echo:&echo|set /p="*** %computername%  %date%  " & for /f "tokens=1,2,* " %G in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"') do @echo setx /m %G "%I
 echo:&echo|set /p="*** %username%              " & for /f "tokens=1,2,* " %G in ('reg query "HKCU\Environment"') do @echo setx %G "%I
 
-</pre>{:style="font-size: smaller;"} 
+</pre>{: style="font-size: smaller;"} 
 
 <span style="font-size: smaller; color:DarkGrey;">
 ... albo wykonując skrypt _**get_environment.cmd**_:
@@ -173,7 +173,7 @@ echo|set /p="*** %username%              "
 for /f "tokens=1,2,* " %%G in (
 'reg query "HKCU\Environment"'
 ) do echo setx %%G "%%I
-</pre>{:style="font-size: smaller;"}
+</pre>{: style="font-size: smaller;"}
 
 <span style="font-size: smaller;">
 Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://stackoverflow.com/questions/11011115/setx-setting-path-with-spaces#answer-28332961) `"` (`"%%I`). 
@@ -289,8 +289,21 @@ _	source ~/.bashrc
 - - - - -
 
 Zob. też 
-* [Python ściągawka -- 13 . Notepad++ QuickText, NppExec]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2020-11-24-Python-sciagawka %}#13--notepad-quicktext-nppexec)
+* [Python ściągawka -- 13 . Notepad++ QuickText, NppExec]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2020-11-24-Python-sciagawka %}#13--notepad-quicktext-nppexec)
 
 
 <style> pre code {font-size: smaller;} </style>
 <style> small code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

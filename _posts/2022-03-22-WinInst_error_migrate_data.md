@@ -7,7 +7,7 @@ categories: Systemy
 
 Podczas uaktualnienia Windows zdarzyło mi się, że na koniec instalator cofa zmiany i pojawia się komunikat: ... wystąpił błąd MIGRATE_DATA.
 
-![21H2-error_MigrateData.png ]({{ site.baseurl }}/assets/img/21H2-error_MigrateData.png "21H2-error_MigrateData.png"){:style="float:right;width:66%;margin-right:15px;"}
+![21H2-error_MigrateData.png ]({{site.baseurl}}/assets/img/21H2-error_MigrateData.png "21H2-error_MigrateData.png"){: style="float:right;width:66%;margin-right:15px;"}
 
 <small>Instalator systemu Windows 10 </small>
 
@@ -46,7 +46,7 @@ u mnie okazało się, że zdarzają się podwójne wpisy wskazujące na ten sam 
 Można też uruchomić skrypt jak w ramce poniżej, 
 albo uruchomić skrypt
 
-* [infProfileList_regWrTm.ps1 (html)]({{ site.baseurl }}/assets/files/infProfileList_regWrTm.ps1.html ) [(.zip)]({{ site.baseurl }}/assets/files/infProfileList_regWrTm.zip "infProfileList_regWrTm.zip"), 
+* [infProfileList_regWrTm.ps1 (html)]({{site.baseurl}}/assets/files/infProfileList_regWrTm.ps1.html ) [(.zip)]({{site.baseurl}}/assets/files/infProfileList_regWrTm.zip "infProfileList_regWrTm.zip"), 
 
 który daje najwięcej informacji o czasach zdarzeń związanych z profilami.
 
@@ -85,3 +85,16 @@ $Profiles | foreach{
 ````
 
 <style> pre code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->

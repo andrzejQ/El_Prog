@@ -5,7 +5,7 @@ date:   2021-03-22 08:55:00 +0100
 categories: Programowanie
 ---
 
-Wyodrębnianie plików-załączników zakodowanych jako base64 w XML * [Hybrydowy skrypt 1.CMD (CMD-PowerShell)]({{ site.url }}{{ site.baseurl }}{{ page.url }}#hybrydowy-skrypt-1cmd-cmd-powershell)
+Wyodrębnianie plików-załączników zakodowanych jako base64 w XML * [Hybrydowy skrypt 1.CMD (CMD-PowerShell)]({{site.url}}{{site.baseurl}}{{page.url}}#hybrydowy-skrypt-1cmd-cmd-powershell)
 
 ----
 
@@ -34,7 +34,7 @@ Ten skrypt działa na pliki XML podpisane profilem zaufanym - zob.:
 
 Na tej stronie www można też sprawdzić podpis i wyodrębnić podpisane dokumenty - ale chyba tylko z pojedynczego pliku XML, więc powyższy skrypt może się przydać, gdy jest więcej plików XML.
 
-Powyższy skrypt wygodnie jest  używać jako ([_zob. objaśnienie_]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})):
+Powyższy skrypt wygodnie jest  używać jako ([_zob. objaśnienie_]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})):
 
 #### Hybrydowy skrypt 1.CMD (CMD-PowerShell)
 
@@ -59,12 +59,12 @@ ForEach ($plikXml in Get-ChildItem '.' -Filter *.XML) {
 "`n==koniec=="
 ````
 
-(zob. też [_problem małej czcionki w oknie konsoli_]({% if jekyll.environment == "production" %}{{ site.baseurl }}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %}#kodowanie-utf-8-czcionka-raczej-inna-niż-consolas))
-{:style="font-size: smaller;"}
+(zob. też [_problem małej czcionki w oknie konsoli_]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %}#kodowanie-utf-8-czcionka-raczej-inna-niż-consolas))
+{: style="font-size: smaller;"}
 
 Taki skrypt można uruchomić wprost z eksploratora plików:
 
-![FileExplorer-1.cmd.png]({{ site.baseurl }}/assets/img/FileExplorer-1.cmd.png "FileExplorer-1.cmd.png"){:style="float:right;width:242px;"} 
+![FileExplorer-1.cmd.png]({{site.baseurl}}/assets/img/FileExplorer-1.cmd.png "FileExplorer-1.cmd.png"){: style="float:right;width:242px;"} 
 1. Przygotuj sobie pusty folder roboczy.
 2. W tym folderze utwórz plik `1.cmd` o treści jak powyżej (np. użyj notatnika, kodowanie utf-8). <sup>*)</sup>
 3. Do tego foldera skopiuj pliki XML z których mają być wyodrębnione pliki wewnętrzne. 
@@ -84,3 +84,16 @@ Odnośniki:
 
 
 <style> code {font-size: smaller;} </style>
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->
