@@ -4,7 +4,7 @@ title: Informacje
 permalink: /about/
 ---
 
-W tym blogu są moje motatki  dotyczące elektroniki lub programowania.
+W tym blogu są moje notatki  dotyczące elektroniki lub programowania.
 
 Zapraszam Cię do wpisywania swoich uwag i zapytań.
 
