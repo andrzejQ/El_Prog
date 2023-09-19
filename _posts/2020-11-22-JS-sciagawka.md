@@ -54,11 +54,11 @@ String.prototype.toCmsFNameExt = function  () { //nie powinno być '/' w nazwie
 ### 2: Data
 
 ````js
-  String.prototype.numDate = function  () { //date_time -> YYYY-MM-dd HH:mm:ss
-    let dt = new Date(this);
-    return `${dt.getFullYear()}-${('0'+(1+dt.getMonth())).slice(-2)}-${('0'+dt.getDate()).slice(-2)} ${dt.toTimeString().substring(0,8)}`; 
-  }; //np. 
-  ("Thu Oct 27 2022 00:17:21 GMT+0200".numDate()==="2022-10-27 00:17:21")
+String.prototype.numDateYMdHms = function  () { //date_time -> YYYY-MM-dd HH:mm:ss
+  let dt = new Date(this);
+  return `${dt.getFullYear()}-${('0'+(1+dt.getMonth())).slice(-2)}-${('0'+dt.getDate()).slice(-2)} ${dt.toTimeString().substring(0,8)}`; 
+}; //np. 
+("Thu Oct 27 2022 00:17:21 GMT+0200".numDateYMdHms()==="2022-10-27 00:17:21")
 ````
 
 ### # Nie będziesz używał!
@@ -70,7 +70,7 @@ String.prototype.toCmsFNameExt = function  () { //nie powinno być '/' w nazwie
 zob.:
 
 * <https://andrzejq.github.io/El_Prog/programowanie/2022/10/17/Seryjne_wypelnianie_formularza.html>
-* <https://kursjs.pl/>
+* <https://kursjs.pl/> - kurs Javascript dla superbohaterów autorstwa Marcina Domańskiego
 
 <style> 
   pre code {font-size: smaller;} 
