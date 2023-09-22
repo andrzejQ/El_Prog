@@ -22,6 +22,7 @@ Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do u
 [14.&nbsp;Pola statyczne]({{site.url}}{{site.baseurl}}{{page.url}}#14--pola-statyczne) &nbsp; 
 [15.&nbsp;mingus.midi, fluidsynth]({{site.url}}{{site.baseurl}}{{page.url}}#15--mingusmidi-fluidsynth) &nbsp; 
 [16.&nbsp;subprocess run()]({{site.url}}{{site.baseurl}}{{page.url}}#16--subprocess-run) &nbsp; 
+[17.&nbsp;doctest_or_main]({{site.url}}{{site.baseurl}}{{page.url}}#17--doctest_or_main) &nbsp; 
 
 ## 1 . Pliki:
 
@@ -800,6 +801,29 @@ def run(args): # args=[...] lub '...'
 * <small> [https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running](https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running#answer-28319191) </small>
 * <small> <https://docs.python.org/3/library/subprocess.html#converting-an-argument-sequence-to-a-string-on-windows> </small>
 
+
+- - - - - -
+
+
+&nbsp;
+
+## 17 . doctest_or_main
+
+````py
+def add(a,b):
+  """ a+b
+  >>> add(2,2)
+  2+2=4
+  4
+  """
+  print(f'{a}+{b}={a+b}')
+  return a+b
+
+# zakomentuj ten wiersz aby wywołać funkcję poniżej:
+import doctest; doctest.testmod() or \
+add(5,10)
+print('.')
+````
 
 - - - - - -
 
