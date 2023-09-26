@@ -517,6 +517,24 @@ aLi2 = re.findall(r'<h3>\s+' + re.escape('<a class="post-link"')
 
 <small>Można też rozdzielić wszystkie tagi jako listę i liczyć `....startswith()` ich zamknięcia: `tags = re.split(r'(?=<)', html)`</small> 
 
+Treść w UTF-8 z dowolnego kodowania:
+
+````py
+#!/usr/bin/env python
+import requests #python -m pip install requests bs4 lxml
+from bs4 import BeautifulSoup as bs4
+
+def anyEncodingToUtf8(url):
+  class response: content = ''
+  try:
+    response = requests.get(url) #;print( vars(response) )
+  except Exception as e:
+    print('### ' + str(e))
+  soup = bs4(response.content, "lxml") #(not: response.text)
+  return str(soup) # charset=utf-8
+````
+
+
 REST API, gdy bez logowania
 
 ````py
