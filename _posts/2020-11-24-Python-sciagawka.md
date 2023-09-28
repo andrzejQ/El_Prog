@@ -533,7 +533,20 @@ def anyEncodingToUtf8(url):
   soup = bs4(response.content, "lxml") #(not: response.text)
   return str(soup) # charset=utf-8
 ````
+HTMLSession świetnie sobie radzi z konwersją kodowania do utf-8. Choć w poniższym przykładzie po `r.html.render(...` kodowanie nie-utf-8 nie jest poprawnie konwertowane.
 
+````py
+#!/usr/bin/env python
+from requests_html import HTMLSession
+url='...' #redirected url: <meta http-equiv="Refresh" content="0;url=....
+session = HTMLSession()
+r = session.get(url)
+print(f'{r.url=}')
+if len(r.html.text) < 100:
+  r.html.render(sleep=5,keep_page=True) # przekierowanie / JavaScript - jak w przeglądarce
+  target_url = r.html.page.target.url if r.html.page else ''
+  print(f'{target_url=}')
+````
 
 REST API, gdy bez logowania
 
