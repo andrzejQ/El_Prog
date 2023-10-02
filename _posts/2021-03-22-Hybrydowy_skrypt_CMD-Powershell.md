@@ -24,6 +24,7 @@ Powershell -NoExit -c "$c=Get-Culture; $c.DateTimeFormat"
 `-NoExit` - gdy nie chcemy abo po wykonaniu `c.cmd` okno się zamykało; wewnątrz `"..."` wygodnie jest używać `'...'`.
 {: style="font-size: smaller;"}
 
+----
 
 Można także skorzystać z **hybrydowego pliku CMD-Powershell**, tj. pliku `*.CMD`, który nie wymaga odblokowania uruchamiania skryptów `*.ps1` - po prostu zadziała u każdego. Jest to skrypt PowerShell z dodatkowym wierszem poleceń CMD na początku, np.: 
 
@@ -54,6 +55,11 @@ Taki skrypt np. o nazwie `1.cmd` można uruchomić wprost z eksploratora plików
 1. W wybranym folderze utwórz plik `1.cmd` o treści jak powyżej (np. użyj notatnika, zapisz jako, zmień kodowanie z `UTF-8` na `ANSI`).
 2. W pasku adresu, gdzie zwykle znajduje się zapis ścieżki do foldera wpisz `1.cmd` i naciśnij `[Enter]`. Plik `1.cmd` można umieścić w folderze dodanym do ścieżki PATH i wtedy powyższa metoda zadziała w dowolnym folderze. Zamiast tego wpisywania `1.cmd` można też 2x kliknąć na tym pliku, choć czasem trzeba przejść jednorazowo przez kilka ostrzeżeń.
 3. Po wykonaniu skryptu naciśnij `[Enter]` albo zamknij okno wyników.
+
+W **Win11** w domyślnym terminalu czasem nie działają niektóre funkcje w pliku hybrydowym "*.cmd", np. przeskakiwane bywa okienko uwierzytelniania (nie wyskakuje). Możesz wtedy użyć "starszej" wersji terminala "**conhost.exe**", czyli wtedy w pasku adresu wpisz
+`conhost 1.cmd`
+
+----
 
 #### Kodowanie "utf-8", czcionka raczej inna niż "Consolas"
 
