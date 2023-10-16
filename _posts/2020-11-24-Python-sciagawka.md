@@ -536,16 +536,21 @@ def anyEncodingToUtf8(url):
 HTMLSession świetnie sobie radzi z konwersją kodowania do utf-8. Choć w poniższym przykładzie po `r.html.render(...` kodowanie nie-utf-8 nie jest poprawnie konwertowane.
 
 ````py
-#!/usr/bin/env python
 from requests_html import HTMLSession
-url='...' #redirected url: <meta http-equiv="Refresh" content="0;url=....
-session = HTMLSession()
-r = session.get(url)
-print(f'{r.url=}')
+#url= '...' #<meta http-equiv="Refresh" content="0;url=....
+url = 'https://aka.ms/ppac' # 301 # r.url='https://admin.powerplatform.microsoft.com'
+#url = 'https://w.prz.edu.pl'
+if not url.endswith('/'): url = f'{url}/'
+session = HTMLSession() ;print(f'{vars(session)=}'+'\n')
+r = session.get(url)    ;print(f'{dir(r)=}\n\n...{f"{vars(r)}"[-1500:]=}\n')
+print(f'{url=}') # print(f'{r.url=}')
+redirect_url = r.url if (r.url != url) else ''
+print(f'{redirect_url=}')
 if len(r.html.text) < 100:
-  r.html.render(sleep=5,keep_page=True) # przekierowanie / JavaScript - jak w przeglądarce
-  target_url = r.html.page.target.url if r.html.page else ''
-  print(f'{target_url=}')
+  r.html.render(sleep=5,keep_page=True) # like browser (with JavaScript)
+  refresh_url = r.html.page.target.url if r.html.page else ''
+  print(f'{refresh_url=}')
+r.session.close() # ? == session.close()  # ?
 ````
 
 REST API, gdy bez logowania
