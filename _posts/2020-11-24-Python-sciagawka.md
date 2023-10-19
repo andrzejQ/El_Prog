@@ -537,20 +537,37 @@ HTMLSession świetnie sobie radzi z konwersją kodowania do utf-8. Choć w poni�
 
 ````py
 from requests_html import HTMLSession
-#url= '...' #<meta http-equiv="Refresh" content="0;url=....
+import re
+#url= '...' #<meta http-equiv="refresh" content="0;url=....
 url = 'https://aka.ms/ppac' # 301 # r.url='https://admin.powerplatform.microsoft.com'
-#url = 'https://w.prz.edu.pl'
-if not url.endswith('/'): url = f'{url}/'
+#url = 'https://python.org/'
+start_url = url if url.endswith('/') else f'{url}/' ;print(f'\n{start_url=}\n')
+## Get redirect or refresh info
+#''' #### version 1 - recommended (with optionally html.render js, without keep_page)
+RENDER_JS = 0
+while True:
+  with HTMLSession() as session:
+    r = session.get(start_url) #;print(f'...{f"{dir(r)}"[-300:]=}\n\n...{f"{vars(r)}"[-300:]=}\n')
+    redirect_url = r.url if (r.url != start_url) else '' ;print(f'{redirect_url=}\n')
+    if r.html and len(r.html.text) < 100: # usually len()==0
+      metaRefresh = r.html.find("""meta[http-equiv*='efresh']""",first=True)#r'[Rr]efresh'
+      if metaRefresh:
+        metaRefrUrl = metaRefresh.attrs['content'] # '0;url=http://...
+        refresh_url = (re.split(r'url\s*=\s*',metaRefrUrl,1,re.IGNORECASE)+[''])[1]
+        print(f'{"^"*33}\n{refresh_url=}\n')
+        if 'http' in refresh_url: start_url = refresh_url; continue #^^^^^^^^^^
+    if RENDER_JS: r.html.render(sleep=3) # like browser (with JavaScript)
+    print(f'{r.html.text=}'[:200],'...\n'); #...
+    break #>>>>>>>>>>>>>>
+#''' #### version 2 (with .html.render...keep_page and js)
 with HTMLSession() as session:
-  r = session.get(url)    ;print(f'{dir(r)=}\n\n...{f"{vars(r)}"[-1500:]=}\n')
-  print(f'{url=}') # print(f'{r.url=}')
-  redirect_url = r.url if (r.url != url) else ''
-  print(f'{redirect_url=}')
-  if len(r.html.text) < 100:
-    r.html.render(sleep=5,keep_page=True) # like browser (with JavaScript)
-    refresh_url = r.html.page.target.url if r.html.page else ''
-    print(f'{refresh_url=}')
+  r = session.get(start_url) #;print(f'...{f"{dir(r)}"[-300:]=}\n\n...{f"{vars(r)}"[-300:]=}\n')
+  redirect_url = r.url if (r.url != start_url) else ''     ;print(f'{redirect_url=}\n')
+  r.html.render(sleep=3,keep_page=True) # like browser (with JavaScript)
+  target_url = r.html.page.target.url if r.html.page else '' ;print(f'{target_url=}\n')
+  print(f'{r.html.text=}'[:200],'...\n'); #...
   session.close() # ? close browser after .render
+#'''
 ````
 
 REST API, gdy bez logowania
