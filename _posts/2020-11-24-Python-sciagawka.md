@@ -839,18 +839,33 @@ Można testować działanie skryptem `...\Python\mingus_examples\pygame-piano\py
 ## 16 . subprocess run()
 
 ````py
+from subprocess import run
+# args=[...] or '...'
+result = run(args, capture_output=True, text=True, check=True) 
+# if check -> raise CalledProcessError if non-zero return code 
+print(f'{result=}')
+````
+
+Albo - gdy zależy nam na pokazywaniu kolejnych wierszy wpisywanych przez długotrwały proces:
+````py
 from subprocess import Popen, PIPE, CalledProcessError
-def run(args): # args=[...] lub '...'
+def run(args): # args=[...] or '...'
   print('>>>', args)
   with Popen(args, stdout=PIPE, bufsize=1, universal_newlines=True) as p:
     for line in p.stdout:
       print(line, end='')
-  if p.returncode == 0:
-    print('ok.')
-  else:
-    raise CalledProcessError(p.returncode, p.args)
+  if p.returncode == 0: print('ok.')
+  else: raise CalledProcessError(p.returncode, p.args)
 ````
 
+Sprawdzanie czy "prog.exe" jest uruchomiony
+````py
+from subprocess import check_output
+app = 'prog.exe'; cmd = f'tasklist /fi "imagename eq {app}"'
+if app not in check_output(cmd, shell=True, encoding='1250'):
+  print(f'''{'!'*44}\n  Najpierw uruchom {app}\n{'!'*44}''')
+````
+* <small> <https://www.datacamp.com/tutorial/python-subprocess> </small>
 * <small> [https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running](https://stackoverflow.com/questions/4417546/constantly-print-subprocess-output-while-process-is-running#answer-28319191) </small>
 * <small> <https://docs.python.org/3/library/subprocess.html#converting-an-argument-sequence-to-a-string-on-windows> </small>
 
