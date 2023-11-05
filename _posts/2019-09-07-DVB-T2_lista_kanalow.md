@@ -25,7 +25,7 @@ Do tunera DTV USB [`MyGica T230A`](https://www.mygica.com/support/) załączany 
 <small>Nie umiem znaleźć informacji o jego licencji i autorach.</small>  
 Po wyszukaniu stacji także uzyskasz listę programów z inf. o częstotliwościach  
 [`py xml_HiDTV.py`]({{site.baseurl}}/assets/files/xml_HiDTV.py) 
-(używa [`DTV_DK_CCIR.py`]({{site.baseurl}}/assets/files/DTV_DK_CCIR.py))
+ <small>\- używa [`DTV_DK_CCIR.py`  (pobierz)]({{site.baseurl}}/assets/files/DTV_DK_CCIR.py), należy też zainstalować "xmltodict": `py -m pip install xmltodict`</small>
 
 - - - - - 
 <br>
@@ -39,7 +39,7 @@ lub
 
 
 
-<style> pre code {font-size: smaller;} </style>
+<style> pre code {font-size: smaller;} small code {font-size:95%;} </style>
 
 <!-- {% unless jekyll.environment %} -->
 <script>

@@ -1,5 +1,5 @@
 #!/usr/bin/env python -i
-import xmltodict
+import xmltodict # py -m pip install xmltodict
 import json
 import csv
 import os
