@@ -44,7 +44,7 @@ zob. też <https://unicode-table.com/pl/sets/>
 
 _Telefon, e-mail, biuro:_    ℡   ⌕   ☏   ✆   @   ✁   ✃   ✄   ✎   ✐   ✑   ⌦   ⌫   ⌧   ㍶
 
-_Znaczniki wyboru:_    ✓   ✗   ✘   ☒   ◉   ○
+_Znaczniki wyboru:_    ✓   ✗   ✘   ☓   ☐   ☒   ◉   ○   ☑ 
 
 _Specjalne symbole:_    •   °   ★   «   »   ❝   ❞   ×   ⦂   ⁃   ‐   ‑   ‒   –   ⎯   —   ―   ~   ⁓   %   ‰   ‱   &   ⅋   §   ÷   ±   ¡   ¿   ⸮   ⁇   ⁈   ‽   ⸘   ℠   ℻   ℅   ℁   ⅍   ¶   ⁋   ≠   √   ∛   ∜   ∞   β   Φ   Σ   €   ₤   ＄   ⚢   ⚣   ⌘
 
