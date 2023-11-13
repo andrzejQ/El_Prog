@@ -37,6 +37,14 @@ lub
 </small>
 
 
+- - - - - 
+<br>
+W urządzeniach AndroidTV z adapterem do TV naziemnej działa np. program LiveTV.  
+Po wyszukaniu kanałów w programie LiveTV i zapisaniu danych na pendrive 
+powstaje plik "\backup_user_databases\TvProviderChannels\tv_provider_db.json".
+Po uruchomieniu w tym samym folderze  
+[`py andr_tv_chn_db.py`]({{site.baseurl}}/assets/files/andr_tv_chn_db.py)  
+powstaje "andrTVchInfo.csv" z aktualną informacją o dostępnych kanałach DVB-T/T2 
 
 
 <style> pre code {font-size: smaller;} small code {font-size:95%;} </style>
