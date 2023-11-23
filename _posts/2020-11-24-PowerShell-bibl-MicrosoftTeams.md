@@ -5,7 +5,8 @@ date:   2020-11-24 12:00:00 +0100
 categories: Programowanie
 ---
 
-[Instrukcja instalacji modułu MicrosoftTeams PowerShell]({{site.url}}{{site.baseurl}}{{page.url}}#szczegółowa-instrukcja-instalacji--modułu-microsoftteams-powershell) * [Pobieranie listy członków zespołów]({{site.url}}{{site.baseurl}}{{page.url}}#pobieranie-listy-członków-swoich-zespołów">Pobieranie listy członków swoich zespołów)  * [Automatyczne dodawanie członków do swoich zespołów]({{site.url}}{{site.baseurl}}{{page.url}}#automatyczne-dodawanie-członków-do-swoich-zespołów) 
+UWAGA: poniższy opis jest w dużej mierze  przestarzały. Na szczęście [działają **skryptozakładki**...](https://andrzejq.github.io/Jekyll_app1htmlFile/jekyll/onefileapp/2020/09/18/Skryptozakladki.html)  
+<small> [Instrukcja instalacji modułu MicrosoftTeams PowerShell]({{site.url}}{{site.baseurl}}{{page.url}}#szczegółowa-instrukcja-instalacji--modułu-microsoftteams-powershell) * [Pobieranie listy członków zespołów]({{site.url}}{{site.baseurl}}{{page.url}}#pobieranie-listy-członków-swoich-zespołów">Pobieranie listy członków swoich zespołów)  * [Automatyczne dodawanie członków do swoich zespołów]({{site.url}}{{site.baseurl}}{{page.url}}#automatyczne-dodawanie-członków-do-swoich-zespołów) </small>
 
 Szczegółowy opis instalacji modułu MicrosoftTeams PowerShell na podstawie  
 <https://docs.microsoft.com/en-us/microsoftteams/teams-powershell-install>
