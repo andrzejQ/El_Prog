@@ -46,6 +46,8 @@ Po uruchomieniu w tym samym folderze
 [`py andr_tv_chn_db.py`]({{site.baseurl}}/assets/files/andr_tv_chn_db.py)  
 powstaje "andrTVchInfo.csv" z aktualną informacją o dostępnych kanałach DVB-T/T2 
 
+W tym samym folderze można uruchomić skrypt z [`andr_tv_chng_nr.zip`]({{site.baseurl}}/assets/files/andr_tv_chng_nr.zip)  
+wcześniej przygotowując dane ze swoją numeracja w "andr_tv_chng_nr.csv".
 
 <style> pre code {font-size: smaller;} small code {font-size:95%;} </style>
 
