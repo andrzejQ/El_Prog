@@ -5,7 +5,7 @@ date:   2020-11-24 06:55:00 +0100
 categories: Programowanie
 ---
 
-Moja ściągawka Python 3.7+ (f-str., dict. insertion order) (zapewne tylko do użytku własnego)... <br/> 
+Moja ściągawka Python 3.8+ (f-str., dict. insertion order) (zapewne tylko do użytku własnego)... <br/> 
  [1.&nbsp;Pliki]({{site.url}}{{site.baseurl}}{{page.url}}#1--pliki) &nbsp; 
  [2.&nbsp;Str]({{site.url}}{{site.baseurl}}{{page.url}}#2--str) &nbsp; 
  [3.&nbsp;List, Tuple]({{site.url}}{{site.baseurl}}{{page.url}}#3--list-tuple) &nbsp; 
@@ -199,8 +199,9 @@ with open('y.csv','w',newline='',encoding='utf-8-sig') as csvF:
 
 ## nTuple -> dict
 di = row._asdict()
-print(3, di)                   #3 OrderedDict([('col1', ...
-print(4, dict(di))             #4 {'col1':
+print(3, di)       #3 {'col1':... | py.3.1 .. 3.7: 3 OrderedDict([('col1', ...
+print(4, dict(di)) #4 {'col1': (also for py.3.1 .. 3.7)
+di_nonempty = {k: v for k, v in row._asdict().items() if v} # pomija puste v
 
 ## dict -> nTuple
 d = {'col1':'xx', 'col2':'yy', 'col3':'zz'}
