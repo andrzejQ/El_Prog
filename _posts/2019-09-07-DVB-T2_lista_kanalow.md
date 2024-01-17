@@ -47,7 +47,8 @@ Po uruchomieniu w tym samym folderze
 powstaje "andrTVchInfo.csv" z aktualną informacją o dostępnych kanałach DVB-T/T2 
 
 W tym samym folderze można uruchomić skrypt z [`andr_tv_chng_nr.zip`]({{site.baseurl}}/assets/files/andr_tv_chng_nr.zip)  
-wcześniej przygotowując dane ze swoją numeracja w "andr_tv_chng_nr.csv".
+wcześniej przygotowując dane ze swoją numeracja w "andr_tv_chng_nr.csv".  
+<small>Tylko najpierw trzeba sprawdzić, czy po zapisaniu danych na pendrive da się je załadować (1:1). U mnie to nie działa.</small>
 
 <style> pre code {font-size: smaller;} small code {font-size:95%;} </style>
 
