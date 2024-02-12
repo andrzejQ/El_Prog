@@ -107,6 +107,26 @@ $fWy = new-object System.IO.StreamWriter( ('..\Wyniki\' + 'wy1.txt'), $false, $E
 
 * [The many ways to read and write to files](https://powershellexplained.com/2017-03-18-Powershell-reading-and-saving-data-to-files/)  -> powershellexplained.com
 
+**Lista podfolderów** może się przydać do katalogowania dysków z kopiami zapasowymi:
+
+Polecenie PowerShell dla foldera bieżącego `'.\'`, np. głównego na wybranym dysku:
+````powershell
+Get-ChildItem -Directory '.\' | ForEach{ $_.Name+'\'; $_ | ForEach {'*  '+($_.GetDirectories().Name -join '\, ')+"\`n"}  }
+````
+
+Analogiczna wersja do wklejenia w pasku eksploratora plików czy menu Total Comander`a:
+````bat
+Powershell  -NoExit -c "Get-ChildItem -Directory '.\' | ForEach{ $_.Name+'\'; $_ | ForEach {'*  '+($_.GetDirectories().Name -join '\, ')+\"`\`n\"}  }"
+````
+
+Fragment przykładowego wyniku:
+```
+Users\
+*  All Users\, Default\, ...
+
+Windows\
+*  Boot\, Cursors\, debug\, ...
+```
 
 ### 6: Operator **@**
 
@@ -183,6 +203,7 @@ Różne odnośniki:
   pre code {font-size: smaller;} 
   h3 small em {font-size: 14px;} 
   ul {font-size: smaller;} 
+  del {color: DarkRed;} 
 </style>
 
 <!-- {% unless jekyll.environment %} -->
