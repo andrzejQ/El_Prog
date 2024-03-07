@@ -97,10 +97,9 @@ FTYPE Python.File="C:\WINDOWS\py.exe" "%L" %*
 Uwaga - jeśli dodaliśmy swoją obsługę plików _*.py_ (poprzez _"Otwórz za pomocą"_), to ten nasz wybór będzie miał [priorytet nad powyższą konfiguracją](https://code.activestate.com/lists/python-list/727915/). Aby to naprawić należy wybierać do uruchomienia _*.py_ aplikację Python z ikoną rakiety ![py32.png]({{site.baseurl}}/assets/img/py32.png "py32.png"). Wybieranie wprost "C:\WINDOWS\py.exe" [jest błędem](https://code.activestate.com/lists/python-list/727915/#as_lists_article_thread).
 </span>
 
-<span style="font-size: smaller;">
-Ewentualnie, aby uruchamiać skrypt podając samą nazwę bez wpisywania rozszerzenia ".py" można jeszcze dodać  `set PATHEXT=.PY;%PATHEXT%`
+Ewentualnie, aby uruchamiać skrypt podając samą nazwę bez wpisywania rozszerzenia ".py" można jeszcze dodać  `set PATHEXT=.PY;%PATHEXT%`  
 lub trwale zmodyfikować PATHEXT w ["Edytuj zmienne..."](#edytuj-zmienne).
-</span>
+{: style="font-size: smaller;}
 
 <span style="font-size: smaller;">
 Więcej inf. o aktualnym stanie  konfiguracji, np. z pliku `%LocalAppData%\py.ini`{: style="font-size: smaller;"} uzyskamy włączając `PYLAUNCH_DEBUG`{: style="font-size: smaller;"} :  
@@ -279,7 +278,6 @@ $mGl.keys | foreach {"py -m pip install $($_)"}
 
 - - - -
 
-<span style="font-size: smaller; color:DarkGrey;">
 **#!/usr/bin/env python** - uruchamianie w Linux. Po zalogowaniu na root:  
 _	cd /usr/bin/  
 _	unlink python  
@@ -288,7 +286,7 @@ _	ln -sv /usr/bin/python3 python
 _	alias python=python3  
 i potem uruchomić  
 _	source ~/.bashrc
-</span>
+{: style="font-size: smaller; color:DarkGrey;"}
 
 - - - - -
 
