@@ -59,11 +59,11 @@ stan: `powercfg /powerthrottling list`
 2.
 Znaczące przyśpieszenie daje też wyłączenie korzystania z technologii Hyper-V przez Windows w celu wymuszenia użycia hipernadzorcy VMware, a nie Hyper-V:
 
-Upewnij się, że wszystko, co związane z Hyper-V jest odinstalowane w systemie Windows - "funkcje systemu Windows"
-[_] Microsoft Defender Application Guard
-[_] Hyper-V
-[_] Platforma funkcji Hypervisor systemu Windows
-[_] Platforma maszyny wirtualnej
+Upewnij się, że wszystko, co związane z Hyper-V jest odinstalowane w systemie Windows - "funkcje systemu Windows"  
+ ▢ Microsoft Defender Application Guard  
+ ▢ Hyper-V  
+ ▢ Platforma funkcji Hypervisor systemu Windows  
+ ▢ Platforma maszyny wirtualnej  
 			(restart)
 
 
