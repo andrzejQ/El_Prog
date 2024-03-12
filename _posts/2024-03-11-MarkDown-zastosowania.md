@@ -6,7 +6,8 @@ categories: Programowanie
 ---
 
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
-[2. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#2pandoc---md) 
+[3. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc---md) * 
+[3. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc---md) 
 
 
 <style>.date{font-size: smaller;color:#828282;}</style>
@@ -103,7 +104,26 @@ Po kliknięciu w ikonę wtyczki mamy ⚙️ w prawym górnym rogu. Można zapisa
 
 .
 
-### 2. pandoc -> MD
+### 2. pandoc MD -> HTML
+
+Wypakuj plik 
+[`markdown-v.head.html.zip`]({{site.baseurl}}/assets/files/markdown-v.head.html.zip)
+do foldera `%appdata%\pandoc\`  
+Jest to styl skopiowany z wtyczki "Markdown Viewer" dla Edge, który będzie wklejany do nagłówka HTML.
+
+Wszytko z MD w pojedynczym pliku HTML (łacznie z obrazami):
+```bat
+pandoc -i FROM.md -o 1_(__TO__).html --embed-resources -H %appdata%\pandoc\markdown-v.head.html -M lang=pl
+```
+
+HTML z obrazami na zewnątrz (ale markdown-v.head.html jest wklejone do wynikowego pliku):
+```bat
+pandoc -i FROM.md -o (__TO__).html --standalone -H %appdata%\pandoc\markdown-v.head.html -M lang=pl
+```
+
+.
+
+### 3. pandoc -> MD
 
 * Konfiguracja TotalCommander [pandoc -> MD]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-Notepad++.config %}) - TotalCommnder \ pandoc -> MD
 
