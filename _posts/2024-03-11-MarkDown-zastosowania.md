@@ -109,7 +109,7 @@ Po kliknięciu w ikonę wtyczki mamy ⚙️ w prawym górnym rogu. Można zapisa
 Wypakuj plik 
 [`markdown-v.head.html.zip`]({{site.baseurl}}/assets/files/markdown-v.head.html.zip)
 do foldera `%appdata%\pandoc\`  
-Jest to styl skopiowany z wtyczki "Markdown Viewer" dla Edge, który będzie wklejany do nagłówka HTML.
+<small>Jest to styl skopiowany z wtyczki "Markdown Viewer" dla Edge, który będzie wklejany do nagłówka HTML.</small>
 
 Wszytko z MD w pojedynczym pliku HTML (łacznie z obrazami):
 ```bat
