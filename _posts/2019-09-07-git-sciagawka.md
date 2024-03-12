@@ -100,8 +100,9 @@ Jakoś magicznie pomogło wydanie na chwilę polecenia
 ```bash
 git config core.autocrlf true
 ```
+czyli w konf. TortoiseGit: Git \ Local \ AutoCrLf: [true]  
 i ponowny `commit` (lub tylko zamiar), po czym można było na powrót wyczyścić (tzn. <nic>) opcję TortoiseGit: Git \ Local \ AutoCrLf: [____]
-i kolejne wypychanie było już sensowne. (A global AutoCrLf = false)
+i kolejne wypychanie było już sensowne. (A global==effective AutoCrLf = false)
 
 
 
