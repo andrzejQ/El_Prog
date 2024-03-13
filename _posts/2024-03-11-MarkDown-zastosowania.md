@@ -6,8 +6,9 @@ categories: Programowanie
 ---
 
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
-[3. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc---md) * 
-[3. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc---md) 
+[2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) * 
+[3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
+[4. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#4pandoc---md) 
 
 
 <style>.date{font-size: smaller;color:#828282;}</style>
@@ -104,7 +105,19 @@ Po kliknięciu w ikonę wtyczki mamy ⚙️ w prawym górnym rogu. Można zapisa
 
 .
 
-### 2. pandoc MD -> HTML
+### 2. Markdown it! -> HTML
+
+Po zainstalowaniu [`Markdown it!`](https://github.com/markdown-it/markdown-it) dla `node.js` można konwertować  MD -> HTML za pomocą skryptu, wypakowanego z 
+[`md-it.cmd.zip`]({{site.baseurl}}/assets/files/md-it.cmd.zip)
+
+W początkowej części skryptu jest nagłówek HTML, gdzie znaki `< > +` są (w skrypcie) poprzedzone znakiem `^`. Tekst nagłówka można sobie zmieniać dla swoich potrzeb.
+
+Parametrem skryptu jest nazwa pliku MD, w otoczona `"..."` jeśli zawiera spacje.
+
+<small>Plik `markdown-viewer2.css`, który jest używany w skrypcie to styl skopiowany z wtyczki "Markdown Viewer" dla Edge</small>
+.
+
+### 3. pandoc MD -> HTML
 
 Wypakuj plik 
 [`markdown-v.head.html.zip`]({{site.baseurl}}/assets/files/markdown-v.head.html.zip)
@@ -123,7 +136,9 @@ pandoc -i FROM.md -o (__TO__).html --standalone -H %appdata%\pandoc\markdown-v.h
 
 .
 
-### 3. pandoc -> MD
+
+
+### 4. pandoc -> MD
 
 * Konfiguracja TotalCommander [pandoc -> MD]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-Notepad++.config %}) - TotalCommnder \ pandoc -> MD
 
