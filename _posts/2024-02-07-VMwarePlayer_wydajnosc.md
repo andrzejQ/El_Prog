@@ -87,6 +87,8 @@ to nadal używany jest Hyper-V, a nie hipernadzorca VMware. Powinno być
 Sprawdź też, że w BIOS włączona jest wirtualizacja. W Win11:
 * Wydajność = [`Ctrl` + `⇧` + `Esc`] \ wydajność \ wirtualizacja: włączone!
 
+Zob. też
+* [Windows 11, VirtualBox, NativeAPI](https://mirekgab.pl/windows-11-virtualbox-nativeapi/) »
 
 **Konfiguracja VMWare Player**
 
