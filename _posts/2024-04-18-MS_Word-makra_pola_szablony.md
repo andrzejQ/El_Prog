@@ -55,8 +55,20 @@ Można przerwać łącza do plików zewnętrznych automatycznie aktualizowanych:
 Przepis wstawiania (tu bez korzystania z zakładek):
 
 1. Treści w plikach wstawianych umieszczam w ich głównej części, a pozostałe elementy w nagłówku i stopce (te nie będą scalane). Pliki umieszczam w podfolderze, np. "docs" (gdy jest ich dużo).
-2. Dla każdego scalanego pliku umieszczam w dokumencie głównym pole **`{ IncludeText "{ FileName \p }\\..\\docs\\NazwaPliku.docx"}`**, 
-   gdzie nawiasy klamrowe oznaczają wstawione pole uzyskane naciśnięciem `[Ctrl+F9]`, **`{ FileName \p }`** to zagnieżdżone pole z pełną nazwą pliku, a `\\..\\` wyznacza ścieżkę tej pełnej nazwy.
+2. Dla każdego scalanego pliku umieszczam w dokumencie głównym pole  
+   **`{ IncludeText "{ FileName \p }\\..\\docs\\NazwaPliku.docx"}`**,  
+   gdzie nawiasy klamrowe oznaczają wstawione pole uzyskane naciśnięciem `[Ctrl+F9]`,  
+   **`{ FileName \p }`** to zagnieżdżone pole odpowiadające pełnej nazwie pliku głównego,  
+   a `\\..\\` wyznacza ścieżkę tej pełnej nazwy.  
+   `[Ctrl+F9]` ma przydatną właściwość - można najpierw wpisać treść wnętrza pola, zaznaczyć i nacisnąć `[Ctrl+F9]`. Treść zostanie otoczona znacznikiem pola.  
+   <small id=limit260> 
+   a) Ale można też z powodu takiego działania zaliczyć nieprzyjemna sytuację - po zaznaczeniu całego, dużego dokumentu i przypadkowym naciśnięciu `[Ctrl+F9]` całość robi się ogromnym polem, a wynikowy dokument jest jakby pusty! Żeby wyciąć wnętrze tego mega-pola i skopiować obok warto sobie wpisać kilka spacji obok znaczników granicy pola.  
+   b) Sztuczka z `{ FileName \p }\\..\\` wymaga stosowania nie za długich nazw plików i folderów. 
+   Po rozwinięciu pola i dołożeniu nazwy pliku wstawianego całość musi się zmieścić w 260 znakach. 
+   I nie ma tu znaczenia, czy w rejestrze zostało zadeklarowane używanie dłuższych nazw `LongPathsEnabled=1`. 
+   Na szczęście nie przeszkadza używanie znaków diakrytycznych w nazwach. 
+   Zob. [`pole_IncludeText-BARDZO_DLUGIE_nazwy_plikow.zip`]({{site.baseurl}}/assets/files/pole_IncludeText-BARDZO_DLUGIE_nazwy_plikow.zip)
+   </small>
 3. Z zagnieżdżonym polem jest jakaś tajemnica - udaje się wpisać to ze zwykłymi nawiasami klamrowymi. Ale po aktualizacji może pojawiać się "Błąd! Nieprawidłowa nazwa pliku". 
     * Wtedy można skorzystać z notatki 2 z linku dot. ścieżki względnej, czyli: 
         * `[Alt+F9]` - żeby pojawiły się kody pól.
@@ -68,8 +80,9 @@ Przepis wstawiania (tu bez korzystania z zakładek):
 
 [Kilka skrótów klawiaturowych](https://support.microsoft.com/pl-pl/office/skr%C3%B3ty-klawiaturowe-w-programie-word-95ef89dd-7142-4b50-afb2-f762f663ceb2#bkmk_fieldswin) 
 przydatnych do pracy z polami:  
-`[Alt+F9]` - Przełącz kod/wynik  
-    i to chyba globalnie w całym dokumencie - bardzo wygodnie do jakichś operacji "znajdź i zamień"  
+`[Shift+F9]` - Przełącz kod/wynik  
+`[Alt+F9]` - Przełącz jednocześnie wszystkie kody/wyniki (także kody zagnieżdżone)  
+     bardzo wygodnie do jakichś operacji "znajdź i zamień"  
 `[Ctrl+F9]` - Wstaw pole. Natomiast menu:  
     Wstawianie \ Szybkie części \ Pole... - otwiera kreatora wstawiania pola z podpowiedziami.  
 `[F9]` - Aktualizowanie zaznaczonych pól.  
