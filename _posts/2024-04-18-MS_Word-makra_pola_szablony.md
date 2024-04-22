@@ -61,12 +61,12 @@ Przepis wstawiania (tu bez korzystania z zakładek):
    **`{ FileName \p }`** to zagnieżdżone pole odpowiadające pełnej nazwie pliku głównego,  
    a `\\..\\` wyznacza ścieżkę tej pełnej nazwy.  
    `[Ctrl+F9]` ma przydatną właściwość - można najpierw wpisać treść wnętrza pola, zaznaczyć i nacisnąć `[Ctrl+F9]`. Treść zostanie otoczona znacznikiem pola.  
-   <small id=limit260> 
-   a) Ale można też z powodu takiego działania zaliczyć nieprzyjemna sytuację - po zaznaczeniu całego, dużego dokumentu i przypadkowym naciśnięciu `[Ctrl+F9]` całość robi się ogromnym polem, a wynikowy dokument jest jakby pusty! Żeby wyciąć wnętrze tego mega-pola i skopiować obok warto sobie wpisać kilka spacji obok znaczników granicy pola.  
-   b) Sztuczka z `{ FileName \p }\\..\\` wymaga stosowania nie za długich nazw plików i folderów. 
+   a) <small> Ale można też z powodu takiego działania zaliczyć nieprzyjemna sytuację - po zaznaczeniu całego, dużego dokumentu i przypadkowym naciśnięciu `[Ctrl+F9]` całość robi się ogromnym polem, a wynikowy dokument jest jakby pusty! Żeby wyciąć wnętrze tego mega-pola i skopiować obok warto sobie wpisać kilka spacji obok znaczników granicy pola.
+   </small>  
+   b) <small id=limit260> Sztuczka z `{ FileName \p }\\..\\` wymaga stosowania nie za długich nazw plików i folderów.  
    Po rozwinięciu pola i dołożeniu nazwy pliku wstawianego całość musi się zmieścić w 260 znakach. 
    I nie ma tu znaczenia, czy w rejestrze zostało zadeklarowane używanie dłuższych nazw `LongPathsEnabled=1`. 
-   Na szczęście nie przeszkadza używanie znaków diakrytycznych w nazwach. 
+   Na szczęście nie przeszkadza używanie liter diakrytycznych w nazwach. 
    Zob. [`pole_IncludeText-BARDZO_DLUGIE_nazwy_plikow.zip`]({{site.baseurl}}/assets/files/pole_IncludeText-BARDZO_DLUGIE_nazwy_plikow.zip)
    </small>
 3. Z zagnieżdżonym polem jest jakaś tajemnica - udaje się wpisać to ze zwykłymi nawiasami klamrowymi. Ale po aktualizacji może pojawiać się "Błąd! Nieprawidłowa nazwa pliku". 
