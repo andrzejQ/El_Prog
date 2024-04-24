@@ -19,9 +19,9 @@ Głównie dotyczy Notepad++ - zob.
 `.[{}()\*+?|^$`  
 <small>Czasem zalecane jest też traktowanie `]` jako znaku specjalnego</small>  
 
-W zbiorze znaków "jeden z"/"żaden z" po `[`/`[^`...  
+W zbiorze znaków "jeden z" lub "żaden z" po `[` lub `[^`...  
 `]\-^`  
-<small>, przy czym `^` nie na początku  i `-` na pocz. lub końcu nie jest zn. specjalnym</small>  
+<small>, przy czym  `-` na początku lub końcu i `^` nie-na-początku nie jest zn. specjalnym</small>  
 
 
 
@@ -50,37 +50,46 @@ Gdy chodzi o wyrażenia tylko dla "Znajdź", to będzie 1 wiersz abo 3+ .
 #### Różne przykłady
 
 
-Usuwanie całych wierszy, które nie zaczynają się od "abc" (łącznie z końcem wiersza)
+* Usuwanie całych wierszy, które nie zaczynają się od "abc" (łącznie z końcem wiersza)
 
 ````regexp
 ^(?=abc).*\R
 ¤
 ````
 
-`\R` jest [uniwersalnym znakiem końca wiersza]({{page.docs}}#user-content-special-control-escapes)
- i może obejmować 2 znaki np. `\r\n` (Windows) czy 1 znak `\n` (Unix). 
+`\R` ro [uniwersalny znak końca wiersza]({{page.docs}}#user-content-special-control-escapes)
+czyli  `(?>\r\n|\n|\x0B|\f|\r|\x85|\x{2028}|\x{2029})`, np. 2 znaki `\r\n` (Windows) lub 1 znak `\n` (Unix). 
 <small>Nie może być używany wewnątrz `[...]`.</small>
 
-Dowolny ciąg znaków obejmujący także znaki końca wiersza (przydatne w javascript)
+
+* Znajdź cały wiersz, który nie kończy się na "xyz" (w tym pusty)
+
+````regexp
+^.*(?<!xyz)$
+````
+
+
+* Dowolny ciąg znaków obejmujący także znaki końca wiersza (przydatne w javascript)
+
 ````regexp
 [\s\S]*
 ````
 
-Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdzielającą \xA0 ([Alt+0160]) spacji (1+) poprzedzonej jedną z liter 'awizou', po której następuje 
+* Sklejanie pojedynczych liter z kolejnym wyrazem - zamiana na spację nierozdzielającą \xA0 ([Alt+0160]) spacji (1+) poprzedzonej jedną z liter 'awizou', po której następuje 
 [początek wyrazu]({{page.docs}}#user-content-anchors):
 
 ````regexp
 (?<=\<[awizou]) +\<
 \xA0
 ````
+* Kompletne usuwanie tagu HTML (tu `<(\S+) ...<\/\1>`) z zadanym fragmentem nazwy klasy o ile nie zawiera zagnieżdżeń takich samych tagów jak tag `(\S+)`.
 
-Kompletne usuwanie tagu HTML (tu `<(\S+) ...<\/\1>`) z zadanym fragmentem nazwy klasy o ile nie zawiera zagnieżdżeń takich samych tagów jak tag `(\S+)`.
 ````regexp
 <(\S+) class="[^"]*FragmentNazwyKlasy[^>]*>(.*?)<\/\1>
 ¤
 ````
 
-Scalenie akapitów, np. skopiowanych z PDF - gdy faktyczny podział  akapitu wyznacza pusty wiersz, a inne łamania wierszy wewnątrz akapitu należy zamienić na spację. Tzn. mamy pojedyncze łamanie wiersza `\r?\n` z opcjonalną dodatkową spacją ` ?` poprzedzone nie-białym znakiem `(?<=\S)` i występującym po łamaniu wiersza nie-białym znakiem `(?=\S)`:
+* Scalenie akapitów, np. skopiowanych z PDF - gdy faktyczny podział  akapitu wyznacza pusty wiersz, a inne łamania wierszy wewnątrz akapitu należy zamienić na spację. Tzn. mamy pojedyncze łamanie wiersza `\r?\n` z opcjonalną dodatkową spacją ` ?` poprzedzone nie-białym znakiem `(?<=\S)` i występującym po łamaniu wiersza nie-białym znakiem `(?=\S)`:
 
 ````regexp
 (?<=\S) ?\r?\n(?=\S)
