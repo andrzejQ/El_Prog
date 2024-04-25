@@ -97,5 +97,11 @@ Zob. też
 
 * <https://addbalance.com/usersguide/styles.htm> - kopalnia wiedzy o stylach, a na początek potężna dawka linków.
 
+### 4. Inne odnośniki
+
+* [MS Word - symbole wieloznaczne »]( https://andrzejq.github.io/Office_S_Tips/docx/2019/09/21/DOCX_wyszukiwanie_symboli_wieloznacznych.html)
+* [Po pierwszej instalacji MS Office »]( https://andrzejq.github.io/Office_S_Tips/system/2019/09/20/drobne_podpowiedzi_2.html#po-pierwszej-instalacji-ms-office)
+* [Obrazy z PDF w DOCX](https://andrzejq.github.io/Office_S_Tips/pdf_docx/2019/09/23/z_PDF_do_DOCX.html)
+* [Problem ogromnego rozmiaru plików RTF i DOC](https://andrzejq.github.io/Office_S_Tips/system/2019/09/20/drobne_podpowiedzi_2.html#problem-ogromnego-rozmiaru-plik%C3%B3w-rtf-i-doc)
 
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
