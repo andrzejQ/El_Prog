@@ -6,7 +6,12 @@ categories: Systemy
 ---
 
 Zebrałem tu kilka porad dotyczących problemu niepełnego wykorzystania możliwości Intel Turbo Boost Technology 12-gen.+
-podczas pracy VMWare Player w przypadku, gdy system wykorzystuje nowoczesny tryb gotowości `S0`.
+podczas pracy VMWare Player w przypadku, gdy system wykorzystuje 
+[1.&nbsp;nowoczesny tryb gotowości `S0`;]({{site.url}}{{site.baseurl}}{{page.url}}#1-przypadek-trybu-s0) &nbsp; * 
+[2.&nbsp;przypadek trybu `S1`..`S3`.]({{site.url}}{{site.baseurl}}{{page.url}}#2-przypadek-trybu-s1s3) &nbsp; * 
+_+ 08.05.2024_{: .date} [3.&nbsp;Spowolnione Visual Studio.]({{site.url}}{{site.baseurl}}{{page.url}}#3-spowolnione-visual-studio) 
+
+<style>.date{font-size: smaller;color:#828282;}</style>
 
 Jest sporo porad dla starszych trybów gotowości `S3`, gdzie trzeba skorzystać z przełączania wydajności w klasycznym panelu sterowania. Ale w przypadku nowoczesnego trybu `S0` w klasycznym panelu mamy tylko jeden tryb: "Zrównoważony" i zmiana jego konfiguracji zaawansowanej (chyba) nic nie daje jak chodzi o wydajność.
 Dodatkowo [są ostrzeżenia](https://answers.microsoft.com/pl-pl/windows/forum/all/modern-standby-s0-tryb-wstrzymania-bez-zachowania/25abf8c6-077e-4737-8c4a-2da115762813) 
@@ -129,5 +134,17 @@ Widać też (nieaktywny w tym momencie) tryb normalny, który można kliknąć w
 
 Po zapamiętaniu GUID trybu normalnego: `powercfg /getactivescheme`  
 można zrobić sobie skróty przełączające tryby na pulpicie.
+
+
+#### 3. Spowolnione Visual Studio
+
+Niekiedy powodem użycia systemu wirtualnego jest potrzeba pracy w izolowanym od sieci środowisku. 
+Wtedy wybieram opcję sieciową "Host only" i wymieniam dane poprzez "Shared folders" udostępniając folder hosta.  
+Można też włączyć dla systemu gościa kartę sieciową i widzieć jego udostępnione foldery na hoście Windows. 
+I tu może nas spotkać bardzo nieprzyjemne zaskoczenie. Aplikacje jak np. Visual Studio potrafią wtedy zamrażać się po starcie, czy po powrocie z debugowania na kilkanaście sekund (to zapewne nieudane próby nawiązania połączenia sieciowego) i ogólnie doznają znaczącego spowolnienia (nie wiem czy w każdym przypadku). 
+
+W takim wypadku może pomóc wyłączenie wirtualnych kart sieciowych w konfiguracji sprzętu gościa, 
+a może alternatywnie też wyłączenie sieci w panelu sterowania systemu gościa - zob. 
+<https://stackoverflow.com/questions/31383348/how-is-visual-studio-performance-linked-to-enable-disable-network-connection>
 
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
