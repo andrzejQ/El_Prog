@@ -143,6 +143,7 @@ Wtedy wybieram opcję sieciową "Host only" i wymieniam dane poprzez "Shared fol
 Można też włączyć dla systemu gościa kartę sieciową i widzieć jego udostępnione foldery na hoście Windows. 
 I tu może nas spotkać bardzo nieprzyjemne zaskoczenie. Aplikacje jak np. Visual Studio potrafią wtedy zamrażać się po starcie, czy po powrocie z debugowania na kilkanaście sekund (to zapewne nieudane próby nawiązania połączenia sieciowego) i ogólnie doznają znaczącego spowolnienia (nie wiem czy w każdym przypadku). 
 
+![VM_Net_conf.png]({{site.baseurl}}/assets/img/VM_Net_conf.png "VM_Net_conf.png"){: style="float:right;width:49%;"} 
 W takim wypadku może pomóc wyłączenie wirtualnych kart sieciowych w konfiguracji sprzętu gościa, 
 a może alternatywnie też wyłączenie sieci w panelu sterowania systemu gościa - zob. 
 <https://stackoverflow.com/questions/31383348/how-is-visual-studio-performance-linked-to-enable-disable-network-connection>
@@ -150,6 +151,8 @@ a może alternatywnie też wyłączenie sieci w panelu sterowania systemu gości
 Szybkie otwarcie okna "Panel sterowania (klasyczny) \ Sieć i Internet \ Połączenia sieciowe"  
 -> uruchom: `ncpa.cpl`.
 
-Pomimo takiego wyłączenia sieci w systemie gościa, cały czas działają "Shared folders".
+Przy takiej konfiguracji sieci w systemie gościa, nadal działają "Shared folders".
+
+![Bez_kart_sieci.png]({{site.baseurl}}/assets/img/Bez_kart_sieci.png "Bez_kart_sieci.png"){: style="float:left;width:49%;"} 
 
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
