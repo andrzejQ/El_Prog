@@ -147,4 +147,9 @@ W takim wypadku może pomóc wyłączenie wirtualnych kart sieciowych w konfigur
 a może alternatywnie też wyłączenie sieci w panelu sterowania systemu gościa - zob. 
 <https://stackoverflow.com/questions/31383348/how-is-visual-studio-performance-linked-to-enable-disable-network-connection>
 
+Szybkie otwarcie okna "Panel sterowania (klasyczny) \ Sieć i Internet \ Połączenia sieciowe"  
+-> uruchom: `ncpa.cpl`.
+
+Pomimo takiego wyłączenia sieci w systemie gościa, cały czas działają "Shared folders".
+
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
