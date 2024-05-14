@@ -140,19 +140,60 @@ można zrobić sobie skróty przełączające tryby na pulpicie.
 
 Niekiedy powodem użycia systemu wirtualnego jest potrzeba pracy w izolowanym od sieci środowisku. 
 Wtedy wybieram opcję sieciową "Host only" i wymieniam dane poprzez "Shared folders" udostępniając folder hosta.  
-Można też włączyć dla systemu gościa kartę sieciową i widzieć jego udostępnione foldery na hoście Windows. 
-I tu może nas spotkać bardzo nieprzyjemne zaskoczenie. Aplikacje jak np. Visual Studio potrafią wtedy zamrażać się po starcie, czy po powrocie z debugowania na kilkanaście sekund (to zapewne nieudane próby nawiązania połączenia sieciowego) i ogólnie doznają znaczącego spowolnienia (nie wiem czy w każdym przypadku). 
+Można by też włączyć dla systemu gościa kartę sieciową i widzieć jego udostępnione foldery na hoście Windows. 
+I tu może nas spotkać bardzo nieprzyjemne zaskoczenie. Aplikacje jak np. Visual Studio potrafią wtedy zamrażać się po starcie, czy po powrocie z debugowania na kilkanaście sekund (to zapewne nieudane próby nawiązania połączenia sieciowego) i ogólnie doznają znaczącego spowolnienia - nie wiem czy w każdym przypadku. 
 
-![VM_Net_conf.png]({{site.baseurl}}/assets/img/VM_Net_conf.png "VM_Net_conf.png"){: style="float:right;width:49%;"} 
+![VM_Net_conf.png]({{site.baseurl}}/assets/img/VM_Net_conf.png "VM_Net_conf.png"){: style="float:left;width:49%;margin-bottom:14px;"} 
 W takim wypadku może pomóc wyłączenie wirtualnych kart sieciowych w konfiguracji sprzętu gościa, 
 a może alternatywnie też wyłączenie sieci w panelu sterowania systemu gościa - zob. 
 <https://stackoverflow.com/questions/31383348/how-is-visual-studio-performance-linked-to-enable-disable-network-connection>
 
-Szybkie otwarcie okna "Panel sterowania (klasyczny) \ Sieć i Internet \ Połączenia sieciowe"  
--> uruchom: `ncpa.cpl`.
+Uruchom: `ncpa.cpl` aby szybko otworzyć "Panel sterowania (klasyczny) \ Sieć i Internet \ Połączenia sieciowe"
 
 Przy takiej konfiguracji sieci w systemie gościa, nadal działają "Shared folders".
 
-![Bez_kart_sieci.png]({{site.baseurl}}/assets/img/Bez_kart_sieci.png "Bez_kart_sieci.png"){: style="float:left;width:49%;"} 
+![Bez_kart_sieci.png]({{site.baseurl}}/assets/img/Bez_kart_sieci.png "Bez_kart_sieci.png"){: style="float:right;width:49%;margin-bottom:6px;"} 
 
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
+
+
+
+#### 4. Koligacja procesorów
+
+![VMware-wmx_koligacje.png]({{site.baseurl}}/assets/img/VMware-wmx_koligacje.png "VMware-wmx_koligacje.png"){: style="float:right;width:62%;"} 
+Może można próbować przypisać procesory P do vmware-vmx.exe. Ale u mnie nie widać zmiany wydajności (przy war. jak w p.1). 
+
+Można też jakoś na trwałe przypisać rdzenie:
+
+* [How to launch a process with CPU affinity set](https://learn.microsoft.com/pl-pl/archive/blogs/santhoshonline/how-to-launch-a-process-with-cpu-affinity-set)
+
+
+ale mi się to nie udaje. 
+
+Np. przy 
+
+`cmd /c START "" /HIGH /AFFINITY 03 "xyz.vmx"`
+
+maszyna wirtualna `xyz.vmx`, tj. `vmware-vmx.exe` bierze wszystkie rdzenie. 
+
+Polecenie poniżej otwiera co prawda `vmplayer.exe` z przypisaniem do rdzeni 1 i 2, ale nadal maszyna wirtualna `xyz.vmx` bierze wszystkie rdzenie:
+
+`cmd /c START "" /HIGH /AFFINITY 03 "C:\Program Files (x86)\VMware\VMware Player\vmplayer.exe" "xyz.vmx"`
+
+
+
+
+
+
+<!-- {% unless jekyll.environment %} -->
+<script>
+
+(function() {
+  const images = document.getElementsByTagName('img'); 
+  for(let i = 0; i < images.length; i++) {
+    images[i].src = images[i].src.replace('%7B%7Bsite.baseurl%7D%7D','..');
+  } //{{site.baseurl}} - without spaces!  
+})();
+
+</script>
+<!-- {% endunless %} -->
