@@ -7,14 +7,15 @@ categories: Programowanie
 
 ...np. po tym gdy nadejdzie ponaglenie z Github, że coś muszę uaktualnić. 2023-01-07 - dodatek: Giscus - komentarze w Jekyll 
 
-Po ponagleniu o konieczności uaktualnienia można np. wykonać synchronizację lokalnej kopii. Następnie w dowolnym wybranym blogu:
+Po ponagleniu o konieczności uaktualnienia można np. wykonać synchronizację lokalnej kopii. 
 
 ### Zmiana na wyższą wersję Ruby
 
 1. W przypadku zmiany numeru głównego wersji **X.Y.** na nowszy: [**instalacja Ruby**](https://rubyinstaller.org/downloads/#with-devkit) w nowym miejscu; MSYS2 basic; ścieżka w PATH do nowego Ruby pojawi się najwyżej (będzie ważniejsza od starszych) .  
 Natomiast w przypadku uakt. podwersji X.Y. **Z** - tylko aktualizacja, bez miany foldera i [**bez DevKit**]((https://rubyinstaller.org/downloads/#without-devkit)). Potem jest pytanie co z MSYS2 - [2], tj. uaktualnienie działa choć rzuca błędami; a są porady, żeby wybierać opcję [3] !
-2. `gem install bundler`
+2. `gem install bundler` <small>Może pojawić się porada, np: `gem update --system 3.5.10`</small>
 
+* **Następnie w dowolnym wybranym blogu:**
 
 ### Zmiana na wyższą wersję Jekyll
 
@@ -22,7 +23,6 @@ Natomiast w przypadku uakt. podwersji X.Y. **Z** - tylko aktualizacja, bez miany
 ````bat
 gem install jekyll bundler
 ````
-Może pojawić się porada, np: `gem update --system 3.5.10`
 2. Wymuszamy instację potrzebnych bibliotek w najnowszej wersji
 ````bat
 bundle add bbbbbb  
@@ -34,14 +34,14 @@ gem "rexml", "~> 3.2"
 3. gems installed `bundle exec jekyll -v`
 4. Instalacja brakujących gem, a może wystarczy `bundle update`
 ````bat
+bundle update --bundler
 bundle update
 bundle install
 ````
-Ale pojwia się czasen błąd dot. natywnych rozszerzeń, np. dla `gem install wdm`  
-Wtedy może pomóc (ale niew wiem czy to sensowne)
-```bat
-gem install wdm -v '0.1.1' -- --with-cflags="-Wno-error=implicit-function-declaration" 
-```
+<small>Ale pojawia się czasen błąd dot. natywnych rozszerzeń, np. dla `gem install wdm`  
+Wtedy może pomóc (ale nie wiem czy to sensowne)  
+`gem install wdm -v '0.1.1' -- --with-cflags="-Wno-error=implicit-function-declaration" 
+`</small>
 5. `bundle info --path minima` - sprawdzanie ścieżki do szablonu.  
    Jest kiepska sprawa - minima 2.5.1 ma przestarzałe operacje dzielenia, które należałoby objąć funkcją `calc()`. Dla przypudrowania problemu można wpisać w `_config.yml`:  `sass:`  
    `quiet_deps: true`.
@@ -105,7 +105,7 @@ Jeśli kolejne blogi są analogiczne do uaktualnionego:
 Nowa wersja komentarzy z użyciem `giscus -> GitHub Discussions`.
 
 
-<style> pre code, small code {font-size: smaller;} </style>
+<style> pre code, small code {font-size: 0.9em;} </style>
 
 <!-- {% unless jekyll.environment %} -->
 <script>
