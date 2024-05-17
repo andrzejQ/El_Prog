@@ -12,7 +12,7 @@ Po ponagleniu o konieczności uaktualnienia można np. wykonać synchronizację 
 ### Zmiana na wyższą wersję Ruby
 
 1. W przypadku zmiany numeru głównego wersji **X.Y.** na nowszy: [**instalacja Ruby**](https://rubyinstaller.org/downloads/#with-devkit) w nowym miejscu; MSYS2 basic; ścieżka w PATH do nowego Ruby pojawi się najwyżej (będzie ważniejsza od starszych) .  
-Natomiast w przypadku uakt. podwersji X.Y. **Z** - tylko aktualizacja, bez miany foldera i [**bez DevKit**]((https://rubyinstaller.org/downloads/#without-devkit)). Potem jest pytanie co z MSYS2 - [2], tj. uaktualnienie działa choć rzuca błędami; może warto dawać [1], tj. nowa instalacja MSYS2.
+Natomiast w przypadku uakt. podwersji X.Y. **Z** - tylko aktualizacja, bez miany foldera i [**bez DevKit**]((https://rubyinstaller.org/downloads/#without-devkit)). Potem jest pytanie co z MSYS2 - [2], tj. uaktualnienie działa choć rzuca błędami; a są porady, żeby wybierać opcję [3] !
 2. `gem install bundler`
 
 
@@ -22,6 +22,7 @@ Natomiast w przypadku uakt. podwersji X.Y. **Z** - tylko aktualizacja, bez miany
 ````bat
 gem install jekyll bundler
 ````
+Może pojawić się porada, np: `gem update --system 3.5.10`
 2. Wymuszamy instację potrzebnych bibliotek w najnowszej wersji
 ````bat
 bundle add bbbbbb  
@@ -33,10 +34,17 @@ gem "rexml", "~> 3.2"
 3. gems installed `bundle exec jekyll -v`
 4. Instalacja brakujących gem, a może wystarczy `bundle update`
 ````bat
+bundle update
 bundle install
 ````
-
-5. `bundle info --path minima` - sprawdzanie ścieżki do szablonu
+Ale pojwia się czasen błąd dot. natywnych rozszerzeń, np. dla `gem install wdm`  
+Wtedy może pomóc (ale niew wiem czy to sensowne)
+```bat
+gem install wdm -v '0.1.1' -- --with-cflags="-Wno-error=implicit-function-declaration" 
+```
+5. `bundle info --path minima` - sprawdzanie ścieżki do szablonu.  
+   Jest kiepska sprawa - minima 2.5.1 ma przestarzałe operacje dzielenia, które należałoby objąć funkcją `calc()`. Dla przypudrowania problemu można wpisać w `_config.yml`:  `sass:`  
+   `quiet_deps: true`.
 6. UWAGA- w nazwach plików chyba nie może być nie-ascii, np. w URL. Dodanie `_` przed nazwą pliku/foldera chyba powoduje ignorowanie tego
 podczas `bundle exec jekyll serve`. Dodałem `_` przed *.URL i *.cmd.
 7. `git commit`
@@ -56,9 +64,11 @@ bundle exec jekyll serve
 
 Jeśli kolejne blogi są analogiczne do uaktualnionego:
 
-1. Nadpisuję nowy `gemfile`
-2. `bundle update`
-3. `git commit`
+1. Nadpisuję nowy `gemfile` (i dopisuję w `_config.yml` jak w p.5 powyżej, gdy trzeba)
+2. `bundle update --bundler`
+3. `bundle update`
+4. Czy działa? `_r.cmd`
+5. `git commit`
 
 
 ### Jeśli trzeba - instalacja szablonu "minima"
