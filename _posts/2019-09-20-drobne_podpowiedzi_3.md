@@ -5,9 +5,12 @@ date:   2020-11-24 06:54:00 +0100
 categories: Programowanie
 ---
 
-_+ 02.03.2024_{: .date} [Szukanie ścieżek do plików .exe]({{site.url}}{{site.baseurl}}{{page.url}}#szukanie-plików-exe-dostępnych-poprzez-path) * 
+_+ 02.03.2024_{: .date} _+ 05.06.2024_{: .date}  
+[Szukanie ścieżek do plików .exe]({{site.url}}{{site.baseurl}}{{page.url}}#szukanie-plików-exe-dostępnych-poprzez-path) * 
 [Python Launcher for Windows]({{site.url}}{{site.baseurl}}{{page.url}}#python-launcher-for-window) *
-[Instalacja kolejnej wersji Python w Windows]({{site.url}}{{site.baseurl}}{{page.url}}#instalacja-kolejnej-wersji-python-w-windows)
+[Instalacja kolejnej wersji Python]({{site.url}}{{site.baseurl}}{{page.url}}#instalacja-kolejnej-wersji-python-w-windows) *
+[cmd - przerwij gdy błąd]({{site.url}}{{site.baseurl}}{{page.url}}#cmd---przerwij-gdy-błąd)
+
 
 <style>.date{font-size: smaller;color:#828282;}</style>
 
@@ -274,7 +277,18 @@ $mGl.keys | foreach {"py -m pip install $($_)"}
 
 7 . `py -m pip install --upgrade pip setuptools wheel`
 
-8 . Odtwarzam potrzebne `py -m pip install ...` z listy z p.2
+8 . Odtwarzam potrzebne `py -m pip install ...` z listy z p.2.
+
+9 . Gdy nie potrzebuję poprzezdniej wersji to ją _odinstalowywuję_ (a nie _usuwam_).
+
+- - - - 
+
+### cmd - przerwij gdy błąd
+
+``` bat
+py xyz.py "param. . ." || ( echo ___ERROR___ & pause & goto:EOF )
+```
+
 
 - - - -
 
