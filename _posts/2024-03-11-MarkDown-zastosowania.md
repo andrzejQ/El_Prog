@@ -52,7 +52,7 @@ W ten sposób można dołączać też inne pliki, np. tekstowe, czy takie jak PD
 
 #### Moja konfiguracja wtyczek MarkDown
 
-Obie wtyczki wymagają zezwolenia na pracę z plikami lokalnymi - co jest opisane w ich instrukcjach.
+Obie wtyczki wymagają zezwolenia na pracę z plikami lokalnymi (Advanced opt./Szczegóły - File Access) - co jest opisane w ich instrukcjach.
 
 **Markdown Viewer**:
 
