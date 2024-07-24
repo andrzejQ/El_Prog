@@ -503,7 +503,7 @@ import re
 url='https://andrzejq.github.io/El_Prog/'
 response = requests.get(url) #;print(response.text)
 html = response.text
-# Ta prymitywna metoda nie uwzględnia drzewiastej struktury HTML
+# Ta poniższa prymitywna metoda nie uwzględnia drzewiastej struktury HTML
 # więc czasem wato usuwać zbędne fragmenty, np. z początku
 html = re.sub(r'^.*(<h2 class="post-list-head)', r'\1', html, 
   count=1, flags=re.DOTALL) # '<h2 class="post-list-heading">Spis ...
@@ -516,7 +516,13 @@ aLi2 = re.findall(r'<h3>\s+' + re.escape('<a class="post-link"')
 #'\t            Seryjne wypełnianie formularza HTML\t          '), ...
 ````
 
-<small>Można też rozdzielić wszystkie tagi jako listę i liczyć `....startswith()` ich zamknięcia: `tags = re.split(r'(?=<)', html)`</small> 
+<small>Można też rozdzielić wszystkie tagi jako listę:  `tags = re.split(r'(?=<)', html)` i liczyć z pomocą `s.startswith()` ich otwarcia i zamknięcia.  
+Może się też przydać wydzielanie w liście interesujących nas tagów - np. `<td .... </td>`:  
+`html_td = re.split(r'(?=<td)|(?<=</td>)',html)` (rozłupuje tuż przed `<td` oraz tuż po `</td>`)  
+Można je wyszukać w `htm_td` warunkiem: `s.startswith('<td') and s.endswith('/td>)`
+</small> 
+
+.
 
 Treść w UTF-8 z dowolnego kodowania:
 
