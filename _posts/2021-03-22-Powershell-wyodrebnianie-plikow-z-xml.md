@@ -81,6 +81,8 @@ Odnośniki:
 * <https://www.powershellmagazine.com/2013/08/19/mastering-everyday-xml-tasks-in-powershell/>
 * <https://dotnet-helpers.com/powershell/reading-xml-files-with-powershell/>
 * <https://andrzejq.github.io/Office_S_Tips/pki/2019/09/19/Podpisy_cyfrowe.html>
+* Być może trafiłeś na tą stronę aby odczytać e-sprawozdanie finansowe. Możesz użyć aplikacji Ministerstwa Finansów działającej od razu w przeglądarce (bez instalacji):  
+  <https://www.podatki.gov.pl/e-sprawozdania-finansowe/aplikacja/>
 
 
 <style> code {font-size: smaller;} </style>
