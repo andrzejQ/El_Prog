@@ -8,8 +8,8 @@ categories: Programowanie
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
 [2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) * 
 [3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
-[4. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#4pandoc---md) 
-
+[4. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#4pandoc---md) * 
+[5. PowerToys -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#5powertoys---md) 
 
 <style>.date{font-size: smaller;color:#828282;}</style>
 
@@ -112,7 +112,7 @@ Po zainstalowaniu [`Markdown it!`](https://github.com/markdown-it/markdown-it) d
 
 W początkowej części skryptu jest nagłówek HTML, gdzie znaki `< > +` są (w skrypcie) poprzedzone znakiem `^`. Tekst nagłówka można sobie zmieniać dla swoich potrzeb.
 
-Parametrem skryptu jest nazwa pliku MD, w otoczona `"..."` jeśli zawiera spacje.
+Parametrem skryptu jest nazwa pliku MD, w otoczona cudzysłowem `"..."` jeśli zawiera spacje.
 
 <small>Plik `markdown-viewer2.css`, który jest używany w skrypcie to styl skopiowany z wtyczki "Markdown Viewer" dla Edge</small>
 .
@@ -141,6 +141,13 @@ pandoc -i FROM.md -o (__TO__).html --standalone -H %appdata%\pandoc\markdown-v.h
 ### 4. pandoc -> MD
 
 * Konfiguracja TotalCommander [pandoc -> MD]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-Notepad++.config %}) - TotalCommnder \ pandoc -> MD
+
+.
+
+
+### 5. PowerToys -> MD
+
+* W [**PowerToys**](https://learn.microsoft.com/pl-pl/windows/powertoys/) - narzędzie "Wklejanie zaawansowane" ("Advanced Paste") `[ ⊞ Win + ⇧ Shift + V ]` pozwala m.in. na przekonwertowanie zawartości schowka na tekst markdown.
 
 
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
