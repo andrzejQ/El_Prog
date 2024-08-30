@@ -807,6 +807,8 @@ Natomiast w celu skorzystania ze środowiska wirtualnego bez konieczności aktyw
 
 
 - - - - - -
+.
+* Zob. też: [TotalCommander - konfiguracja]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-Notepad++.config %}#totalcommander)
 
 &nbsp;
 
