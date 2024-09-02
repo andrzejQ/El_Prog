@@ -149,6 +149,25 @@ with open('a.xml') as fd:
 Można [spłaszczać strukturę zagnieżdżoną](https://www.freecodecamp.org/news/how-to-flatten-a-dictionary-in-python-in-4-different-ways) (najprościej z pomocą [FlatDict](https://github.com/gmr/flatdict/)).
 
 
+### XML
+
+<!-- https://github.com/andrzejQ/filedate/blob/master/Files/filedate/utils/from_metadata.py -->
+<details markdown=1><summary markdown="span">Proste struktury XML np. konfigurację czy metadane, można przekonwertować na płaski słownik {tag: wartość, ....} . . . </summary>
+
+````py
+  import xml.etree.ElementTree as ET
+  metadata = {}
+  root = ET.fromstring('... xml ...')
+  #$# print(root.find('.//{*}creation-date')) #$# if only a single, specific element
+  for el in root.iter(): #recus. (depth first order)
+    metadata[re.sub(r'.*\}','',el.tag)] = el.text #sub(): remove prefix '{...}'
+    #$# print(f'{el.tag=}') #$# eq. el.tag='{http://purl.org/dc/terms/}created'
+  return metadata #
+````
+</details>
+
+
+
 ### CSV
 
 ````py
