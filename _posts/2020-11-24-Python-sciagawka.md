@@ -271,7 +271,7 @@ type         ::=  "b"|"c"|"d"|"e"|"E"|"f"|"F"|"g"|"G"|"n"|"o"|"s"|"x"|"X"|"%"
 
 * [Format Specification Mini-Language](https://docs.python.org/pl/3/library/string.html#formatspec)  -> docs.python.org/3/
 * [f-str 73 examples](https://miguendes.me/73-examples-to-help-you-master-pythons-f-strings) -> miguendes.me
-
+* [Python f-strings Are More Powerful Than You Might Think](https://martinheinz.dev/blog/70) -> martinheinz.dev
 
 ````py
 >>> print ('opis: ',end =''); print (x)
