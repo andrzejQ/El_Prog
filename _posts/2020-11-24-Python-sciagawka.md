@@ -294,7 +294,7 @@ x = x.replace('a','A',1) # 1 wystąpienie
 '01 02 03 404'
 ````
 
-Zamienia wszytko na znaleziony podciąg, chyba, że nic nie pasuje, to nic nie robi:
+Zamienia cały wiersz  na znaleziony podciąg, chyba, że nic nie pasuje, to nic nie robi:
 ````py
 >>> re.sub(r'^.*?(\d{2,}).*$', r'\1', 'a 1 b234c5')
 '234'
