@@ -96,6 +96,28 @@ czyli  `(?>\r\n|\n|\x0B|\f|\r|\x85|\x{2028}|\x{2029})`, np. 2 znaki `\r\n` (Wi
  
 ````
 
+
+* Import e-maili **z pliku vCard *.VCF do Excela**. Chodzi o wieloktorne dane w pliku VCF w rodzaju:
+
+```txt
+...
+FN:Nazwisko Imię
+TEL;TYPE=work:1700000000
+EMAIL;TYPE=INTERNET;TYPE=HOME:abc@abc.pl
+EMAIL:biuro@abc.pl
+ADR;TYPE=work:
+...
+```
+
+Plik otwieram w Notepad++ lub innym edytorze z obsługą wyrażeń regularnych (opcja `gm`) i zamieniam na kolumny rozdzielone tabulacją, które można skopiować do Excela. Kol. 2 - nazwa wyświetlana (tj. FN), kol. 3 - e-mail. Opcjonalnie kol. 4 i 5  - dalsze emaile. W kol. 1 są śmieci (na końcu)
+
+````regexp
+[\S\s]*?^FN.*:(.+)$[\S\s]*?^EMAIL.*:(.+)$([\r\n]+EMAIL.*:(.+)$)?([\r\n]+EMAIL.*:(.+)$)?
+\t$1\t$2\t$4\t$6\n
+````
+<small>(lub w Pythonie zamień na: `\t\1\t\2\t\4\t\6\n`)</small>
+
+
 ------
 * <https://www.regular-expressions.info/>
 * <https://regex101.com/> - testowanie
