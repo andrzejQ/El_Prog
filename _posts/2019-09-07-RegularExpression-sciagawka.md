@@ -53,13 +53,15 @@ Gdy chodzi o wyrażenia tylko dla "Znajdź", to będzie 1 wiersz abo 3+ .
 * Usuwanie całych wierszy, które nie zaczynają się od "abc" (łącznie z końcem wiersza)
 
 ````regexp
-^(?=abc).*\R
+^(?!abc).*\R
 ¤
 ````
 
-`\R` ro [uniwersalny znak końca wiersza]({{page.docs}}#user-content-special-control-escapes)
-czyli  `(?>\r\n|\n|\x0B|\f|\r|\x85|\x{2028}|\x{2029})`, np. 2 znaki `\r\n` (Windows) lub 1 znak `\n` (Unix). 
-<small>Nie może być używany wewnątrz `[...]`.</small>
+`\R` ro [uniwersalny znak końca wiersza w Notepad++]({{page.docs}}#user-content-special-control-escapes),
+ np. 2 znaki `\r\n` (Windows) lub 1 znak `\n` (Unix),
+a dokładniej to `(?>\r\n|\n|\x0B|\f|\r|\x85|\x{2028}|\x{2029})`.  
+<small>Nie może być używany wewnątrz `[...]` ani `(?<...)`.</small>  
+Krócej - może to być `(?>\r\n|\n|\r)`, lub jeśli wiadomo, że mamy tylko pliki tekstowe Windows/Unix to `\r?\n`.
 
 
 * Znajdź cały wiersz, który nie kończy się na "xyz" (w tym pusty)
@@ -97,7 +99,15 @@ czyli  `(?>\r\n|\n|\x0B|\f|\r|\x85|\x{2028}|\x{2029})`, np. 2 znaki `\r\n` (Wi
 ````
 
 
-* Import e-maili **z pliku vCard *.VCF do Excela**. Chodzi o wieloktorne dane w pliku VCF w rodzaju:
+* Nie-puste wiersze pliku tekstowego nie rozdzielone pustym wierszem zamień na wiersz rozdzielany tabulacją (kolumny Excela):
+
+````regexp
+\r?\n(?!\r?\n)
+\t
+````
+
+
+* Import e-maili **z pliku vCard *.VCF do Excela**. Chodzi o wielokrotne dane w pliku VCF w rodzaju:
 
 ```txt
 ...
@@ -116,6 +126,7 @@ Plik otwieram w Notepad++ lub innym edytorze z obsługą wyrażeń regularnych (
 \t$1\t$2\t$4\t$6\n
 ````
 <small>(lub w Pythonie zamień na: `\t\1\t\2\t\4\t\6\n`)</small>
+
 
 
 ------
