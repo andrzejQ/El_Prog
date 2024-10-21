@@ -169,6 +169,17 @@ Odnośniki:
 * <https://github.com/MatthiasValvekens/pyHanko/issues/8#issuecomment-803586088>
 * [Podpisy cyfrowe](https://andrzejq.github.io/Office_S_Tips/pki/2019/09/19/Podpisy_cyfrowe.html)
 
+- - - -
+
+Uwagi:
+{: style="font-size: smaller;"}
+
+1. Nie jest jasne jak wstawiać pole prostokątne w LibreOffice, tak, aby po eksporcie do PDF było popranie rozpoznawane jako do wstawiania podpisu. Działają pola w komórkach tabeli.
+2. Taki PDF po podpisaniu ważnym e-podpisem jest od razu w Adobe Reader wyświetlany jako poprawnie podpisany. Także inne programy do weryfikacji (np. Sigillum Sign) poprawnie go weryfikują, z ewentualnym ostrzeżeniem, jeśli nie wszystkie pola podpisu są wypełnione.
+3. Wysłanie pliku z tak przygotowanymi polami do podpisywania podpisem zaufanym (<https://moj.gov.pl>-zaloguj, Podpisz dokument elektronicznie) kończy się niepowodzeniem: _"Przepraszamy plik jest nieprawidłowy. 
+Wybierz poprawny i spróbuj przesłać ponownie."_ Ogólnie taki sposób podpisywania na _gov.pl_ pomija pola podpisu, ale coś jest nie tak, że nawet nie można pliku wczytać. Ewentualnie można taki dokument podpisać w formacie XAdES...
+{: style="font-size: smaller;"}
+
 <style> pre code {font-size: smaller;} </style>
 
 <!-- {% unless jekyll.environment %} -->
