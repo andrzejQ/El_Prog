@@ -45,7 +45,10 @@ Ale są 2 problemy: wstawiana jest tylko pierwsza strona tekstu i dodatkowo wier
 Z pomocą przychodzi opisane powyżej pole **`{IncludeText}`** i sztuczka ze ścieżkami względnymi do plików.
 
 
-Gdy mam **równocześnie** **`{IncludeText}`** **i** wstawiony **obiekt** to zdaje się wtedy pojawia się groźne ostrzeżenie po otwarciu docx:  
+<details markdown=1><summary markdown="span">Gdy mam **równocześnie** **`{IncludeText}`** **i** wstawiony **obiekt** to (chyba) pojawia się groźne ostrzeżenie **...**▼ <br> . </summary>
+{: style="font-size:0.9em;color:DarkSlateBlue;"}
+
+... po otwarciu docx:  
 "Ten dokument zawiera pola, które mogą udostępniać dane zewnętrznym plikom i
 witrynom internetowym".  
 I to pomimo tego, że używam w **`{IncludeText}`** przełącznika `\!` ( = Zapobiegaj aktualizacji pól), a potem aktualizuję pola pojedynczo lub hurtowo (nie wiem, czy ten przełącznik coś daje).  
@@ -54,17 +57,19 @@ Warto więc nie stosować wstawiania obiektów, gdy korzystamy z **`{IncludeText
 "Edytuj linki do plików" (prawy, dolny róg - to pojawia się poniżej menu: "Powiązane dokumenty", o ile są jakieś linki w dokumencie)
 {: style="font-size:0.9em;color:DarkSlateBlue;"}
 
-Przepis wstawiania <small>(tu wstawiane są całe dokumenty - można też wstawiać tylko fragmenty korzystając z zakładek)</small>:
+</details>
 
-1. Treści w plikach wstawianych umieszczam w ich głównej części, a pozostałe elementy w nagłówku i stopce (te są pomijane podczas scalania). Pliki umieszczam w podfolderze, np. "docs" (gdy jest ich dużo).
+**Przepis wstawiania treści z wielu plików DOCX** <small>(tu wstawiane są całe dokumenty - można też wstawiać tylko fragmenty korzystając z zakładek)</small>:
+
+1. **Treści w plikach wstawianych** umieszczam w ich głównej części, a pozostałe elementy w nagłówku i stopce - te są pomijane podczas scalania. Pliki umieszczam w podfolderze, np. "docs" (gdy jest ich dużo).
 2. Dla każdego scalanego pliku umieszczam w dokumencie głównym pole  
    **`{ IncludeText "{ FileName \p }\\..\\docs\\NazwaPliku.docx"}`**,  
    gdzie nawiasy klamrowe oznaczają wstawione pole uzyskane naciśnięciem `[Ctrl+F9]`,  
    **`{ FileName \p }`** to zagnieżdżone pole odpowiadające pełnej nazwie pliku głównego,  
    a `\\..\\` wyznacza ścieżkę tej dla nazwy, pomijając nazwę pliku.  
    `[Ctrl+F9]` ma przydatną właściwość - można najpierw wpisać treść wnętrza pola, zaznaczyć i nacisnąć `[Ctrl+F9]`. Treść zostanie otoczona znacznikiem pola. 
-     * Ale można też z powodu takiego działania zaliczyć nieprzyjemna sytuację - po zaznaczeniu całego, dużego dokumentu i przypadkowym naciśnięciu `[Ctrl+F9]` całość robi się ogromnym polem, a wynikowy dokument jest jakby pusty! Żeby wyciąć wnętrze tego mega-pola i skopiować obok warto sobie wpisać kilka spacji obok zewnętrznych znaczników pola.
-     * <span id=limit260>Sztuczka </span> z `{ FileName \p }\\..\\` wymaga stosowania nie za długich nazw plików i folderów.  
+     1. Ale można też z powodu takiego działania zaliczyć nieprzyjemna sytuację - po zaznaczeniu całego, dużego dokumentu i przypadkowym naciśnięciu `[Ctrl+F9]` całość robi się ogromnym polem, a wynikowy dokument jest jakby pusty! Żeby wyciąć wnętrze tego mega-pola i skopiować obok warto sobie wpisać kilka spacji obok zewnętrznych znaczników pola.
+     2. <span id=limit260>Sztuczka </span> z `{ FileName \p }\\..\\` wymaga stosowania nie za długich nazw plików i folderów.  
         Po rozwinięciu pola i dołożeniu nazwy pliku wstawianego całość musi się zmieścić w 260 znakach. 
         I nie ma tu znaczenia, czy w rejestrze zostało zadeklarowane używanie dłuższych nazw `LongPathsEnabled=1`.  
         Na szczęście nie przeszkadza używanie liter diakrytycznych w nazwach.  
@@ -77,8 +82,8 @@ Przepis wstawiania <small>(tu wstawiane są całe dokumenty - można też wstawi
         * Utwórz w dowolnym miejscu `[Ctrl+F9]` - pole **`{ FileName \p }`**, zaznacz go i wytnij do schowka `[Ctrl+X]`.
         * `[Ctrl+H]`, w znajdź tekst `{ FileName \p }` tj. ze zwykłymi nawiasami klamrowymi, w zamień na `^c` tj. zawartość schowka.
         * `[Zamień wszystko]`
-        * `[Ctrl+A]`=zaznacz wszystko, `[F9]`=aktualizuj, `[Alt-F9]`=przełącz na wynik
-     {: style="font-size:0.9em;color:DarkSlateBlue;"}
+        * `[Ctrl+A]`=zaznacz wszystko, `[F9]`=aktualizuj, `[Alt+F9]`=przełącz na wynik
+     {: style="font-size:0.84em;color:DarkSlateBlue;"}
 
 [Kilka skrótów klawiaturowych](https://support.microsoft.com/pl-pl/office/skr%C3%B3ty-klawiaturowe-w-programie-word-95ef89dd-7142-4b50-afb2-f762f663ceb2#bkmk_fieldswin) 
 przydatnych do pracy z polami:  
