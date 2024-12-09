@@ -481,6 +481,12 @@ liPrac_ = sorted( liPrac, key = lambda r: (odwrKluczTytSt(r[1]), locale.strxfrm(
 #   [['Zych Jan', 'prof.'], ['Kowal Jan', 'dr'], ['Ślisz Jan', 'mgr'], ['Zorba Jan', 'mgr']]
 ````
 
+Gdy `r` jest typu `namedtuple`
+````py
+from collections import namedtuple
+import locale; locale.setlocale(locale.LC_ALL, "")
+ ... key=lambda r: locale.strxfrm(r.name) 
+````
 
 ## 8 . filter() replacement
 
