@@ -5,7 +5,7 @@ date:   2020-11-24 06:54:00 +0100
 categories: Programowanie
 ---
 
-_+ 02.03.2024_{: .date} _+ 05.06.2024_{: .date}  
+_+ 02.03.2024_{: .date} _+ 05.06.2024_{: .date} _+ 19.12.2024_{: .date}  
 [Szukanie ścieżek do plików .exe]({{site.url}}{{site.baseurl}}{{page.url}}#szukanie-plików-exe-dostępnych-poprzez-path) * 
 [Python Launcher for Windows]({{site.url}}{{site.baseurl}}{{page.url}}#python-launcher-for-window) *
 [Instalacja kolejnej wersji Python]({{site.url}}{{site.baseurl}}{{page.url}}#instalacja-kolejnej-wersji-python-w-windows) *
@@ -198,15 +198,15 @@ Zauważ, że w poleceniach setx mamy [celowo niezamknięty cudzysłów](https://
 <details markdown=1><summary markdown="span">`Python pip_install_list.py ...` <br> . . . </summary>
 
 ````py
-# Lista modułów zainstalowanych przez `pip install`
+# Lista modułów zainstalowanych przez `pip install` (działa także w Linux i .venv)
 import subprocess # https://stackoverflow.com/questions/4760215/
 import re
-py = 'py' # py='c:\Kompil\Python39\python'
+py = 'python'# 'py' # py='c:\Kompil\Python39\python'
 pip_freeze = subprocess.run([py,'-m','pip','freeze'], capture_output=True, text=True).stdout 
 # 'rauth==0.7.3\nrequests==2.25.1\n...
 modules = [re.sub(r'==.+$', '', m) for m in pip_freeze.split()] # bez `==v.x.y`
 # ['rauth','requests',...
-print('\n'.join([f'''py -m pip install {m}''' for m in modules]))
+print('\n'.join([f'''{py} -m pip install {m}''' for m in modules]))
 ####################################################
 #Wyszukanie modułów głównych z pominięciem zależnych (to trochę trwa!)
 mGl = set()
@@ -230,7 +230,7 @@ for m in modules:
       mGl.add(m) 
 
 print('\n  ',"Moduły nadrzędne:")
-print('\n'.join([f'''py -m pip install {m}''' for m in mGl]))
+print('\n'.join([f'''{py} -m pip install {m}''' for m in mGl]))
 ````
 </details>
 
@@ -238,16 +238,16 @@ print('\n'.join([f'''py -m pip install {m}''' for m in mGl]))
 
 ````powershell
 # Lista modułów zainstalowanych przez `pip install` (bez `==v.x.y`)
-($m = (py -m pip freeze).Split("`n") | foreach { $_ -replace '==.+$', ''})
+($m = (python -m pip freeze).Split("`n") | foreach { $_ -replace '==.+$', ''})
 # Instalacja wszystkich modułów - spis:
-# $m | foreach {"py -m pip install $($_)"}
+# $m | foreach {"python -m pip install $($_)"}
 
 ###################################################
 #Wyszukanie modułów głównych z pominięciem zależnych (to trochę trwa!)
 $mGl = @{}
 foreach ($k in $m) {
   $k
-  $v = (py -m pip show $k) | Select-String "^Required-by"
+  $v = (python -m pip show $k) | Select-String "^Required-by"
   if ($v.ToString().Length -le "Required-by: ".Length) {
     $mGl[$k] = $v
   }
@@ -255,10 +255,11 @@ foreach ($k in $m) {
 # $mGl["rauth"]   -> "Required-by: " (tzn. główny moduł)
 # $mGl["requests"]-> "Required-by: rauth" (moduł zależny - sam się zainstaluje)
 "Instalacja modułów głównych - spis"
-$mGl.keys | foreach {"py -m pip install $($_)"}
+$mGl.keys | foreach {"python -m pip install $($_)"}
 ````
 </details>
 
+* [Python update](https://stackoverflow.com/questions/45137395/how-do-i-upgrade-the-python-installation-in-windows-10?utm_source=pocket_shared) »stackoverflow.com
 
 3 . <https://www.python.org/>
 - Download
