@@ -14,30 +14,30 @@ _+ 02.03.2024_{: .date} _+ 05.06.2024_{: .date} _+ 19.12.2024_{: .date}
 
 <style>.date{font-size: smaller;color:#828282;}</style>
 
-### Wyszukiwanie dostępnych wersji Pythona w Windows
 
 #### W SKRÓCIE
 
 Reguły, które zamierzam sobie stosować:
 
 1. Uruchamianie plików _*.py_ jako skryptów Windows przez _py.exe_ tj. _Python Launcher for Windows_, głównie z opcją wynikającą z pierwszeństwa na liście ścieżek do _python.exe_ w zmiennej środowiskowej _PATH_.
-2. Używanie w pierwszym wierszu pliku _*.py_: `#!/usr/bin/env python` - właśnie celu korzystania z _PATH_ (na końcu nie może być żadnych cyfr - tylko samo _python_)
-3. W ["Edytuj zmienne środowiskowe systemu"](#edytuj-zmienne) należy po instalacji kolejnej wersji Pythona przenieść ścieżki do _Python.exe_ z _Path - system_ do _Path - użytkownika_, żeby umożliwić sobie wygodniejszą ich modyfikację. - Zdaje się, że w nowszych wersjach ścieżka już od razu jest w  _Path - użytkownika_.
-4. Na pierwszym miejscu w _Path - użytkownika_ wpisuję *%PY_PTH%*, a zmienną środowiskową *PY_PTH* ustawiam domyślnie na _.venv\Scripts_ np. poleceniem `setx PY_PTH .venv\Scripts` (to daje ścieżkę względną w _Path_). W ten sposób skrypt uruchamiany z miejsca, gdzie jest wygenerowane środowisko wirtualne będzie wywoływał _python.exe_ właśnie z tego środowiska. Dla doraźnej potrzeby można zmieniać *PY_PTH* na inną ścieżkę.
-5. W _Path_ - użytkownika_ poniżej *%PY_PTH%* umieszczam ścieżkę do wybranego _python.exe_, który ma być uruchamiany, gdy nie korzystam ze środowiska wirtualnego. <small>Można też dodać do _Path_ folder _Scripts_.</small>
+2. Używanie w pierwszym wierszu pliku _*.py_: `#!/usr/bin/env python` - właśnie celu korzystania z _PATH_ (na końcu nie może być żadnych cyfr pod-wersji - tylko samo _python_ lub _python3_)
+3. W ["Edytuj zmienne środowiskowe systemu"](#edytuj-zmienne) należy po instalacji kolejnej wersji Pythona przenieść ścieżki do _Python.exe_ z _Path - system_ do _Path - użytkownika_, żeby umożliwić sobie wygodniejszą ich modyfikację. - W nowszych wersjach ścieżka już od razu jest w  _Path - użytkownika_.
+4. Na pierwszym miejscu w _Path - użytkownika_ wpisuję *%PY_PTH%*, a zmienną środowiskową *PY_PTH* ustawiam domyślnie na `..\.venv\Scripts` np. poleceniem `setx PY_PTH ..\.venv\Scripts` (to daje ścieżkę względną w _Path_). W ten sposób skrypt uruchamiany z miejsca, gdzie jest wygenerowane środowisko wirtualne będzie wywoływał _python.exe_ właśnie z tego środowiska. Dla doraźnej potrzeby można zmieniać *PY_PTH* na inną ścieżkę.
+5. W _Path_ - użytkownika_ poniżej *%PY_PTH%* umieszczam ścieżkę do wybranego _python.exe_, który ma być uruchamiany, gdy nie korzystam ze środowiska wirtualnego. <small>Warto też dodać do _Path_ folder _Scripts_.</small>
 6. Na sam koniec _Path - użytkownika_  przenoszę  
 `%USERPROFILE%\AppData\Local\Microsoft\WindowsApps`,  
 żeby się nie włączał sklep Microsoft po wywołaniu _python.exe_
-7. [Środowsko wirtualne](https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/) generuję w miejscu (tj. folderze) skryptu _*.py_ za pomocą:
+7. [Środowsko wirtualne](https://chriswarrick.com/blog/2018/09/04/python-virtual-environments/) generuję w miejscu ponad folderem skryptu _*.py_ (czyli polecenia jak poniżej wykonuję w folderze mojego skryptu *.py):
 ````bat
-ścieżka\do\wzorcowego\python.exe -m venv .venv
-.venv\Scripts\python -m pip install --upgrade pip setuptools wheel
-setx PY_PTH .venv\Scripts
+ścieżka\do\wzorcowego\python.exe -m venv ..\.venv
+..\.venv\Scripts\python -m pip install --upgrade pip setuptools wheel
+setx PY_PTH ..\.venv\Scripts
 ````
 Przy takich ustawieniach nie jest potrzebna aktywacja środowiska wirtualnego. Będzie się włączało to, które jest w folderze wywoływanego skryptu.  
 Ostatnie polecenie jest zbędne, gdy nie zmienialiśmy *PY_PTH*.  
 
 - - - -
+### Wyszukiwanie dostępnych wersji Pythona w Windows
 
 #### Szukanie plików ".exe" dostępnych poprzez PATH 
 

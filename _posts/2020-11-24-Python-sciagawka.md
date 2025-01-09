@@ -736,9 +736,10 @@ writetxt=with open('$.txt','w',newline='\r\\n',encoding='utf-8-sig') as txt: txt
 <small>Na podstawie - NppExec help/manual - 4.6.4. "Running Python & wxPython" oraz  
 <https://mountcreo.com/article/running-and-debugging-python-in-notepad-with-idle/></small>
 
-Skrypt "RunPython" dla wersji interaktywnej Pythona:
+Skrypt "RunPython" dla wersji interaktywnej Pythona:  
+<small>Tu dodatkowo dla grupy projektów umieszczonych w folderach poniżej `F:\proj-py\` wywoływane jest wspólne środowisko wirtualne, do którego ścieżka jest dokładana na początku zimennej środowiskowej `PATH`</small>
 
-1. Wtyczki \ NppExec: Execute NppExec Script...  
+1.Wtyczki \ NppExec: Execute NppExec Script...  
 ````bat
 npp_console 1
 npp_console local -
@@ -746,16 +747,30 @@ npp_save
 cd "$(CURRENT_DIRECTORY)"
 set local @exit_cmd_silent = exit()
 npp_setfocus con
+//     zmiana PATH, gdy plik.py pod określonym folderem nadrzędnym
+set local UPDIR ~ substr 0 11 $(CURRENT_DIRECTORY)
+if "$(UPDIR)" == "F:\proj-py\" then
+  env_set local PATH = \home\$(SYS.USERNAME)\.venv\py3.12\Scripts;$(SYS.PATH)
+endif
 npp_console local +
+echo UPDIR="$(UPDIR)"
 python -i -u -X utf8 "$(FILE_NAME)"
 ````
  \ [Save] \ Nazwa np. "RunPython" \ [OK]
 
-2. Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
+test.py:
+````py
+#!/usr/bin/env python
+"""Ścieżka do środowiska python.exe i numer wersji"""
+import sys
+print('py->',sys.executable,'\n',sys.version)
+````
+
+2.Wtyczki \ NppExec \ Console Output Filters \ HighLight:  
 [x] `*File "%ABSFILE%", line %LINE%`  
 Red 0x`FF`
 
-3. Console Output...: UTF8
+3.Console Output...: UTF8
 
 <small>(dalsze 4..6 chyba zbędne)  
 4.Wtyczki \ NppExec \ Advanced Options... :  
