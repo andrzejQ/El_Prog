@@ -14,6 +14,7 @@ String.prototype.fun1 = function  () {...}
 `x: ${x}`
 str.replace(patternStr, replacementStr) //jednorazowo
 str.replace(RegExp, replacement) //np. str.replace(/ab/g, '');
+if (str.match(/;|"/)) str=`"${str.replace(/"/g, '""')}"`;
 "123"+1 //"1231" 
 +"123"+1 //124
 
@@ -23,9 +24,25 @@ $.get('https://domain.pl/rss/70.xml', function (data){
   $(data).find('item').each( function () {let $el = $(this);...
 
 $div.append($li1.clone());
+````
 
+
+````js
 const obj = { a:'d1', ą:'d2' }; obj.a = 'x';
 [ obj.a, obj['a'], obj.ą, obj['ą'] ] //[ "x", "x", "d2", "d2" ]
+
+const obj1 = Object.assign({}, obj); //shallow clone
+
+Object.entries(obj).forEach ( ([key, value], index) => { ... } ); 
+Object.keys(obj)     //key - liczbowe nieujemne są na początku (choć są typu string),
+Object.values(obj)   //poza tym kolejność wprowadzania jest zachowana.
+
+for (const key in obj) { ... };
+````
+
+````js
+arr.push(el1, el2);
+arr = [].concat( arr1, arr2 ) //shallow clone
 ````
 
 ### 1: Inne nazwy plików po załadowaniu do CMS
