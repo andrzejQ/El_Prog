@@ -33,16 +33,19 @@ const obj = { a:'d1', ą:'d2' }; obj.a = 'x';
 
 const obj1 = Object.assign({}, obj); //shallow clone
 
+for (const key in obj) { ... };
+obj->arr:
 Object.entries(obj).forEach ( ([key, value], index) => { ... } ); 
 Object.keys(obj)     //key - liczbowe nieujemne są na początku (choć są typu string),
-Object.values(obj)   //poza tym kolejność wprowadzania jest zachowana.
-
-for (const key in obj) { ... };
+Object.values(obj)   //poza tą regułą kolejność wprowadzania jest zachowana.
 ````
 
 ````js
 arr.push(el1, el2);
 arr = [].concat( arr1, arr2 ) //shallow clone
+````
+````js
+JSON.stringify() //prawie jak py repr()
 ````
 
 ### 1: Inne nazwy plików po załadowaniu do CMS
