@@ -19,8 +19,8 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
 
 `($x='coś')` , <code>"2+3=$(2+3)`n"</code> , `@()`, `${a b}`  
-<code>Write-Host "`$x: $x" -ForegroundColor Yellow</code>
-
+<code>Write-Host "`$x: $x" -ForegroundColor Yellow</code>  
+prawie jak py repr(): `$o.ToString() | ConvertTo-Json`
 
 ### 1: Podstawy
 
@@ -106,6 +106,22 @@ $fWy = new-object System.IO.StreamWriter( ('..\Wyniki\' + 'wy1.txt'), $false, $E
 ````
 
 * [The many ways to read and write to files](https://powershellexplained.com/2017-03-18-Powershell-reading-and-saving-data-to-files/)  -> powershellexplained.com
+
+Pliki tekstowe UTF-8 z/bez BOM, ANSI
+````powershell
+$txt = Get-Content 'a.txt' -Raw
+# tzn. -Encoding Default: gdy 'a.txt' z BOM, np. UTF-8 BOM, to ma UTF ma priorytet, inaczej ANSI
+# w $txt całość pliku w jednym łańcuchu (i odpowiednio np. z \r\n, czy \n)
+
+$txt = Get-Content 'b.txt' -Raw -Encoding UTF8
+# tu dobrze wczyta 'b.txt' UTF-8 bez BOM, a z BOM też będzie ok
+# tak samo jak:
+[System.IO.File]::ReadAllText("b.txt")
+
+# W Powershell 5.1 jest drobny problem z zapisaniem UTF-8 bez BOM. Na szczęście działa:
+[System.IO.File]::WriteAllText("b.txt", $txt)
+````
+
 
 **Lista podfolderów** może się przydać do katalogowania dysków z kopiami zapasowymi:
 
@@ -197,6 +213,12 @@ Różne odnośniki:
 `... | foreach { ...` ~~`continue`~~ ~~`break`~~  
 `$a[`~~0 . .-1~~`]`
 
+
+
+-------
+.
+
+* zob. też [Hybrydowy skrypt CMD-PowerShell]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2021-03-22-Hybrydowy_skrypt_CMD-Powershell %})
 
 
 <style> 

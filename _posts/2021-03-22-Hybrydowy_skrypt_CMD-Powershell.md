@@ -25,10 +25,17 @@ Powershell -NoExit -c "$c=Get-Culture; $c.DateTimeFormat"
 po `-c` wewnątrz polecenia  `"..."` można używać napisów `'...'`.
 {: style="font-size: smaller;"}
 
+
+W pliku `cmd` można wyłączyć `-ExecutionPolicy`
+````bat
+powershell -noexit -ExecutionPolicy Bypass -File MyScript.ps1
+````
+
 --------
 
-2024-10-16: W Windows 11 jakoś znika ścieżka do `PowerShell.exe` w zmiennej środowiskowej `PATH`.  
+2024-10-16: W Windows 11 jakoś znika ścieżka do `PowerShell.exe` w zmiennej środowiskowej `PATH` (ale nie na pewno...).  
 Czyli prawdopodobnie trzeba ją dodać: `c:\Windows\System32\WindowsPowerShell\v1.0\`
+{: style="font-size: smaller;"}
 
 A na pewno trzeba dodać, gdy pojawia się komunikat:  
 **'powershell' is not recognized** as an internal or external command, operable program or batch file.
@@ -174,6 +181,10 @@ Nazwa pliku konfiguracji jest w zmiennej `$PROFILE`, która ma typowo wartość:
 
 Podobno wersja PowerShell 7 nie ma tej wady z podmianą czcionki.
 
+-------
+.
+
+* zob. też [PowerShell-sciągawka]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2020-11-24-PowerShell-sciagawka %})
 
 <style> code {font-size: smaller;} </style>
 
