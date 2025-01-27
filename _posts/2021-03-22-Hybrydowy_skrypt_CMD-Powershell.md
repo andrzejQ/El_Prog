@@ -10,7 +10,11 @@ _+ 16.10.2024_{: .date}
 <style>.date{font-size: smaller;color:#828282;}</style>
 
 Gdy chcemy uruchamiać skrypty PowerShell `*.ps1` na swoim komputerze, to jednorazowo trzeba wpisać w oknie Powershell (Adminstrator):  
-`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`  
+albo dla lokalnego użytkownika (nie-administratora):  
+`Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`  
+Usunięcie uprawnień:  
+`Set-ExecutionPolicy -ExecutionPolicy Undefined -Scope CurrentUser`
 
 Podobno ma to być jakieś zabezpieczenie. Chyba nie jest, skoro [można je obejść na 15 sposobów](https://blog.netspi.com/15-ways-to-bypass-the-powershell-execution-policy/).
 
