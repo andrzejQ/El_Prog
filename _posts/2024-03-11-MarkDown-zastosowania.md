@@ -190,7 +190,7 @@ _To nie jest przegląd reguł - tylko wybrane przypominajki._
   
 
 <style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  
- ol li div.language-plaintext > div:nth-child(1) > pre {background: linear-gradient(to right, 
- AliceBlue 0%, AliceBlue 3em, aqua 3em, aqua 3.25em, 
- AliceBlue 3.25em, AliceBlue 100%) !important;}
+ ol li div.language-plaintext > div > pre {background: linear-gradient(to right, 
+ transparent 0em, transparent 2.9em, aqua 2.9em, 
+ transparent 3.2em) !important;}
 </style>
