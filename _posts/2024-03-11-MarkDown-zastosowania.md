@@ -9,7 +9,8 @@ categories: Programowanie
 [2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) * 
 [3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
 [4. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#4pandoc---md) * 
-[5. PowerToys -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#5powertoys---md) 
+[5. PowerToys -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#5powertoys---md) * 
+[6. MD-ściągawka]({{site.url}}{{site.baseurl}}{{page.url}}#6md-ściągawka) 
 
 <style>.date{font-size: smaller;color:#828282;}</style>
 
@@ -150,4 +151,46 @@ pandoc -i FROM.md -o (__TO__).html --standalone -H %appdata%\pandoc\markdown-v.h
 * W [**PowerToys**](https://learn.microsoft.com/pl-pl/windows/powertoys/) - narzędzie "Wklejanie zaawansowane" ("Advanced Paste") `[ ⊞ Win + ⇧ Shift + V ]` pozwala m.in. na przekonwertowanie zawartości schowka na tekst markdown.
 
 
-<style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  </style>
+### 6. MD-ściągawka
+
+_To nie jest przegląd reguł - tylko wybrane przypominajki._
+
+ 1. Przy korzystaniu z list warto kolejne wiersze punktu wcinać na tyle spacji ile jest do pierwszego znaku nie-spacji w punkcie, bo to jest pozycja od której liczą się dalsze wcięcia np. dla pod-listy czy bloku kodu. Można to wykorzystać także do oddzielania punktów wierszami z pustymi spacjami - tu spacje są oznaczone jako "∙":
+    
+        ∙1.∙abc
+        ∙∙∙∙
+        ∙2.∙def
+        ∙∙∙∙
+        ∙∙∙∙∙∙∙∙blok kodu w p.2. (4 spacje wiodące)
+        ∙∙∙∙∙∙*∙podpunkt w p.2. (ma 2 spacje wiodące)
+        ∙∙∙∙
+        ∙3.∙ghi∙∙
+        ∙∙∙∙złamany wiersz w p.3.
+    
+    W listach obowiązuje też zasada ręcznego łamania wiersza,  
+    np. 2 spacje na końcu.
+    
+ 2. Zwinięty tekst:
+    
+    ```html
+    <details markdown=1><summary markdown="span">Rozwiń . . . </summary>
+    Zwinięty tekst
+    </details>
+    ```
+    
+    <details markdown=1><summary markdown="span">Rozwiń . . . </summary>
+    Zwinięty tekst
+    </details>
+    
+
+----
+ 
+
+* [Basic writing and formatting syntax - GitHub » ](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+  
+
+<style> code {font-size: 0.93em;}  div.zmniejsz code {font-size: 0.88em;}  
+ ol li div.language-plaintext > div:nth-child(1) > pre {background: linear-gradient(to right, 
+ AliceBlue 0%, AliceBlue 3em, aqua 3em, aqua 3.25em, 
+ AliceBlue 3.25em, AliceBlue 100%) !important;}
+</style>
