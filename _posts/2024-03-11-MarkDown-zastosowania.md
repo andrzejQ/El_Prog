@@ -22,7 +22,11 @@ Założenia:
 1. Edytor tekstowy, który ułatwia otwieranie plików wspomnianych w tekście.  
    Tu **Notepad++** (N++), który po zaznaczeniu w tekście ścieżki/nazwy  ma opcję p.kl.myszy: "Otwórz plik". N++ z opcjonalnie zainstalowaną wtyczką "MarkdownPanel".
 2. Przeglądarka www z wtyczką interpretującą pliki MarkDown.  
-   Tu [**Markdown Viewer**](https://github.com/simov/markdown-viewer).
+   Tu [**Markdown Viewer**](https://github.com/simov/markdown-viewer) ![](https://raw.githubusercontent.com/simov/markdown-viewer/refs/heads/main/icons/default/19x19.png) .  
+   Składnia w bloku kodu jest kolorowana z pomocą <https://prismjs.com/>. Dostępnych jest wiele języków programowania. Łatwo też można korygować kolory, dodając  w pliku `*.md` np. 
+   ```css
+   <style> .token.variable { color: #905; } pre {line-height: 1.2 !important;} </style>
+   ```
 3. Dodatkowo warto mieć w przeglądarce wtyczkę, która generuje MarkDown na podstawie zaznaczonego fragmentu strony www (w tym zaznaczenia fragmentu przetłumaczonego).  
    Tu [**MarkDownload**](https://github.com/deathau/markdownload).
 4. Po zakończonym okresie częstego edytowania dokumentacji można wyeksportować wszystkie "*.md" do "*.html" (skrypt?) i linkujące się dokumenty będą działały w przeglądarkach www bez zainstalowanych wtyczek MarkDown.
