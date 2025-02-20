@@ -5,11 +5,12 @@ date:   2024-03-11 12:00:00 +0100
 categories: Programowanie
 ---
 
+_+ 20.02.2025_{: .date}  
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
-[2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) * 
+[2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) *  
 [3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
 [4. pandoc -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#4pandoc---md) * 
-[5. PowerToys -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#5powertoys---md) * 
+[5. PowerToys -> MD]({{site.url}}{{site.baseurl}}{{page.url}}#5powertoys---md) *  
 [6. MD-ściągawka]({{site.url}}{{site.baseurl}}{{page.url}}#6md-ściągawka) 
 
 <style>.date{font-size: smaller;color:#828282;}</style>
@@ -120,7 +121,11 @@ W początkowej części skryptu jest nagłówek HTML, gdzie znaki `< > +` są (w
 Parametrem skryptu jest nazwa pliku MD, w otoczona cudzysłowem `"..."` jeśli zawiera spacje.
 
 <small>Plik `markdown-viewer2.css`, który jest używany w skrypcie to styl skopiowany z wtyczki "Markdown Viewer" dla Edge</small>
+
 .
+
+Uwaga: w paczkach `md-it.cmd.zip` i `markdown-v.head.html.zip` przed 2025-02-20 był błąd wielkości czcionki dla `h3` - było `1.4px`, a powinno być `1.4em`. 
+{: style="color:MediumVioletRed;font-size:90%;"}
 
 ### 3. pandoc MD -> HTML
 
@@ -138,6 +143,11 @@ HTML z obrazami na zewnątrz (ale markdown-v.head.html jest wklejone do wynikowe
 ```bat
 pandoc -i FROM.md -o (__TO__).html --standalone -H %appdata%\pandoc\markdown-v.head.html -M lang=pl
 ```
+
+Wskazówka: jeśli chcemy uzyskać w tabelach automatyczne ustawianie szerokości kolumn to w pliku `*.md` można wstawić:  
+`<style> body > table > colgroup > col {width: unset!important;}</style>`
+{: style="font-size:smaller;"}
+
 
 .
 
@@ -186,6 +196,19 @@ _To nie jest przegląd reguł - tylko wybrane przypominajki._
     Zwinięty tekst
     </details>
     
+
+ 3. Kotwica:
+    
+    ```html
+    Kotwica:
+    <span id="anchorName"></span>
+    Odnośnik:
+    [Idź do...](#anchorName)
+    ```
+    <span id="anchorName">Podobno lepiej</span> `name=` niż `id=`, bo dla `id` są generowane zmienne globalne javascript, ale jakoś to u mnie nie działa.  
+    {: style="font-size:smaller;"}
+
+    [Idź do...-test](#anchorName)
 
 ----
  
