@@ -5,7 +5,7 @@ date:   2024-03-11 12:00:00 +0100
 categories: Programowanie
 ---
 
-_+ 20.02.2025_{: .date}  
+_+ 07.03.2025_{: .date}  
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
 [2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) *  
 [3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
@@ -156,6 +156,10 @@ Wskazówka: jeśli chcemy uzyskać w tabelach automatyczne ustawianie szerokośc
 ### 4. pandoc -> MD
 
 * Konfiguracja TotalCommander [pandoc -> MD]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2019-09-07-Notepad++.config %}) - TotalCommnder \ pandoc -> MD
+  
+* Skrypt `pipetable_align.py` spakowany w 
+  [`pipetable_align.zip`]({{site.baseurl}}/assets/files/pipetable_align.zip)
+  wyrównuje spacjami pionowe `|` po konwersji do Markdown w pandoc.
 
 .
 
