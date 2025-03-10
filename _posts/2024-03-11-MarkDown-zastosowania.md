@@ -159,7 +159,9 @@ Wskazówka: jeśli chcemy uzyskać w tabelach automatyczne ustawianie szerokośc
   
 * Skrypt `pipetable_align.py` spakowany w 
   [`pipetable_align.zip`]({{site.baseurl}}/assets/files/pipetable_align.zip)
-  wyrównuje spacjami pionowe `|` po konwersji do Markdown w pandoc.
+  wyrównuje spacjami pionowe `|` po konwersji do Markdown w pandoc.  
+  Skrypt można zapisać w folderze `%appdata%\pandoc\` i dodać menu w TotalCommander:  
+  cmd=`cmd` param=`/k %%AppData%%/pandoc/pipetable_align.py %N`
 
 .
 
