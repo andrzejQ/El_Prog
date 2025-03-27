@@ -25,8 +25,11 @@ Prawie jak "hamburger" - symbol menu:
 Prawie jak spinacz - załącznik:  
 `₪` <small>(=New Sheqel)</small>
 
-Ustawienia, konfiguracja, ...:  
+Ustawienia, konfiguracja, załącznik, ... :  
 `⚙️ 🛠 🔗 📒 📰 🖇 ️📎 ✔️ 📁`
+
+Szukaj:  
+🔍
 
 Trochę indeksów górnych  
 `˝ᙚˈ⁽⁾*⁺⁻⁰¹²³⁴⁵⁶⁷⁸⁹⁼ᴬᴮᴰᴱᴳᴴᴵᴶᴷᴸᴹᴺᴼᴾᴿᵀᵁⱽᵂᵃᵇᶜᵈᵉᶠᵍʰⁱʲᵏˡᵐⁿᵒᵖʳˢᵗᵘᵛʷˣʸᶻᐧ˜`  
