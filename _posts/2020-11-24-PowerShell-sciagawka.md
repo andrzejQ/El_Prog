@@ -14,6 +14,7 @@ Moja ściągawka (zapewne tylko do użytku własnego) ...<br/>
 [6: Operator <strong>@</strong>]({{site.url}}{{site.baseurl}}{{page.url}}#6-operator-) &nbsp; 
 [7: Właściwości mutim. plików]({{site.url}}{{site.baseurl}}{{page.url}}#7-właściwości-mutim-plików) &nbsp; 
 [8: Odczyt rejestru Windows  ]({{site.url}}{{site.baseurl}}{{page.url}}#8-odczyt-rejestru-windows) &nbsp; 
+[9: Zarządzanie aplikacjami - CLI]({{site.url}}{{site.baseurl}}{{page.url}}#9-zarządzanie-aplikacjami---cli) &nbsp; 
 [# Nie będziesz używał!      ]({{site.url}}{{site.baseurl}}{{page.url}}#-nie-będziesz-używał) &nbsp; 
 
 ### 0: <small> *skondensowana przypominajka bez objaśnień* </small>
@@ -193,6 +194,47 @@ Odczytywanie tekstów z językowych **DLL.MUI**, np. z `c:\Windows\System32\en-U
 
 Zob. przykłady: [WinInst_error_migrate_data]({% if jekyll.environment == "production" %}{{site.baseurl}}{% endif %}{% post_url 2022-03-22-WinInst_error_migrate_data %})  
 <small>m.in. [infProfileList_regWrTm.ps1 (html)]({{site.baseurl}}/assets/files/infProfileList_regWrTm.ps1.html ) [(.zip)]({{site.baseurl}}/assets/files/infProfileList_regWrTm.zip "infProfileList_regWrTm.zip")</small>
+
+.
+
+
+### 9: Zarządzanie aplikacjami - CLI
+
+* Lista zainstalowanych
+
+````PowerShell
+Get-AppxPackage -AllUsers
+````
+
+* Odinstalowanie - dla podanego fragmentu nazwy (ostrożnie!).
+
+````PowerShell
+foreach ($a in @("*Phone*","*zunemusic*")) {Get-AppxPackage -AllUsers Microsoft.$a | Remove-AppxPackage -AllUsers}
+````
+
+* Pełna lista aplikacji
+
+````PowerShell
+$regPath = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*',
+ 'HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+
+Get-ItemProperty -Path $regPath | Where-Object { $_.DisplayName -ne $null } |
+  Format-Table -Property DisplayName, InstallDate, DisplayVersion, InstallLocation -AutoSize -Wrap |
+  Out-File -Width 500 a500.txt
+````
+
+* `winget`
+   
+   * `winget upgrade --all` - lista aplikacji wymagających aktualizacji i ewentualnie zbiorcza aktualizacja po akceptacji.
+   * `winget search veea` - szuka aplikacji zawierającej `veea` w Internecie
+   * `winget list vee` - wyszukuje aplikację lokalnie na PC 
+      ````
+      Name                               Id                Version    Available   Source
+      ---------------------------------  ----------------  ---------  ----------  ------
+      Veeam Agent for Microsoft Windows  Veeam.VeeamAgent  6.3.0.177  6.3.1.1074  winget
+      ````
+   * `winget download Veeam.VeeamAgent` - zapisuje pliki instalacyjne i licencję do foldera `Download/<app>/` (trzeba podać pełne Id jako parametr)
+
 
 
 - - - - - -
