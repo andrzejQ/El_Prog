@@ -119,6 +119,7 @@ $txt = Get-Content 'b.txt' -Raw -Encoding UTF8
 # tak samo jak:
 [System.IO.File]::ReadAllText("b.txt")
 
+Set-Content -Encoding UTF8 "b.txt" -Value $txt    # zapis - utf-8 BOM
 # W Powershell 5.1 jest drobny problem z zapisaniem UTF-8 bez BOM. Na szczęście działa:
 [System.IO.File]::WriteAllText("b.txt", $txt)
 ````
