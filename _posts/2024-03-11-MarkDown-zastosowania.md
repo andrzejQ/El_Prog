@@ -43,7 +43,7 @@ co dla HTML daje link:
 
 Po jego kliknięciu w przeglądarce www, gdy był oglądany (i interpretowany) w niej aktualny plik "*.md" otwierany jest "./inny_plik.md" i od razu interpretowany przez wtyczkę "Markdown Viewer".
 
-Działając natomiast w pliku "*.md" w N++ zaznaczam ścieżkę do pliku, p.kl.myszy "Otórz plik".
+Działając natomiast w pliku "*.md" w N++ zaznaczam ścieżkę do pliku, p.kl.myszy "Otwórz plik".
 
 Najwygodniej jest, gdy nazwy są bez spacji. Inaczej trzeba je zamienić w linku na `%20`:  
 ```md
