@@ -5,10 +5,14 @@ date:   2019-09-08 08:08:59 +0100
 categories: Programowanie
 ---
 
+_+ 14.05.2025_{: .date}  
 [Edycja treści tekstowej]({{site.url}}{{site.baseurl}}{{page.url}}#edycja-treści-tekstowej) &nbsp; *
 [Zmiana litery dysku]({{site.url}}{{site.baseurl}}{{page.url}}#zmiana-litery-dysku) &nbsp; *
 [Wykonanie operacji na najnowszym pliku]({{site.url}}{{site.baseurl}}{{page.url}}#wykonanie-operacji-na-najnowszym-pliku) &nbsp; * 
+[Wybierz i podstaw do zmiennej]({{site.url}}{{site.baseurl}}{{page.url}}#wybierz-i-podstaw-do-zmiennej) &nbsp; * 
 [Wiersz polecenia w Eksploratorze plików]({{site.url}}{{site.baseurl}}{{page.url}}#wiersz-polecenia-w-eksploratorze-plików) &nbsp; 
+
+<style>.date{font-size: smaller;color:#828282;}</style>
 
 ### Edycja treści tekstowej
 
@@ -52,6 +56,33 @@ Do wklejenia w oknie CMD:
 
 ```` bat
 for /F "delims=" %G in ('dir *.* /b /a-d /o-d') do (echo %G & pause & exit)
+````
+
+
+### Wybierz i podstaw do zmiennej
+
+```` bat
+@echo off & chcp 1250 >nul
+echo:&echo Jedna z wybranych opcji w zmiennej !_%%opt%%!
+setlocal enabledelayedexpansion
+echo:&echo =================&echo:
+set "_1=Akcja pierwsza"
+set "_2=Akcja druga"
+set "_3=Akcja trzecia"
+for /L %%o in (1,1,3) do (
+  echo %%o - !_%%o!
+)
+echo:&set "err=Nie ma takiego numeru!"
+set "opt=nic"
+set /p "opt=Wybierz numer: "
+echo Wybrano opcję: %opt%
+if 1 LEQ %opt% ( if 3 GEQ %opt% (
+
+echo Akcja dla tej opcji: "!_%opt%!"
+
+) else ( echo %err% ) ) else ( echo %err% )
+echo Koniec.
+endlocal
 ````
 
 ### Wiersz polecenia w Eksploratorze plików
