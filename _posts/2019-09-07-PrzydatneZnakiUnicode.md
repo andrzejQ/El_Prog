@@ -41,8 +41,16 @@ Kilka klawiszy ([zob. wikipedia »](https://en.wikipedia.org/wiki/Windows_key#Wi
 
 `⊞ Win` `⌘ Command` `↵ Enter` `⇧ Shift` `Tab ↹` `↑` `↓` `←` `→`
 
-- - -
-.  
+
+````
+                ╭─────────────────────────╮
+                │                         │
+                │   Ramka (tekst utf-8)   │
+                │                         │
+                ╰─────────────────────────╯
+````
+{: style="color: darkblue;line-height: 1.12"} 
+  
 zob. też <https://unicode-table.com/pl/sets/>  
 <small>(np. [unicode-table.com_symbols.pdf]({{site.baseurl}}/assets/files/unicode-table.com_symbols.pdf "unicode-table.com_symbols.pdf") 
  | [.docx]({{site.baseurl}}/assets/files/unicode-table.com_symbols.docx "unicode-table.com_symbols.docx") 
