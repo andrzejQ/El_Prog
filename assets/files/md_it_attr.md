@@ -9,7 +9,8 @@ Zob.
 | 3 {colspan=3}                       | 3333 |
 
 
-Tu dokładane są dodatkowe komórki pomimo `colspan`. HTML:
+W Markdown Viewer dokładane są dodatkowe komórki pomimo `colspan`.  
+HTML:
 
 <table>
 <thead>
@@ -42,11 +43,12 @@ td.c0 ~ td,  th.c0 ~ th {display: none;}
 | 2 {colspan=2}                 | 222 | 2222 {.c0} | 
 | 3 {colspan=3}                       | 3333 {.c0} |
 
-{border=2}
+{style="border:solid brown"}
 
-Jest prawie dobrze, tylko nie wiadomo dlaczego niektóre atrybuty dla ostatniej komórki są rzutowane na cały wiersz. HTML:
+Jest prawie dobrze, tylko nie wiadomo dlaczego atrybuty dla ostatniej komórki są rzutowane na cały wiersz.  
+HTML:
 
-<table border="2">
+<table style="border:solid brown">
 <thead class="test">
 <tr><th>J</th><th>K</th><th>L</th><th>M</th></tr>
 </thead>
@@ -79,21 +81,20 @@ td.c1+td ~ td {display: none;}
 | 2 {colspan=2}                 | 222 {.c1} | 2222 | 
 | 3 {colspan=3 .c1}                         | 3333 |
 
-{border=2}
+{style="border:solid darkblue"}
+
+Na szczęście  w przypadku `colspan=2+` nie używamy ostatniej komórki. Ale jak w przykładzie poniżej `rowspan` może wystąpić w ostatniej komórce. Wtedy można dodać sztuczną dodatkową kolumnę, która nie będzie wyświetlana - tu. wszystkie końcowe aktywne komórki we wszystkich wierszach  oznaczono klasą `.c0`.
+
+| A                 | B   | C   | D              {.c0} | |
+| ----------------- | --- | --- | -------------------- | --- |
+| 1                 | 11  | 111 | 1111 {rowspan=3 .c0} | |
+| 2 {colspan=2 rowspan=2} | 222                  {.c0} | |
+|                           333                  {.c0} | |
+
+{style="border:solid"}
 
 
-Albo można dodać sztuczną dodatkową kolumnę, która nie będzie wyświetlana.
-
-| A                       | B   | C   | D              {.c0} | |
-| ----------------------- | --- | --- | ---------------- | --- |
-| 1                       | 11  | 111 | 1111 {rowspan=3 .c0} | |
-| 2 {colspan=2 rowspan=2}       | 222                  {.c0} | |
-|                                 333                  {.c0} | |
-
-{border=1}
-
-
-W markdown pipe-table nagłówek musi mieć pełną, docelową liczbę kolumn. Można scalić komórki pierwszego wiersza, a pusty nagłówek usunąć.
+Niekiedy potrzebujemy użyć scalonych komórek w nagłówku. Ale w markdown pipe-table nagłówek musi mieć pełną, docelową liczbę kolumn. Można scalić komórki pierwszego wiersza, a pusty nagłówek usunąć.
 
 ```html
 <style>
@@ -112,6 +113,8 @@ W markdown pipe-table nagłówek musi mieć pełną, docelową liczbę kolumn. M
 | 2 {colspan=2}                 | 222 | 2222    {.c0} | 
 | 3 {colspan=3}                       | 3333    {.c0} |
 
-{border=4 .tab3}
+{style="border:solid" .tab3}
+
+<small></small>
 
 <style> pre {font-size: 90% !important; } </style>
