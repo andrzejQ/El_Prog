@@ -62,17 +62,23 @@ Obie wtyczki wymagają zezwolenia na pracę z plikami lokalnymi (Advanced opt./S
 
 **Markdown Viewer**:
 
-Włączyłem sobie dodatkowo -> opcje COMPILER (po kliknięciu w ikonę wtyczki): 
+Włączyłem sobie dodatkowo -> opcje COMPILER (po kliknięciu w ikonę wtyczki) `MARKDOWN-IT`  
+oprócz domyślnie zaznaczonych `html`, `linkify`:
 * `attr` (Custom attributes using `{}`), 
+* `footnote` (`[^1]: tekst`)
 * `sub` (`~a~`), 
 * `sup` (`^a^`), 
 * `tasklists` (`- [x]`)
+
+Opis na stronie <https://github.com/arve0/markdown-it-attrs> dotyczący atrybutów wpisanych w `{...}` jest prawie zgodny z działaniem w tej wtyczce, choć w przypadku tabeli nie zawsze to się zgadza. Problemem są m.in. atrybuty zadawane w ostatniej komórce wiersza i nie udaje się scalanie komórek (wersja Markdown Viewer z 23.05.2024). Częściowo udaje się to obejść - zob. źródłowy plik
+* [`md_it_attr.md`]({{site.baseurl}}/assets/files/md_it_attr.md)
+.
 
 .
 
 **MarkDownload**
 
-Po kliknięciu w ikonę wtyczki mamy ⚙️ w prawym górnym rogu. Można zapisać swoje ustwienia i porównać z moimi:
+Po kliknięciu w ikonę wtyczki mamy ⚙️ w prawym górnym rogu. Można zapisać swoje ustawienia i porównać z moimi:
 
 <details markdown=1><summary markdown="span"><u>MarkDownload-export-AK.json</u><br> . . .</summary>
 
