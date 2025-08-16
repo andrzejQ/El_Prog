@@ -48,6 +48,16 @@ arr = [].concat( arr1, arr2 ) //shallow clone
 JSON.stringify() //prawie jak py repr()
 ````
 
+
+````html
+<!--Jak rozumiem - umieszczone na końcu HTML spowoduje wykonanie funkcji po naczytaniu strony, 
+a np. przed załadowaniem dużej grafiki:-->
+<script>(function() { ... })();</script>
+````
+````js
+(s.indexOf("sub") > -1) /*może być w nie-ES6 alternatywą dla*/ (s.includes("sub"))
+````
+
 ### 1: Inne nazwy plików po załadowaniu do CMS
 
 Podczas umieszczania plików w systemie CMS nazwy plików podlegają konwersji, np.:
