@@ -193,8 +193,17 @@ _To nie jest przegląd reguł - tylko wybrane przypominajki._
         ∙3.∙ghi∙∙
         ∙∙∙∙złamany wiersz w p.3.
     
-    W listach obowiązuje też zasada ręcznego łamania wiersza,  
+    W listach obowiązuje też zasada ręcznego łamania wiersza,␣␣  
     np. 2 spacje na końcu.
+    
+    Jeśli potrzebujemy własnego znakowania punktów zagnieżdżonych list można użyć stylu, np.:
+    ````html
+    <style> 
+      :root ol ol {list-style-type: lower-alpha;}
+      :root ol ol ol {list-style-type: lower-roman;}
+    </style>
+    ````
+    , z tym, że w źródłowym MD należy nadal w zagnieżdżonych listach używać 1. 2. 3. ...
     
  2. Zwinięty tekst:
     
@@ -219,8 +228,27 @@ _To nie jest przegląd reguł - tylko wybrane przypominajki._
     ```
     <span id="anchorName">Podobno lepiej</span> `name=` niż `id=`, bo dla `id` są generowane zmienne globalne javascript, ale jakoś to u mnie nie działa.  
     {: style="font-size:smaller;"}
-
+    
     [Idź do...-test](#anchorName)
+    
+ 4. We wtyczce "Markdown Viewer" nie działa kod zdefiniowany w bloku `<script>`
+    
+    ... to znaczy prawie nie działa, bo blok `<script>` jest dołączany do HTML, tylko nie jest wykonywany. Ale gdy się wynikowy HTML zapisze jako plik, to `<script>` działa. 
+    
+    Natomiast jest wykonywany kod javascript inicjowany ręcznie po załadowaniu strony, np.: 
+    ````html
+    <label style="border:1px solid aqua; padding:2px 6px;" title="Pokaż spis treści">
+    <input type="checkbox" 
+      onchange="document.querySelector('#toc').style.display=this.checked ? 'block' : 'none';
+      if (this.checked) {
+        //może być wiele wierszy, tylko nie może być wiersza pustego, ani `"`.
+      };"
+    >
+     📑 Pokazuj spis treści </label>
+    
+    <div id="toc" style="display:none;"> ... </div>
+    ````
+
 
 ----
  
