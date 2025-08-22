@@ -70,6 +70,8 @@ oprócz domyślnie zaznaczonych `html`, `linkify`:
 * `sup` (`^a^`), 
 * `tasklists` (`- [x]`)
 
+<small> A `linkify` zwykle odznaczam, bo linkuje również `m.in.`, natomiast działają linki w `<...>`</small>
+
 Opis na stronie <https://github.com/arve0/markdown-it-attrs> dotyczący atrybutów wpisanych w `{...}` jest prawie zgodny z działaniem w tej wtyczce, choć w przypadku tabeli nie zawsze to się zgadza. Problemem są m.in. atrybuty zadawane w ostatniej komórce wiersza i nie udaje się scalanie komórek (wersja Markdown Viewer z 23.05.2024). Częściowo udaje się to obejść - zob. źródłowy plik
 * [`md_it_attr.md`]({{site.baseurl}}/assets/files/md_it_attr.md)
 .
