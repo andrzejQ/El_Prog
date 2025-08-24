@@ -5,7 +5,7 @@ date:   2024-03-11 12:00:00 +0100
 categories: Programowanie
 ---
 
-_+ 07.03.2025_{: .date}  
+_+ 07.03.2025_{: .date} _+ 05.08.2025_{: .date}  
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
 [2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) *  
 [3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
@@ -121,19 +121,14 @@ Po kliknięciu w ikonę wtyczki mamy ⚙️ w prawym górnym rogu. Można zapisa
 
 ### 2. Markdown it! -> HTML
 
-Po zainstalowaniu [`Markdown it!`](https://github.com/markdown-it/markdown-it) dla `node.js` można konwertować  MD -> HTML za pomocą skryptu, wypakowanego z 
-[`md-it.cmd.zip`]({{site.baseurl}}/assets/files/md-it.cmd.zip)
-
-W początkowej części skryptu jest nagłówek HTML, gdzie znaki `< > +` są (w skrypcie) poprzedzone znakiem `^`. Tekst nagłówka można sobie zmieniać dla swoich potrzeb.
+Po zainstalowaniu [`Markdown it!`](https://github.com/markdown-it/markdown-it) dla `node.js` można konwertować  MD -> HTML za pomocą skryptu, wypakowanego z  
+[`md-it_CLI.zip`]({{site.baseurl}}/assets/files/md-it_CLI.zip )  
+Skrypt działa podobnie do wtyczki "Markdown Viewer" - z możliwością wyboru opcji i dodatków.
 
 Parametrem skryptu jest nazwa pliku MD, w otoczona cudzysłowem `"..."` jeśli zawiera spacje.
 
-<small>Plik `markdown-viewer2.css`, który jest używany w skrypcie to styl skopiowany z wtyczki "Markdown Viewer" dla Edge</small>
+Więcej informacji i dokładna instrukcja jest w `md-it_CLI.zip\doc\md-it_Readme.md`.
 
-.
-
-Uwaga: w paczkach `md-it.cmd.zip` i `markdown-v.head.html.zip` przed 2025-02-20 był błąd wielkości czcionki dla `h3` - było `1.4px`, a powinno być `1.4em`. 
-{: style="color:MediumVioletRed;font-size:90%;"}
 
 ### 3. pandoc MD -> HTML
 
