@@ -4,3 +4,5 @@ _site
 .jekyll-cache 
 .tmp
 /*.URL
+/_r.cmd
+/assets/files/y.csv

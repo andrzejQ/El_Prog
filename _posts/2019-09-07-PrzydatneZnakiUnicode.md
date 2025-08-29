@@ -19,14 +19,17 @@ Wizualizacja spacji (podkreślenie z zawijasami) - nie zawsze dobrze widoczne, w
 Wizualizacja znaku końca wiersza:  
 `↵` lub `¤`
 
-Prawie jak "hamburger" - symbol menu:  
-`Ξ` , **`⫶`** <small> lub </small> **`⋯`**
+Symbol menu:  
+`☰` , **`⫶`** <small> lub </small> **`⋯`**, `Ξ`,
 
 Prawie jak spinacz - załącznik:  
-`₪` <small>(=New Sheqel)</small>
+`₪` <small>(=New Sheqel)</small>, `📎`
 
-Ustawienia, konfiguracja, załącznik, ... :  
-`⚙️ 🛠 🔗 📒 📰 🖇 ️📎 ✔️ 📁`
+Ustawienia, konfiguracja, załącznik, ... 
+<small>([zob. też "Dingbats"](https://www.compart.com/en/unicode/block/U+2700),
+["Miscellaneous Symbols"](https://www.compart.com/en/unicode/block/U+2600) -  
+co ciekawe to ładnie widać w tekstowym terminalu Win11)</small> :  
+`⚙️ 🛠 🔗 📒 📰 📄 ☷ 📑 🖇 ️📎 ℹ️ ⚠️ ✔️ ✅ ❌ ❎ 📁 ⛔ `
 
 Szukaj:  
 🔍
