@@ -700,7 +700,7 @@ Przykładowe ustawienia dodatku N++ - `QuickText`:
 <small> `[_] Use Scintilla Autocomplite`, `[_] Auto Insert Autocomplite`; Replace Tag: `Alt+Space`
 </small>
 
-`Alt+Space`, zaczynam pisać uściślając wybór z listy, `Tab`, `Alt+Space`. <small>Kolejne `Alt+Space` przeskakują do miejsc oznanczonych w "QuickText.ini" przez `$`</small>
+`Alt+Space`, zaczynam pisać uściślając wybór z listy, `Tab` - pojawia się słowo kluczowe i wtedy: `Alt+Space`. <small>Kolejne `Alt+Space` przeskakują do miejsc oznanczonych w "QuickText.ini" przez `$`</small>
 
 
 <details markdown=1><summary markdown="span"> `QuickText.ini ...` <br> . . . </summary>
@@ -718,6 +718,7 @@ ifelif=if $:\n  $\nelif $:\n  $\nelse:\n  $\n$
 ifelse=if $:\n  $\nelse:\n  $\n$
 main=if __name__ == '__main__':\n  main()\n$
 maintest=if __name__ == "__main__":\n  import doctest\n  doctest.testmod()\n$
+print=print(f'''{$=}''')$
 readjson=with open('$.json', 'r', encoding='utf-8') as fj:\n  d$ = json.load(fj)\n$
 readtxt=try:\n  with open('$.txt', encoding='utf-8-sig') as txt:\n    a$ = txt.read().splitlines()\nexcept FileNotFoundError as e: print(e); exit()\n$
 start=#!/usr/bin/env python\n\nimport os\nimport sys\n\n$
