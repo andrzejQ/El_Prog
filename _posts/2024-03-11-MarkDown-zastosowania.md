@@ -14,23 +14,28 @@ _+ 07.03.2025_{: .date} _+ 05.08.2025_{: .date}
 [6. MD-ściągawka]({{site.url}}{{site.baseurl}}{{page.url}}#6md-ściągawka) 
 
 <style>.date{font-size: smaller;color:#828282;}</style>
-
 ### 1. System wielo-plikowej dokumentacji MarkDown 
+
 
 Przykład systemu dokumentacji tworzonej w polikach lokalnych MarkDown z ilustracjami i wzajemnie linkowanymi plikami.
 
 Założenia:
 1. Edytor tekstowy, który ułatwia otwieranie plików wspomnianych w tekście.  
-   Tu **Notepad++** (N++), który po zaznaczeniu w tekście ścieżki/nazwy  ma opcję p.kl.myszy: "Otwórz plik". N++ z opcjonalnie zainstalowaną wtyczką "MarkdownPanel".
+   Tu **Notepad++** (N++), który po zaznaczeniu w tekście ścieżki/nazwy  ma opcję p.kl.myszy: 
+   "Otwórz plik". N++ z opcjonalnie zainstalowaną wtyczką "MarkdownPanel".  
+   <small>Ta lekka wtyczka w wersji od 0.9 ma nowoczesną opcję renderowania HTML za pomocą **WebView2 Edge**.
+   Dodatkowo kliknięcie  w oknie panelu w odnośnik do pliku, np. md, txt, itp. od razu otwiera ten plik w N++.</small>
+   
 2. Przeglądarka www z wtyczką interpretującą pliki MarkDown.  
    Tu [**Markdown Viewer**](https://github.com/simov/markdown-viewer) ![](https://raw.githubusercontent.com/simov/markdown-viewer/refs/heads/main/icons/default/19x19.png) .  
    Składnia w bloku kodu jest kolorowana z pomocą <https://prismjs.com/>. Dostępnych jest wiele języków programowania. Łatwo też można korygować kolory, dodając  w pliku `*.md` np. 
    ```css
-   <style> .token.variable { color: #905; } pre {line-height: 1.2 !important;} </style>
+   <style> pre code { font-size: 90% !important; } pre {line-height: 1.2 !important; border: 1px lightgrey solid;}
+   .token.variable { color: #905; } .token.string { color: green; } .token.key.attr-name { color: darkgreen; }</style>
    ```
 3. Dodatkowo warto mieć w przeglądarce wtyczkę, która generuje MarkDown na podstawie zaznaczonego fragmentu strony www (w tym zaznaczenia fragmentu przetłumaczonego).  
    Tu [**MarkDownload**](https://github.com/deathau/markdownload).
-4. Po zakończonym okresie częstego edytowania dokumentacji można wyeksportować wszystkie "*.md" do "*.html" (skrypt?) i linkujące się dokumenty będą działały w przeglądarkach www bez zainstalowanych wtyczek MarkDown.
+4. Po zakończonym okresie częstego edytowania dokumentacji można wyeksportować wszystkie "*.md" do "*.html" [z pomocą skryptu](#2markdown-it---html) i linkujące się dokumenty będą działały także w przeglądarkach www bez zainstalowanych wtyczek MarkDown.
 
 Tak jak obrazy `![]()` tak i pliki linkowane `➔📎 [** **]( )` wstawiam ze ścieżkami względnymi w takiej składni:
 
@@ -43,7 +48,7 @@ co dla HTML daje link:
 
 Po jego kliknięciu w przeglądarce www, gdy był oglądany (i interpretowany) w niej aktualny plik "*.md" otwierany jest "./inny_plik.md" i od razu interpretowany przez wtyczkę "Markdown Viewer".
 
-Działając natomiast w pliku "*.md" w N++ zaznaczam ścieżkę do pliku, p.kl.myszy "Otwórz plik".
+Działając natomiast w pliku "*.md" w N++ zaznaczam ścieżkę do pliku, p.kl.myszy "Otwórz plik" albo najlepiej - klikając na link w panelu MD N++
 
 Najwygodniej jest, gdy nazwy są bez spacji. Inaczej trzeba je zamienić w linku na `%20`:  
 ```md
@@ -133,10 +138,9 @@ Po zainstalowaniu [`Markdown it!`](https://github.com/markdown-it/markdown-it) d
 [`md-it_CLI.zip`]({{site.baseurl}}/assets/files/md-it_CLI.zip )  
 Skrypt działa podobnie do wtyczki "Markdown Viewer" - z możliwością wyboru opcji i dodatków.
 
-Parametrem skryptu jest nazwa pliku MD, w otoczona cudzysłowem `"..."` jeśli zawiera spacje.
+Parametrem skryptu jest nazwa pliku MD.
 
-Więcej informacji i dokładna instrukcja jest w `md-it_CLI.zip\doc\md-it_Readme.md`.
-
+Więcej informacji i dokładna instrukcja jest w [`md-it_CLI.zip\doc\md-it_Readme.md`]({{site.baseurl}}/assets/files/md-it_Readme.md).
 
 ### 3. pandoc MD -> HTML
 
@@ -145,7 +149,7 @@ Wypakuj plik
 do foldera `%appdata%\pandoc\`  
 <small>Jest to styl skopiowany z wtyczki "Markdown Viewer" dla Edge, który będzie wklejany do nagłówka HTML.</small>
 
-Wszytko z MD w pojedynczym pliku HTML (łacznie z obrazami):
+Wszystko z MD w pojedynczym pliku HTML (łacznie z obrazami):
 ```bat
 pandoc -i FROM.md -o 1_(__TO__).html --embed-resources -H %appdata%\pandoc\markdown-v.head.html -M lang=pl
 ```
