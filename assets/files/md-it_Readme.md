@@ -20,7 +20,7 @@ Sposób instalacji:
 
 Od tego momentu można gdziekolwiek uruchamiać polecenie `md-it.cmd "plik źródłowy.md"` i będzie powstawał `plik źródłowy.html`. Plik HTML będzie używał arkusza stylów z foldera "c:\nvm4w\nodejs\usr\css"
 
-Można następnie użyć także `embed-img.cmd` aby do podanego pliku HTML tekstowo wbudować obrazki lokalne.
+Można następnie użyć także `embed-img.cmd` aby do podanego pliku HTML tekstowo wbudować obrazki lokalne. (2026-01-27 decodeURIComponent())
 
 <style> pre code { font-size: 90% !important; } pre {line-height: 1.2 !important; border: 1px lightgrey solid;}
 .token.variable { color: #905; } .token.string { color: green; } .token.key.attr-name { color: darkgreen; }</style>
