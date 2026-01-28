@@ -27,6 +27,26 @@ W tak poprawionym obrazie można łatwiej stosować narzędzia edycyjne, np. zmi
 Mam wrażenie, że także zapisywanie PNG z opcją "[OptiPNG](https://optipng.sourceforge.net/)" powoduje częściowo redukcję tych artefaktów - ale to wrażenie po wykonaniu niewielu prób.
 
 
+.
+
+. 
+
+A tak na marginesie:
+
+#### Wklejanie pływającego obrazka ze schowka:
+
+* [Ctrl+⇧Shift+klik] - ale myszka nieruchoma, bo inaczej się włącza jakaś lupa.
+  - to daje zaznaczenie jak rozmiar w schowku;
+* [Ctrl+V]
+
+Poruszanie zaznaczeniem:
+
+* Pr. kl. myszy  
+  (ewentualnie +[⇧Shift]-w poziomie albo +[Ctrl]-w pionie)  
+* albo [⇧Shift+ ↑ ↓ ← →]
+
+
+
 <style> pre code {font-size: smaller;} </style>
 <style> small code {font-size: smaller;} </style>
 
