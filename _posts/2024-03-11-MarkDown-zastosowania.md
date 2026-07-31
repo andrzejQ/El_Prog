@@ -5,7 +5,7 @@ date:   2024-03-11 12:00:00 +0100
 categories: Programowanie
 ---
 
-_+ 07.03.2025_{: .date} _+ 05.08.2025_{: .date}  
+_+ 31.07.2026_{: .date} _+ 07.03.2025_{: .date} _+ 05.08.2025_{: .date}  
 [1. System wielo-plikowej dokumentacji MarkDown]({{site.url}}{{site.baseurl}}{{page.url}}#1system-wielo-plikowej-dokumentacji-markdown) * 
 [2. Markdown it! -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#2markdown-it---html) *  
 [3. pandoc MD -> HTML]({{site.url}}{{site.baseurl}}{{page.url}}#3pandoc-md---html) * 
@@ -33,6 +33,8 @@ Założenia:
    <style> pre code { font-size: 90% !important; } pre {line-height: 1.2 !important; border: 1px lightgrey solid;}
    .token.variable { color: #905; } .token.string { color: green; } .token.key.attr-name { color: darkgreen; }</style>
    ```
+   <small>(30.07.2026 - zapewne po aktualizacjach wtyczka przestała działać dla lokalnych plików. Wymagało to wejścia do menu: Zarządzaj rozszerzeniem / Uprawnienia i dane / [x] Dostęp do lokalnych plików na tym komputerze)</small>
+   
 3. Dodatkowo warto mieć w przeglądarce wtyczkę, która generuje MarkDown na podstawie zaznaczonego fragmentu strony www (w tym zaznaczenia fragmentu przetłumaczonego).  
    Tu [**MarkDownload**](https://github.com/deathau/markdownload).
 4. Po zakończonym okresie częstego edytowania dokumentacji można wyeksportować wszystkie "*.md" do "*.html" [z pomocą skryptu](#2markdown-it---html) i linkujące się dokumenty będą działały także w przeglądarkach www bez zainstalowanych wtyczek MarkDown.
